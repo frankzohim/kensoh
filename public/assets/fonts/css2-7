@@ -1,0 +1,7 @@
+﻿@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/courgette/v12/wEO_EBrAnc9BLjLQAUkFUQ.ttf) format('truetype');
+}

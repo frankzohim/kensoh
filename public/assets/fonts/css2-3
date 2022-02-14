@@ -1,0 +1,28 @@
+﻿@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(s/cormorant/v14/H4clBXOCl9bbnla_nHIa6A.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(s/cormorant/v14/H4cgBXOCl9bbnla_nHIiHLiYgg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(s/cormorant/v14/H4cgBXOCl9bbnla_nHIiML-Ygg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(s/cormorant/v14/H4cgBXOCl9bbnla_nHIiVL6Ygg.ttf) format('truetype');
+}

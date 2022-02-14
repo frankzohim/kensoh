@@ -47,10 +47,10 @@
     @include('layouts.frontoffice.footer')
     <!-- cookie bar start -->
     <div class="cookie-bar">
-        <p>Nous utilisons des cookies pour améliorer notre site et votre expérience d'achat. En poursuivant votre navigation sur notre site vous acceptez
-             notre politique en matière de cookies.</p>
-        <a href="javascript:void(0)" class="btn btn-solid btn-xs">accepter</a>
-        <a href="javascript:void(0)" class="btn btn-solid btn-xs">refuser</a>
+        <p>We use cookies to improve our site and your shopping experience. By continuing to browse our site you accept
+            our cookie policy.</p>
+        <a href="javascript:void(0)" class="btn btn-solid btn-xs">accept</a>
+        <a href="javascript:void(0)" class="btn btn-solid btn-xs">decline</a>
     </div>
     <!-- cookie bar end -->
 

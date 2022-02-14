@@ -218,7 +218,7 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Welcome to Our store Multikart</li>
+                                <li>Bienvenue dans Notre Magasin Kensoh</li>
                                 <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
                             </ul>
                         </div>

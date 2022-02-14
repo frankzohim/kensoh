@@ -1,0 +1,12 @@
+﻿@font-face {
+  font-family: 'Philosopher';
+  font-style: normal;
+  font-weight: 400;
+  src: url(s/philosopher/v17/vEFV2_5QCwIS4_Dhez5jcWBuT0g.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Philosopher';
+  font-style: normal;
+  font-weight: 700;
+  src: url(s/philosopher/v17/vEFI2_5QCwIS4_Dhez5jcWjValgb8tI.ttf) format('truetype');
+}

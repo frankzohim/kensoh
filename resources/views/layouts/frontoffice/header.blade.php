@@ -219,7 +219,7 @@
                         <div class="header-contact">
                             <ul>
                                 <li>Bienvenue dans Notre Magasin Kensoh</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>Appelez-Nous: +49 176 2460-4129</li>
                             </ul>
                         </div>
                     </div>
@@ -228,10 +228,10 @@
                             <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
                             </li>
                             <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                                My Account
+                                Mon Compte
                                 <ul class="onhover-show-div">
-                                    <li><a href="login.html.htm">Login</a></li>
-                                    <li><a href="register.html.htm">register</a></li>
+                                    <li><a href="login.html.htm">Connexion</a></li>
+                                    <li><a href="register.html.htm">Inscription</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -390,7 +390,7 @@
                                         <li>
                                             <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                         </li>
-                                        <li><a href="index.html.htm">Home</a></li>
+                                        <li><a href="index.html.htm">Accueil</a></li>
                                         <li class="mega" id="hover-cls">
                                             <a href="#">feature <div class="lable-nav">new</div></a>
                                             <ul class="mega-menu full-mega-menu">
@@ -533,15 +533,12 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">shop</a>
+                                            <a href="#">Boutique</a>
                                             <ul>
-                                                <li><a href="category-page(top-filter).html.htm">top filter<span class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(modern).html.htm">modern<span class="new-tag">new</span></a></li>
-                                                <li><a href="category-page.html.htm">left sidebar</a></li>
-                                                <li><a href="category-page(right).html.htm">right sidebar</a></li>
-                                                <li><a href="category-page(no-sidebar).html.htm">no sidebar</a></li>
-                                                <li><a href="category-page(sidebar-popup).html.htm">sidebar popup</a>
-                                                </li>
+                                                <li><a href="category-page(top-filter).html.htm">filtre supérieur<span class="new-tag">new</span></a></li>
+                                                <li><a href="category-page(modern).html.htm">moderne<span class="new-tag">new</span></a></li>
+                                                <li><a href="category-page.html.htm">Design1</a></li>
+                                                <li><a href="category-page(right).html.htm">Design2</a></li>
                                                 <li><a href="category-page(metro).html.htm">metro</a></li>
                                                 <li><a href="category-page(full-width).html.htm">full width</a></li>
                                                 <li><a href="category-page(infinite-scroll).html.htm">infinite

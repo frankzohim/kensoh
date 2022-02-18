@@ -379,7 +379,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html.htm"><img src="../assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="index.html.htm"><img src="/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">
@@ -419,7 +419,7 @@
                                                                 <div class="col-xl-12">
                                                                     <form>
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Search a Product">
+                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rechercher un produit">
                                                                         </div>
                                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                                                     </form>
@@ -433,17 +433,11 @@
                                         <li class="onhover-div mobile-setting">
                                             <div><img src="../assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
                                             <div class="show-div setting">
-                                                <h6>language</h6>
-                                                <ul>
-                                                    <li><a href="#">english</a></li>
-                                                    <li><a href="#">french</a></li>
-                                                </ul>
-                                                <h6>currency</h6>
+                                                <h6>Devise</h6>
                                                 <ul class="list-inline">
-                                                    <li><a href="#">euro</a></li>
-                                                    <li><a href="#">rupees</a></li>
-                                                    <li><a href="#">pound</a></li>
-                                                    <li><a href="#">doller</a></li>
+                                                    <li><a href="#">Euro</a></li>
+                                                    <li><a href="#">Dollar</a></li>
+                                                    <li><a href="#">Franc CFA</a></li>
                                                 </ul>
                                             </div>
                                         </li>

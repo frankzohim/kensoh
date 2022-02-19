@@ -232,6 +232,7 @@
                                 <ul class="onhover-show-div">
                                     <li><a href="login.html.htm">Connexion</a></li>
                                     <li><a href="register.html.htm">Inscription</a></li>
+                                    <li><a href="register.html.htm">Tableau de bord</a></li>
                                 </ul>
                             </li>
                         </ul>

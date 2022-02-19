@@ -36,7 +36,7 @@
                                     </a>
                                 </div>
                                 <div class="brand-logo">
-                                    <a href="index.html.htm"><img src="../assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                    <a href="index.html.htm"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                                 </div>
                             </div>
                             <div class="menu-right pull-right">
@@ -71,13 +71,13 @@
                                     <div class="icon-nav d-none d-sm-block">
                                         <ul>
                                             <li class="onhover-div mobile-search">
-                                                <div><img src="../assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
+                                                <div><img src="/assets/frontend/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
                                             </li>
                                             <li class="onhover-div mobile-setting">
-                                                <div><img src="../assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
+                                                <div><img src="/assets/frontend/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
                                             </li>
                                             <li class="onhover-div mobile-cart">
-                                                <div><img src="../assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
+                                                <div><img src="/assets/frontend/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
                                             </li>
                                         </ul>
                                     </div>
@@ -232,7 +232,7 @@
                                 <ul class="onhover-show-div">
                                     <li><a href="login.html.htm">Connexion</a></li>
                                     <li><a href="register.html.htm">Inscription</a></li>
-                                    <li><a href="register.html.htm">Tableau de bord</a></li>
+                                    <li><a href="{{ route('dashboard') }}">Tableau de bord</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -296,7 +296,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col-xl-4">
-                                                                <a href="#" class="mega-menu-banner"><img src="../assets/images/mega-menu/fashion.jpg" alt="" class="img-fluid blur-up lazyload"></a>
+                                                                <a href="#" class="mega-menu-banner"><img src="/assets/frontend/images/mega-menu/fashion.jpg" alt="" class="img-fluid blur-up lazyload"></a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -380,7 +380,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html.htm"><img src="/assets/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="index.html.htm"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">
@@ -411,7 +411,7 @@
                                 <div class="icon-nav">
                                     <ul>
                                         <li class="onhover-div mobile-search">
-                                            <div><img src="../assets/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
+                                            <div><img src="/assets/frontend/images/icon/search.png" onclick="openSearch()" class="img-fluid blur-up lazyload" alt=""> <i class="ti-search" onclick="openSearch()"></i></div>
                                             <div id="search-overlay" class="search-overlay">
                                                 <div> <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
                                                     <div class="overlay-content">
@@ -432,7 +432,7 @@
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-setting">
-                                            <div><img src="../assets/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
+                                            <div><img src="/assets/frontend/images/icon/setting.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-settings"></i></div>
                                             <div class="show-div setting">
                                                 <h6>Devise</h6>
                                                 <ul class="list-inline">
@@ -443,7 +443,7 @@
                                             </div>
                                         </li>
                                         <li class="onhover-div mobile-cart">
-                                            <div><img src="../assets/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
+                                            <div><img src="/assets/frontend/images/icon/cart.png" class="img-fluid blur-up lazyload" alt=""> <i class="ti-shopping-cart"></i></div>
                                             <span class="cart_qty_cls">2</span>
                                             <ul class="show-div shopping-cart">
                                                 <li>

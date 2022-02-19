@@ -8,8 +8,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="page-header-left">
-                    <h3>Dashboard
-                        <small>Multikart Admin panel</small>
+                    <h3>Tableau de Bord
+                        <small>Kensoh Administration</small>
                     </h3>
                 </div>
             </div>
@@ -34,8 +34,8 @@
                         <div class="icons-widgets col-4">
                             <div class="align-self-center text-center"><i data-feather="navigation" class="font-warning"></i></div>
                         </div>
-                        <div class="media-body col-8"><span class="m-0">Earnings</span>
-                            <h3 class="mb-0">$ <span class="counter">6659</span><small> This Month</small></h3>
+                        <div class="media-body col-8"><span class="m-0">Gains</span>
+                            <h3 class="mb-0">$ <span class="counter">6659</span><small> Ce Mois</small></h3>
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                         <div class="icons-widgets col-4">
                             <div class="align-self-center text-center"><i data-feather="box" class="font-secondary"></i></div>
                         </div>
-                        <div class="media-body col-8"><span class="m-0">Products</span>
-                            <h3 class="mb-0">$ <span class="counter">9856</span><small> This Month</small></h3>
+                        <div class="media-body col-8"><span class="m-0">Produits</span>
+                            <h3 class="mb-0">$ <span class="counter">9856</span><small> Ce Mois</small></h3>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                             <div class="align-self-center text-center"><i data-feather="message-square" class="font-primary"></i></div>
                         </div>
                         <div class="media-body col-8"><span class="m-0">Messages</span>
-                            <h3 class="mb-0">$ <span class="counter">893</span><small> This Month</small></h3>
+                            <h3 class="mb-0">$ <span class="counter">893</span><small> Ce Mois</small></h3>
                         </div>
                     </div>
                 </div>
@@ -76,43 +76,18 @@
                         <div class="icons-widgets col-4">
                             <div class="align-self-center text-center"><i data-feather="users" class="font-danger"></i></div>
                         </div>
-                        <div class="media-body col-8"><span class="m-0">New Vendors</span>
-                            <h3 class="mb-0">$ <span class="counter">45631</span><small> This Month</small></h3>
+                        <div class="media-body col-8"><span class="m-0">Nouveaux Vendeurs</span>
+                            <h3 class="mb-0">$ <span class="counter">45631</span><small> Ce Mois</small></h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
-                    <h5>Market Value</h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="market-chart"></div>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head" title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre><code class="language-html" id="example-head">&lt;!-- Cod Box Copy begin --&gt;
-&lt;div class="market-chart"&gt;&lt;/div&gt;
-&lt;!-- Cod Box Copy end --&gt;</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 xl-100">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Latest Orders</h5>
+                    <h5>Dernières Commandes</h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="icofont icofont-simple-left"></i></li>
@@ -129,9 +104,9 @@
                         <table class="table table-bordernone">
                             <thead>
                             <tr>
-                                <th scope="col">Order ID</th>
-                                <th scope="col">Order Total</th>
-                                <th scope="col">Payment Method</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Mode Paiement</th>
                                 <th scope="col">Status</th>
                             </tr>
                             </thead>
@@ -139,36 +114,36 @@
                             <tr>
                                 <td>1</td>
                                 <td class="digits">$120.00</td>
-                                <td class="font-danger">Bank Transfers</td>
-                                <td class="digits">On Way</td>
+                                <td class="font-danger">Virement</td>
+                                <td class="digits">En Cours</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td class="digits">$90.00</td>
-                                <td class="font-secondary">Ewallets</td>
-                                <td class="digits">Delivered</td>
+                                <td class="font-secondary">PayPal</td>
+                                <td class="digits">Livré</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td class="digits">$240.00</td>
                                 <td class="font-warning">Cash</td>
-                                <td class="digits">Delivered</td>
+                                <td class="digits">Livré</td>
                             </tr>
                             <tr>
                                 <td>4</td>
                                 <td class="digits">$120.00</td>
-                                <td class="font-primary">Direct Deposit</td>
+                                <td class="font-primary">Orange Money</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>5</td>
                                 <td class="digits">$50.00</td>
-                                <td class="font-primary">Bank Transfers</td>
-                                <td class="digits">Delivered</td>
+                                <td class="font-primary">MTN Mobile Money</td>
+                                <td class="digits">Livré</td>
                             </tr>
                             </tbody>
                         </table>
-                        <a href="order.html.htm" class="btn btn-primary">View All Orders</a>
+                        <a href="order.html.htm" class="btn btn-primary">Voir Toutes les Commandes</a>
                     </div>
                     <div class="code-box-copy">
                         <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head1" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
@@ -225,7 +200,7 @@
         <div class="col-xl-3 col-md-6 xl-50">
             <div class="card order-graph sales-carousel">
                 <div class="card-header">
-                    <h6>Total Sales</h6>
+                    <h6>Total Ventes</h6>
                     <div class="row">
                         <div class="col-6">
                             <div class="small-chartjs">
@@ -242,10 +217,10 @@
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
-                            <span>Sales Last Month</span>
+                            <span>Vente Mois Dernier</span>
                             <h2 class="mb-0">9054</h2>
                             <p>0.25% <span><i class="fa fa-angle-up"></i></span></p>
-                            <h5 class="f-w-600">Gross sales of August</h5>
+                            <h5 class="f-w-600">Ventes brutes d'août</h5>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
                         <div class="bg-primary b-r-8">
@@ -260,7 +235,7 @@
         <div class="col-xl-3 col-md-6 xl-50">
             <div class="card order-graph sales-carousel">
                 <div class="card-header">
-                    <h6>Total purchase</h6>
+                    <h6>Total Achat</h6>
                     <div class="row">
                         <div class="col-6">
                             <div class="small-chartjs">
@@ -277,10 +252,10 @@
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
-                            <span>Monthly purchase</span>
+                            <span>Achat Mensuel</span>
                             <h2 class="mb-0">2154</h2>
                             <p>0.13% <span><i class="fa fa-angle-up"></i></span></p>
-                            <h5 class="f-w-600">Avg Gross purchase</h5>
+                            <h5 class="f-w-600">Achat brut moyen</h5>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
                         <div class="bg-secondary b-r-8">
@@ -312,10 +287,10 @@
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
-                            <span>Cash on hand</span>
+                            <span>Cash disponible</span>
                             <h2 class="mb-0">4672</h2>
                             <p>0.8% <span><i class="fa fa-angle-up"></i></span></p>
-                            <h5 class="f-w-600">Details about cash</h5>
+                            <h5 class="f-w-600">Détails cash</h5>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
                         <div class="bg-warning b-r-8">
@@ -330,7 +305,7 @@
         <div class="col-xl-3 col-md-6 xl-50">
             <div class="card order-graph sales-carousel">
                 <div class="card-header">
-                    <h6>Daily Deposits</h6>
+                    <h6>Dépôsits Journaliers</h6>
                     <div class="row">
                         <div class="col-6">
                             <div class="small-chartjs">
@@ -347,10 +322,10 @@
                 <div class="card-body">
                     <div class="media">
                         <div class="media-body">
-                            <span>Security Deposits</span>
+                            <span>Dépôt Sécurité</span>
                             <h2 class="mb-0">0782</h2>
                             <p>0.25% <span><i class="fa fa-angle-up"></i></span></p>
-                            <h5 class="f-w-600">Gross sales of June</h5>
+                            <h5 class="f-w-600">Ventes brutes de juin</h5>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
                         </div>
                         <div class="bg-danger b-r-8">
@@ -362,36 +337,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Buy / Sell</h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body sell-graph">
-                    <canvas id="myGraph"></canvas>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head3" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre class=" language-html"><code class=" language-html" id="example-head3">&lt;div class="card-body sell-graph"&gt;
-&lt;canvas id="myGraph"&gt;&lt;/canvas&gt;
-&lt;/div&gt;</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
         <div class="col-xl-6 xl-100">
             <div class="card height-equal">
                 <div class="card-header">
-                    <h5>Goods return</h5>
+                    <h5>Retour des marchandises</h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="icofont icofont-simple-left"></i></li>
@@ -408,53 +358,53 @@
                         <table class="table table-bordernone mb-0">
                             <thead>
                             <tr>
-                                <th scope="col">Details</th>
-                                <th scope="col">Quantity</th>
+                                <th scope="col">Détails</th>
+                                <th scope="col">Quantité</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Prix</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>Simply dummy text of the printing</td>
                                 <td class="digits">1</td>
-                                <td class="font-primary">Pending</td>
+                                <td class="font-primary">En Attente</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>Long established</td>
                                 <td class="digits">5</td>
-                                <td class="font-secondary">Cancle</td>
+                                <td class="font-secondary">Suspendu</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>sometimes by accident</td>
                                 <td class="digits">10</td>
-                                <td class="font-secondary">Cancle</td>
+                                <td class="font-secondary">Suspendu</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>Classical Latin literature</td>
                                 <td class="digits">9</td>
-                                <td class="font-primary">Return</td>
+                                <td class="font-primary">Renvoyé</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>keep the site on the Internet</td>
                                 <td class="digits">8</td>
-                                <td class="font-primary">Pending</td>
+                                <td class="font-primary">En Attente</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>Molestiae consequatur</td>
                                 <td class="digits">3</td>
-                                <td class="font-secondary">Cancle</td>
+                                <td class="font-secondary">Annuler</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             <tr>
                                 <td>Pain can procure</td>
                                 <td class="digits">8</td>
-                                <td class="font-primary">Return</td>
+                                <td class="font-primary">Renvoyé</td>
                                 <td class="digits">$6523</td>
                             </tr>
                             </tbody>
@@ -524,242 +474,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-6 xl-100">
-            <div class="card height-equal">
-                <div class="card-header">
-                    <h5>Empolyee Status</h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="icofont icofont-simple-left"></i></li>
-                            <li><i class="view-html fa fa-code"></i></li>
-                            <li><i class="icofont icofont-maximize full-card"></i></li>
-                            <li><i class="icofont icofont-minus minimize-card"></i></li>
-                            <li><i class="icofont icofont-refresh reload-card"></i></li>
-                            <li><i class="icofont icofont-error close-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="user-status table-responsive products-table">
-                        <table class="table table-bordernone mb-0">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Designation</th>
-                                <th scope="col">Skill Level</th>
-                                <th scope="col">Experience</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="bd-t-none u-s-tb">
-                                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user2.jpg" alt="" data-original-title="" title="">
-                                        <div class="d-inline-block">
-                                            <h6>John Deo <span class="text-muted digits">(14+ Online)</span></h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Designer</td>
-                                <td>
-                                    <div class="progress-showcase">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="digits">2 Year</td>
-                            </tr>
-                            <tr>
-                                <td class="bd-t-none u-s-tb">
-                                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user1.jpg" alt="" data-original-title="" title="">
-                                        <div class="d-inline-block">
-                                            <h6>Holio Mako <span class="text-muted digits">(250+ Online)</span></h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Developer</td>
-                                <td>
-                                    <div class="progress-showcase">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="digits">3 Year</td>
-                            </tr>
-                            <tr>
-                                <td class="bd-t-none u-s-tb">
-                                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/man.png" alt="" data-original-title="" title="">
-                                        <div class="d-inline-block">
-                                            <h6>Mohsib lara<span class="text-muted digits">(99+ Online)</span></h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Tester</td>
-                                <td>
-                                    <div class="progress-showcase">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="digits">5 Month</td>
-                            </tr>
-                            <tr>
-                                <td class="bd-t-none u-s-tb">
-                                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user.png" alt="" data-original-title="" title="">
-                                        <div class="d-inline-block">
-                                            <h6>Hileri Soli <span class="text-muted digits">(150+ Online)</span></h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Designer</td>
-                                <td>
-                                    <div class="progress-showcase">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="digits">3 Month</td>
-                            </tr>
-                            <tr>
-                                <td class="bd-t-none u-s-tb">
-                                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/designer.jpg" alt="" data-original-title="" title="">
-                                        <div class="d-inline-block">
-                                            <h6>Pusiz bia <span class="text-muted digits">(14+ Online)</span></h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>Designer</td>
-                                <td>
-                                    <div class="progress-showcase">
-                                        <div class="progress" style="height: 8px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="digits">5 Year</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="code-box-copy">
-                        <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head5" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                        <pre class=" language-html"><code class=" language-html" id="example-head5">
-&lt;div class="user-status table-responsive products-table"&gt;
-&lt;table class="table table-bordernone mb-0"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-    &lt;th scope="col"&gt;Name&lt;/th&gt;
-    &lt;th scope="col"&gt;Designation&lt;/th&gt;
-    &lt;th scope="col"&gt;Skill Level&lt;/th&gt;
-    &lt;th scope="col"&gt;Experience&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td class="bd-t-none u-s-tb"&gt;
-            &lt;div class="align-middle image-sm-size"&gt;&lt;img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user2.jpg" alt="" data-original-title="" title=""&gt;
-            &lt;div class="d-inline-block"&gt;
-            &lt;h6&gt;John Deo &lt;span class="text-muted digits"&gt;(14+ Online)&lt;/span&gt;&lt;/h6&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/td&gt;
-        &lt;td&gt;Designer&lt;/td&gt;
-        &lt;td&gt;
-            &lt;div class="progress-showcase"&gt;
-            &lt;div class="progress" style="height: 8px;"&gt;
-            &lt;div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/td&gt;
-        &lt;td class="digits"&gt;2 Year&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td class="bd-t-none u-s-tb"&gt;
-        &lt;div class="align-middle image-sm-size"&gt;&lt;img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user1.jpg" alt="" data-original-title="" title=""&gt;
-        &lt;div class="d-inline-block"&gt;
-        &lt;h6&gt;Holio Mako &lt;span class="text-muted digits"&gt;(250+ Online)&lt;/span&gt;&lt;/h6&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td&gt;Developer&lt;/td&gt;
-    &lt;td&gt;
-        &lt;div class="progress-showcase"&gt;
-        &lt;div class="progress" style="height: 8px;"&gt;
-        &lt;div class="progress-bar bg-secondary" role="progressbar" style="width: 70%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td class="digits"&gt;3 Year&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td class="bd-t-none u-s-tb"&gt;
-        &lt;div class="align-middle image-sm-size"&gt;&lt;img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/man.png" alt="" data-original-title="" title=""&gt;
-        &lt;div class="d-inline-block"&gt;
-        &lt;h6&gt;Mohsib lara&lt;span class="text-muted digits"&gt;(99+ Online)&lt;/span&gt;&lt;/h6&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td&gt;Tester&lt;/td&gt;
-    &lt;td&gt;
-        &lt;div class="progress-showcase"&gt;
-        &lt;div class="progress" style="height: 8px;"&gt;
-        &lt;div class="progress-bar bg-primary" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td class="digits"&gt;5 Month&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td class="bd-t-none u-s-tb"&gt;
-        &lt;div class="align-middle image-sm-size"&gt;&lt;img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/user.png" alt="" data-original-title="" title=""&gt;
-        &lt;div class="d-inline-block"&gt;
-        &lt;h6&gt;Hileri Soli &lt;span class="text-muted digits"&gt;(150+ Online)&lt;/span&gt;&lt;/h6&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td&gt;Designer&lt;/td&gt;
-    &lt;td&gt;
-        &lt;div class="progress-showcase"&gt;
-        &lt;div class="progress" style="height: 8px;"&gt;
-        &lt;div class="progress-bar bg-secondary" role="progressbar" style="width: 30%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td class="digits"&gt;3 Month&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-    &lt;td class="bd-t-none u-s-tb"&gt;
-        &lt;div class="align-middle image-sm-size"&gt;&lt;img class="img-radius align-top m-r-15 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/designer.jpg" alt="" data-original-title="" title=""&gt;
-        &lt;div class="d-inline-block"&gt;
-        &lt;h6&gt;Pusiz bia &lt;span class="text-muted digits"&gt;(14+ Online)&lt;/span&gt;&lt;/h6&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td&gt;Designer&lt;/td&gt;
-    &lt;td&gt;
-        &lt;div class="progress-showcase"&gt;
-        &lt;div class="progress" style="height: 8px;"&gt;
-        &lt;div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"&gt;&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/td&gt;
-    &lt;td class="digits"&gt;5 Year&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;/div&gt;
-                        </code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Sales Status</h5>
+                    <h5>Status Ventes</h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="icofont icofont-simple-left"></i></li>
@@ -775,7 +493,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-sm-6 xl-50">
                             <div class="order-graph">
-                                <h6>Orders By Location</h6>
+                                <h6>Commandes Par Emplacement</h6>
                                 <div class="chart-block chart-vertical-center">
                                     <canvas id="myDoughnutGraph"></canvas>
                                 </div>
@@ -783,7 +501,7 @@
                                     <div class="media">
                                         <div class="order-color-primary"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0">Saint Lucia <span class="pull-right">$157</span></h6>
+                                            <h6 class="mb-0">Cameroun <span class="pull-right">$157</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -795,19 +513,19 @@
                                     <div class="media">
                                         <div class="order-color-danger"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0">Liberia<span class="pull-right">$468</span></h6>
+                                            <h6 class="mb-0">Nigéria<span class="pull-right">$468</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="order-color-warning"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0">Christmas Island<span class="pull-right">$742</span></h6>
+                                            <h6 class="mb-0">Sénégal<span class="pull-right">$742</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="order-color-success"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0">Saint Helena <span class="pull-right">$647</span></h6>
+                                            <h6 class="mb-0">Niger <span class="pull-right">$647</span></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -815,7 +533,7 @@
                         </div>
                         <div class="col-xl-3 col-sm-6 xl-50">
                             <div class="order-graph sm-order-space">
-                                <h6>Sales By Location</h6>
+                                <h6>Ventes Par Emplacement</h6>
                                 <div class="peity-chart-dashboard text-center">
                                     <span class="pie-colours-1">4,7,6,5</span>
                                 </div>
@@ -823,25 +541,25 @@
                                     <div class="media">
                                         <div class="order-shape-primary"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0 me-0">Germany <span class="pull-right">25%</span></h6>
+                                            <h6 class="mb-0 me-0">Allegmane <span class="pull-right">25%</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="order-shape-secondary"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0 me-0">Brasil <span class="pull-right">10%</span></h6>
+                                            <h6 class="mb-0 me-0">Brésil <span class="pull-right">10%</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="order-shape-danger"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0 me-0">United Kingdom<span class="pull-right">34%</span></h6>
+                                            <h6 class="mb-0 me-0">Angleterre<span class="pull-right">34%</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
                                         <div class="order-shape-warning"></div>
                                         <div class="media-body">
-                                            <h6 class="mb-0 me-0">Australia<span class="pull-right">5%</span></h6>
+                                            <h6 class="mb-0 me-0">Australie<span class="pull-right">5%</span></h6>
                                         </div>
                                     </div>
                                     <div class="media">
@@ -855,7 +573,7 @@
                         </div>
                         <div class="col-xl-6 xl-100">
                             <div class="order-graph xl-space">
-                                <h6>Revenue for last month</h6>
+                                <h6>Chiffre d'affaires du mois dernier</h6>
                                 <div class="ct-4 flot-chart-container"></div>
                             </div>
                         </div>

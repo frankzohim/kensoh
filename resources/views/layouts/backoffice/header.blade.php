@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="txt-dark"><a href="#">All</a> notification</li>
+                            <li class="txt-dark"><a href="#">Toutes les</a> notifications</li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>

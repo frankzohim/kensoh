@@ -1,11 +1,11 @@
    <!-- Page Sidebar Start-->
    <div class="page-sidebar">
             <div class="main-header-left d-none d-lg-block">
-                <div class="logo-wrapper"><a href="index.html.htm"><img class="blur-up lazyloaded" src="/assets/backend/images/dashboard/multikart-logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="index.html.htm"><img class="blur-up lazyloaded" src="/assets/backend/images/dashboard/logo.png" alt=""></a></div>
             </div>
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
-                    <div><img class="img-60 rounded-circle lazyloaded blur-up" src="/assets/backend/images/dashboard/man.png" alt="#">
+                    <div><img class="img-60 rounded-circle lazyloaded blur-up" src="/assets/backend/images/dashboard/appolinaire.jpg" alt="#">
                     </div>
                     <h6 class="mt-3 f-14">APOLLINAIRE</h6>
                     <p>promoteur.</p>

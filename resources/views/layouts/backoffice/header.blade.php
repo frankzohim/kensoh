@@ -1,4 +1,4 @@
- <!-- Page Header Start-->
+<!-- Page Header Start-->
  <div class="page-main-header">
         <div class="main-header-right row">
             <div class="main-header-left d-lg-none w-auto">
@@ -58,7 +58,7 @@
                     </li>
                     <li><a href="#"><i class="right_side_toggle" data-feather="message-square"></i><span class="dot"></span></a></li>
                     <li class="onhover-dropdown">
-                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/man.png" alt="header-user">
+                        <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="/assets/backend/images/dashboard/appolinaire.jpg" alt="header-user">
                             <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">

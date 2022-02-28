@@ -32,7 +32,7 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="../assets/images/icon/logo.png" alt=""></div>
+                            <div class="footer-logo"><img src="/assets/frontend/images/icon/logo.png" alt=""></div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
                             <div class="footer-social">
@@ -110,19 +110,19 @@
                         <div class="payment-card-bottom">
                             <ul>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/visa.png" alt=""></a>
+                                    <a href="#"><img src="/assets/frontend/images/icon/visa.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/mastercard.png" alt=""></a>
+                                    <a href="#"><img src="/assets/frontend/images/icon/mastercard.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/paypal.png" alt=""></a>
+                                    <a href="#"><img src="/assets/frontend/images/icon/paypal.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/american-express.png" alt=""></a>
+                                    <a href="#"><img src="/assets/frontend/images/icon/american-express.png" alt=""></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img src="../assets/images/icon/discover.png" alt=""></a>
+                                    <a href="#"><img src="/assets/frontend/images/icon/discover.png" alt=""></a>
                                 </li>
                             </ul>
                         </div>

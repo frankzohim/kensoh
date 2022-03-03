@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

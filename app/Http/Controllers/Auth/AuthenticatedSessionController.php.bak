@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
     public function create()
     {
         //dd("who");
-		//dd(Route::currentRouteName());
+		dd(Route::currentRouteName());
         return view('auth.login');
     }
 

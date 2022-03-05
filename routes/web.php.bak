@@ -19,12 +19,7 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::get('/backend', function () {
-	 
-	if (Auth::check()) {
-		return view('dashboard');
-	}
-	else
-		return view('backend/login');
+    return view('backend/login');
 })->name('backend');
 
 Route::get('/dashboard', function () {

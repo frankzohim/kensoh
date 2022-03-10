@@ -19,7 +19,7 @@ Route::get('/', function () {
 })->name('homepage');
 
 Route::get('/backend', function () {
-	 
+
 	if (Auth::check()) {
 		return view('dashboard');
 	}
@@ -30,5 +30,7 @@ Route::get('/backend', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
 
 require __DIR__.'/auth.php';

@@ -37,6 +37,9 @@
     <!-- Theme css -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/style.css">
 
+    <!-- intel css -->
+    <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
+
 
 
 </head>

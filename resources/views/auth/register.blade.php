@@ -50,17 +50,31 @@
                                     <input type="email" id="email" name="email" :value="old('email')" required class="form-control"  placeholder="Email">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="review">Mot de passe</label>
-                                    <input type="password" id="password" name="password" required autocomplete="new-password" class="form-control" placeholder="Entrer votre mot de passe">
+                                    <label for="email">Type de compte</label>
+                                    <select class="form-control" title="Account Type"   name='account_type'>
+                                        <option disabled selected>{{ __('Type de compte') }}</option>
+                                        <option value="2">{{ __('Client') }}</option>
+                                        <option value="3">{{ __('Vendeur') }}</option>
+                                     </select>
                                 </div>
+                               
                             </div>
 							 <div class="form-row row">
-                                
-                                <div class="col-md-12">
+                                <div class="col-md-6">
+                                        <label for="review">Mot de passe</label>
+                                        <input type="password" id="password" name="password" required autocomplete="new-password" class="form-control" placeholder="Entrer votre mot de passe">
+                                </div>
+                                <div class="col-md-6">
                                     <label for="review">Confirmez Mot de passe</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" class="form-control" placeholder="Confirmez votre mot de passe">
-                                </div><button class="btn btn-solid w-auto" type="submit">Créer un compte</button>
+                                </div>
                             </div>
+                          
+                            <input id="country_name" name="country_name" type="hidden">
+						<input id="country_code" name="country_code" type="hidden">
+						<input id="country_iso2" name="country_iso2" type="hidden">
+                            <br>
+                            <button class="btn btn-solid w-auto" type="submit">Créer un compte</button>
                         </form>
                     </div>
                 </div>
@@ -68,5 +82,50 @@
         </div>
     </section>
     <!--Section ends-->
+    <script src="{{ asset('intl-tel-input-master') }}/build/js/intlTelInput.js"></script>
+  <script>
+  
+		var input = document.querySelector("#phone");
+		var iti = window.intlTelInput(input, {
+		  allowDropdown: true,
+		  //autoHideDialCode: true,
+		  // autoPlaceholder: "off",
+		  // dropdownContainer: document.body,
+		  // excludeCountries: ["us"],
+		   //formatOnDisplay: false,
+		  // geoIpLookup: function(callback) {
+		  //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+		  //     var countryCode = (resp && resp.country) ? resp.country : "";
+		  //     callback(countryCode);
+		  //   });
+		  // },
+		   //hiddenInput: "full_number",
+		  initialCountry: 'cm',
+		  // localizedCountries: { 'de': 'Deutschland' },
+		  //nationalMode: true,
+		  //onlyCountries: ['cm'],
+		  // placeholderNumberType: "MOBILE",
+		  // preferredCountries: ['cn', 'jp'],
+		  separateDialCode: true,
+		  utilsScript: "E:/laragon/www/kensoh/public/intl-tel-input-master/buildbuild/js/utils.js",
+		});
+		
+      
+		var countryData = iti.getSelectedCountryData();
+		//alert(countryData.dialCode);
+		//alert(countryData.name);
+		
+		
+		function myFunction() {
+			var countryData = iti.getSelectedCountryData();
+			//alert(countryData.dialCode);
+			//alert(countryData.name);
+			document.getElementById("country_name").value = countryData.name;
+			document.getElementById("country_code").value = countryData.dialCode;
+			document.getElementById("country_iso2").value = countryData.iso2;
+			
+		}
+		
 
+  </script>
 @endsection

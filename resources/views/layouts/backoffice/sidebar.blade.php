@@ -18,9 +18,9 @@
                         <ul class="sidebar-submenu">
 
                             <li><a href="category.html.htm"><i class="fa fa-circle"></i>Catégories</a></li>
-                            <li><a href="category-sub.html.htm"><i class="fa fa-circle"></i>Liste Produits</a></li>
-                            <li><a href="add-product.html.htm"><i class="fa fa-circle"></i>Ajouter</a></li>
-                         
+                            <li><a href="{{route('products.index')}}"><i class="fa fa-circle"></i>Liste Produits</a></li>
+                            <li><a href="{{route('products.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
+
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="codepen"></i><span>Boutiques</span></a>
@@ -40,7 +40,7 @@
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="media.html.htm"><i data-feather="camera"></i><span>Media</span></a></li>
-                    
+
                     <li><a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="user-list.html.htm"><i class="fa fa-circle"></i>Liste Utilisateurs</a></li>
@@ -53,7 +53,7 @@
                             <li><a href="create-vendors.html.htm"><i class="fa fa-circle"></i>Créer Vendeur</a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="message-circle"></i><span>Evaluations</span></a></li>
                     <li><a class="sidebar-header" href=""><i data-feather="map-pin"></i><span>Localisation</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">

@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
@@ -337,7 +337,7 @@
                 </div>
             </div>
         </div>
- 
+
         <div class="col-xl-6 xl-100">
             <div class="card height-equal">
                 <div class="card-header">

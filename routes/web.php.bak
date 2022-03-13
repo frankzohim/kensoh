@@ -14,16 +14,40 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-})->name('homepage');
+	Route::get('/', function () {
+		return view('homepage');
+	})->name('homepage');
 
-Route::get('/backend', function () {
-    return view('backend/login');
-})->name('backend');
+	Route::get('/backend', function () {
+		 
+		if (Auth::check()) {
+			return view('dashboard');
+		}
+		else
+			return view('backend/login');
+	})->name('backend');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+	Route::group(['middleware' => ['auth']], function () {
+		
+		Route::get('/dashboard', [DashboardController::class, 'index'])
+                ->name('dashboard');
+		
+		/*Route::get('/vendor', function () {
+		return view('vendor_dashboard');
+		})->name('vendor_dashboard');
+		
+		Route::get('/customer', function () {
+		return view('customer_dashboard');
+		})->name('customer_dashboard');*/
+	});
 
-require __DIR__.'/auth.php';
+	/*Route::get('/dashboard', function () {
+		return view('dashboard');
+	})->middleware(['auth'])->name('dashboard');*/
+
+
+	Route::group(['prefix' => 'admin'], function () {
+		Voyager::routes();
+	});
+
+	require __DIR__.'/auth.php';

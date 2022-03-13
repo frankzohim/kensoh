@@ -59,7 +59,7 @@
                                 </div>
                                
                             </div>
-							 <div class="form-row row">
+							<div class="form-row row">
                                 <div class="col-md-6">
                                         <label for="review">Mot de passe</label>
                                         <input type="password" id="password" name="password" required autocomplete="new-password" class="form-control" placeholder="Entrer votre mot de passe">
@@ -67,6 +67,14 @@
                                 <div class="col-md-6">
                                     <label for="review">Confirmez Mot de passe</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" class="form-control" placeholder="Confirmez votre mot de passe">
+                                </div>
+                            </div>
+							
+							<div class="form-row row">
+                                
+                                <div class="col-md-12">
+                                    <label for="review">Téléphone</label>
+                                   <input style=""id="phone" name="phone" type="tel" required size="150">
                                 </div>
                             </div>
                           
@@ -82,7 +90,7 @@
         </div>
     </section>
     <!--Section ends-->
-    <script src="{{ asset('intl-tel-input-master') }}/build/js/intlTelInput.js"></script>
+    <script src="intl-tel-input-master/build/js/intlTelInput.js"></script>
   <script>
   
 		var input = document.querySelector("#phone");

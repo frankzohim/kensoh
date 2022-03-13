@@ -6,19 +6,38 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Bienvenue dans Notre Magasin Kensoh</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Appelez-Nous: +49 176 2460-4129</li>
+                                <li><i class="fa fa-home" aria-hidden="true"></i> Bienvenue sur Kensoh</li>
+								<li>
+									<form class="form-inline search-form">
+										<div class="form-group">
+											<i class="fa fa-search" aria-hidden="true"></i> <input class="fa fa-search" class="form-control-plaintext" type="search" placeholder="Rechercher.."><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
+										</div>
+									</form>
+								</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6 text-end">
-                        <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                                Mon Compte
-                            </li>
-                        </ul>
+                        	<ul class="header-dropdown">
+								<li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+								</li>
+								<li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
+									Mon Compte
+									<ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
+										<li><a href="#"><i data-feather="user"></i>Editer le profil</a></li>
+										<li><a href="#"><i data-feather="mail"></i>Messagerie</a></li>
+										<li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
+										<li><a href="#"><i data-feather="settings"></i>Paramètres</a></li>
+										<form method="POST" action="{{ route('logout') }}" id="logout-form">
+										@csrf
+
+									   
+									</form>
+										<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Déconnexion</a></li>
+									</ul>
+								</li>
+							</ul>
                     </div>
                 </div>
             </div>
@@ -214,23 +233,40 @@
                     <div class="col-lg-6">
                         <div class="header-contact">
                             <ul>
-                                <li>Bienvenue dans Notre Magasin Kensoh</li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i>Appelez-Nous: +49 176 2460-4129</li>
+							<li><i class="fa fa-home" aria-hidden="true"></i> Bienvenue sur Kensoh</li>
+								<li>
+									
+									<form class="form-inline search-form">
+										<div class="form-group">
+											<i class="fa fa-search" aria-hidden="true"></i> <input class="form-control-plaintext" type="search" placeholder="Rechercher.."><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
+										</div>
+									</form>
+								</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 text-end">
-                        <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            </li>
-							<li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                                <a href="{{ route('login') }}">Connexion</a>
-                            </li>
-                            <li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
-                                <a href="{{ route('register') }}">Inscription</a>
-                            </li>
-                        </ul>
-                    </div>
+						<div class="col-lg-6 text-end">
+							<ul class="header-dropdown">
+								<li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+								</li>
+								<li class="onhover-dropdown mobile-account"> <i class="fa fa-user" aria-hidden="true"></i>
+									Mon Compte
+									<ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
+										<li><a href="#"><i data-feather="user"></i>Editer le profil</a></li>
+										<li><a href="#"><i data-feather="mail"></i>Messagerie</a></li>
+										<li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
+										<li><a href="#"><i data-feather="settings"></i>Paramètres</a></li>
+										<form method="POST" action="{{ route('logout') }}" id="logout-form">
+										@csrf
+
+									   
+									</form>
+										<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Déconnexion</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
                 </div>
             </div>
         </div>

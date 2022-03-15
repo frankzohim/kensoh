@@ -19,7 +19,6 @@ return new class extends Migration
 			$table->string('slug');
 			$table->string('meta_description');
 			$table->string('meta_keywords');
-			$table->boolean('state');
 			$table->bigInteger('parent');
 			$table->foreignId('user_id')
 				  ->constrained()

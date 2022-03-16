@@ -14,10 +14,19 @@
                     <li><a class="sidebar-header" href="index.html.htm"><i data-feather="home"></i><span>Tableau de bord</span></a></li>
                     <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="package"></i><span>Colis</span></a>
                     </li>
+                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Categories</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+
+                            <li><a href="{{route('categories.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
+                            <li><a href="{{route('categories.index')}}"><i class="fa fa-circle"></i>Liste Categories</a></li>
+
+
+                        </ul>
+                    </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
 
-                            <li><a href="category.html.htm"><i class="fa fa-circle"></i>Catégories</a></li>
+
                             <li><a href="{{route('products.index')}}"><i class="fa fa-circle"></i>Liste Produits</a></li>
                             <li><a href="{{route('products.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
 

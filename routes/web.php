@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
@@ -34,4 +35,5 @@ Route::get('/dashboard', function () {
 
 Route::resource('products',ProductController::class);
 
+Route::resource('categories',CategoryController::class);
 require __DIR__.'/auth.php';

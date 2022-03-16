@@ -9,5 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $guard=[];
+    protected $fillable=[
+        'name',
+        'slug'
+    ];
 }

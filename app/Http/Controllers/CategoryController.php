@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -32,9 +33,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Category $category)
     {
-        //
+        $category=new Category();
+        $category->name=$request->name;
+        $category->slug=$request->name;
+        $category->meta_description=$request->description;
+        $category->meta_keywords=$request->keyword;
+        $category->parent=$request->parent;
+        $category->user_id=2;
+        $category->save();
+        return back()->with('info','La Categorie à bien été ajouté dans la base de donnée');
     }
 
     /**
@@ -80,5 +89,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function create_slug($text){
+        $var_slug= preg_replace('\pL\d]+~u','-',$text);
+        $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);
+        $text=preg_replace('~[^-\w]+~','',$text);
+        $text=trim($text,'-');
+        $text=preg_replace('~-+~','-',$text);
+        $text=strtolower($text);
     }
 }

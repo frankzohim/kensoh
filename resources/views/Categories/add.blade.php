@@ -37,19 +37,40 @@
                         <h5>Add Categories</h5>
                     </div>
                     <div class="card-body">
-                        <form>
+                        @if (session()->has('info'))
+                        <div class="notification is-success">
+                            {{session('info')}}
+                        </div>
+
+                        @endif
+                        <form method="PUT" action="{{route('categories.store')}}">
+
+                            @csrf
                             <div class="mb-3">
                               <label for="exampleInputName" class="form-label">Category Name </label>
-                              <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp">
+                              <input type="text" class="form-control" id="name" aria-describedby="NameHelp" name="name">
 
                             </div>
+
                             <div class="mb-3">
-                                <label for="Categoryslug" class="form-label">Category Slug</label>
-                                <textarea class="form-control" id="Categoryslug" rows="2"></textarea>
+                                <label for="exampleInputName" class="form-label">Meta Description </label>
+                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description">
+
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputName" class="form-label">Meta keyword</label>
+                                <input type="text" class="form-control" id="keyword" aria-describedby="NameHelp" name="keyword">
+
                               </div>
 
+                              <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Selectionnez une categorie Parente</label>
+                              <select class="form-select" aria-label="Default select example">
 
+                                <option selected name="parent" value="0">Categorie Principale</option></select>
+                            </div>
 
+                            <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
                           </form>
                     </div>

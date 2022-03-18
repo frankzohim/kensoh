@@ -33,17 +33,22 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Category $category)
+    public function store(Request $request)
     {
-        $category=new Category();
+        $category=new \App\Models\product_category;
         $category->name=$request->name;
-        $category->slug=$request->name;
+
+        $category->slug=$this->create_slug($request->name);
+        $text=strtolower($category->slug);
+        $category->slug=$text;
         $category->meta_description=$request->description;
         $category->meta_keywords=$request->keyword;
         $category->parent=$request->parent;
-        $category->user_id=2;
+        $category->state=$request->state;
+        $category->user_id=auth()->user()->id;
         $category->save();
-        return back()->with('info','La Categorie à bien été ajouté dans la base de donnée');
+        dd('categorie ajouté avec succes');
+        // return back()->with('info','La Categorie à bien été ajouté dans la base de donnée');
     }
 
     /**
@@ -91,12 +96,12 @@ class CategoryController extends Controller
         //
     }
 
-    public function create_slug($text){
-        $var_slug= preg_replace('\pL\d]+~u','-',$text);
+    function create_slug($text){
+        $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
         $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);
         $text=preg_replace('~[^-\w]+~','',$text);
         $text=trim($text,'-');
         $text=preg_replace('~-+~','-',$text);
-        $text=strtolower($text);
+        return $text;
     }
 }

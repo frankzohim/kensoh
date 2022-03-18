@@ -43,7 +43,7 @@
                         </div>
 
                         @endif
-                        <form method="PUT" action="{{route('categories.store')}}">
+                        <form method="post" action="{{route('categories.store')}}">
 
                             @csrf
                             <div class="mb-3">
@@ -65,10 +65,16 @@
 
                               <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Selectionnez une categorie Parente</label>
-                              <select class="form-select" aria-label="Default select example">
-
-                                <option selected name="parent" value="0">Categorie Principale</option></select>
+                              <select class="form-select" aria-label="Default select example" name="parent">
+                                <option  value="1">Autres</option>
+                                <option  value="0">Categorie Principale</option></select>
                             </div>
+                            <div class="form-group">
+								<label for="exampleInputPassword1">Status</label>
+								<select class="form-control" name="state">
+								    <option value="1">Publié</option>
+									<option value="0">Non Publié</option>
+								</select>
 
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>

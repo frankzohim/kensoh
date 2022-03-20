@@ -17,8 +17,8 @@
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Categories</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
 
-                            <li><a href="{{route('categories.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
-                            <li><a href="{{route('categories.index')}}"><i class="fa fa-circle"></i>Liste Categories</a></li>
+                            <li><a href="{{route('category.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
+                            <li><a href="{{route('category.index')}}"><i class="fa fa-circle"></i>Liste Categories</a></li>
 
 
                         </ul>

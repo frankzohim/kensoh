@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\product_category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories=product_category::all();
+        $categoryId=product_category::select('parent')->get();
+
+        return view('Categories.index',compact('categories','categoryId'));
     }
 
     /**
@@ -24,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Categories.add');
+        $categories= product_category::all();
+        return view('Categories.add',compact('categories'));
     }
 
     /**
@@ -35,20 +40,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $category=new \App\Models\product_category;
         $category->name=$request->name;
 
         $category->slug=$this->create_slug($request->name);
-        $text=strtolower($category->slug);
-        $category->slug=$text;
         $category->meta_description=$request->description;
         $category->meta_keywords=$request->keyword;
         $category->parent=$request->parent;
         $category->state=$request->state;
         $category->user_id=auth()->user()->id;
+        $id=$category->id;
         $category->save();
-        dd('categorie ajouté avec succes');
-        // return back()->with('info','La Categorie à bien été ajouté dans la base de donnée');
+         dd('categorie ajouté avec succes');
+        //  return redirect()->route('category.edit',['categoryId'=>$id])->with('info','La Categorie à bien été ajouté dans la base de donnée');
     }
 
     /**
@@ -68,9 +75,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($categoryId)
     {
-        //
+        $product_category= product_category::findOrFail($categoryId);
+        $categories=product_category::all();
+
+        return view('Categories.edit',compact('product_category','categories'));
     }
 
     /**
@@ -102,6 +112,7 @@ class CategoryController extends Controller
         $text=preg_replace('~[^-\w]+~','',$text);
         $text=trim($text,'-');
         $text=preg_replace('~-+~','-',$text);
+        $text=strtolower($text);
         return $text;
     }
 }

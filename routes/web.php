@@ -35,5 +35,5 @@ Route::get('/dashboard', function () {
 
 Route::resource('products',ProductController::class);
 
-Route::resource('categories',CategoryController::class);
+Route::resource('category',CategoryController::class);
 require __DIR__.'/auth.php';

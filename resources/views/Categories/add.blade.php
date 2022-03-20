@@ -43,9 +43,10 @@
                         </div>
 
                         @endif
-                        <form method="post" action="{{route('categories.store')}}">
+                        <form method="post" action="{{route('category.store')}}">
 
                             @csrf
+
                             <div class="mb-3">
                               <label for="exampleInputName" class="form-label">Category Name </label>
                               <input type="text" class="form-control" id="name" aria-describedby="NameHelp" name="name">
@@ -64,10 +65,16 @@
                               </div>
 
                               <div class="mb-3">
+
+
+
                                 <label for="exampleFormControlTextarea1" class="form-label">Selectionnez une categorie Parente</label>
                               <select class="form-select" aria-label="Default select example" name="parent">
-                                <option  value="1">Autres</option>
-                                <option  value="0">Categorie Principale</option></select>
+                                <option  value="0">Categorie Principale</option>
+                                @foreach ($categories as $category)
+                                <option  value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
                             </div>
                             <div class="form-group">
 								<label for="exampleInputPassword1">Status</label>

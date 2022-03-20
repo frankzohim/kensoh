@@ -49,10 +49,11 @@
                         </div>
 
                         @endif
-                        <form method="post" action="{{route('category.update')}}">
+                        <form  action="{{route('category.update',$product_category->id)}}" method="POST">
 
                             @csrf
-                            <input type="hidden" id="categoryId" name="categoryId" value="{{$product_category->id ?? "-1"}}">
+                            @method('PUT')
+                            
                             <div class="mb-3">
                               <label for="exampleInputName" class="form-label">Category Name </label>
                               <input type="text" class="form-control" id="name" aria-describedby="NameHelp" name="name" value="{{$product_category->name}}">
@@ -61,12 +62,12 @@
 
                             <div class="mb-3">
                                 <label for="exampleInputName" class="form-label">Meta Description </label>
-                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description" value="{{$product_category->meta_description}}">
+                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="meta_description" value="{{$product_category->meta_description}}">
 
                               </div>
                               <div class="mb-3">
                                 <label for="exampleInputName" class="form-label">Meta keyword</label>
-                                <input type="text" class="form-control" id="keyword" aria-describedby="NameHelp" name="keyword" value="{{$product_category->meta_keywords}}">
+                                <input type="text" class="form-control" id="keyword" aria-describedby="NameHelp" name="meta_keywords" value="{{$product_category->meta_keywords}}">
 
                               </div>
 

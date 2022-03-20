@@ -37,11 +37,18 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Products Category</h5>
+                        <h5>Category List</h5>
                     </div>
                     <div class="card-body">
                         <div class="user-status table-responsive latest-order-table">
                     <table class="table table-bordernone">
+                        <div class="card-body">
+                            @if (session()->has('info'))
+                            <div class="notification is-success">
+                                {{session('info')}}
+                            </div>
+    
+                            @endif
                                 <thead>
                                 <tr>
                                     <th scope="col">Name</th>
@@ -78,8 +85,9 @@
                                         <td class="danger">non publié</td>
 
                                     @endif
-                                    <td><i data-feather="trash"></i></td>
-                                    <td><i data-feather="edit"></i></td>
+                                    <td><a href="{{route('category.edit',$category->id)}}"><i data-feather="edit"></i></td></a>
+                                    <td><a href="{{route('category.destroy',$category->id)}}"><i data-feather="trash"></i></a></td>
+                                    
                                 </tr>
 
                             @endforeach

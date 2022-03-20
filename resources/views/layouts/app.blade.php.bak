@@ -37,8 +37,7 @@
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/admin.css">
-	    <!-- intel css -->
-    <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
+	
 </head>
 
 <body>

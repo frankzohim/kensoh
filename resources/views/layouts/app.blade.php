@@ -68,6 +68,10 @@
 
     <!-- Sidebar jquery-->
     <script src="assets/backend/js/sidebar-menu.js"></script>
+	
+	<!-- Datatables js-->
+	<script src="/assets/backend/js/datatables/jquery.dataTables.min.js"></script>
+	<script src="/assets/backend/js/datatables/custom-basic.js"></script>
 
     <!--chartist js-->
     <script src="assets/backend/js/chart/chartist/chartist.js"></script>

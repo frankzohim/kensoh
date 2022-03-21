@@ -82,7 +82,7 @@
 								    <option value="1">Publié</option>
 									<option value="0">Non Publié</option>
 								</select>
-
+                            </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>
                           </form>

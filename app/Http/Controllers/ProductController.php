@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\product_category;
 
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product=Product::all();
+        $products=Product::all();
+        $categories=product_category::all();
 
-        return view('Products/view',compact('product'));
+        return view('Products.view',compact('products','categories'));
     }
 
     /**
@@ -26,7 +28,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Products/add');
+        $categories=product_category::all();
+
+
+        return view('Products.add',compact('categories'));
     }
 
     /**
@@ -37,7 +42,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products=new \App\Models\Product;
+        $products->name=$request->name;
+        $products->slug=$this->create_slug($request->name);
+        $products->meta_description=$request->description;
+        $products->meta_keywords=$request->keyword;
+        $products->category_id =$request->category;
+        $products->new=$request->new;
+        $products->position=$request->position;
+        // $products->brand_id =$request->brand;
+        // $products->store_id=$request->store;
+        $products->user_id=auth()->user()->id;
+        $products->featured=$request->vedette;
+        $products->stock_quantity=$request->stock_quantity;
+        $products->unit_price=$request->price;
+        $products->nature=$request->nature;
+        $products->state=$request->state;
+        $products->save();
+
+        dd('enregistrer');
     }
 
     /**
@@ -83,5 +106,14 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+    function create_slug($text){
+        $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
+        $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);
+        $text=preg_replace('~[^-\w]+~','',$text);
+        $text=trim($text,'-');
+        $text=preg_replace('~-+~','-',$text);
+        $text=strtolower($text);
+        return $text;
     }
 }

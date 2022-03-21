@@ -24,6 +24,7 @@
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
 
 

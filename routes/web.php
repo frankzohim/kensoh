@@ -31,10 +31,12 @@ use App\Http\Controllers\BrandController;
 
 	Route::group(['middleware' => ['auth']], function () {
 		
+		
+
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
 		
-		/* All route for Brand CRUD*/
+		/* All route for Brand CRUD
 		Route::get('brand/create', [BrandController::class, 'create'])
                 ->name('brand.create');
 				
@@ -51,7 +53,11 @@ use App\Http\Controllers\BrandController;
 		
 		//Route to list brand
 		Route::get('brand/list', [BrandController::class, 'list'])
-				->name('brand.list');
+				->name('brand.list');*/
+		
+		Route::resources([
+			'brand' => BrandController::class,
+		]);
 	});
 
 	/*Route::get('/dashboard', function () {

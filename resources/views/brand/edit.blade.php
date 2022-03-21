@@ -36,11 +36,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row product-adding">
-                                    <div class="col-xl-5">
-                                        <div class="add-product">
-                                          
-                                        </div>
-                                    </div>
+                                    
 									<!-- Validation Errors -->
 									<x-auth-validation-errors class="mb-4" :errors="$errors" />
 									
@@ -62,8 +58,8 @@
 												</button>
 										</div>
 									@endif
-                                    <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.update')}}" >
+                                    <div class="col-xl-12">
+                                        <form class="needs-validation add-product-form" method="PUT" action="{{route('brand.update', $brand->id)}}" >
                                             @csrf
 											<input type="hidden" id="brandId" name="brandId" value="{{ $brand->id ?? "-1" }}">
 											<div class="form">

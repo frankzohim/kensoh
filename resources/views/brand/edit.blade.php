@@ -59,9 +59,9 @@
 										</div>
 									@endif
                                     <div class="col-xl-12">
-                                        <form class="needs-validation add-product-form" method="PUT" action="{{route('brand.update', $brand->id)}}" >
+                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.update', $brand->id)}}" >
                                             @csrf
-											<input type="hidden" id="brandId" name="brandId" value="{{ $brand->id ?? "-1" }}">
+											@method('PUT')
 											<div class="form">
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nom :</label>

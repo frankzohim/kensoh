@@ -60,7 +60,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        //
+        dd("hio");
     }
 
     /**
@@ -85,20 +85,15 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        return redirect()->route('students.index');
-        dd("hi");
         $validatedData = $request->validate([
-			'brandId' => ['required','exists:App\Models\Brand,id'],
             'name' => ['required','unique:App\Models\Brand,name','string'], 
             'state' => ['required'],
          ]);
 		 
-		 //Load the brand to update by ID
-         $brand = Brand::findorfail($id);
-         $brand = $request->all();
-         $brand->save();
+         $brand->update($request->all());
+         return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque mise à jour avec succès.");
     }
 
     /**
@@ -109,6 +104,6 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd("hi");
     }
 }

@@ -23,6 +23,9 @@
     <!-- Flag icon-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/flag-icon.css">
 
+    <!-- Datatable css-->
+    <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/datatables.css">
+
     <!-- ico-font-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/icofont.css">
 

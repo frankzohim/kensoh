@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Vendor Details</h5>
+                        <h5>Toutes Les Marques</h5>
                     </div>
                     <div class="card-body vendor-table">
                     <div class="btn-popup pull-right">
@@ -85,10 +85,10 @@
                         <table class="display" id="basic-1">
                             <thead>
                             <tr>
-                                <th>Vendor</th>
-                                <th>Products</th>
-                                <th>Store Name</th>
-                                <th>Create Date</th>
+                                <th>Nom</th>
+                                <th>Statut</th>
+                                <th>Date Création</th>
+                                <th>Date</th>
                                 <th>Wallet Balance</th>
                                 <th>Revenue</th>
                                 <th>Action</th>

@@ -49,6 +49,12 @@
                             </div>
     
                             @endif
+                            @if (session()->has('delete'))
+                            <div class="notification is-success">
+                                {{session('delete')}}
+                            </div>
+    
+                            @endif
                                 <thead>
                                 <tr>
                                     <th scope="col">Name</th>
@@ -86,7 +92,13 @@
 
                                     @endif
                                     <td><a href="{{route('category.edit',$category->id)}}"><i data-feather="edit"></i></td></a>
-                                    <td><a href="{{route('category.destroy',$category->id)}}"><i data-feather="trash"></i></a></td>
+                                    <td>
+                                        <form action="{{route('category.destroy',$category->id)}}" method="post">
+                                       @csrf
+                                        
+                                        @method('DELETE')
+                                        <button class="button is-danger" type="submit"><i data-feather="trash"></i>Supprimer</button>
+                                        </form></td>
                                     
                                 </tr>
 

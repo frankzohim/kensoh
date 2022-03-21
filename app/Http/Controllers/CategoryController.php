@@ -103,9 +103,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(product_category $category)
     {
-        //
+        $category->delete();
+
+        return back()->with('delete','La catégorie à bien été suprimé');
     }
 
     function create_slug($text){

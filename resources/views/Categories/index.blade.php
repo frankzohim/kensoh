@@ -47,13 +47,13 @@
                             <div class="notification is-success">
                                 {{session('info')}}
                             </div>
-    
+
                             @endif
                             @if (session()->has('delete'))
                             <div class="notification is-success">
                                 {{session('delete')}}
                             </div>
-    
+
                             @endif
                                 <thead>
                                 <tr>
@@ -95,11 +95,11 @@
                                     <td>
                                         <form action="{{route('category.destroy',$category->id)}}" method="post">
                                        @csrf
-                                        
+
                                         @method('DELETE')
                                         <button class="button is-danger" type="submit"><i data-feather="trash"></i>Supprimer</button>
                                         </form></td>
-                                    
+
                                 </tr>
 
                             @endforeach

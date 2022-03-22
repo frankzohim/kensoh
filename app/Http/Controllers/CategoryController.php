@@ -40,6 +40,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData=$request->validate([
+            'name'=>['required','unique:App\Models\product_category,name','string'],
+            'description'=>['required','string','min:1','max:2000'],
+            'keyword'=> ['required','string','min:1','max:500'],
+            'state'=>['required','boolean'],
+        ]);
 
 
 
@@ -54,8 +60,8 @@ class CategoryController extends Controller
         $category->user_id=auth()->user()->id;
         $id=$category->id;
         $category->save();
-         dd('categorie ajouté avec succes');
-        //  return redirect()->route('category.edit',['categoryId'=>$id])->with('info','La Categorie à bien été ajouté dans la base de donnée');
+
+         return redirect()->route('category.edit',['categoryId'=>$id])->with('info','La Categorie à bien été ajouté dans la base de donnée');
     }
 
     /**

@@ -60,7 +60,7 @@ class ProductController extends Controller
         $products->state=$request->state;
         $products->save();
 
-        dd('enregistrer');
+        return redirect()->route('products.index')->with('save','votre Produit à bien été enregistrer');
     }
 
     /**
@@ -82,7 +82,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productId=Product::findOrFail($id);
+        $products=Product::all();
+        $categories=product_category::all();
+
+        return view('Products.edit',compact('productId','products','categories'));
     }
 
     /**
@@ -92,9 +96,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+
+        return redirect()->route('products.index')->with('update','Votre produit à bien été mis à jour ');
     }
 
     /**
@@ -103,9 +109,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return back()->with('delete','votre Produit à bien été bien supprimé');
     }
     function create_slug($text){
         $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);

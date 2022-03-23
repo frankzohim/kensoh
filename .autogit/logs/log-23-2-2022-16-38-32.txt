@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Mar 23 2022 16:38:32 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+* resources/views/layouts/backoffice/sidebar.blade.php
+* routes/web.php
+
+
+Created files:
+* .autogit/logs/log-23-2-2022-16-8-15.txt
+
+
+Deleted files:
+
+
+Renamed files:

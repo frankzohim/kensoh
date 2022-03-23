@@ -17,7 +17,7 @@ use App\Http\Controllers\couponController;
 */
 
 
-Route::get('/coupon', [couponController::class, 'create'])->name('coupon');
+Route::get('/coupon', [CouponController::class, 'create'])->name('coupon');
 
 
 Route::get('/', function () {

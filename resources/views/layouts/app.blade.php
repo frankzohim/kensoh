@@ -33,6 +33,9 @@
     <!-- Prism css-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/prism.css">
 
+    <!-- Dropzone css-->
+    <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/dropzone.css">
+
     <!-- Chartist css -->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/chartist.css">
 

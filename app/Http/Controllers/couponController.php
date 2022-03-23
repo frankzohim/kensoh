@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class couponController extends Controller
 {
-    public function index()
+    public function create()
     {
-        return view('coupon');
+        return view('coupon.create');
     }
 }

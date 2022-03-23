@@ -53,11 +53,12 @@ Route::group(['middleware' => ['auth']], function () {
 		//Route to list brand
 		Route::get('brand/list', [BrandController::class, 'list'])
 				->name('brand.list');*/
-
+    Route::get('coupon/create', [couponController::class, 'create'])->name('coupon.create');
     Route::resources([
         'brand' => BrandController::class,
     ]);
 });
+
 
 /*Route::get('/dashboard', function () {
 		return view('dashboard');
@@ -67,5 +68,5 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-Route::get('coupon/create', [couponController::class, 'index'])->name('coupon');
+
 require __DIR__ . '/auth.php';

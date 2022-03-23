@@ -128,6 +128,6 @@
                 </div>
             </div>
         </div>
-        {{ \TawkTo::widgetCode() }}
+
     </body>
 </html>

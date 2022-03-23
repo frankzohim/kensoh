@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Mon Mar 21 2022 14:14:51 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+* resources/views/welcome.blade.php
+
+
+Created files:
+* .autogit/logs/log-21-2-2022-13-44-33.txt
+
+
+Deleted files:
+
+
+Renamed files:

@@ -1,7 +1,7 @@
    <!-- Page Sidebar Start-->
    <div class="page-sidebar">
             <div class="main-header-left d-none d-lg-block">
-                <div class="logo-wrapper"><a href="index.html.htm"><img class="blur-up lazyloaded" src="/assets/backend/images/dashboard/logo.png" alt=""></a></div>
+                <div class="logo-wrapper"><a href="{{route('dashboard')}}"><img class="blur-up lazyloaded" src="/assets/backend/images/dashboard/logo.png" alt=""></a></div>
             </div>
             <div class="sidebar custom-scrollbar">
                 <div class="sidebar-user text-center">
@@ -23,7 +23,7 @@
                          
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="codepen"></i><span>Boutiques</span></a>
+                    <li><a class="sidebar-header" href="{{route('store.index')}}"><i data-feather="codepen"></i><span>Boutiques</span></a>
                     </li>
                     <li><a class="sidebar-header" href="{{route('brand.index')}}"><i data-feather="droplet"></i><span>Marques</span></a>
                     </li>

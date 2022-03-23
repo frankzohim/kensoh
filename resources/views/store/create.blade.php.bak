@@ -36,33 +36,15 @@
                             </div>
                             <div class="card-body">
                                 <div class="row product-adding">
-                                   
+                                    <div class="col-xl-5">
+                                        <div class="add-product">
+                                          
+                                        </div>
+                                    </div>
 									<!-- Validation Errors -->
 									<x-auth-validation-errors class="mb-4" :errors="$errors" />
-									
-									@if (session('update_success'))
-										<div class="alert alert-success alert-dismissible fade show" role="alert">
-											<span class="alert-icon"><i class="ni ni-like-2"></i></span>
-											<span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-                                        <div class="notification is-success">
-                                        {{ session('update_success') }}
-                                        </div>
-									@endif
-									@if (session('update_failure'))
-										<div class="alert alert-danger alert-dismissible fade show" role="alert">
-											<span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
-											<span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
-												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-												</button>
-										</div>
-									@endif
-                                    <div class="col-xl-6">
-                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.store')}}" >
+                                    <div class="col-xl-7">
+                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.save')}}" >
                                             @csrf
 											<div class="form">
                                                 <div class="form-group mb-3 row">
@@ -105,4 +87,7 @@
                 </div>
             </div>
             <!-- Container-fluid Ends-->
+
+
+
 @endsection

@@ -13,7 +13,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('brand.list');
+        $brands = Brand::all();
+        return view('brand.index', compact('brands'));
     }
 
     /**
@@ -60,7 +61,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        dd("hio");
+        dd('hi');
     }
 
     /**
@@ -104,6 +105,7 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        dd("hi");
+        Brand::destroy($id);
+        return redirect()->route('brand.index');
     }
 }

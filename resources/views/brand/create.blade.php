@@ -36,11 +36,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row product-adding">
-                                    <div class="col-xl-5">
-                                        <div class="add-product">
-                                          
-                                        </div>
-                                    </div>
+                                   
 									<!-- Validation Errors -->
 									<x-auth-validation-errors class="mb-4" :errors="$errors" />
 									
@@ -52,6 +48,9 @@
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
+                                        <div class="notification is-success">
+                                        {{ session('update_success') }}
+                                        </div>
 									@endif
 									@if (session('update_failure'))
 										<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -62,8 +61,8 @@
 												</button>
 										</div>
 									@endif
-                                    <div class="col-xl-7">
-                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.save')}}" >
+                                    <div class="col-xl-12">
+                                        <form class="needs-validation add-product-form" method="POST" action="{{route('brand.store')}}" >
                                             @csrf
 											<div class="form">
                                                 <div class="form-group mb-3 row">
@@ -106,7 +105,4 @@
                 </div>
             </div>
             <!-- Container-fluid Ends-->
-
-
-
 @endsection

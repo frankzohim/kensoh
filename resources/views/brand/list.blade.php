@@ -29,16 +29,66 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Vendor Details</h5>
+                        <h5>Toutes Les Marques</h5>
                     </div>
                     <div class="card-body vendor-table">
+                    <div class="btn-popup pull-right">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Ajouter Une Marque</button>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Ajouter Une Marque</h5>
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <form class="needs-validation add-product-form" method="POST" action="{{route('brand.store')}}" >
+                                                    @csrf
+                                                    <div class="form">
+                                                        <div class="form-group mb-3 row">
+                                                            <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nom :</label>
+                                                            <div class="col-xl-8 col-sm-7">
+                                                                <input type="text" name="name" id="name" class="form-control" required autofocus>
+                                                            </div>
+                                                            <div class="valid-feedback">Looks good!</div>
+                                                        </div>
+                                                        <div class="form-group mb-3 row">
+                                                        
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                            <label class="col-form-label">Status<span>*</span></label>
+                                                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                                <label class="d-block" for="edo-ani">
+                                                                    <input class="radio_animated"  type="radio" name="state" value="1">
+                                                                    Publié
+                                                                </label>
+                                                                <label class="d-block" for="edo-ani1">
+                                                                    <input class="radio_animated"  type="radio" name="state" value="0" checked>
+                                                                    Non Publié
+                                                                </label>
+                                                            </div>
+                                                    </div>
+                                                
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         <table class="display" id="basic-1">
                             <thead>
                             <tr>
-                                <th>Vendor</th>
-                                <th>Products</th>
-                                <th>Store Name</th>
-                                <th>Create Date</th>
+                                <th>Nom</th>
+                                <th>Statut</th>
+                                <th>Date Création</th>
+                                <th>Date</th>
                                 <th>Wallet Balance</th>
                                 <th>Revenue</th>
                                 <th>Action</th>

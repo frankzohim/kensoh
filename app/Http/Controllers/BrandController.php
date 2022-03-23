@@ -1,19 +1,40 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
-    public function create (){
-		return view('brand.create');
-	}
-	
-	public function save (Request $request){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('brand.list');
+    }
 
-		$validatedData = $request->validate([
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('brand.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
             'name' => ['required','unique:App\Models\Brand,name','string'], 
             'state' => ['required'],
          ]);
@@ -26,42 +47,63 @@ class BrandController extends Controller
 		 $brand->user_id = auth()->user()->id;
 
          if($brand->save())
-			return redirect()->route('brand.edit', ['brandId' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
+			return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
 		 else
 			 return redirect()->route('brand.create')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
-	}
-	
-	public function edit($brandId)
-    {        
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        dd("hio");
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         //Loading brand to edit
-        $brand = Brand::findOrFail($brandId);
+        $brand = Brand::findOrFail($id);
 		
 		//Loading edition form
         return view('brand.edit', compact('brand'));
     }
-	
-	public function update (Request $request){
 
-		$validatedData = $request->validate([
-			'brandId' => ['required','exists:App\Models\Brand,id'],
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Brand $brand)
+    {
+        $validatedData = $request->validate([
             'name' => ['required','unique:App\Models\Brand,name','string'], 
             'state' => ['required'],
          ]);
 		 
-		 //Load the brand to update by ID
-         $brand = Brand::findorfail($request->brandId);
-         $brand->name = $request->name;
-         $brand->state = $request->state;
-		 $brand->user_id = auth()->user()->id;
+         $brand->update($request->all());
+         return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque mise à jour avec succès.");
+    }
 
-         if($brand->save())
-			return redirect()->route('brand.edit', ['brandId' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
-		 else
-			 return redirect()->route('brand.edit')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
-	}
-	
-	 public function list()
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
-		return view('brand.list');
-	}
+        dd("hi");
+    }
 }

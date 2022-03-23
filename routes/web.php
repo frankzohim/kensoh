@@ -16,6 +16,10 @@ use App\Http\Controllers\couponController;
 |
 */
 
+
+Route::get('coupon', [couponController::class, 'coupon']);
+
+
 Route::get('/', function () {
     return view('homepage');
 })->name('homepage');
@@ -53,7 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
 		//Route to list brand
 		Route::get('brand/list', [BrandController::class, 'list'])
 				->name('brand.list');*/
-    Route::get('coupon/create', [couponController::class, 'create'])->name('coupon.create');
+
     Route::resources([
         'brand' => BrandController::class,
     ]);

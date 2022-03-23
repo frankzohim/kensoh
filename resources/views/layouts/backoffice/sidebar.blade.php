@@ -33,7 +33,7 @@
                             <li><a href="transactions.html.htm"><i class="fa fa-circle"></i>Transactions</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="{{route('')}}"><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="{{route('coupon')}}"><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="coupon-list.html.htm"><i class="fa fa-circle"></i>Liste Coupons</a></li>
                             <li><a href="coupon-create.html.htm"><i class="fa fa-circle"></i>Créer Coupon </a></li>

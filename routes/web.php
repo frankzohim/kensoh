@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,28 +38,11 @@ use App\Http\Controllers\StoreController;
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
 		
-		/* All route for Brand CRUD
-		Route::get('brand/create', [BrandController::class, 'create'])
-                ->name('brand.create');
-				
-		Route::post('brand/save', [BrandController::class, 'save'])
-                ->name('brand.save');
-				
-		//Route to show edit a brand form
-		Route::get('brand/edit{brandId}', [BrandController::class, 'edit'])
-				->name('brand.edit');
-				
-		//Route to update a brand
-		Route::post('brand/update', [BrandController::class, 'update'])
-				->name('brand.update');
-		
-		//Route to list brand
-		Route::get('brand/list', [BrandController::class, 'list'])
-				->name('brand.list');*/
-		
 		Route::resources([
 			'brand' => BrandController::class,
 			'store' => StoreController::class,
+			'category' => CategoryController::class,
+			'product' => ProductController::class,
 		]);
 	});
 

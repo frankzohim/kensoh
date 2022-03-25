@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Store;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -13,6 +14,7 @@ class StoreController extends Controller
      */
     public function index()
     {
+        //Loading all store from database and list them
         $stores = Store::all();
         return view('store.index', compact('stores'));
     }
@@ -24,7 +26,9 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('store.create');
+        //Loading all countries from database
+        $countries = Country::all(); 
+        return view('store.create', compact('countries'));
     }
 
     /**

@@ -13,10 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories=ProductCategory::all();
-        $categoryId=ProductCategory::select('parent')->get();
-
-        return view('categories.index',compact('categories','categoryId'));
+        $categories = $categories2 =ProductCategory::all();
+        return view('categories.index',compact('categories','categories2'));
     }
 
     /**
@@ -39,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData=$request->validate([
-            'name'=>['required','unique:App\Models\product_category,name','string'],
+            'name'=>['required','unique:App\Models\ProductCategory,name','string'],
             'description'=>['required','string','min:1','max:2000'],
             'keyword'=> ['required','string','min:1','max:500'],
             'state'=>['required','boolean'],
@@ -47,7 +45,7 @@ class CategoryController extends Controller
 
 
 
-        $category=new \App\Models\product_category;
+        $category=new ProductCategory;
         $category->name=$request->name;
 
         $category->slug=$this->create_slug($request->name);
@@ -57,9 +55,11 @@ class CategoryController extends Controller
         $category->state=$request->state;
         $category->user_id=auth()->user()->id;
         $id=$category->id;
-        $category->save();
-
-         return redirect()->route('category.edit',['categoryId'=>$id])->with('info','La Categorie à bien été ajouté dans la base de donnée');
+        
+        if($category->save())
+         return redirect()->route('category.index')->with('update_success','Catégorie ajouté avec succès');
+        else
+            return redirect()-back()->with('update_failure','Une erreur est survenue, merci de réessayer');
     }
 
     /**
@@ -81,10 +81,9 @@ class CategoryController extends Controller
      */
     public function edit($categoryId)
     {
-        $product_category= product_category::findOrFail($categoryId);
-        $categories=product_category::all();
-
-        return view('Categories.edit',compact('product_category','categories'));
+        $category= Productcategory::findOrFail($categoryId);
+        $categories=Productcategory::all();
+        return view('categories.edit',compact('category','categories'));
     }
 
     /**
@@ -94,11 +93,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product_category $category)
+    public function update(Request $request, ProductCategory $category)
     {
         $category->update($request->all());
 
-        return redirect()->route('category.index')->with('info','Categorie à bien été modifier');
+        return redirect()->route('category.index')->with('update_success','Categorie à bien été modifier');
     }
 
     /**
@@ -107,11 +106,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product_category $category)
+    public function destroy(ProductCategory $category)
     {
         $category->delete();
 
-        return back()->with('delete','La catégorie à bien été suprimé');
+        return back()->with('update_success','La catégorie à bien été suprimé');
     }
 
     function create_slug($text){

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('Liste Marques'))
+@section('title', __('Liste des boutiques'))
 
 @section('content')
 
@@ -16,8 +16,8 @@
                         </div>
                         <div class="col-lg-6">
                             <ol class="breadcrumb pull-right">
-                                <li class="breadcrumb-item"><a href="index.html.htm"><i data-feather="home"></i></a></li>
-                                <li class="breadcrumb-item">Boutiques</li>
+                                <li class="breadcrumb-item"><a href="{{route('store.index')}}"><i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{{route('store.index')}}">Boutiques</li></a>
                                 <li class="breadcrumb-item active">Listing</li>
                             </ol>
                         </div>
@@ -29,68 +29,39 @@
             <div class="container-fluid">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Toutes Les Boutiques</h5>
+                        <h5>Toutes Les Boutiques</h5><br>
+                        @if (session('update_success'))
+										<div class="alert alert-success alert-dismissible fade show" role="alert">
+											<span class="alert-icon"><i class="ni ni-like-2"></i></span>
+											<span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									@endif
+									@if (session('update_failure'))
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+											<span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+										</div>
+									@endif
                     </div>
                     <div class="card-body vendor-table">
                     <div class="btn-popup pull-right">
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Ajouter Une Boutique</button>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Ajouter Une Boutique</h5>
-                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                <form class="needs-validation add-product-form" method="POST" action="{{route('store.store')}}" >
-                                                    @csrf
-                                                    <div class="form">
-                                                        <div class="form-group mb-3 row">
-                                                            <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Nom :</label>
-                                                            <div class="col-xl-8 col-sm-7">
-                                                                <input type="text" name="name" id="name" class="form-control" required autofocus>
-                                                            </div>
-                                                            <div class="valid-feedback">Looks good!</div>
-                                                        </div>
-                                                        <div class="form-group mb-3 row">
-                                                        
-                                                        </div>
-                                                        
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                            <label class="col-form-label">Status<span>*</span></label>
-                                                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                                                                <label class="d-block" for="edo-ani">
-                                                                    <input class="radio_animated"  type="radio" name="state" value="1">
-                                                                    Publié
-                                                                </label>
-                                                                <label class="d-block" for="edo-ani1">
-                                                                    <input class="radio_animated"  type="radio" name="state" value="0" checked>
-                                                                    Non Publié
-                                                                </label>
-                                                            </div>
-                                                    </div>
-                                                
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-primary">Ajouter</button>
-                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
-                                                </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <a href="{{route('store.create')}}"><button type="button" class="btn btn-primary">Ajouter Une Boutique</button></a>
+                        </div>
                         <table class="display" id="basic-1">
                             <thead>
                             <tr>
+                                <th>Logo</th>
                                 <th>Nom</th>
-                                <th>Statut</th>
-                                <th>Date Création</th>
-                                <th>Date Modification</th>
-                                <th>Nombre Produit</th>
-
+                                <th>Pays</th>
+                                <th>Ville</th>
+                                <th>Rue / Quartier</th>
+                                <th>Téléphone</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -99,15 +70,14 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex vendor-list">
-                                            
-                                            <span>{{$store->name}}</span>
+                                        <img src="{{ route('store.displayImage',$store->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
                                         </div>
                                     </td>
-                                    <td>{{$store->state}}</td>
-                                    <td>{{$store->created_at}}</td>
-                                    <td>{{$store->updated_at}}</td>
-
-                                    <td>{{$store->name}}</td>
+                                    <td> <span>{{$store->name}}</span></td>
+                                    <td>{{$store->country_id}}</td>
+                                    <td>{{$store->town}}</td>
+                                    <td>{{$store->street}}</td>
+                                    <td>{{$store->phone}}</td>
                                     <td>
                                         <div>
                                         <a href="{{route('store.edit',$store->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

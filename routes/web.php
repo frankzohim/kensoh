@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ use App\Http\Controllers\CategoryController;
 
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
+		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
+                ->name('store.displayImage');
 		
 		Route::resources([
 			'brand' => BrandController::class,

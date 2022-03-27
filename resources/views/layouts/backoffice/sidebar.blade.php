@@ -18,8 +18,8 @@
                         <ul class="sidebar-submenu">
 
                             <li><a href="{{route('category.index')}}"><i class="fa fa-circle"></i>Catégories</a></li>
-                            <li><a href="category-sub.html.htm"><i class="fa fa-circle"></i>Liste Produits</a></li>
-                            <li><a href="add-product.html.htm"><i class="fa fa-circle"></i>Ajouter</a></li>
+                            <li><a href="{{route('product.index')}}"><i class="fa fa-circle"></i>Liste Produits</a></li>
+                            <li><a href="{{route('product.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
                          
                         </ul>
                     </li>

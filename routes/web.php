@@ -7,6 +7,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +33,27 @@ use App\Http\Controllers\ProductController;
 			return view('backend/login');
 	})->name('backend');
 
-	Route::group(['middleware' => ['auth']], function () {
-		
-		
+	//Email verification notice
+	Route::get('/email/verify', function () {
+		return view('auth.verify-email');
+	})->middleware('auth')->name('verification.notice');
 
+	//when user click on activate my account on mail to verify his email address
+	Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+		$request->fulfill();
+	 
+		return redirect('/dashboard');
+	})->middleware(['auth', 'signed'])->name('verification.verify');
+
+	//Resending Email verification
+	Route::post('/email/verification-notification', function (Request $request) {
+		$request->user()->sendEmailVerificationNotification();
+	 
+		return back()->with('message', 'Verification link sent!');
+	})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+	Route::group(['middleware' => ['auth','verified']], function () {
+		
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])

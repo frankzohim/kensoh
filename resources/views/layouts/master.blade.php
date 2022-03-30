@@ -34,11 +34,11 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/bootstrap.css">
 	
+        <!-- App css-->
+        <link rel="stylesheet" type="text/css" href="/assets/backend/css/admin.css">
+        
     <!-- intel css -->
     <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
-	
-    <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/style.css">
 
 
 

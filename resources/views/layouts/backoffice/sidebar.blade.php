@@ -11,10 +11,10 @@
                     <p>promoteur.</p>
                 </div>
                 <ul class="sidebar-menu">
-                    <li><a class="sidebar-header" href="index.html.htm"><i data-feather="home"></i><span>Tableau de bord</span></a></li>
-                    <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="package"></i><span>Colis</span></a>
+                    <li><a class="sidebar-header" href="{{route('dashboard')}}"><i data-feather="home"></i><span>Tableau de bord</span></a></li>
+                    <li><a class="sidebar-header" href="#"><i data-feather="package"></i><span>Colis</span></a>
                     </li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="{{route('product.index')}}"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
 
                             <li><a href="{{route('category.index')}}"><i class="fa fa-circle"></i>Catégories</a></li>
@@ -29,14 +29,14 @@
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Ventes</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="order.html.htm"><i class="fa fa-circle"></i>Commandes</a></li>
-                            <li><a href="transactions.html.htm"><i class="fa fa-circle"></i>Transactions</a></li>
+                            <li><a href="#"><i class="fa fa-circle"></i>Commandes</a></li>
+                            <li><a href="#"><i class="fa fa-circle"></i>Transactions</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href=""><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="{{route('coupon.index')}}"><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="coupon-list.html.htm"><i class="fa fa-circle"></i>Liste Coupons</a></li>
-                            <li><a href="coupon-create.html.htm"><i class="fa fa-circle"></i>Créer Coupon </a></li>
+                            <li><a href="{{route('coupon.index')}}"><i class="fa fa-circle"></i>Liste Coupons</a></li>
+                            <li><a href="{{route('coupon.create')}}"><i class="fa fa-circle"></i>Créer Coupon </a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="media.html.htm"><i data-feather="camera"></i><span>Media</span></a></li>

@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Type de compte</label>
-                                    <select class="form-control" title="Account Type"   name='account_type'>
+                                    <select class="form-select" aria-label="Default select example" title="Account Type"   name='account_type'>
                                         <option disabled selected>{{ __('Type de compte') }}</option>
                                         <option value="2">{{ __('Client') }}</option>
                                         <option value="3">{{ __('Vendeur') }}</option>
@@ -69,12 +69,19 @@
                                     <input type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" class="form-control" placeholder="Confirmez votre mot de passe">
                                 </div>
                             </div>
-							
-							<div class="form-row row">
-                                
-                                <div class="col-md-12">
+
+                            <div class="form-row row">
+                                <div class="col-md-6">
+                                        <label for="review">Pays</label>
+                                        <select class="form-select" aria-label="Default select example" name="country_id">
+                                            @foreach ($countries as $country)
+                                            <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                            @endforeach
+                                        </select>
+                                </div>
+                                <div class="col-md-6">
                                     <label for="review">Téléphone</label>
-                                   <input style=""id="phone" name="phone" type="tel" required size="150">
+                                    <input type="tel" id="telephone" name="telephone" required  class="form-control" placeholder="Numéro de téléphone sans indicatif">
                                 </div>
                             </div>
                           
@@ -134,6 +141,5 @@
 			
 		}
 		
-
   </script>
 @endsection

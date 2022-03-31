@@ -16,7 +16,8 @@ class CouponController extends Controller
     public function index()
     {
         $coupons = Coupon::all();
-        return view('coupons.index',compact('coupons'));
+        $stores = Store::all();
+        return view('coupons.index',compact('coupons','stores'));
     }
 
     /**
@@ -76,9 +77,9 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        $coupon= Productcoupon::findOrFail($couponId);
-        $coupons=Productcoupon::all();
-        return view('coupons.edit',compact('coupon','coupons'));
+        $coupon= Coupon::findOrFail($id);
+        $stores = Store::all();
+        return view('coupons.edit',compact('coupon','stores'));
     }
 
     /**
@@ -88,8 +89,9 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CouponRequest $request, Coupon $coupon)
     {
+        //$validatedData = $request->validated();
         $coupon->update($request->all());
 
         return redirect()->route('coupon.index')->with('update_success','Categorie à bien été modifier');
@@ -103,8 +105,7 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        $coupon->delete();
-
-        return back()->with('update_success','La catégorie à bien été suprimé');
+        Coupon::destroy($id);
+        return back()->with('update_success','Le coupon a bien été suprimé');
     }
 }

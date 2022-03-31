@@ -47,7 +47,7 @@
                                             <div class="form-group row">
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4"> Nom Coupon</label>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" id="name" name="name" type="text"  required="" autofocus>
+                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -81,7 +81,7 @@
                                                 <div class="col-md-7">
                                                     <select class="custom-select w-100 form-control" name="state" required="">
                                                         <option value="1">Publié</option>
-                                                        <option value="2">Non Publié</option>
+                                                        <option value="0">Non Publié</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -90,7 +90,7 @@
                                                 <div class="col-md-7">
                                                     <select class="custom-select w-100 form-control" required="" name="store">
                                                         @forelse($stores as $store)
-                                                            <option value="{{$store->id}}">{{$store->name}}</option>
+                                                            <option value="{{$store->id}}" )>{{$store->name}}</option>
                                                         @empty
                                                         @endforelse
                                                     </select>

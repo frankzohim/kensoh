@@ -64,10 +64,11 @@
                             <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Statut</th>
-                                <th>Description</th>
-                                <th>Coupon parente</th>
-                                <th>Nombre de produits</th>
+                                <th>Code</th>
+                                <th>Date début</th>
+                                <th>Date fin</th>
+                                <th>Réduction</th>
+                                <th>Boutique</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -80,17 +81,17 @@
                                             <span>{{$coupon->name}}</span>
                                         </div>
                                     </td>
-                                    <td>{{$coupon->state}}</td>
-                                    <td>{{$coupon->meta_description}}</td>
+                                    <td>{{$coupon->code}}</td>
+                                    <td>{{$coupon->start_date}}</td>
+                                    <td>{{$coupon->end_date}}</td>
+                                    <td>{{$coupon->discount}}</td>
                                     <td> 
-                                        @foreach($coupons2 as $coupon2)
-                                            @if($coupon->parent == $coupon2->id)
-                                                {{$coupon2->name}}
+                                        @foreach($stores as $store)
+                                            @if($coupon->store_id == $store->id)
+                                                {{$store->name}}
                                             @endif
                                         @endforeach
                                     </td>
-
-                                    <td>0</td>
                                     <td>
                                         <div>
                                         <a href="{{route('coupon.edit',$coupon->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

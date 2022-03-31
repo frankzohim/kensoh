@@ -2,7 +2,7 @@
     'class'=>'',
     'elementActive' => 'categories'
 ])
-@section('title',__('Editer une catégorie'))
+@section('title',__('Editer un coupon'))
 
 @section('content')
 
@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-lg-6">
                    <div class="page-header-left">
-                        <h3>Editer une catégorie
+                        <h3>Editer un coupon
                             <small>Kensoh Administration</small>
                         </h3>
                     </div> 
@@ -23,8 +23,8 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="{{route('category.index')}}">Catégories</li></a>
-                        <li class="breadcrumb-item">Editer une catégorie</li>
+                        <li class="breadcrumb-item"><a href="{{route('coupon.index')}}">coupons</li></a>
+                        <li class="breadcrumb-item">Editer un coupon</li>
                     </ol>
                 </div>
             
@@ -35,85 +35,86 @@
 
     <!-- Container-fluid starts-->
     <div class="container-fluid">
-            <form method="post" action="{{route('category.update', $category->id)}}">
+            <form method="post" action="{{route('coupon.update', $coupon->id)}}">
                 @csrf
-                @method('PUT')
+                @method('PUT');
                 <!-- Validation Errors -->
 				<x-auth-validation-errors class="mb-4" :errors="$errors" />
-                <div class="row product-adding">
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Général</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="digital-add needs-validation">
-                                        <div class="form-group">
-                                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Nom</label>
-                                            <input class="form-control" id="name" name="name" type="text" value='{{$category->name}}' required autofocus>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label"><span>*</span> Catégorie parente</label>
-                                            <select class="custom-select form-control" required name="parent">
-                                                <option  value="0">Catégorie principale</option>
-                                                @forelse ($categories as $category1)
-                                                    @if($category->id==$category1->id || $category->id==$category1->parent)
-                                                        @continue;
-                                                    @endif
-
-                                                    <option  value="{{$category1->id}}" @if($category->parent==$category1->id) echo selected @endif>{{$category1->name}}</option>
-                                                @empty
-                                                Nothing
-                                                @endforelse
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label"><span>*</span> Status</label>
-                                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                                                <label class="d-block" for="edo-ani">
-                                                    <input class="radio_animated" id="state" type="radio" name="state" value="1" @if($category->state==1) echo checked @endif>
-                                                    Publié
-                                                </label>
-                                                <label class="d-block" for="edo-ani1">
-                                                    <input class="radio_animated" id="state" type="radio" name="state" value="0" @if($category->state==0) echo checked @endif>
-                                                    Non Publié
-                                                </label>
+                <div class="card tab2-card">
+                    <div class="card-header">
+                        <h5>Détails du Coupon de Réduction</h5>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4"> Nom Coupon</label>
+                                                <div class="col-md-7">
+                                                    <input class="form-control" id="name" name="name" type="text"  value="{{$coupon->name}}" required="" autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Code Coupon</label>
+                                                <div class="col-md-7">
+                                                    <input class="form-control" id="code" name="code" type="text" value="{{$coupon->code}}" required="">
+                                                </div>
+                                                <div class="valid-feedback">Please Provide a Valid Coupon Code.</div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Date Début</label>
+                                                <div class="col-md-7">
+                                                    <input class="datepicker-here form-control digits" id="startDate" name="startDate" type="date" value="{{$coupon->start_date}}" data-language="en">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Date Fin</label>
+                                                <div class="col-md-7">
+                                                    <input class="datepicker-here form-control digits" id="endDate" name="endDate" type="date" value="{{$coupon->end_date}}" data-language="en">
+                                                </div>
+                                            </div>
+                                          
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Pourcentage Réduction</label>
+                                                <div class="col-md-7">
+                                                <input class="form-control" type="number" min="0" id="discount" name="discount" value="{{$coupon->discount}}" required="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Status</label>
+                                                <div class="col-md-7">
+                                                    <select class="custom-select w-100 form-control" name="state" required="">
+                                                        <option value="1" @selected($coupon->state==1)>Publié</option>
+                                                        <option value="0" @selected($coupon->state==0)>Non Publié</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Boutique</label>
+                                                <div class="col-md-7">
+                                                    <select class="custom-select w-100 form-control" required="" name="store">
+                                                        @forelse($stores as $store)
+                                                            <option value="{{$store->id}}" @selected($store->id==$coupon->store_id)>{{$store->name}}</option>
+                                                        @empty
+                                                        @endforelse
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                               
                             </div>
                         </div>
-                        <div class="col-xl-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5>Reférencement</h5>
-                                </div>
-                                <div class="card-body">
-                                    <div class="digital-add needs-validation">
-                                       
-                                        <div class="form-group">
-                                            <label class="col-form-label">Déscription de la catégorie</label>
-                                            <textarea rows="2" cols="12" id="description" aria-describedby="NameHelp" name="description" required>{{$category->meta_description}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Mots clés de la catégorie</label>
-                                            <textarea rows="2" cols="12" id="keyword" aria-describedby="NameHelp" name="keyword" required>{{$category->meta_keywords}}</textarea>
-                                        </div>
-                                        <div class="form-group mb-0">
-                                            <div class="product-buttons text-center">
-                                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div >
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
                         </div>
                     </div>
+                </div>
                 </form>
-        </div>
-    <!-- Container-fluid Ends-->
+            </div>
+            <!-- Container-fluid Ends-->
 
 
 </div>

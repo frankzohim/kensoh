@@ -13,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>['required','string', 'max:255'],
+            'description'=>['required','string', 'max:2000'],
+            'keyword'=>['required','string', 'max:2000'],
+            'category'=>['required','exists:App\Models\ProductCategory,id'],
+            'new'=>['required','boolean'],
+            'position'=>['required','integer', 'min:1','max:3'],
+            'vedette'=>['required','boolean'],
+            'stock_quantity'=>['required','integer', 'min:1'],
+            'nature'=>['required','boolean'],
+            'brand'=>['required','exists:App\Models\Brand,id'],
+            'store_id'=>['required','exists:App\Models\Store,id'],
+            'state'=>['required','boolean'],
         ];
     }
 }

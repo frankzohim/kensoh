@@ -64,10 +64,13 @@
                             <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Statut</th>
                                 <th>Description</th>
-                                <th>Catégorie parente</th>
-                                <th>Nombre de produits</th>
+                                <th>Etat</th>
+                                <th>Prix</th>
+                                <th>Quantité</th>
+                                <th>Catégorie</th>
+                                <th>Marque</th>
+                                <th>Boutique</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -80,13 +83,44 @@
                                             <span>{{$product->name}}</span>
                                         </div>
                                     </td>
-                                    <td>{{$product->state}}</td>
                                     <td>{{$product->meta_description}}</td>
-                                    <td> 
-                                        
+                                    <td>
+                                        @switch($product->new)
+                                            @case(1)
+                                                Neuf
+                                                @break
+                                            @case(0)
+                                                Occassion
+                                                @break
+                                        @endswitch
+                                    </td>
+                                    <td>{{$product->unit_price}}</td>
+                                    <td>{{$product->stock_quantity}}</td>
+                                    <td>
+                                        @forelse($categories as $category)
+                                            @if($category->id == $product->category_id)
+                                                {{$category->name}}
+                                            @endif
+                                        @empty
+                                        @endforelse
+                                    </td>
+                                    <td>
+                                        @forelse($brands as $brand)
+                                            @if($brand->id == $product->brand_id)
+                                                {{$brand->name}}
+                                            @endif
+                                        @empty
+                                        @endforelse
+                                    </td>
+                                    <td>
+                                        @forelse($stores as $store)
+                                            @if($store->id == $product->store_id)
+                                                {{$store->name}}
+                                            @endif
+                                        @empty
+                                        @endforelse
                                     </td>
 
-                                    <td>0</td>
                                     <td>
                                         <div>
                                         <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

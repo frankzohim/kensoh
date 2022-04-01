@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Brand;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -18,8 +20,9 @@ class ProductController extends Controller
     {
         $products=Product::all();
         $categories=ProductCategory::all();
-
-        return view('products.index',compact('products','categories'));
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.index',compact('products','categories','brands','stores'));
     }
 
     /**
@@ -30,8 +33,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
-        $brands=Brand::all();
-        return view('products.create',compact('categories','brands'));
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.create',compact('categories','brands','stores','categories'));
     }
 
     /**
@@ -40,29 +44,31 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $products=new \App\Models\Product;
-        $products->name=$request->name;
-        $products->slug=$this->create_slug($request->name);
-        $products->meta_description=$request->description;
-        $products->meta_keywords=$request->keyword;
-        $products->category_id =$request->category;
-        $products->new=$request->new;
-        $products->position=$request->position;
-        // $products->brand_id =$request->brand;
-        // $products->store_id=$request->store;
-        $products->user_id=auth()->user()->id;
-        $products->featured=$request->vedette;
-        $products->stock_quantity=$request->stock_quantity;
-        $products->unit_price=$request->price;
-        $products->nature=$request->nature;
-        $products->brand_id=$request->brand;
-        $products->store_id=1;
-        $products->state=$request->state;
-        $products->save();
+        $validatedData = $request->validated();
 
-        return redirect()->route('product.index')->with('save','votre Produit à bien été enregistrer');
+        $product=new \App\Models\Product;
+        $product->name=$request->name;
+        $product->slug=$this->create_slug($request->name);
+        $product->meta_description=$request->description;
+        $product->meta_keywords=$request->keyword;
+        $product->category_id =$request->category;
+        $product->new=$request->new;
+        $product->position=$request->position;
+        $product->user_id=auth()->user()->id;
+        $product->featured=$request->vedette;
+        $product->stock_quantity=$request->stock_quantity;
+        $product->unit_price=$request->price;
+        $product->nature=$request->nature;
+        $product->brand_id=$request->brand;
+        $product->store_id=$request->store_id;
+        $product->state=$request->state;
+        
+        if($product->save())
+            return redirect()->route('product.index')->with('update_success','Votre Produit à bien été enregistré');
+        else
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayer plustard');
     }
 
     /**
@@ -84,11 +90,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $productId=Product::findOrFail($id);
-        $products=Product::all();
-        $categories=ProductCategory::all();
+        $product = Product::findOrFail($id);
+        $brands =  Brand::all();
+        $stores =  Store::all();
+        $categories = ProductCategory::all();
 
-        return view('Products.edit',compact('productId','products','categories'));
+        return view('Products.edit',compact('product','brands','categories','stores'));
     }
 
     /**
@@ -114,9 +121,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-
-        return back()->with('delete','votre Produit à bien été bien supprimé');
+        return back()->with('update_success','Produit supprimé avec succès');
     }
+
     function create_slug($text){
         $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
         $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);

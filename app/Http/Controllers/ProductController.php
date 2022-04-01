@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Brand;
+use App\Models\Store;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
 
 class ProductController extends Controller
@@ -16,10 +18,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::all();
-        $categories=ProductCategory::all();
-
-        return view('products.index',compact('products','categories'));
+        $products = Product::all();
+        $categories = ProductCategory::all();
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.index',compact('products','categories','stores','brands'));
     }
 
     /**
@@ -30,8 +33,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
-        $brands=Brand::all();
-        return view('products.create',compact('categories','brands'));
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.create',compact('categories','brands','stores'));
     }
 
     /**
@@ -40,29 +44,32 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $products=new \App\Models\Product;
-        $products->name=$request->name;
-        $products->slug=$this->create_slug($request->name);
-        $products->meta_description=$request->description;
-        $products->meta_keywords=$request->keyword;
-        $products->category_id =$request->category;
-        $products->new=$request->new;
-        $products->position=$request->position;
-        // $products->brand_id =$request->brand;
-        // $products->store_id=$request->store;
-        $products->user_id=auth()->user()->id;
-        $products->featured=$request->vedette;
-        $products->stock_quantity=$request->stock_quantity;
-        $products->unit_price=$request->price;
-        $products->nature=$request->nature;
-        $products->brand_id=$request->brand;
-        $products->store_id=1;
-        $products->state=$request->state;
-        $products->save();
+        //Validating user's inputs
+        $validatedData = $request->validated();
+        $product = new Product;
+        $product->name = $request->name;
+        $product->slug = $this->create_slug($request->name);
+        $product->meta_description = $request->description;
+        $product->meta_keywords = $request->keyword;
+        $product->category_id = $request->category_id;
+        $product->new = $request->new;
+        $product->position = $request->position;
+       
+        $product->user_id = auth()->user()->id;
+        $product->featured = $request->vedette;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->unit_price = $request->price;
+        $product->nature = $request->nature;
+        $product->brand_id = $request->brand_id;
+        $product->store_id = $request->store_id;
+        $product->state = $request->state;
 
-        return redirect()->route('product.index')->with('save','votre Produit à bien été enregistrer');
+        if($product->save())
+            return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
+        else
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**
@@ -84,11 +91,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $productId=Product::findOrFail($id);
-        $products=Product::all();
-        $categories=ProductCategory::all();
-
-        return view('Products.edit',compact('productId','products','categories'));
+        $product=Product::findOrFail($id);
+        $categories = ProductCategory::all();
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.edit',compact('product','stores','categories','brands'));
     }
 
     /**
@@ -98,11 +105,32 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, $id)
     {
-        $product->update($request->all());
+        //Validating user's inputs
+        $validatedData = $request->validated();
+        $product = Product::FindOrFail($id);
+        $product->name = $request->name;
+        $product->slug = $this->create_slug($request->name);
+        $product->meta_description = $request->description;
+        $product->meta_keywords = $request->keyword;
+        $product->category_id = $request->category_id;
+        $product->new = $request->new;
+        $product->position = $request->position;
+       
+        $product->user_id = auth()->user()->id;
+        $product->featured = $request->vedette;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->unit_price = $request->price;
+        $product->nature = $request->nature;
+        $product->brand_id = $request->brand_id;
+        $product->store_id = $request->store_id;
+        $product->state = $request->state;
 
-        return redirect()->route('products.index')->with('update','Votre produit à bien été mis à jour ');
+        if($product->save())
+            return redirect()->route('product.index')->with('update_success','Produit mise à joue avec succès');
+        else
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**

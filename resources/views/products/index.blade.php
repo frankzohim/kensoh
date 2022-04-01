@@ -22,7 +22,7 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">Produits</li>
+                        <li class="breadcrumb-item"><a href="{{route('product.index')}}">Produits</a></li>
                         <li class="breadcrumb-item active">Liste</li>
                     </ol>
                 </div>
@@ -64,10 +64,12 @@
                             <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Statut</th>
-                                <th>Description</th>
-                                <th>Catégorie parente</th>
-                                <th>Nombre de produits</th>
+                                <th>Etat</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                                <th>Catégorie</th>
+                                <th>Marque</th>
+                                <th>Boutique</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -80,13 +82,43 @@
                                             <span>{{$product->name}}</span>
                                         </div>
                                     </td>
-                                    <td>{{$product->state}}</td>
-                                    <td>{{$product->meta_description}}</td>
-                                    <td> 
-                                        
+                                    <td>
+                                        @switch($product->new)
+                                            @case(1)
+                                              Neuf
+                                              @break
+                                            @case(0)
+                                                Occassion
+                                            @break
+                                        @endswitch
                                     </td>
-
-                                    <td>0</td>
+                                    <td> 
+                                        {{$product->unit_price}}
+                                    </td>
+                                    <td> 
+                                        {{$product->stock_quantity}}
+                                    </td>
+                                    <td>
+                                        @foreach($categories as $category)
+                                            @if($category->id==$product->category_id)
+                                                {{$category->name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td> 
+                                        @foreach($brands as $brand)
+                                            @if($brand->id==$product->brand_id)
+                                                {{$brand->name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td> 
+                                        @foreach($stores as $store)
+                                            @if($store->id==$product->store_id)
+                                                {{$store->name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td>
                                         <div>
                                         <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

@@ -22,7 +22,7 @@
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">Produits</li>
+                        <li class="breadcrumb-item"><a href="{{route('product.index')}}">Produits</a></li>
                         <li class="breadcrumb-item active">Liste</li>
                     </ol>
                 </div>
@@ -64,10 +64,9 @@
                             <thead>
                             <tr>
                                 <th>Nom</th>
-                                <th>Description</th>
                                 <th>Etat</th>
                                 <th>Prix</th>
-                                <th>Quantité</th>
+                                <th>Stock</th>
                                 <th>Catégorie</th>
                                 <th>Marque</th>
                                 <th>Boutique</th>
@@ -83,44 +82,43 @@
                                             <span>{{$product->name}}</span>
                                         </div>
                                     </td>
-                                    <td>{{$product->meta_description}}</td>
                                     <td>
                                         @switch($product->new)
                                             @case(1)
-                                                Neuf
-                                                @break
+                                              Neuf
+                                              @break
                                             @case(0)
                                                 Occassion
-                                                @break
+                                            @break
                                         @endswitch
                                     </td>
-                                    <td>{{$product->unit_price}}</td>
-                                    <td>{{$product->stock_quantity}}</td>
+                                    <td> 
+                                        {{$product->unit_price}}
+                                    </td>
+                                    <td> 
+                                        {{$product->stock_quantity}}
+                                    </td>
                                     <td>
-                                        @forelse($categories as $category)
-                                            @if($category->id == $product->category_id)
+                                        @foreach($categories as $category)
+                                            @if($category->id==$product->category_id)
                                                 {{$category->name}}
                                             @endif
-                                        @empty
-                                        @endforelse
+                                        @endforeach
                                     </td>
-                                    <td>
-                                        @forelse($brands as $brand)
-                                            @if($brand->id == $product->brand_id)
+                                    <td> 
+                                        @foreach($brands as $brand)
+                                            @if($brand->id==$product->brand_id)
                                                 {{$brand->name}}
                                             @endif
-                                        @empty
-                                        @endforelse
+                                        @endforeach
                                     </td>
-                                    <td>
-                                        @forelse($stores as $store)
-                                            @if($store->id == $product->store_id)
+                                    <td> 
+                                        @foreach($stores as $store)
+                                            @if($store->id==$product->store_id)
                                                 {{$store->name}}
                                             @endif
-                                        @empty
-                                        @endforelse
+                                        @endforeach
                                     </td>
-
                                     <td>
                                         <div>
                                         <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

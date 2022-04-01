@@ -6,8 +6,8 @@ use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Support\Collection;
 
 class ProductController extends Controller
 {
@@ -18,11 +18,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::all();
-        $categories=ProductCategory::all();
+        $products = Product::all();
+        $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.index',compact('products','categories','brands','stores'));
+        return view('products.index',compact('products','categories','stores','brands'));
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.create',compact('categories','brands','stores','categories'));
+        return view('products.create',compact('categories','brands','stores'));
     }
 
     /**
@@ -46,29 +46,30 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        //Validating user's inputs
         $validatedData = $request->validated();
+        $product = new Product;
+        $product->name = $request->name;
+        $product->slug = $this->create_slug($request->name);
+        $product->meta_description = $request->description;
+        $product->meta_keywords = $request->keyword;
+        $product->category_id = $request->category_id;
+        $product->new = $request->new;
+        $product->position = $request->position;
+       
+        $product->user_id = auth()->user()->id;
+        $product->featured = $request->vedette;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->unit_price = $request->price;
+        $product->nature = $request->nature;
+        $product->brand_id = $request->brand_id;
+        $product->store_id = $request->store_id;
+        $product->state = $request->state;
 
-        $product=new \App\Models\Product;
-        $product->name=$request->name;
-        $product->slug=$this->create_slug($request->name);
-        $product->meta_description=$request->description;
-        $product->meta_keywords=$request->keyword;
-        $product->category_id =$request->category;
-        $product->new=$request->new;
-        $product->position=$request->position;
-        $product->user_id=auth()->user()->id;
-        $product->featured=$request->vedette;
-        $product->stock_quantity=$request->stock_quantity;
-        $product->unit_price=$request->price;
-        $product->nature=$request->nature;
-        $product->brand_id=$request->brand;
-        $product->store_id=$request->store_id;
-        $product->state=$request->state;
-        
         if($product->save())
-            return redirect()->route('product.index')->with('update_success','Votre Produit à bien été enregistré');
+            return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
         else
-            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayer plustard');
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**
@@ -90,12 +91,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
-        $brands =  Brand::all();
-        $stores =  Store::all();
+        $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
-
-        return view('Products.edit',compact('product','brands','categories','stores'));
+        $brands = Brand::all();
+        $stores = Store::all();
+        return view('products.edit',compact('product','stores','categories','brands'));
     }
 
     /**
@@ -105,11 +105,32 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, $id)
     {
-        $product->update($request->all());
+        //Validating user's inputs
+        $validatedData = $request->validated();
+        $product = Product::FindOrFail($id);
+        $product->name = $request->name;
+        $product->slug = $this->create_slug($request->name);
+        $product->meta_description = $request->description;
+        $product->meta_keywords = $request->keyword;
+        $product->category_id = $request->category_id;
+        $product->new = $request->new;
+        $product->position = $request->position;
+       
+        $product->user_id = auth()->user()->id;
+        $product->featured = $request->vedette;
+        $product->stock_quantity = $request->stock_quantity;
+        $product->unit_price = $request->price;
+        $product->nature = $request->nature;
+        $product->brand_id = $request->brand_id;
+        $product->store_id = $request->store_id;
+        $product->state = $request->state;
 
-        return redirect()->route('products.index')->with('update','Votre produit à bien été mis à jour ');
+        if($product->save())
+            return redirect()->route('product.index')->with('update_success','Produit mise à joue avec succès');
+        else
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**
@@ -121,9 +142,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return back()->with('update_success','Produit supprimé avec succès');
-    }
 
+        return back()->with('delete','votre Produit à bien été bien supprimé');
+    }
     function create_slug($text){
         $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
         $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);

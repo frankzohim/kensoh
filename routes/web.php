@@ -57,9 +57,16 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
+
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
+
+		Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
+                ->name('product.displayImage');
 		
+		//Route to save product's images
+		Route::post('product/image', [ProductController::class, 'images'])
+                ->name('product.image');
 		Route::resources([
 			'brand' => BrandController::class,
 			'store' => StoreController::class,

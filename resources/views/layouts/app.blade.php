@@ -33,6 +33,9 @@
     <!-- Prism css-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/prism.css">
 
+    <!-- Themify icon -->
+    <link rel=" stylesheet" type="text/css" href="/assets/backend/css/vendors/themify-icons.css">
+
     <!-- Dropzone css-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/dropzone.css">
 
@@ -79,6 +82,15 @@
 	<!-- Datatables js-->
 	<script src="/assets/backend/js/datatables/jquery.dataTables.min.js"></script>
 	<script src="/assets/backend/js/datatables/custom-basic.js"></script>
+
+    <!-- Dropzone js-->
+    <script src="/assets/backend/js/dropzone/dropzone.js"></script>
+    <script src="/assets/backend/js/dropzone/dropzone-script.js"></script>
+
+    <!-- Jsgrid js-->
+    <script src="/assets/backend/js/jsgrid/jsgrid.min.js"></script>
+    <script src="/assets/backend/js/jsgrid/griddata-media.js"></script>
+    <script src="/assets/backend/js/jsgrid/jsgrid-media.js"></script>
 
     <!--chartist js-->
     <script src="assets/backend/js/chart/chartist/chartist.js"></script>

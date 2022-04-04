@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
@@ -91,11 +92,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $productImages = ProductImage::where('product_id','=',$id)->get();
+
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.edit',compact('product','stores','categories','brands'));
+        return view('products.edit',compact('product','stores','categories','brands','productImages'));
     }
 
     /**
@@ -145,6 +148,71 @@ class ProductController extends Controller
 
         return back()->with('delete','votre Produit à bien été bien supprimé');
     }
+
+    /**
+     * Save products images to storage.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function images(Request $request)
+    {
+        //Loafing product for which we want to add images
+        $product = Product::FindOrFail($request->productId);
+
+        //Count images already added to that product
+        $productImages = ProductImage::where('product_id','=',$request->productId)->count();
+
+        //Check if images quota of 5 is still maintain, before adding image
+        if($productImages < 5){
+            $image = $request->file('file'); 
+            $extension = $image->getClientOriginalExtension();
+
+            $allowedfileExtension=['jpg','png','jpeg'];
+
+            $check = in_array($extension,$allowedfileExtension);
+                
+            if(!$check){
+                return redirect()->route('product.edit', ['product' => $product->id])->with('update_failure', 'Erreur, type autorisé : jpg, png, jpeg');
+                return response('Erreur, type autorisé : jpg, png, jpeg', 400);
+            }
+            else{
+                
+                //Storing file in disk
+                $fileName = $product->id.'_'.time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
+                $image->storeAs('product-images', $fileName);
+
+                //Add image to database (product_images table)
+                $productImage = new \App\Models\productImage;
+                $productImage->path = $fileName;
+                $productImage->product_id = $product->id;
+                $productImage->save();
+                return redirect()->route('product.edit', ['product' => $product->id])->with('update_success', 'Images ajoutées avec succès');
+                return response('Image ajoutée avec succès', 200);
+            }
+        }
+        else{
+            return response('Quota d\'images atteint', 400);
+        }
+        
+        
+    }
+
+    public function displayImage($id)
+    {
+       $productIamge = ProductImage::FindOrFail($id);
+       return response()->download(storage_path('app/product-images/' . $productIamge->path));
+        
+    }
+
+    public function deleteImage($id)
+    {
+       $productIamge = ProductImage::FindOrFail($id);
+       return response()->download(storage_path('app/product-images/' . $productIamge->path));
+        
+    }
+
+
     function create_slug($text){
         $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
         $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);

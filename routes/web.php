@@ -8,6 +8,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\HomePageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -21,9 +22,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-	Route::get('/', function () {
-		return view('homepage');
-	})->name('homepage');
+	Route::get('/', [HomePagecontroller::class,'index'])->name('homepage');
 
 	Route::get('/backend', function () {
 		 

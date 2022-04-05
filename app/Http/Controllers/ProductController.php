@@ -166,6 +166,7 @@ class ProductController extends Controller
         //Check if images quota of 5 is still maintain, before adding image
         if($productImages < 5){
             $image = $request->file('file'); 
+            $name = "toto";
             $extension = $image->getClientOriginalExtension();
 
             $allowedfileExtension=['jpg','png','jpeg'];
@@ -173,8 +174,8 @@ class ProductController extends Controller
             $check = in_array($extension,$allowedfileExtension);
                 
             if(!$check){
-                return redirect()->route('product.edit', ['product' => $product->id])->with('update_failure', 'Erreur, type autorisé : jpg, png, jpeg');
-                return response('Erreur, type autorisé : jpg, png, jpeg', 400);
+                
+                return response('invalid extension', 400);
             }
             else{
                 
@@ -187,7 +188,6 @@ class ProductController extends Controller
                 $productImage->path = $fileName;
                 $productImage->product_id = $product->id;
                 $productImage->save();
-                return redirect()->route('product.edit', ['product' => $product->id])->with('update_success', 'Images ajoutées avec succès');
                 return response('Image ajoutée avec succès', 200);
             }
         }

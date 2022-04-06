@@ -7,7 +7,7 @@
                         <div class="col-lg-6">
                             <div class="subscribe">
                                 <div>
-                                    <h4>SOYEZ AU COURANT </h4>
+                                    <h4>REJOIGNEZ NOTRE NEWSLETTER </h4>
                                     <p>Ne manquez rien de kensoh en vous inscrivant à notre newsletter.</p>
                                 </div>
                             </div>

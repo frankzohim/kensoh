@@ -52,6 +52,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		return back()->with('message', 'Verification link sent!');
 	})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+	Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
+                ->name('product.displayImage');
+				
 	Route::group(['middleware' => ['auth','verified']], function () {
 		
 		Route::get('/dashboard', [DashboardController::class, 'index'])
@@ -60,12 +63,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
 
-		Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
-                ->name('product.displayImage');
 		
 		//Route to save product's images
 		Route::post('product/image', [ProductController::class, 'images'])
                 ->name('product.image');
+
 		Route::resources([
 			'brand' => BrandController::class,
 			'store' => StoreController::class,
@@ -75,10 +77,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		]);
 	});
 
-	/*Route::get('/dashboard', function () {
-		return view('dashboard');
-	})->middleware(['auth'])->name('dashboard');*/
 
+	
 
 	Route::group(['prefix' => 'admin'], function () {
 		Voyager::routes();

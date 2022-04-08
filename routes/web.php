@@ -22,7 +22,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-	Route::get('/', [HomePagecontroller::class,'index'])->name('homepage');
+	Route::get('/', [HomePageController::class,'index'])->name('homepage');
 
 	Route::get('/backend', function () {
 		 

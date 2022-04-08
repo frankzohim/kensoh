@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="product-para">
-                    <p class="text-center">Vous êtes à la recherche des dernières tendances en matière de vêtements, chaussures et accessoires ? Bienvenue dans notre édition "Latest Drops", qui vous propose tous les derniers styles de toutes vos marques préférées.</p>
+                    <p class="text-center">Vous êtes à la recherche des dernières tendances en matière d'électronique, électroménager et accessoires ? Bienvenue dans notre édition "Latest Drops", qui vous propose tous les derniers styles de toutes vos marques préférées.</p>
                 </div>
             </div>
         </div>
@@ -57,7 +57,9 @@
                                        @endif
                                 </div>
                                 <div class="back">
-                                    <a href="product-page(no-sidebar).html.htm"><img src="/assets/frontend/images/pro3/2.jpg" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                    @if(count($product->product_images) == 2)
+                                        <a href="product-page(no-sidebar).html.htm"><img src="{{route('product.displayImage',$product->product_images[1]->id)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                    @endif
                                 </div>
                                 <div class="cart-info cart-wrap">
                                     <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">

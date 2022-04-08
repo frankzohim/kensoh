@@ -218,14 +218,14 @@
                                                 </div>
                                             </td>
                                           
-                                            <td><a href="{{ route('store.destroy',['store' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#displayImage{{$productImage->id}}"><i class="fa fa-eye font-danger"></i></a></td>
+                                            <td><a href="{{ route('product.displayImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#displayImage{{$productImage->id}}"><i class="fa fa-eye font-danger"></i></a></td>
                                             <td> <span>{{$productImage->created_at}}</span></td>
                                             <td>{{$productImage->path}}</td>
                                             <td>
                                                 <div>
-                                               <a href="{{ route('store.destroy',['store' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$store->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                               <a href="{{ route('product.destroyImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$productImage->id}}"><i class="fa fa-trash font-danger"></i></a>
                                               
-                                                <div class="modal fade" id="exampleModal{{$store->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="exampleModal{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -233,10 +233,10 @@
                                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="POST" action="{{ route('store.destroy',['store' => $store->id]) }}" id="delete-form{{$store->id}}">
+                                                                <form method="POST" action="{{ route('product.destroyImage',['id' => $productImage->id]) }}" id="delete-form{{$productImage->id}}">
                                                                 @csrf
                                                                 <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
-                                                                @method('DELETE')
+                                                                
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-primary">Oui</button>

@@ -54,6 +54,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 	Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
                 ->name('product.displayImage');
+
+	Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage'])
+                ->name('product.destroyImage');
+
 				
 	Route::group(['middleware' => ['auth','verified']], function () {
 		

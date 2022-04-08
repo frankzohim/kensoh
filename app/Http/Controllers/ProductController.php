@@ -9,6 +9,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -147,6 +148,27 @@ class ProductController extends Controller
         $product->delete();
 
         return back()->with('delete','votre Produit à bien été bien supprimé');
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImage($id)
+    {
+        //Retrieving product image from database
+        $productImage = ProductImage::findOrFail($id);
+        $oldfile = $productImage->path; // Retrieving the old file name
+
+        //deleting product's image from disk
+        Storage::delete('product-images/'.$oldfile);
+        
+        //delete file in database
+        $productImage->delete();
+
+        return back()->with('update_success','Image bien supprimé');
     }
 
     /**

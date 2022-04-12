@@ -52,12 +52,17 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		return back()->with('message', 'Verification link sent!');
 	})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+	//Route to display product's image
 	Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
                 ->name('product.displayImage');
 
+	//Route to delete product's image
 	Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage'])
                 ->name('product.destroyImage');
 
+	//Route to product's details
+	Route::get('product/details{id}', [ProductController::class, 'details'])
+                ->name('product.details');
 				
 	Route::group(['middleware' => ['auth','verified']], function () {
 		

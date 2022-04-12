@@ -34,8 +34,8 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/bootstrap.css">
 	
-        <!-- App css-->
-        <link rel="stylesheet" type="text/css" href="/assets/backend/css/admin.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/style.css">
         
     <!-- intel css -->
     <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
@@ -164,11 +164,20 @@
     <!-- lazyload js-->
     <script src="/assets/frontend/js/lazysizes.min.js"></script>
 
+     <!-- sticky cart bottom js-->
+     <script src="../assets/js/sticky-cart-bottom.js"></script>
+
+     <!-- timer js-->
+    <script src="/assets/frontend/js/timer.js"></script>
+
     <!-- Bootstrap js-->
     <script src="/assets/frontend/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap Notification js-->
     <script src="/assets/frontend/js/bootstrap-notify.min.js"></script>
+
+      <!-- Zoom js-->
+      <script src="/assets/frontend/js/jquery.elevatezoom.js"></script>
 
     <!-- Fly cart js-->
     <script src="/assets/frontend/js/fly-cart.js"></script>

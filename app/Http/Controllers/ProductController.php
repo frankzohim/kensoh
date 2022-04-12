@@ -138,6 +138,19 @@ class ProductController extends Controller
     }
 
     /**
+     * Display product details in frontend.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function details($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('products.details', compact('product'));
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

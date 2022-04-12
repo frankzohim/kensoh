@@ -51,14 +51,15 @@
                             <div class="img-wrapper">
                                 <div class="lable-block">@if($product->new == 1)<span class="lable3"> Neuf </span>@endif @if($product->new == 0)<span class="lable4"> Occassion </span>@endif</div>
                                 <div class="front">
-                                    <a href="#">
+                                    <a href="{{route('product.details',$product->id)}}">
                                         @if(count($product->product_images) != 0)
-                                        <img src="{{route('product.displayImage',$product->product_images[0]->id)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                        <img src="{{route('product.displayImage',$product->product_images[0]->id)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    </a>
                                        @endif
                                 </div>
                                 <div class="back">
                                     @if(count($product->product_images) == 2)
-                                        <a href="#"><img src="{{route('product.displayImage',$product->product_images[1]->id)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
+                                        <a href="{{route('product.details', $product->id)}}"><img src="{{route('product.displayImage',$product->product_images[1]->id)}}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                     @endif
                                 </div>
                                 <div class="cart-info cart-wrap">
@@ -75,7 +76,7 @@
                             <div class="product-detail">
                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                 </div>
-                                <a href="#">
+                                <a href="{{route('product.details', $product->id)}}">
                                     <h6>{{$product->name}}</h6>
                                 </a>
                                 <h4>

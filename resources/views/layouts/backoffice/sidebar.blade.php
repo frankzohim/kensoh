@@ -12,6 +12,7 @@
                 </div>
                 <ul class="sidebar-menu">
                     <li><a class="sidebar-header" href="{{route('dashboard')}}"><i data-feather="home"></i><span>Tableau de bord</span></a></li>
+                    <li><a class="sidebar-header" href="{{route('homepage')}}" target="_blank"><i data-feather="home"></i><span>Front Office</span></a></li>
                     <li><a class="sidebar-header" href="#"><i data-feather="package"></i><span>Colis</span></a>
                     </li>
                     <li><a class="sidebar-header" href="{{route('product.index')}}"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>

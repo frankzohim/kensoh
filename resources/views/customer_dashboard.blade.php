@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Tableau de bord'))
+@section('title', __('Tableaux de bord'))
 
 @section('content')
 <!-- breadcrumb start -->

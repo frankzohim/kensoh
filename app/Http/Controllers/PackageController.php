@@ -24,7 +24,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        //
+        return view('packages.create');
     }
 
     /**

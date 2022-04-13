@@ -44,7 +44,7 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Commandes</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Colis</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#packages.create">Colis</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
                                 </li>

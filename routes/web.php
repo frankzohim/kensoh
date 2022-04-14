@@ -8,6 +8,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -87,6 +88,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'category' => CategoryController::class,
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
+			'user' => UserController::class,
 		]);
 	});
 

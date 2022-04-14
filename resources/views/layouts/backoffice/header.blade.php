@@ -62,7 +62,7 @@
                             <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
-                            <li><a href="#"><i data-feather="user"></i>Editer le profil</a></li>
+                            <li><a href="{{route('user.show',auth()->user()->id)}}"><i data-feather="user"></i>Editer le profil</a></li>
                             <li><a href="#"><i data-feather="mail"></i>Messagerie</a></li>
                             <li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
                             <li><a href="#"><i data-feather="settings"></i>Paramètres</a></li>

@@ -77,6 +77,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		Route::post('product/image', [ProductController::class, 'images'])
                 ->name('product.image');
 
+		//Route test
+		Route::get('test', [ProductController::class, 'test'])
+                ->name('test');
+
 		Route::resources([
 			'brand' => BrandController::class,
 			'store' => StoreController::class,

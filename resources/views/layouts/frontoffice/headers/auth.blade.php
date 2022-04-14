@@ -55,7 +55,7 @@
                                     </a>
                                 </div>
                                 <div class="brand-logo">
-                                    <a href="index.html.htm"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                    <a href="{{route('homepage')}}"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                                 </div>
                             </div>
                             <div class="menu-right pull-right">
@@ -66,7 +66,7 @@
                                             <li>
                                                 <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                             </li>
-                                           <li><a href="index.html.htm">Accueil</a></li>
+                                           <li><a href="{{route('homepage')}}">Accueil</a></li>
                                         <li><a href="about-page.html.htm">a propos<div class="lable-nav">new</div></a></li>
                                         <li>
                                             <a href="#">Boutique</a>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class ProductCategory extends Model
 {
@@ -14,4 +15,8 @@ class ProductCategory extends Model
         'meta_keyword',
         'state',
     ];
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

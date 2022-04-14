@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Coupon;
 use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\Brand;
@@ -145,7 +146,9 @@ class ProductController extends Controller
      */
     public function details($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with('product_images', 'brand','category','store')->where('id','=',$id)->first();
+        //$product = $product[0];
+        //dd($product);
 
         return view('products.details', compact('product'));
     }

@@ -4,25 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class PackageList extends Component
+class NavCustomer extends Component
 {
-
-    public $description;
-    public $lenght;
-    public $width;
-    public $weight;
-    public $departure;
-    public $destination;
-
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    // public function __construct($description,$lenght,$width,$weight,$departure,$destination)
     public function __construct()
     {
-
+        //
     }
 
     /**
@@ -32,6 +23,6 @@ class PackageList extends Component
      */
     public function render()
     {
-        return view('components.package-list');
+        return view('components.nav-customer');
     }
 }

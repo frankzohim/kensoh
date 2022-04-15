@@ -99,6 +99,8 @@ class PackageController extends Controller
      */
     public function destroy(package $package)
     {
-        //
+        $package->delete();
+
+        return back()->with('delete','votre Produit à bien été bien supprimé');
     }
 }

@@ -49,6 +49,15 @@
                         </button>
                 </div>
             @endif
+            @if (session('delete'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+                    <span class="alert-text"><strong>Danger!</strong> <strong> {{ session('delete') }} </strong> </span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+            @endif
             @foreach ($towns as $town)
 
 

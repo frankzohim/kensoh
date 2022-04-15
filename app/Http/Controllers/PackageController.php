@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\package;
+use App\Models\town;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
@@ -14,7 +15,9 @@ class PackageController extends Controller
      */
     public function index()
     {
-        return view('packages.index');
+        $towns=town::all();
+        $packages=package::all();
+        return view('packages.index',compact('towns','packages'));
     }
 
     /**
@@ -24,7 +27,8 @@ class PackageController extends Controller
      */
     public function create()
     {
-        return view('packages.create');
+
+        return view('packages.create' );
     }
 
     /**
@@ -35,7 +39,22 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $package=new package;
+        $package->description=$request->description;
+        $package->length=$request->length;
+        $package->width=$request->width;
+        $package->weight=$request->weight;
+        $package->departure=$request->departure;
+        $package->destination=$request->destination;
+        $package->user_id=auth()->user()->id;
+        if($package->save()){
+            return redirect()->route('packages.index')->with('update_success','Colis bien enregidtré');
+
+        }
+        else{
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
+        }
+
     }
 
     /**

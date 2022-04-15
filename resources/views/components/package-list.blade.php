@@ -109,12 +109,12 @@
                                 <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
 
                               </div>
-                                    <label for="exampleFormControlTextarea1" class="form-label">lenght</label>
+                                    <label for="exampleFormControlTextarea1" class="form-label">length</label>
                             <div class="input-group mb-3">
 
 
 
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="lenght">
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length">
 
                               </div>
                               <div class="col-md-6">
@@ -130,7 +130,11 @@
 
 
 
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="departure">
+                                <select id="inputState" class="form-select" name="departure">
+                                    <option selected>Choisir...</option>
+                                    <option value="{{$id}}">{{$name}}</option>
+
+                                  </select>
 
                               </div>
                               <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
@@ -138,17 +142,24 @@
 
 
 
-                                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="destination">
+                                <select id="inputState" class="form-select" name="destination">
+                                    <option selected>Choisir...</option>
+                                    <option value="1">Canada</option>
+                                    <option value="2">au pays</option>
+                                    <option value="3">en afrique</option>
+                                  </select>
 
                                 </div>
                                 </div>
                             </div>
 
-                    </form>
+
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Enregistrer</button>
+
+                    <button type="submit" class="btn btn-primary">Créer</button>
+            </form>
                 </div>
             </div>
         </div>

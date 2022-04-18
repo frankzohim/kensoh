@@ -69,7 +69,7 @@
                             <form method="POST" action="{{ route('logout') }}" id="logout-form">
                             @csrf
 
-                           
+
                         </form>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Déconnexion</a></li>

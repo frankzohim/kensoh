@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PackageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -26,7 +27,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 	Route::get('/', [HomePageController::class,'index'])->name('homepage');
 
 	Route::get('/backend', function () {
-		 
+
 		if (Auth::check()) {
 			return view('dashboard');
 		}
@@ -42,14 +43,14 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 	//when user click on activate my account on mail to verify his email address
 	Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
 		$request->fulfill();
-	 
+
 		return redirect('/dashboard');
 	})->middleware(['auth', 'signed'])->name('verification.verify');
 
 	//Resending Email verification
 	Route::post('/email/verification-notification', function (Request $request) {
 		$request->user()->sendEmailVerificationNotification();
-	 
+
 		return back()->with('message', 'Verification link sent!');
 	})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
@@ -64,16 +65,16 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 	//Route to product's details
 	Route::get('product/details{id}', [ProductController::class, 'details'])
                 ->name('product.details');
-				
+
 	Route::group(['middleware' => ['auth','verified']], function () {
-		
+
 		Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
 
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
 
-		
+
 		//Route to save product's images
 		Route::post('product/image', [ProductController::class, 'images'])
                 ->name('product.image');
@@ -88,12 +89,16 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'category' => CategoryController::class,
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
+<<<<<<< Package
+            'packages'=>PackageController::class,
+=======
 			'user' => UserController::class,
+>>>>>>> main
 		]);
 	});
 
 
-	
+
 
 	Route::group(['prefix' => 'admin'], function () {
 		Voyager::routes();

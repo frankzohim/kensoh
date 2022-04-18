@@ -91,12 +91,12 @@
                         </thead>
                         <tbody>
                         @foreach($packages as $package)
-                               
-                            
+
+
                             <tr>
                                 <td>
                                     <div class="d-flex vendor-list">
-                                        
+
                                         <span>{{$package->description}}</span>
                                     </div>
                                 </td>
@@ -105,14 +105,14 @@
                                 <td>{{$package->weight}}</td>
                                 <td>{{$package->departure}}</td>
                                 <td>{{$package->destination}}</td>
-                            
+
                                 <td>
-                                
+
                                     <div>
                                     <a href="{{route('packages.edit',$package->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                        
+
                                     <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -137,12 +137,12 @@
                                     </div>
                                 </td>
                             </tr>
-                    
+
                         @endforeach
 
 
                         </tbody>
-                        
+
                     </table>
                 </div>
             </div>

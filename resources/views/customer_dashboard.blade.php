@@ -275,9 +275,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="orders">
-                            <x-packagelist class="row">
-                                <x-slot name="subtitle">super</x-slot>
-                            </x-packagelist>
+
                         </div>
 
                         <div class="tab-pane fade" id="profile">

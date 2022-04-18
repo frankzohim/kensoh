@@ -76,7 +76,7 @@ class PackageController extends Controller
      */
     public function edit(package $package)
     {
-        //
+        
     }
 
     /**
@@ -86,9 +86,22 @@ class PackageController extends Controller
      * @param  \App\Models\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, package $package)
+    public function update(Request $request, $id)
     {
-        //
+        $package = package::FindOrFail($id);
+        $package->description=$request->description;
+        $package->length=$request->length;
+        $package->width=$request->width;
+        $package->weight=$request->weight;
+        $package->departure=$request->departure;
+        $package->destination=$request->destination;
+        $package->user_id=auth()->user()->id;
+
+        if($package->save())
+            return redirect()->route('packages.index')->with('update_success','Colis mise à joue avec succès');
+        else
+            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
+
     }
 
     /**

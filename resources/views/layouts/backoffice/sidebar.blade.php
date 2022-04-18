@@ -40,7 +40,6 @@
                             <li><a href="{{route('coupon.create')}}"><i class="fa fa-circle"></i>Créer Coupon </a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="media.html.htm"><i data-feather="camera"></i><span>Media</span></a></li>
                     
                     <li><a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">

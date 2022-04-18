@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Product;
 
 class Store extends Model
 {
@@ -18,4 +19,8 @@ class Store extends Model
             'street',
             'logo',
     ];
+
+    public function product(){
+        return $this->hasMany(Product::class);
+    }
 }

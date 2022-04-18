@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Brand extends Model
 {
@@ -17,4 +18,8 @@ class Brand extends Model
         'name',
 		'state',
     ];
+
+    public function products(){
+        return $this->hasMany(Product::class);
+    }
 }

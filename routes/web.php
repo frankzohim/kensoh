@@ -8,6 +8,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PackageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -78,13 +79,21 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		Route::post('product/image', [ProductController::class, 'images'])
                 ->name('product.image');
 
+		//Route test
+		Route::get('test', [ProductController::class, 'test'])
+                ->name('test');
+
 		Route::resources([
 			'brand' => BrandController::class,
 			'store' => StoreController::class,
 			'category' => CategoryController::class,
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
-            'packages'=>PackageController::class
+<<<<<<< Package
+            'packages'=>PackageController::class,
+=======
+			'user' => UserController::class,
+>>>>>>> main
 		]);
 	});
 

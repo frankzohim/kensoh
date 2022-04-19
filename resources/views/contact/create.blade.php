@@ -33,7 +33,7 @@
                         <h2>Connexion Utilisateur</h2>
                     </div>
 
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Accueil</a></li>
@@ -50,7 +50,7 @@
     <section class="login-page section-b-space">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <h3>Contact</h3>
                     <div class="theme-card">
 						<!-- Session Status -->

@@ -22,5 +22,7 @@ class ContactController extends Controller
         $contact->message=$request->message;
         $contact->localization=$request->localization;
 
+        return redirect()->back()->with('success','votre repose a bien été envoyé');
+
     }
 }

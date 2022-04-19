@@ -22,7 +22,11 @@ class ContactController extends Controller
         $contact->message=$request->message;
         $contact->localization=$request->localization;
 
-        return redirect()->back()->with('success','votre repose a bien été envoyé');
+        if($contact->save())
+        return redirect()->back()->with('success','votre reponse a bien été envoyé');
+    else
+        return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
+
 
     }
 }

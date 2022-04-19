@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
@@ -97,6 +98,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		]);
 	});
 
+    Route::get('contact',[ContactController::class,'create'])->name('contact.create');
+    Route::post('contact',[ContactController::class,'store'])->name('contact.store');
 
 
 

@@ -6,22 +6,23 @@
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
+                <div class="card-header">
+                    @if (session('success'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                        <span class="alert-text"><strong>Succès! </strong> <strong>{{ session('success') }} </strong></span>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                @endif
+            </div>
                 <div class="col-sm-6">
+
                     <div class="page-title">
                         <h2>Connexion Utilisateur</h2>
                     </div>
-                    <div class="card-header">
-                        <h5>Tous les produits</h5><br>
-                        @if (session('success'))
-										<div class="alert alert-success alert-dismissible fade show" role="alert">
-											<span class="alert-icon"><i class="ni ni-like-2"></i></span>
-											<span class="alert-text"><strong>Succès! </strong> <strong>{{ session('success') }} </strong></span>
-											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-									@endif
-                </div>
+
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">

@@ -61,13 +61,6 @@ class RegisteredUserController extends Controller
             'role_id' => '3',
         ]);
 
-        /*$user = new \App\Models\User;
-		$user->role_id = $role;
-        $user->name = $request->name;
-		$user->lastname = $request->lastname;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);*/
-
         event(new Registered($user));
 
         Auth::login($user);

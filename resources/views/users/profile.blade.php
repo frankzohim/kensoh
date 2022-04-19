@@ -26,98 +26,103 @@
          <!-- Container-fluid starts-->
          <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="profile-details text-center">
-                                    <img src="/assets/backend/images/dashboard/designer.jpg" alt="" class="img-fluid img-90 rounded-circle blur-up lazyloaded">
-                                    <h5 class="f-w-600 mb-0">John deo</h5>
-                                    <span>johndeo@gmail.com</span>
-                                    <div class="social">
-                                        <div class="form-group btn-showcase">
-                                            <button class="btn social-btn btn-fb d-inline-block"> <i class="fa fa-facebook"></i></button>
-                                            <button class="btn social-btn btn-twitter d-inline-block"><i class="fa fa-google"></i></button>
-                                            <button class="btn social-btn btn-google d-inline-block me-0"><i class="fa fa-twitter"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="project-status">
-                                    <h5 class="f-w-600">Employee Status</h5>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>Performance<span class="pull-right">80%</span></h6>
-                                            <div class="progress sm-progress-bar">
-                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>Overtime <span class="pull-right">60%</span></h6>
-                                            <div class="progress sm-progress-bar">
-                                                <div class="progress-bar bg-secondary" role="progressbar" style="width: 60%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <h6>Leaves taken<span class="pull-right">70%</span></h6>
-                                            <div class="progress sm-progress-bar">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-8">
+                @if (session('update_success'))
+										<div class="alert alert-success alert-dismissible fade show" role="alert">
+											<span class="alert-icon"><i class="ni ni-like-2"></i></span>
+											<span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+									@endif
+									@if (session('update_failure'))
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+											<span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+										</div>
+									@endif
+                    <div class="col-xl-12">
                         <div class="card tab2-card">
                             <div class="card-body">
                                 <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
-                                    <li class="nav-item"><a class="nav-link active" id="top-profile-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Profile</a>
+                                    <li class="nav-item"><a class="nav-link active" id="top-profile-tab" data-bs-toggle="tab" href="#top-profile" role="tab" aria-controls="top-profile" aria-selected="true"><i data-feather="user" class="me-2"></i>Profil</a>
                                     </li>
                                     <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-controls="top-contact" aria-selected="false"><i data-feather="settings" class="me-2"></i>Contact</a>
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="top-tabContent">
                                     <div class="tab-pane fade show active" id="top-profile" role="tabpanel" aria-labelledby="top-profile-tab">
-                                        <h5 class="f-w-600">Profile</h5>
-                                        <div class="table-responsive profile-table">
-                                            <table class="table table-borderless">
-                                                <tbody>
-                                                <tr>
-                                                    <td>First Name:</td>
-                                                    <td>Johan</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Last Name:</td>
-                                                    <td>Deo</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Email:</td>
-                                                    <td>johndeo@gmail.com</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Gender:</td>
-                                                    <td>Male</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mobile Number:</td>
-                                                    <td>2124821463</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>DOB:</td>
-                                                    <td>Dec, 15 1993</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Location:</td>
-                                                    <td>USA</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <h5 class="f-w-600">Profil</h5>
+                                            <form method="post" action="{{route('user.update', $user->id)}}" id="singleFileUpload" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <!-- Validation Errors -->
+                                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                <div class="row product-adding">
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Prénom</label>
+                                                                            <input class="form-control" id="name" name="name" type="text" value="{{$user->name}}" required autofocus>
+                                                                        </div>
+                                                                        
+                                                                        
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Email</label>
+                                                                            <input class="form-control" id="email" name="email"  type="email" value="{{$user->email}}" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                        <label for="validationCustom02" class="col-form-label"><span>*</span>Mot de passe</label>
+                                                                                <input class="form-control" type="password" id="password" name="password" placeholder="Entrer votre mot de passe">
+                                                                        </div>                                 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Nom</label>
+                                                                            <input class="form-control" id="lastname" name="lastname" type="text" value="{{$user->lastname}}" required autofocus>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> Téléphone</label>
+                                                                            <input class="form-control" id="phone" name="phone"  type="text" value="{{$user->phone}}" required>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label"><span>*</span> Pays</label>
+                                                                            <select class="custom-select form-control" name="country_id" required>
+                                                                                @foreach($countries as $country)
+                                                                                <option value="{{$country->id}}" @selected($country->id == $user->country_id)>{{$country->name_fr}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="digital-add needs-validation">
+                                                        <div class="form-group mb-0">
+                                                            <div class="product-buttons text-center">
+                                                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                     </div>
                                     <div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
                                         <div class="account-setting">

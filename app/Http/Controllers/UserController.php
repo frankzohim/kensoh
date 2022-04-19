@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -13,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('users.index',compact('users'));
     }
 
     /**
@@ -46,7 +50,8 @@ class UserController extends Controller
     public function show($id)
     {
         return view('users.profile', [
-            'user' => User::findOrFail($id)
+            'user' => User::findOrFail(auth()->user()->id),
+            'countries' => Country::all()
         ]);
     }
 
@@ -68,9 +73,27 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        //Validating request
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+			'lastname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', Rules\Password::defaults()],
+            'country_id' => ['required', 'exists:App\Models\Country,id'],
+            'phone' => ['required', 'numeric'],
+        ]);
+
+        $user->name = $request->name;
+	    $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->country_id = $request->country_id;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        return back()->with('update_success','Modifications prises en compte');
     }
 
     /**

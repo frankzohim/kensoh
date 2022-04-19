@@ -14,8 +14,8 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
-                            <li class="breadcrumb-item active">Connexion</li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Accueil</a></li>
+                            <li class="breadcrumb-item active">Contact</li>
                         </ol>
                     </nav>
                 </div>
@@ -29,24 +29,41 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h3>Connexion</h3>
+                    <h3>Contact</h3>
                     <div class="theme-card">
 						<!-- Session Status -->
 						<x-auth-session-status class="mb-4" :status="session('status')" />
 
 						<!-- Validation Errors -->
 						<x-auth-validation-errors class="mb-4" :errors="$errors" />
-                        <form class="theme-form" method="POST" action="{{ route('login') }}">
+                        <form class="theme-form" method="POST" action="{{ route('contact.store') }}">
 							@csrf
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="email" class="form-control" id="email" name="name" :value="old('name')" required autofocus placeholder="name">
+                            </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" id="email" class="form-control" id="email" name="email" :value="old('email')" required autofocus placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <label for="review">Mot de passe</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
+                                <label for="phone">phone</label>
+                                <input type="number" id="phone" class="form-control" id="phone" name="phone" :value="old('phone')" required autofocus placeholder="phone">
+
                             </div>
-							<button class="btn btn-solid" type="submit">Connexion</button>
+                            <div class="form-group">
+                                <label for="subject">Object</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="subject"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="localization">Localization</label>
+                                <input type="text" id="localization" class="form-control"  name="localization" :value="old('localization')" required autofocus placeholder="localization">
+                            </div>
+							<button class="btn btn-solid" type="submit">Envoyez</button>
                         </form>
                     </div>
                 </div>

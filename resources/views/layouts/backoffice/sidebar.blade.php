@@ -25,7 +25,13 @@
                     </li>
                     <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="codepen"></i><span>Boutiques</span></a>
                     </li>
-                    <li><a class="sidebar-header" href="invoice.html.htm"><i data-feather="droplet"></i><span>Marques</span></a>
+                    <li><a class="sidebar-header" href="#"><i data-feather="droplet"></i><span>Marques</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="sidebar-submenu">
+
+                            <li><a href="{{route('brands.index')}}"><i class="fa fa-circle"></i>Liste Marques</a></li>
+                            <li><a href="{{route('brands.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
+                         
+                        </ul>
                     </li>
                     <li><a class="sidebar-header" href=""><i data-feather="dollar-sign"></i><span>Ventes</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">

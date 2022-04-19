@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +32,10 @@ Route::get('/backend', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::resource('brands', BrandsController::class);
+
+
 
 require __DIR__.'/auth.php';

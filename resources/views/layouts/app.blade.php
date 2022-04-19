@@ -32,6 +32,8 @@
     <!-- Chartist css -->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/chartist.css">
 
+     <!-- Datatable css-->
+     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/datatables.css">
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="/assets/backend/css/vendors/bootstrap.css">
 

@@ -90,11 +90,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'category' => CategoryController::class,
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
-<<<<<<< Package
+
             'packages'=>PackageController::class,
-=======
+
 			'user' => UserController::class,
->>>>>>> main
+
 		]);
 	});
 

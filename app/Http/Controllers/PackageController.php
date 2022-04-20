@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendPackageMail;
 use App\Models\package;
 use App\Models\town;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PackageController extends Controller
 {
@@ -47,6 +49,17 @@ class PackageController extends Controller
         $package->departure=$request->departure;
         $package->destination=$request->destination;
         $package->user_id=auth()->user()->id;
+
+        $packagedata=[
+            'description'=>$package->description,
+            'lenght'=>$package->length,
+            'width'=>$package->width,
+            'weight'=>$package->weight,
+            'departure'=>$package->departure,
+            'destination'=> $package->destination,
+            'name'=>auth()->user()->name
+        ];
+        Mail::to('Bramslevel129@gmail.com')->send(new SendPackageMail($packagedata));
         if($package->save()){
             return redirect()->route('packages.index')->with('update_success','Colis bien enregidtré');
 
@@ -76,7 +89,7 @@ class PackageController extends Controller
      */
     public function edit(package $package)
     {
-        
+
     }
 
     /**

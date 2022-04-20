@@ -19,7 +19,7 @@ class SendPackageMail extends Mailable
      */
     public function __construct(array $datapackage)
     {
-        //
+        $this->datapackage=$datapackage;
     }
 
     /**

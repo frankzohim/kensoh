@@ -1,10 +1,10 @@
 @component('mail::message')
-# Introduction
+# Nom de l'utilisateur:{{ $data['name'] }}
 
-The body of your message.
+{{ $data['message'] }}
 
 @component('mail::button', ['url' => ''])
-Button Text
+marquer lu
 @endcomponent
 
 Thanks,<br>

@@ -47,6 +47,16 @@ class PackageController extends Controller
         $package->departure=$request->departure;
         $package->destination=$request->destination;
         $package->user_id=auth()->user()->id;
+
+        $packagedata=[
+            'description'=>$package->description,
+            'lenght'=>$package->length,
+            'width'=>$package->width,
+            'weight'=>$package->weight,
+            'departure'=>$package->departure,
+            'destination'=> $package->destination,
+            'name'=>auth()->user()->name
+        ];
         if($package->save()){
             return redirect()->route('packages.index')->with('update_success','Colis bien enregidtré');
 
@@ -76,7 +86,7 @@ class PackageController extends Controller
      */
     public function edit(package $package)
     {
-        
+
     }
 
     /**

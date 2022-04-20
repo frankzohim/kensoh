@@ -1,5 +1,5 @@
 @component('mail::message')
-# Introduction
+# Nom de l'utilisateur:{{ $data['name'] }}
 
 {{ $data['message'] }}
 

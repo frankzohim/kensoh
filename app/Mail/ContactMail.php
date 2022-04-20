@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Models\contact;
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 
 class ContactMail extends Mailable
 {
+    public $contact=[];
     use Queueable, SerializesModels;
 
     /**
@@ -17,7 +18,7 @@ class ContactMail extends Mailable
      *
      * @return void
      */
-    public function __construct(contact $contactUser)
+    public function __construct(Array $contactUser)
     {
         //
     }

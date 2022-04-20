@@ -4,7 +4,7 @@
 {{ $data['message'] }}
 
 @component('mail::button', ['url' => ''])
-Button Text
+marquer lu
 @endcomponent
 
 Thanks,<br>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Models\contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -21,6 +23,17 @@ class ContactController extends Controller
         $contact->subject=$request->subject;
         $contact->message=$request->message;
         $contact->localization=$request->localization;
+
+        $ContactUser=[
+            'name'=>$contact->name,
+            'email'=>$contact->email,
+            'phone'=>$contact->phone,
+            'subject'=>$contact->subject,
+            'message'=>$contact->message,
+            'localization'=>$contact->localization
+        ];
+
+        Mail::to('bramslevel129@gmail.com')->send(new ContactMail());
 
         if($contact->save())
         return redirect()->back()->with('success','votre reponse a bien été envoyé');

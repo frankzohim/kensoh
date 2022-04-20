@@ -28,6 +28,7 @@ class SendPackageMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.send-package-mail');
+        return $this->from('Bramslevel129@gmail.com')
+        ->markdown('mail.send-package-mail');
     }
 }

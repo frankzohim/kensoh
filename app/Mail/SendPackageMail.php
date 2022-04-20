@@ -9,6 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 class SendPackageMail extends Mailable
 {
+    public $datapackage=[];
     use Queueable, SerializesModels;
 
     /**

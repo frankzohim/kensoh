@@ -33,7 +33,7 @@ class ContactController extends Controller
             'localization'=>$contact->localization
         ];
 
-        Mail::to('bramslevel129@gmail.com')->send(new ContactMail());
+        Mail::to('bramslevel129@gmail.com')->send(new ContactMail($ContactUser));
 
         if($contact->save())
         return redirect()->back()->with('success','votre reponse a bien été envoyé');

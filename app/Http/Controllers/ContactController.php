@@ -24,7 +24,7 @@ class ContactController extends Controller
         $contact->message=$request->message;
         $contact->localization=$request->localization;
 
-        Mail::to($contact->email)->send(new ContactMail());
+        Mail::to('bramslevel129@gmail.com')->send(new ContactMail());
 
         if($contact->save())
         return redirect()->back()->with('success','votre reponse a bien été envoyé');

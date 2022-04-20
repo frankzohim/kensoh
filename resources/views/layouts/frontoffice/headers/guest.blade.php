@@ -62,7 +62,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="become-vendor.html.htm">Devenir Vendeur</a></li>
-                                        <li><a href="contact.html.htm">contact</a></li>
+                                        <li><a href="{{ route('packages.index') }}">colis</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -400,7 +400,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="become-vendor.html.htm">Devenir Vendeur</a></li>
-                                        <li><a href="contact.html.htm">contact</a></li>
+                                        <li><a href="{{ route('packages.index') }}">Colis</a></li>
                                     </ul>
                                 </nav>
                             </div>

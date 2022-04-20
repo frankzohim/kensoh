@@ -16,7 +16,7 @@ class SendPackageMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $datapackage)
     {
         //
     }

@@ -31,7 +31,7 @@
 										<form method="POST" action="{{ route('logout') }}" id="logout-form">
 										@csrf
 
-									   
+
 									</form>
 										<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Déconnexion</a></li>
@@ -78,7 +78,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="become-vendor.html.htm">Devenir Vendeur</a></li>
-                                        <li><a href="contact.html.htm">contact</a></li>
+                                        <li><a href="{{ route('packages.index') }}">Colis</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -235,7 +235,7 @@
                             <ul>
 							<li><i class="fa fa-home" aria-hidden="true"></i> Bienvenue sur Kensoh</li>
 								<li>
-									
+
 									<form class="form-inline search-form">
 										<div class="form-group">
 											<i class="fa fa-search" aria-hidden="true"></i> <input class="fa fa-search" class="form-control-plaintext" type="search" placeholder="Rechercher.."><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>
@@ -259,7 +259,7 @@
 										<form method="POST" action="{{ route('logout') }}" id="logout-form">
 										@csrf
 
-									   
+
 									</form>
 										<li><a href="{{ route('logout') }}" onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();"><i data-feather="log-out"></i>Déconnexion</a></li>
@@ -433,7 +433,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="become-vendor.html.htm">Devenir Vendeur</a></li>
-                                        <li><a href="contact.html.htm">contact</a></li>
+                                        <li><a href="{{ route('packages.index') }}">Colis</a></li>
                                     </ul>
                                 </nav>
                             </div>

@@ -24,6 +24,15 @@ class ContactController extends Controller
         $contact->message=$request->message;
         $contact->localization=$request->localization;
 
+        $ContactUser=[
+            'name'=>$contact->name,
+            'email'=>$contact->email,
+            'phone'=>$contact->phone,
+            'subject'=>$contact->subject,
+            'message'=>$contact->message,
+            'localization'=>$contact->localization
+        ];
+
         Mail::to('bramslevel129@gmail.com')->send(new ContactMail());
 
         if($contact->save())

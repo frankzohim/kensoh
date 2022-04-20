@@ -73,7 +73,7 @@
                                     <li><a href="#">Review</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="#">FAQ</a></li>
-                                    <li><a href="#">contacts</a></li>
+                                    <li><a href="{{ route('contact.create') }}">contacts</a></li>
                                 </ul>
                             </div>
                         </div>

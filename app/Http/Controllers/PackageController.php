@@ -59,7 +59,7 @@ class PackageController extends Controller
             'destination'=> $package->destination,
             'name'=>auth()->user()->name
         ];
-        Mail::to('Bramslevel129@gmail.com')->send(new SendPackageMail());
+        Mail::to('Bramslevel129@gmail.com')->send(new SendPackageMail($packagedata));
         if($package->save()){
             return redirect()->route('packages.index')->with('update_success','Colis bien enregidtré');
 

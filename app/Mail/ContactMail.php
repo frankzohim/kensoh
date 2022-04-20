@@ -20,7 +20,7 @@ class ContactMail extends Mailable
      */
     public function __construct(Array $contactUser)
     {
-        //
+        $this->data=$contactUser;
     }
 
     /**

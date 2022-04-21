@@ -5,6 +5,7 @@ Description:{{ $datapackage['description'] }},
 lenght: {{ $datapackage['lenght'] }},
 largeur:{{ $datapackage['width'] }}
 poids:{{ $datapackage['weight'] }}
+depart:{{ $datapackage['departure'] }}
 
 @component('mail::button', ['url' => ''])
 Button Text

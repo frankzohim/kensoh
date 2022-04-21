@@ -2,7 +2,7 @@
 # Information du colis
 
 Description:{{ $datapackage['description'] }},
-lenght: {{ $datapackage['lenght'] }},
+longueur: {{ $datapackage['lenght'] }},
 largeur:{{ $datapackage['width'] }}
 poids:{{ $datapackage['weight'] }}
 depart:{{ $datapackage['departure'] }}

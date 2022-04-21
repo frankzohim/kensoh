@@ -1,7 +1,12 @@
 @component('mail::message')
-# Introduction
+# Information du colis
 
-The body of your message.
+Description:{{ $datapackage['description'] }},
+longueur: {{ $datapackage['lenght'] }},
+largeur:{{ $datapackage['width'] }}
+poids:{{ $datapackage['weight'] }}
+depart:{{ $datapackage['departure'] }}
+destination: {{ $datapackage['destination'] }}
 
 @component('mail::button', ['url' => ''])
 Button Text

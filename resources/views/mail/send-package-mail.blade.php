@@ -9,7 +9,7 @@ depart:{{ $datapackage['departure'] }}
 destination: {{ $datapackage['destination'] }}
 
 @component('mail::button', ['url' => ''])
-Button Text
+Tout mes colis
 @endcomponent
 
 Thanks,<br>

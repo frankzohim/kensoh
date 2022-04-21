@@ -1,5 +1,5 @@
 @component('mail::message')
-# Introduction
+# Information du colis
 
 The body of your message.
 

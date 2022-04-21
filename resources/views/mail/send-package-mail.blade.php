@@ -1,7 +1,7 @@
 @component('mail::message')
 # Information du colis
 
-The body of your message.
+Description:{{ $datapackage['description'] }}
 
 @component('mail::button', ['url' => ''])
 Button Text

@@ -27,10 +27,10 @@
                                                     </div>
                                                 @endif
             </div>
-                <div class="col-sm-6">
+
 
                     <div class="page-title">
-                        <h2>Connexion Utilisateur</h2>
+                        <h2>Formulaire de Contact</h2>
                     </div>
 
                 <div class="col-sm-12">

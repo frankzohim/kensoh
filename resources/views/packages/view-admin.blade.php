@@ -56,74 +56,63 @@
 
                 <div class="card-body vendor-table">
                 <div class="btn-popup pull-right">
-                    <a href='{{route("product.create")}}'><button type="button" class="btn btn-primary">Ajouter un produit</button></a>
+                    <a href='{{route("package.create")}}'><button type="button" class="btn btn-primary">Ajouter un produit</button></a>
                 </div>
                     <table class="display" id="basic-1">
                         <thead>
                         <tr>
-                            <th>Nom</th>
-                            <th>Etat</th>
-                            <th>Prix</th>
-                            <th>Stock</th>
-                            <th>Catégorie</th>
-                            <th>Marque</th>
-                            <th>Boutique</th>
+                            <th>description</th>
+                            <th>taille</th>
+                            <th>largeur</th>
+                            <th>poids</th>
+                            <th>depart</th>
+                            <th>destination</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($packages as $package)
                             <tr>
                                 <td>
                                     <div class="d-flex vendor-list">
 
-                                        <span>{{$product->name}}</span>
+                                        <span>{{$package->description}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    @switch($product->new)
-                                        @case(1)
-                                          Neuf
-                                          @break
-                                        @case(0)
-                                            Occassion
-                                        @break
-                                    @endswitch
+                                    <div class="d-flex vendor-list">
+
+                                        <span>{{$package->lenght}}</span>
+                                    </div>
                                 </td>
                                 <td>
-                                    {{$product->unit_price}}
+                                    {{$package->width}}
                                 </td>
                                 <td>
-                                    {{$product->stock_quantity}}
+                                    {{$package->weight}}
                                 </td>
                                 <td>
-                                    @foreach($categories as $category)
-                                        @if($category->id==$product->category_id)
-                                            {{$category->name}}
+                                    @foreach($towns as $town)
+                                        @if($town->id==$package->departure)
+                                            {{$town->name}}
                                         @endif
                                     @endforeach
                                 </td>
                                 <td>
-                                    @foreach($brands as $brand)
-                                        @if($brand->id==$product->brand_id)
-                                            {{$brand->name}}
-                                        @endif
-                                    @endforeach
+                                    @foreach($towns as $town)
+                                    @if($town->id==$package->destination)
+                                        {{$town->name}}
+                                    @endif
+                                @endforeach
                                 </td>
-                                <td>
-                                    @foreach($stores as $store)
-                                        @if($store->id==$product->store_id)
-                                            {{$store->name}}
-                                        @endif
-                                    @endforeach
-                                </td>
+
                                 <td>
                                     <div>
-                                    <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a href="{{route('package.edit',$package->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
-                                    <a href="{{ route('product.destroy',['product' => $product->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$product->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                    <a href="{{ route('package.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
 
-                                    <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -131,7 +120,7 @@
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="POST" action="{{ route('product.destroy',['product' => $product->id]) }}" id="delete-form{{$product->id}}">
+                                                <form method="POST" action="{{ route('package.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
                                                 @csrf
                                                 <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
                                                 @method('DELETE')

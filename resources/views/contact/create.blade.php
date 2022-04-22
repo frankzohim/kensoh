@@ -61,29 +61,29 @@
                         <form class="theme-form" method="POST" action="{{ route('contact.store') }}">
 							@csrf
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="email" class="form-control" id="email" name="name" :value="old('name')" required autofocus placeholder="name">
+                                <label for="name">Nom</label>
+                                <input type="text" id="email" class="form-control" id="email" name="name" :value="old('name')" required autofocus placeholder="nom">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" id="email" name="email" :value="old('email')" required autofocus placeholder="Email">
+                                <label for="email">Adresse Email</label>
+                                <input type="email" id="email" class="form-control" id="email" name="email" :value="old('email')" required autofocus placeholder="adresse email">
                             </div>
                             <div class="form-group">
-                                <label for="phone">phone</label>
-                                <input type="number" id="phone" class="form-control" id="phone" name="phone" :value="old('phone')" required autofocus placeholder="phone">
+                                <label for="phone">Numéro de téléphone</label>
+                                <input type="number" id="phone" class="form-control" id="phone" name="phone" :value="old('phone')" required autofocus placeholder="Numéro de téléphone">
 
                             </div>
                             <div class="form-group">
-                                <label for="subject">Object</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="subject"></textarea>
+                                <label for="subject">Objet</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Objet"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="localization">Localization</label>
-                                <input type="text" id="localization" class="form-control"  name="localization" :value="old('localization')" required autofocus placeholder="localization">
+                                <label for="localization">Localisation</label>
+                                <input type="text" id="localization" class="form-control"  name="localization" :value="old('localization')" required autofocus placeholder="localisation">
                             </div>
 							<button class="btn btn-solid" type="submit">Envoyez</button>
                         </form>

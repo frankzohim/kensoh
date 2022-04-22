@@ -89,14 +89,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6 right-login">
-                    <h3>Nouveau sur Kensoh?</h3>
-                    <div class="theme-card authentication-right">
-                        <h6 class="title-font">Créer un compte</h6>
-                        <p>Créez un compte gratuit dans notre magasin. L'inscription est simple et rapide. Il vous permet d'être
-                            en mesure de commander dans notre boutique. Pour commencer à magasiner, cliquez sur "Créer un compte".</p><a href="#" class="btn btn-solid">Créer un compte</a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

@@ -134,6 +134,6 @@ class PackageController extends Controller
     {
         $package->delete();
 
-        return back()->with('delete','votre Produit à bien été bien supprimé');
+        return back()->with('delete','votre Colis à bien été bien supprimé');
     }
 }

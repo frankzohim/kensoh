@@ -108,7 +108,6 @@
 
                                 <td>
                                     <div>
-                                    <a href="{{route('package.edit',$package->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('package.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
 

@@ -55,9 +55,7 @@
                 </div>
 
                 <div class="card-body vendor-table">
-                <div class="btn-popup pull-right">
-                    <a href='{{route("package.create")}}'><button type="button" class="btn btn-primary">Ajouter un produit</button></a>
-                </div>
+
                     <table class="display" id="basic-1">
                         <thead>
                         <tr>
@@ -109,7 +107,7 @@
                                 <td>
                                     <div>
 
-                                    <a href="{{ route('package.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                    <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
 
                                     <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -119,7 +117,7 @@
                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="POST" action="{{ route('package.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                <form method="POST" action="{{ route('packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
                                                 @csrf
                                                 <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
                                                 @method('DELETE')

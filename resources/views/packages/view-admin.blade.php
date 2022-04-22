@@ -80,7 +80,7 @@
                                 <td>
                                     <div class="d-flex vendor-list">
 
-                                        <span>{{$package->lenght}}</span>
+                                        <span>{{$package->length}}</span>
                                     </div>
                                 </td>
                                 <td>

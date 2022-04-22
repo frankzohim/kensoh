@@ -13,7 +13,7 @@
                 <ul class="sidebar-menu">
                     <li><a class="sidebar-header" href="{{route('dashboard')}}"><i data-feather="home"></i><span>Tableau de bord</span></a></li>
                     <li><a class="sidebar-header" href="{{route('homepage')}}" target="_blank"><i data-feather="home"></i><span>Front Office</span></a></li>
-                    <li><a class="sidebar-header" href="#"><i data-feather="package"></i><span>Colis</span></a>
+                    <li><a class="sidebar-header" href="{{ route('packages.index') }}"><i data-feather="package"></i><span>Colis</span></a>
                     </li>
                     <li><a class="sidebar-header" href="{{route('product.index')}}"><i data-feather="box"></i> <span>Produits</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
@@ -21,7 +21,7 @@
                             <li><a href="{{route('category.index')}}"><i class="fa fa-circle"></i>Catégories</a></li>
                             <li><a href="{{route('product.index')}}"><i class="fa fa-circle"></i>Liste Produits</a></li>
                             <li><a href="{{route('product.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
-                         
+
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="{{route('store.index')}}"><i data-feather="codepen"></i><span>Boutiques</span></a>
@@ -40,10 +40,10 @@
                             <li><a href="{{route('coupon.create')}}"><i class="fa fa-circle"></i>Créer Coupon </a></li>
                         </ul>
                     </li>
-                    
+
                     <li><a class="sidebar-header" href="{{route('user.index')}}"><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
                     </li>
-                    
+
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="message-circle"></i><span>Evaluations</span></a></li>
                     <li><a class="sidebar-header" href=""><i data-feather="map-pin"></i><span>Localisation</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">

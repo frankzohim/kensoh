@@ -25,7 +25,7 @@ class PackageController extends Controller
 
         if(auth()->user()->role_id==1)
 
-        return view('packages.view',compact('towns','packages'));
+        return view('packages.view-admin',compact('towns','packages'));
 
     }
 

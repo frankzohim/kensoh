@@ -144,3 +144,5 @@
         <!-- Container-fluid Ends-->
 
 </div>
+
+@endsection

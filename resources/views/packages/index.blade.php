@@ -123,8 +123,9 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="{{route('packages.update')}}" method="post">
+                    <form action="{{route('packages.update',$package->id)}}">
                         @csrf
+                        @method('PUT')
                             <div class="container">
                                 <div class="row">
                                     <label for="exampleFormControlTextarea1" class="form-label">Description</label>

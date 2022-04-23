@@ -109,7 +109,7 @@
                                 <td>
 
                                     <div>
-                                    <a href="{{route('packages.edit',$package->id)}}" data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
 
@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="{{route('packages.update',$package->id)}}">
+                    <form action="{{route('packages.update',$package->id)}}" method="post">
                         @csrf
                         @method('PUT')
                             <div class="container">
@@ -189,7 +189,7 @@
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                    <button type="submit" class="btn btn-primary">Créer</button>
+                    <button type="submit" class="btn btn-primary">Mise a jour</button>
             </form>
                 </div>
             </div>

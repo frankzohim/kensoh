@@ -133,7 +133,7 @@
 
 
 
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description" value="{{ $package->description }}">
 
                               </div>
                                     <label for="exampleFormControlTextarea1" class="form-label">length</label>
@@ -141,16 +141,16 @@
 
 
 
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length">
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length" value="{{ $package->length }}">
 
                               </div>
                               <div class="col-md-6">
                                 <label for="inputCity" class="form-label">width</label>
-                                <input type="number" class="form-control" class="form-control" name="width" id="">
+                                <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->width }}">
                               </div>
                               <div class="col-md-6">
                                 <label for="inputCity" class="form-label">weight</label>
-                                <input type="number" class="form-control" class="form-control" name="weight" id="">
+                                <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->weight }}">
                               </div>
                               <label for="exampleFormControlTextarea1" class="form-label">Depart</label>
                             <div class="input-group mb-3">

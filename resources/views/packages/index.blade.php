@@ -158,10 +158,13 @@
 
 
                                 <select id="inputState" class="form-select" name="departure">
-                                    <option selected>Choisir...</option>
-                                    <option value="{{$town->id}}">{{$town->name}}</option>
 
-                                  </select>
+                                    @if ($town->id==$package->departure)
+                                    <option value="{{$town->id}}">{{$town->name}}</option>
+                                    @endif
+
+
+                                </select>
 
                               </div>
                               <label for="exampleFormControlTextarea1" class="form-label">Destination</label>

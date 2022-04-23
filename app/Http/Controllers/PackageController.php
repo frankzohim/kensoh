@@ -118,7 +118,7 @@ class PackageController extends Controller
         $package->user_id=auth()->user()->id;
 
         if($package->save())
-            return redirect()->route('packages.index')->with('update_success','Colis mise à joue avec succès');
+            return redirect()->route('packages.index')->with('update_success','Colis mise à jour avec succès');
         else
             return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
 

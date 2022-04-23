@@ -173,8 +173,11 @@
 
 
                                 <select id="inputState" class="form-select" name="destination">
-                                    <option selected>Choisir...</option>
+
+                                    @if ($town->id==$package->destination)
                                     <option value="{{$town->id}}">{{$town->name}}</option>
+                                    @endif
+
                                   </select>
 
                                 </div>

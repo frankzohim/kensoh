@@ -109,12 +109,97 @@
                                 <td>
 
                                     <div>
-                                    <a href="{{route('packages.edit',$package->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a href="{{route('packages.edit',$package->id)}}" data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1{{$package->id}}"   aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Mise à jour du colis</h5>
+                    <button type="button" class="btn-close black" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="{{route('packages.update',$package->id)}}">
+                        @csrf
+                        @method('PUT')
+                            <div class="container">
+                                <div class="row">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <div class="input-group mb-3">
+
+
+
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description" value="{{ $package->description }}">
+
+                              </div>
+                                    <label for="exampleFormControlTextarea1" class="form-label">length</label>
+                            <div class="input-group mb-3">
+
+
+
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length" value="{{ $package->length }}">
+
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputCity" class="form-label">width</label>
+                                <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->width }}">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputCity" class="form-label">weight</label>
+                                <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->weight }}">
+                              </div>
+                              <label for="exampleFormControlTextarea1" class="form-label">Depart</label>
+                            <div class="input-group mb-3">
+
+
+
+                                <select id="inputState" class="form-select" name="departure">
+
+                                    @if ($town->id==$package->departure)
+                                    <option value="{{$town->id}}">{{$town->name}}</option>
+                                    @endif
+
+
+                                </select>
+
+                              </div>
+                              <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
+                              <div class="input-group mb-3">
+
+
+
+                                <select id="inputState" class="form-select" name="destination">
+
+                                    @if ($town->id==$package->destination)
+                                    <option value="{{$town->id}}">{{$town->name}}</option>
+                                    @endif
+
+                                  </select>
+
+                                </div>
+                                </div>
+                            </div>
+
+
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <button type="submit" class="btn btn-primary">Créer</button>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
                                     <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
+
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>

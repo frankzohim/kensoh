@@ -118,7 +118,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Nouveau Colis</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Mise à jour du colis</h5>
                     <button type="button" class="btn-close black" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

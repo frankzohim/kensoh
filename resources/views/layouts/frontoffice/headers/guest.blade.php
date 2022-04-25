@@ -415,7 +415,8 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
-                                                                    <form>
+                                                                    <form action="{{route('search.find')}}" method="POST">
+                                                                    @csrf
                                                                         <div class="form-group">
                                                                             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rechercher un produit">
                                                                         </div>

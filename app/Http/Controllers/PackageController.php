@@ -19,7 +19,14 @@ class PackageController extends Controller
     {
         $towns=town::all();
         $packages=package::all();
+
+        if(auth()->user()->role_id==2 || auth()->user()->role_id==3)
         return view('packages.index',compact('towns','packages'));
+
+        if(auth()->user()->role_id==1)
+
+        return view('packages.view-admin',compact('towns','packages'));
+
     }
 
     /**
@@ -111,7 +118,7 @@ class PackageController extends Controller
         $package->user_id=auth()->user()->id;
 
         if($package->save())
-            return redirect()->route('packages.index')->with('update_success','Colis mise à joue avec succès');
+            return redirect()->route('packages.index')->with('update_success','Colis mise à jour avec succès');
         else
             return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
 
@@ -127,6 +134,6 @@ class PackageController extends Controller
     {
         $package->delete();
 
-        return back()->with('delete','votre Produit à bien été bien supprimé');
+        return back()->with('delete','votre Colis à bien été bien supprimé');
     }
 }

@@ -77,8 +77,8 @@
                                                                             <input class="form-control" id="email" name="email"  type="email" value="{{$user->email}}" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                        <label for="validationCustom02" class="col-form-label"><span>*</span>Mot de passe</label>
-                                                                                <input class="form-control" type="password" id="password" name="password" placeholder="Entrer votre mot de passe">
+                                                                        <label for="validationCustom02" class="col-form-label"><span>*</span>Photo de profil</label>
+                                                                                <input class="form-control" type="file" id="avatar" name="avatar" >
                                                                         </div>                                 
                                                                     </div>
                                                                 </div>

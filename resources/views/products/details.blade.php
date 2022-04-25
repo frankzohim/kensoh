@@ -176,7 +176,7 @@
 									   
 												<div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
 													<div class="">
-														<iframe width="560" height="315" src="https://www.youtube.com/embed/BUWzX78Ye_8" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 													</div>
 												</div>
 												<div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">

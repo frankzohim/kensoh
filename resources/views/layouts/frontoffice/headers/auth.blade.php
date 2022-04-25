@@ -253,8 +253,7 @@
 									Mon Compte
 									<ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
 										<li><a href="#"><i data-feather="user"></i>Editer le profil</a></li>
-										<li><a href="#"><i data-feather="mail"></i>Messagerie</a></li>
-										<li><a href="#"><i data-feather="lock"></i>Lock Screen</a></li>
+										<li><a href="{{route('dashboard')}}"><i data-feather="home"></i>Tableau de Bord</a></li>
 										<li><a href="#"><i data-feather="settings"></i>Paramètres</a></li>
 										<form method="POST" action="{{ route('logout') }}" id="logout-form">
 										@csrf
@@ -410,7 +409,7 @@
                                 </div>
                             </div>
                             <div class="brand-logo">
-                                <a href="index.html.htm"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
+                                <a href="{{route('homepage')}}"><img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt=""></a>
                             </div>
                         </div>
                         <div class="menu-right pull-right">
@@ -421,7 +420,7 @@
                                         <li>
                                             <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                         </li>
-                                        <li><a href="index.html.htm">Accueil</a></li>
+                                        <li><a href="{{route('homepage')}}">Accueil</a></li>
                                         <li><a href="about-page.html.htm">a propos<div class="lable-nav">new</div></a></li>
                                         <li>
                                             <a href="#">Boutique</a>

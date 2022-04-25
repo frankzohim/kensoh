@@ -156,12 +156,21 @@
                                         <option value="0" @selected($product->featured == 1)>Non</option>
                                     </select>
                                     </div>
+
                                     <div class="col-md-6">
-                                    <label for="exampleInputPassword1">Status</label>
-                                    <select class="form-control" name="state">
-                                        <option value="1" @selected($product->state == 1)>Publié</option>
-                                        <option value="0" @selected($product->state == 0)>Non Publié</option>
-                                    </select>
+                                        <label for="exampleInputPassword1">Status</label>
+                                        <select class="form-control" name="state">
+                                            <option value="1" @selected($product->state == 1)>Publié</option>
+                                            <option value="0" @selected($product->state == 0)>Non Publié</option>
+                                        </select>
+                                    </div>
+
+                                    <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
+                                    <div class="input-group mb-3">
+
+                                        <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
+
+                                        <input type="url" class="form-control"  id="video_url" name="video_url" value="{{$product->video_url}}">
                                     </div>
 
                                     <div class="col-md-8">

@@ -68,6 +68,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
         $product->state = $request->state;
+        $product->video_url = $request->video_url;
 
         if($product->save())
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
@@ -131,6 +132,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
         $product->state = $request->state;
+        $product->video_url = $request->video_url;
 
         if($product->save())
             return redirect()->route('product.index')->with('update_success','Produit mise à joue avec succès');

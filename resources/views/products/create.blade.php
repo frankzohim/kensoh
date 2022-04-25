@@ -44,16 +44,16 @@
                             @csrf
                             <div class="col-md-6">
                               <label for="exampleInputName" class="form-label">Nom Produit</label>
-                              <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name">
+                              <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name" required>
 
                             </div>
                             <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Déscription</label>
-                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description">
+                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description" required>
                               </div>
                               <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Mots clés</label>
-                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="keyword">
+                                <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="keyword" required>
                               </div>
                             <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
@@ -83,7 +83,7 @@
 
                               <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Marque</label>
-                                <select class="form-select" aria-label="Default select example" name="brand_id">
+                                <select class="form-select" aria-label="Default select example" name="brand_id" required>
                                   @foreach ($brands as $brand)
                                     <option value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
@@ -103,12 +103,13 @@
 
                                 <span class="input-group-text">$</span>
 
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price">
+                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price" required>
                                 <span class="input-group-text">.00</span>
-                              </div>
+                            </div>
+
                                <div class="col-md-6">
                                 <label for="inputCity" class="form-label">Quantité de stock</label>
-                                <input type="number" class="form-control" class="form-control" name="stock_quantity" id="">
+                                <input type="number" class="form-control" class="form-control" name="stock_quantity" id="" required>
                               </div>
                               <div class="col-md-6">
                                 <label for="inputState" class="form-label">Nature</label>
@@ -131,6 +132,14 @@
                                   <option value="1">Publié</option>
                                 <option value="0">Non Publié</option>
                               </select>
+                            </div>
+
+                            <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
+                            <div class="input-group mb-3">
+
+                                <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
+
+                                <input type="url" class="form-control"  id="video_url" name="video_url" >
                             </div>
 
                             <div class="col-md-8">

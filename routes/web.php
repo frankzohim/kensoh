@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -91,7 +92,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'category' => CategoryController::class,
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
-
+			'review' => ReviewController::class,
             'packages'=>PackageController::class,
 
 			'user' => UserController::class,

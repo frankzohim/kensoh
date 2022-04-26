@@ -1,48 +1,6 @@
 @extends('layouts.master')
 @section('title', __('Détails'.' '.$product->name))
-<style>
-	
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    .rate {
-        float: left;
-        height: 46px;
-        padding: 0 10px;
-    }
-    .rate:not(:checked) > input {
-        position:absolute;
-        top:px;
-        display:none;
-    }
-    .rate:not(:checked) > label {
-        float:right;
-        width:1em;
-        overflow:hidden;
-        white-space:nowrap;
-        cursor:pointer;
-        font-size:25px;
-        color:#ccc;
-    }
-    .rate:not(:checked) > label:before {
-        content: '★ ';
-    }
-    .rate > input:checked ~ label {
-        color: #eebe0f;    
-    }
-    .rate:not(:checked) > label:hover,
-    .rate:not(:checked) > label:hover ~ label {
-        color: #deb217;  
-    }
-    .rate > input:checked + label:hover,
-    .rate > input:checked + label:hover ~ label,
-    .rate > input:checked ~ label:hover,
-    .rate > input:checked ~ label:hover ~ label,
-    .rate > label:hover ~ input:checked ~ label {
-        color: #c59b08;
-    }
-</style>
+
 @section('content')
         <div class="breadcrumb-section">
             <div class="container">
@@ -222,39 +180,37 @@
 													</div>
 												</div>
 												<div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-													<form class="theme-form" action="{{ route("review.store") }}" method="POST">
-                                                        @csrf
+													<form class="theme-form">
 														<div class="form-row row">
 															<div class="col-md-12">
-                                                                    <div class="media">
-                                                                        <label>Nombre d'étoiles</label>
-                                                                        <div class="media-body ms-3">
-
-                                                                            <div class="rate">
-                                                                                <input type="radio" id="star5" name="rate" required value="5" />
-                                                                                <label for="star5" title="text">5 stars</label>
-                                                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                                                <label for="star4" title="text">4 stars</label>
-                                                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                                                <label for="star3" title="text">3 stars</label>
-                                                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                                                <label for="star2" title="text">2 stars</label>
-                                                                                <input type="radio" id="star1" name="rate" value="1"/>
-                                                                                <label for="star1" title="text">1 star</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                                                    <div class="col-md-12">
-                                                                        <label for="review">Commentaire</label>
-                                                                        <textarea class="form-control" placeholder="Votre Commentaire Ici" name="comment" rows="6" cols=""></textarea>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <button class="btn btn-solid" type="submit">
-                                                                            Envoyer votre note
-                                                                        </button>
-                                                                    </div>
-														    </div>
+																<div class="media">
+																	<label>Rating</label>
+																	<div class="media-body ms-3">
+																		<div class="rating three-star"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-6">
+																<label for="name">Name</label>
+																<input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+															</div>
+															<div class="col-md-6">
+																<label for="email">Email</label>
+																<input type="text" class="form-control" id="email" placeholder="Email" required="">
+															</div>
+															<div class="col-md-12">
+																<label for="review">Review Title</label>
+																<input type="text" class="form-control" id="review" placeholder="Enter your Review Subjects" required="">
+															</div>
+															<div class="col-md-12">
+																<label for="review">Review Title</label>
+																<textarea class="form-control" placeholder="Wrire Your Testimonial Here" id="exampleFormControlTextarea1" rows="6"></textarea>
+															</div>
+															<div class="col-md-12">
+																<button class="btn btn-solid" type="submit">Submit YOur
+																	Review</button>
+															</div>
+														</div>
 													</form>
 												</div>
 											</div>

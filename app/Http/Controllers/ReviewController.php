@@ -14,7 +14,8 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('reviews/index', compact('reviews'));
     }
 
     /**
@@ -35,7 +36,24 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->comment);
+        $validatedData = $request->validate([
+            'rate' => ['required','string'], 
+            'comment' => ['required', 'string'],
+
+         ]);
+         
+		 //Registring new review in database
+         
+         $brand = new \App\Models\Brand;
+         $brand->name = $request->name;
+         $brand->state = $request->state;
+		 $brand->user_id = auth()->user()->id;
+
+         if($brand->save())
+			return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
+		 else
+			 return redirect()->route('brand.create')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
     }
 
     /**

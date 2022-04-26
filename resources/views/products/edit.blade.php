@@ -183,14 +183,14 @@
                                     <div class=" login-page section-b-space col-lg-12 right-login">
                                         <div class="theme-card authentication-right">
                                             <h6 class="title-font">Instructions</h6>
-                                                <p>Vous pouvez ajoutez jusqu'à 5 images pour votre produit. Les images doivent avoir l'une 
+                                                <p>Vous pouvez ajoutez jusqu'à 3 images pour votre produit. Les images doivent avoir l'une 
                                                     des extensions suivantes : .png, .jpg, .jpeg. 
                                                     L'ajout des images se fait dans la zone rectangulaire 
                                                     ci-dessous, vous pouvez ajouter plusieurs images à la fois. 
                                                     Si vous avez atteint le quota, merci de supprimer quelques images pour pouvoir en 
                                                     ajouter d'autres.
                                                 </p>
-                                                    <a href="#" class="btn btn-solid">Vous avez déjà {{$productImages->count()}} Image(s) sur  5  autorisés</a>
+                                                    <a href="#" class="btn btn-solid">Vous avez déjà {{$productImages->count()}} Image(s) sur  3  autorisés</a>
                                         </div>
                                     </div>
                                                 

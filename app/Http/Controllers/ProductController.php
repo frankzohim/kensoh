@@ -204,7 +204,7 @@ class ProductController extends Controller
         $productImages = ProductImage::where('product_id','=',$request->productId)->count();
 
         //Check if images quota of 5 is still maintain, before adding image
-        if($productImages < 5){
+        if($productImages < 3){
             $image = $request->file('file'); 
             $name = "toto";
             $extension = $image->getClientOriginalExtension();

@@ -9,10 +9,14 @@ class SearchController extends Controller
 {
     public function find(Request $request){
 
-        if (isset($request->query)) {
+        $str="";
+        if (isset($request->str)) {
 
-            $query=$request->query;
-            $products=Product::where('meta_keywords','LIKE','%'.$query.'%')->paginate(2);
+            $str=$request->str;
+            $products=Product::where('name','like','%'.$str.'%')->paginate(2);
+            
+            
+            // dd($products);
 
             return view('Search.results',compact('products'));
         }

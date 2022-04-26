@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use \Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductImage;
 use App\Models\ProductCategory;
@@ -27,6 +28,16 @@ class Product extends Model
 
     public function store(){
         return $this->belongsTo(Store::class);
+    }
+
+    /**
+     * Get all of the reviews for the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 }
 

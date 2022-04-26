@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
+    <meta name="description" content="Kensoh">
+    <meta name="keywords" content="Kensoh">
+    <meta name="author" content="Kensoh">
     <link rel="icon" href="/assets/frontend/images/favicon/1.png" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/frontend/images/favicon/1.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,11 +40,24 @@
     <!-- intel css -->
     <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
 
-
-
+    <style>
+        .floating-whatsapp{
+            font-weight: bold;
+            font-size: 70px;
+            position: fixed;
+            left: 20px;
+            bottom: 90px;
+			z-index: 2147483647;
+            color:green
+        }
+    </style>
 
 </head>
 <body >
+    <a href="http://wa.link/q7wxrt">
+        <i class="fa fa-whatsapp floating-whatsapp">
+        </i>
+    </a>
 	@guest
 		@include('layouts.frontoffice.headers.guest')
 	@endguest
@@ -201,6 +214,18 @@
             document.getElementById("search-overlay").style.display = "none";
         }
     </script>
-
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/62670ddf7b967b11798c7714/1g1h8si10';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 </body>
 </html>

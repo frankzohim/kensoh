@@ -101,7 +101,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
     Route::get('contact',[ContactController::class,'create'])->name('contact.create');
     Route::post('contact',[ContactController::class,'store'])->name('contact.store');
-	Route::get('search/{element}',[SearchController::class,'find'])->name('search.find');
+	Route::get('search/{element}element=bonjour',[SearchController::class,'find'])->name('search.find');
 
 
 

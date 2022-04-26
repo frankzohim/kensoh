@@ -13,7 +13,14 @@ class SearchController extends Controller
         if (isset($request->str)) {
 
             $str=$request->str;
-            $products=Product::where('name','like','%'.$str.'%')->paginate(2);
+
+            $products=Product::where('name','like','%'.$str.'%')
+            ->orWhere('meta_description','like','%'.$str.'%')
+            ->orWhere('id','like','%'.$str.'%')
+            ->orWhere('meta_keywords','like','%'.$str.'%')
+            ->orWhere('unit_price','like','%'.$str.'%')
+            ->orWhere('stock_quantity','like','%'.$str.'%')
+            ->paginate(2);
             
             
             // dd($products);

@@ -65,10 +65,34 @@
 									@endif
                     </div>
                     <div class="card-body">
+
                         <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
-                            <li class="nav-item"><a class="nav-link active show" id="general-tab" data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true" data-original-title="" title="">Général</a></li>
-                            <li class="nav-item"><a class="nav-link" id="restriction-tabs" data-bs-toggle="tab" href="#restriction" role="tab" aria-controls="restriction" aria-selected="false" data-original-title="" title="">Images</a></li>
-                            <li class="nav-item"><a class="nav-link" id="usage-tab" data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage" aria-selected="false" data-original-title="" title="">Dimensions</a></li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active show" id="general-tab" 
+                                    data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" 
+                                    aria-selected="true" 
+                                    data-original-title="" title="">
+                                    Général
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="restriction-tabs" 
+                                    data-bs-toggle="tab" href="#restriction" role="tab" aria-controls="restriction" 
+                                    aria-selected="false" 
+                                    data-original-title="" title="">
+                                    Images
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="usage-tab" 
+                                    data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage" 
+                                    aria-selected="false" data-original-title="" title="">
+                                    Notes
+                                </a>
+                            </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">

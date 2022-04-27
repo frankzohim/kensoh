@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -45,15 +45,17 @@ class ReviewController extends Controller
          
 		 //Registring new review in database
          
-         $brand = new \App\Models\Brand;
-         $brand->name = $request->name;
-         $brand->state = $request->state;
-		 $brand->user_id = auth()->user()->id;
+         $review = new \App\Models\Review;
+         $review->star = $request->rate;
+         $review->comment = $request->comment;
+         $review->state = 0;
+         $review->product_id = $request->product_id;
+		 $review->user_id = auth()->user()->id;
 
-         if($brand->save())
-			return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
+         if($review->save())
+			return redirect()->back()->with('update_success', "Evaluation ajoutée avec succès.");
 		 else
-			 return redirect()->route('brand.create')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
+			 return redirect()->back()->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
     }
 
     /**

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\package;
+use App\Models\Review;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -51,5 +52,15 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     public function packages():HasMany
     {
         return $this->hasMany(package::class);
+    }
+
+    /**
+     * Get all of the reviews for the User
+     *
+     * @return App\Models\HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

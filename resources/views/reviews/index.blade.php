@@ -63,13 +63,11 @@
                         <table class="display" id="basic-1">
                             <thead>
                             <tr>
-                                <th>Nom</th>
+                                <th>Produit</th>
+                                <th>Utilisateur</th>
+                                <th>Nombre d'étoile</th>
+                                <th>Commentaire</th>
                                 <th>Etat</th>
-                                <th>Prix</th>
-                                <th>Stock</th>
-                                <th>Catégorie</th>
-                                <th>Marque</th>
-                                <th>Boutique</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -79,46 +77,29 @@
                                     <td>
                                         <div class="d-flex vendor-list">
                                             
-                                            <span>{{$review->name}}</span>
+                                            <span>{{$review->product->name}}</span>
                                         </div>
                                     </td>
                                     <td>
-                                        @switch($review->new)
-                                            @case(1)
-                                              Neuf
-                                              @break
-                                            @case(0)
-                                                Occassion
-                                            @break
-                                        @endswitch
+                                        {{$review->user->name}}
                                     </td>
                                     <td> 
-                                        {{$review->unit_price}}
+                                        {{$review->star}}
                                     </td>
                                     <td> 
-                                        {{$review->stock_quantity}}
+                                        {{$review->comment}}
                                     </td>
                                     <td>
-                                        @foreach($categories as $category)
-                                            @if($category->id==$review->category_id)
-                                                {{$category->name}}
-                                            @endif
-                                        @endforeach
+                                        @switch($review->state)
+                                        @case(1)
+                                          Publié
+                                          @break
+                                        @case(0)
+                                            Non Publié
+                                        @break
+                                    @endswitch
                                     </td>
-                                    <td> 
-                                        @foreach($brands as $brand)
-                                            @if($brand->id==$review->brand_id)
-                                                {{$brand->name}}
-                                            @endif
-                                        @endforeach
-                                    </td>
-                                    <td> 
-                                        @foreach($stores as $store)
-                                            @if($store->id==$review->store_id)
-                                                {{$store->name}}
-                                            @endif
-                                        @endforeach
-                                    </td>
+
                                     <td>
                                         <div>
                                         <a href="{{route('review.edit',$review->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>

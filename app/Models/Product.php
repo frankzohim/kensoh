@@ -33,7 +33,7 @@ class Product extends Model
     /**
      * Get all of the reviews for the Product
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return App\Models\HasMany
      */
     public function reviews(): HasMany
     {

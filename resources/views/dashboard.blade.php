@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="col-xl-6 xl-100">
             <div class="card">
                 <div class="card-header">
@@ -123,7 +123,7 @@
                                         <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
                                         <a href="{{ route('product.destroy',['product' => $product->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$product->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                            
+
                                         <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -155,12 +155,12 @@
                     </div>
                     <div class="code-box-copy">
                         <button class="code-box-copy__btn btn-clipboard" data-clipboard-target="#example-head1" title="" data-original-title="Copy"><i class="icofont icofont-copy-alt"></i></button>
-                       
+
                     </div>
                 </div>
             </div>
         </div>
- 
+
         <div class="col-xl-6 xl-100">
             <div class="card height-equal">
                 <div class="card-header">
@@ -181,55 +181,27 @@
                         <table class="table table-bordernone mb-0">
                             <thead>
                             <tr>
-                                <th scope="col">Détails</th>
-                                <th scope="col">Quantité</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Prix</th>
+                                <th scope="col">description</th>
+                                <th scope="col">lenght</th>
+                                <th scope="col">width</th>
+                                <th scope="col">weight</th>
+                                <th scope="col">destination</th>
+
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Simply dummy text of the printing</td>
-                                <td class="digits">1</td>
-                                <td class="font-primary">En Attente</td>
-                                <td class="digits">$6523</td>
+                                @foreach ($packages as $package)
+
+
+                                <td>{{$package->length}}</td>
+                                <td>{{$package->width}}</td>
+                                <td>{{$package->weight}}</td>
+                                <td>{{$package->departure}}</td>
+                                <td>{{$package->destination}}</td>
+                                @endforeach
                             </tr>
-                            <tr>
-                                <td>Long established</td>
-                                <td class="digits">5</td>
-                                <td class="font-secondary">Suspendu</td>
-                                <td class="digits">$6523</td>
-                            </tr>
-                            <tr>
-                                <td>sometimes by accident</td>
-                                <td class="digits">10</td>
-                                <td class="font-secondary">Suspendu</td>
-                                <td class="digits">$6523</td>
-                            </tr>
-                            <tr>
-                                <td>Classical Latin literature</td>
-                                <td class="digits">9</td>
-                                <td class="font-primary">Renvoyé</td>
-                                <td class="digits">$6523</td>
-                            </tr>
-                            <tr>
-                                <td>keep the site on the Internet</td>
-                                <td class="digits">8</td>
-                                <td class="font-primary">En Attente</td>
-                                <td class="digits">$6523</td>
-                            </tr>
-                            <tr>
-                                <td>Molestiae consequatur</td>
-                                <td class="digits">3</td>
-                                <td class="font-secondary">Annuler</td>
-                                <td class="digits">$6523</td>
-                            </tr>
-                            <tr>
-                                <td>Pain can procure</td>
-                                <td class="digits">8</td>
-                                <td class="font-primary">Renvoyé</td>
-                                <td class="digits">$6523</td>
-                            </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -340,7 +312,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

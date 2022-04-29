@@ -36,7 +36,6 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->comment);
         $validatedData = $request->validate([
             'rate' => ['required','string'], 
             'comment' => ['required', 'string'],

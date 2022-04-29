@@ -70,7 +70,24 @@
         <div class="collection-wrapper">
             <div class="container">
                 <div class="row">
-                    
+                    @if (session('update_success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                <span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
+                        @if (session('update_failure'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+                                <span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                        @endif
 					<div class="col-lg-6">
                         <div class="product-slick">
                             @php $images = $product->product_images @endphp

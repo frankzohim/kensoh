@@ -21,4 +21,12 @@ class HomePagecontroller extends Controller
         }*/
         return view('homepage', compact('products'));
     }
+
+    public function vendor(){
+        return view('become_vendor');
+    }
+
+    public function about(){
+        return view('about_us');
+    }
 }

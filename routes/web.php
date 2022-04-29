@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
@@ -28,6 +29,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 	Route::get('/', [HomePageController::class,'index'])->name('homepage');
+
+	Route::get('about-us', [HomePageController::class,'about'])->name('about');
+
+	Route::get('become-vendor', [HomePageController::class,'vendor'])->name('vendor');
 
 	Route::get('/backend', function () {
 
@@ -76,6 +81,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
+
+		Route::get('shop', [ShopController::class, 'index'])
+                ->name('shop');
 
 
 		//Route to save product's images

@@ -194,11 +194,25 @@
                                 @foreach ($packages as $package)
 
 
-                                <td>{{$package->length}}</td>
-                                <td>{{$package->width}}</td>
-                                <td>{{$package->weight}}</td>
-                                <td>{{$package->departure}}</td>
-                                <td>{{$package->destination}}</td>
+                                    <td>{{$package->length}}</td>
+                                    <td>{{$package->width}}</td>
+                                    <td>{{$package->weight}}</td>
+
+                                    <td>
+                                        @foreach($towns as $town)
+                                            @if($town->id==$package->departure)
+                                                {{$town->name}}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach ($towns as $town)
+                                            @if ($town->id==$package->destination)
+                                                {{ $town->name }}
+                                            @endif
+                                        @endforeach
+
+                                    </td>
                                 @endforeach
                             </tr>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\package;
 use App\Models\Product;
+use App\Models\town;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class DashboardController extends Controller
 					$productsNumbers = Product::count();
 					$products = Product::all();
                     $packages=package::all();
+                    $towns=town::all();
 
-					return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages'));
+					return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :

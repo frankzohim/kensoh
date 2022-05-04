@@ -58,7 +58,7 @@
                                             </a>
                                             
                                         </li>
-                                        <li><a href="{{ {{ route('vendor') }} }}">Devenir Vendeur</a></li>
+                                        <li><a href=" {{ route('vendor') }} ">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">colis</a></li>
                                         </ul>
                                     </nav>
@@ -388,15 +388,10 @@
                                         <li><a href="{{route('homepage')}}">Accueil</a></li>
                                         <li><a href="{{ route('about') }}">a propos<div class="lable-nav">new</div></a></li>
                                         <li>
-                                            <a href="#">Boutique</a>
-                                            <ul>
-                                                <li><a href="category-page(top-filter).html.htm">filtre supérieur<span class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(modern).html.htm">moderne<span class="new-tag">new</span></a></li>
-                                                <li><a href="category-page(metro).html.htm">metro</a></li>
-                                                <li><a href="category-page(full-width).html.htm">full width</a></li>
-                                            </ul>
+                                            <a href="{{ route('shop') }}">Boutique</a>
+                                            
                                         </li>
-                                        <li><a href="become-vendor.html.htm">Devenir Vendeur</a></li>
+                                        <li><a href="{{ route('vendor') }}">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">Colis</a></li>
                                     </ul>
                                 </nav>

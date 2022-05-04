@@ -58,7 +58,7 @@
                                             </a>
                                             
                                         </li>
-                                        <li><a href="{{ {{ route('vendor') }} }}">Devenir Vendeur</a></li>
+                                        <li><a href="{{route('vendor') }}">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">colis</a></li>
                                         </ul>
                                     </nav>

@@ -54,7 +54,7 @@
 
 </head>
 <body >
-    <a href="http://wa.link/q7wxrt">
+    <a href="https://wa.me/4917624604129">
         <i class="fa fa-whatsapp floating-whatsapp">
         </i>
     </a>

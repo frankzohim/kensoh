@@ -15,6 +15,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TownController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -101,10 +102,9 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
 			'review' => ReviewController::class,
-            'packages'=>PackageController::class,
-
+      'packages'=>PackageController::class,
 			'user' => UserController::class,
-
+			'town' => TownController::class,
 		]);
 	});
 

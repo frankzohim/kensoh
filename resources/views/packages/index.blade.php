@@ -28,7 +28,38 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <x-sidebar/>
+                <div>
+
+
+                    <div class="dashboard-sidebar">
+                        <div class="profile-top">
+                            <div class="profile-image">
+                                <img src="/assets/frontend/images/appolinaire.jpg" alt="" class="img-fluid">
+                            </div>
+                            <div class="profile-detail">
+                                <h5>{{auth()->user()->name}}</h5>
+                                <h6>750 followers | 10 review</h6>
+                                <h6>{{auth()->user()->email}}</h6>
+                            </div>
+                        </div>
+                        <div class="faq-tab">
+                            <ul class="nav nav-tabs" id="top-tab" role="tablist">
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Commandes</a>
+                                </li>
+                                <li class="nav-item"><a  class="nav-link" href="{{route('packages.index')}}" active="request()->routeIs('packages.index')">{{__('Colis')}}</a>
+                                </li>
+
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
+                                </li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Déconnexion</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+</div>
             </div>
             <div class="col-lg-9">
                 @if (session('update_success'))
@@ -58,8 +89,6 @@
                         </button>
                 </div>
             @endif
-            @foreach ($towns as $town)
-
 
 
     <div class="row">
@@ -75,17 +104,17 @@
                         <!-- Button trigger modal -->
 
 
-                        <a class="btn btn-sm btn-solid" data-bs-toggle="modal"  data-bs-target="#staticBackdrop" role="button">Ajouter un colis</a>
+                        <a class="btn btn-sm btn-solid" href="{{ route('packages.create') }}" role="button">Ajouter un colis</a>
                     </div>
 
                     <table class="table mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">description</th>
-                                <th scope="col">lenght</th>
-                                <th scope="col">width</th>
-                                <th scope="col">weight</th>
-                                <th scope="col">destination</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Longueur</th>
+                                <th scope="col">Largeur</th>
+                                <th scope="col">Poids</th>
+                                <th scope="col">Destination</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -112,210 +141,19 @@
                                     <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal1{{$package->id}}"   aria-labelledby="exampleModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Mise à jour du colis</h5>
-                    <button type="button" class="btn-close black" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form action="{{route('packages.update',$package->id)}}" method="post">
-                        @csrf
-                        @method('PUT')
-                            <div class="container">
-                                <div class="row">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description" value="{{ $package->description }}">
-
-                              </div>
-                                    <label for="exampleFormControlTextarea1" class="form-label">length</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length" value="{{ $package->length }}">
-
-                              </div>
-                              <div class="col-md-6">
-                                <label for="inputCity" class="form-label">width</label>
-                                <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->width }}">
-                              </div>
-                              <div class="col-md-6">
-                                <label for="inputCity" class="form-label">weight</label>
-                                <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->weight }}">
-                              </div>
-                              <label for="exampleFormControlTextarea1" class="form-label">Depart</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <select id="inputState" class="form-select" name="departure">
-
-                                    @if ($town->id==$package->departure)
-                                    <option value="{{$town->id}}">{{$town->name}}</option>
-                                    @endif
-
-
-                                </select>
-
-                              </div>
-                              <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
-                              <div class="input-group mb-3">
-
-
-
-                                <select id="inputState" class="form-select" name="destination">
-
-                                    @if ($town->id==$package->destination)
-                                    <option value="{{$town->id}}">{{$town->name}}</option>
-                                    @endif
-
-                                  </select>
-
-                                </div>
-                                </div>
-                            </div>
-
-
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                    <button type="submit" class="btn btn-primary">Mise a jour</button>
-            </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-                                    <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
-                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="POST" action="{{ route('packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
-                                                @csrf
-                                                <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
-                                                @method('DELETE')
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Oui</button>
-                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                    </div>
                                 </td>
-                            </tr>
-
                         @endforeach
 
 
-                        </tbody>
+                    </tbody>
 
                     </table>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Nouveau Colis</h5>
-                    <button type="button" class="btn-close black" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <form action="{{route('packages.store')}}" method="post">
-                        @csrf
-                            <div class="container">
-                                <div class="row">
-                                    <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
-
-                              </div>
-                                    <label for="exampleFormControlTextarea1" class="form-label">length</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length">
-
-                              </div>
-                              <div class="col-md-6">
-                                <label for="inputCity" class="form-label">width</label>
-                                <input type="number" class="form-control" class="form-control" name="width" id="">
-                              </div>
-                              <div class="col-md-6">
-                                <label for="inputCity" class="form-label">weight</label>
-                                <input type="number" class="form-control" class="form-control" name="weight" id="">
-                              </div>
-                              <label for="exampleFormControlTextarea1" class="form-label">Depart</label>
-                            <div class="input-group mb-3">
-
-
-
-                                <select id="inputState" class="form-select" name="departure">
-                                    <option selected>Choisir...</option>
-                                    <option value="{{$town->id}}">{{$town->name}}</option>
-
-                                  </select>
-
-                              </div>
-                              <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
-                              <div class="input-group mb-3">
-
-
-
-                                <select id="inputState" class="form-select" name="destination">
-                                    <option selected>Choisir...</option>
-                                    <option value="{{$town->id}}">{{$town->name}}</option>
-                                  </select>
-
-                                </div>
-                                </div>
-                            </div>
-
-
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-
-                    <button type="submit" class="btn btn-primary">Créer</button>
-            </form>
-                </div>
-            </div>
-        </div>
+      
     </div>
-</div>
 
-                @endforeach
-
-            </div>
-
-
-        </div>
-    </div>
 </section>
 
 

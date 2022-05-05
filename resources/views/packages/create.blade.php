@@ -65,67 +65,82 @@
                                <div class="col-sm-12">
                                    <div class="card">
                                        <div class="card-header">
-                                           <h5>Ajouter un product</h5>
+                                           <h5>Ajouter un colis</h5>
                                        </div>
                                        <div class="card-body">
-                                           <form class="row g-3" method="POST" action="{{route('product.store')}}">
-                                               @csrf
-                                               <div class="col-md-6">
-                                                 <label for="exampleInputName" class="form-label">Nom Produit</label>
-                                                 <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name">
-                   
-                                               </div>
-                                               <div class="col-md-6">
-                                                   <label for="exampleFormControlTextarea1" class="form-label">Déscription</label>
-                                                   <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description">
-                                                 </div>
-                                                 <div class="col-md-6">
-                                                   <label for="exampleFormControlTextarea1" class="form-label">Mots clés</label>
-                                                   <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="keyword">
-                                                 </div>
-                                               
-                                              
-                                               <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
-                                               <div class="input-group mb-3">
-                   
-                                                   <span class="input-group-text">$</span>
-                   
-                                                   <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price">
-                                                   <span class="input-group-text">.00</span>
-                                                 </div>
+
+                                        <form action="{{route('packages.store')}}" method="post">
+                                            @csrf
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Description du colis</label>
+                                                <div class="input-group mb-3">
+                    
+                    
+                    
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
+                    
+                                                  </div>
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
+                                                <div class="input-group mb-3">
+                    
+                    
+                    
+                                                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length">
+                    
+                                                  </div>
                                                   <div class="col-md-6">
-                                                   <label for="inputCity" class="form-label">Quantité de stock</label>
-                                                   <input type="number" class="form-control" class="form-control" name="stock_quantity" id="">
-                                                 </div>
-                                                 <div class="col-md-6">
-                                                   <label for="inputState" class="form-label">Nature</label>
-                                                   <select id="inputState" class="form-select" name="nature">
-                                                     <option selected>Choisir...</option>
-                                                     <option value="1">Produit</option>
-                                                     <option value="0">Service</option>
-                                                   </select>
-                                                 </div>
-                                                 <div class="col-md-6">
-                                                   <label for="exampleFormControlTextarea1" class="form-label">En vedette</label>
-                                                 <select class="form-select" aria-label="Default select example" name="vedette">
-                                                   <option value="1">Oui</option>
-                                                   <option value="0">Non</option>
-                                                 </select>
-                                               </div>
-                                               <div class="col-md-6">
-                                                 <label for="exampleInputPassword1">Status</label>
-                                                 <select class="form-control" name="state">
-                                                     <option value="1">Publié</option>
-                                                   <option value="0">Non Publié</option>
-                                                 </select>
-                                               </div>
-                   
-                                               <div class="col-md-8">
-                                                   <button type="submit" class="btn btn-primary">Créer</button>
-                                               </div>
-                   
-                                             </form>
-                                       </div>
+                                                    <label for="inputCity" class="form-label">Largeur</label>
+                                                    <input type="number" class="form-control" class="form-control" name="width" id="">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <label for="inputCity" class="form-label">Poids</label>
+                                                    <input type="number" class="form-control" class="form-control" name="weight" id="">
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Départ</label>
+                                                <div class="input-group mb-3">
+                    
+                    
+                    
+                                                    <select id="inputState" class="form-select" name="departure">
+
+                                                        <option selected>Choisir...</option>
+                                                        
+                                                        @foreach ($departures as $departure)
+
+                                                            <option value="{{$departure->id}}">{{$departure->name}}</option>
+                                                        
+                                                        @endforeach
+                                                       
+                    
+                                                      </select>
+                    
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
+                                                  <div class="input-group mb-3">
+                    
+                    
+                    
+                                                    <select id="inputState" class="form-select" name="destination">
+
+                                                        <option selected>Choisir...</option>
+
+                                                        @foreach ($destinations as $destination)
+
+                                                            <option value="{{$destination->id}}">{{$destination->name}}</option>
+                                                    
+                                                        @endforeach
+
+                                                      </select>
+                    
+                                                    </div>
+                                                    </div>
+                                                </div>
+                    
+                                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                                            </form>
+                                    </div>
+                                 
                                    </div>
                                </div>
                            </div>

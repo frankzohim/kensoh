@@ -56,7 +56,7 @@
                     <li><a class="sidebar-header" href=""><i data-feather="map-pin"></i><span>Localisation</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="currency-rates.html.htm"><i class="fa fa-circle"></i>Pays</a></li>
-                            <li><a href="taxes.html.htm"><i class="fa fa-circle"></i>Villes</a></li>
+                            <li><a href="{{ route('town.index') }}"><i class="fa fa-circle"></i>Villes</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="search"></i><span>Recherches</span></a></li>

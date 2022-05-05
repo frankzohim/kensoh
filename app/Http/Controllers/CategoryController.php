@@ -59,7 +59,7 @@ class CategoryController extends Controller
         if($category->save())
          return redirect()->route('category.index')->with('update_success','Catégorie ajouté avec succès');
         else
-            return redirect()-back()->with('update_failure','Une erreur est survenue, merci de réessayer');
+            return redirect()->back()->with('update_failure','Une erreur est survenue, merci de réessayer');
     }
 
     /**

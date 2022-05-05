@@ -59,12 +59,12 @@
                     <table class="display" id="basic-1">
                         <thead>
                         <tr>
-                            <th>description</th>
-                            <th>taille</th>
-                            <th>largeur</th>
-                            <th>poids</th>
-                            <th>depart</th>
-                            <th>destination</th>
+                            <th>Description</th>
+                            <th>Taille</th>
+                            <th>Largeur</th>
+                            <th>Poids</th>
+                            <th>Départ</th>
+                            <th>Destination</th>
                             <th>Action</th>
                         </tr>
                         </thead>

@@ -29,28 +29,17 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-12">
-                  <div class="banner-section"><img src="../assets/images/about/vendor.jpg" class="img-fluid blur-up lazyload" alt=""></div>
+                  <div class="banner-section"><img src="/assets/frontend/images/about/sell-kensoh.jpg" class="img-fluid blur-up lazyload" alt=""></div>
               </div>
               <div class="col-sm-12">
-                  <h4>Start your business with Multikart & reach customers across the World...</h4>
-                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                  <h4>Démarrez votre boutique avec Kensoh et atteignez des clients à travers le Cameroun...</h4>
+                  <p>Vendre n'a jamais été aussi facile
                   </p>
-                  <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and
-                      demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot
-                      foresee
-                      the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their
-                      duty through weakness of will, which is the same as saying through shrinking from toil and pain.
-                      These cases are perfectly simple and easy to distinguish. In a free hour, when our power of
-                      choice
-                      is untrammelled and when nothing prevents our being able to do what we like best, every pleasure
-                      is
-                      to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of
-                      duty
-                      or the obligations of business it will frequently occur that pleasures have to be repudiated and
-                      annoyances accepted. The wise man therefore always holds in these matters to this principle of
-                      selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to
-                      avoid
-                      worse pains.</p>
+                  <p>Vous souhaitez vendre vos produits sur notre site web, vous êtes la bienvenue.
+                      Nous vous aidons à écouler facilement vos produits grâce à notre réseau de distribution et de logistiques.
+                      Vous n'avez qu'à créer votre boutique, ajouter vos articles et recevoir vos commissions lorsque nous vendons vos produits.
+                      Si vous n'avez pas une logistique solide, nous pouvons également vous aider dans la livraison de vos produits au Cameroun.
+                  </p>
               </div>
           </div>
       </div>
@@ -71,8 +60,8 @@
                       <path d="m288.203125 84v-36c0-4.417969-3.582031-8-8-8s-8 3.582031-8 8v36c0 4.417969 3.582031 8 8 8s8-3.582031 8-8zm0 0"></path>
                       <path d="m168.203125 84v-36c0-4.417969-3.582031-8-8-8s-8 3.582031-8 8v36c0 4.417969 3.582031 8 8 8s8-3.582031 8-8zm0 0"></path>
                   </svg>
-                  <h4>lowest cost</h4>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                  <h4>coût le plus bas</h4>
+                  <p>Nous vous offrons les coûts de logistiques les plus bas. </p>
               </div>
               <div class="col-lg-3 col-md-6 service-block1 ">
                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
@@ -84,8 +73,8 @@
                           </g>
                       </g>
                   </svg>
-                  <h4>high growth rate</h4>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                  <h4>taux de commission favorable</h4>
+                  <p>Nous prélévons des taux de commissions les plus bas du marché </p>
               </div>
               <div class="col-lg-3 col-md-6 service-block1 border border-0">
                   <svg viewbox="0 -31 480 479" xmlns="http://www.w3.org/2000/svg">
@@ -104,8 +93,8 @@
                       <path d="m200 184.5c-13.253906 0-24 10.746094-24 24s10.746094 24 24 24 24-10.746094 24-24-10.746094-24-24-24zm0 32c-4.417969 0-8-3.582031-8-8s3.582031-8 8-8 8 3.582031 8 8-3.582031 8-8 8zm0 0"></path>
                       <path d="m136 168.5c13.253906 0 24-10.746094 24-24s-10.746094-24-24-24-24 10.746094-24 24 10.746094 24 24 24zm0-32c4.417969 0 8 3.582031 8 8s-3.582031 8-8 8-8-3.582031-8-8 3.582031-8 8-8zm0 0"></path>
                   </svg>
-                  <h4>dedicated pickup</h4>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                  <h4>ramassage dédié</h4>
+                  <p>Nous procédons à la collecte de vos marchandises pour le Cameroun. </p>
               </div>
               <div class="col-lg-3 col-md-6 service-block1 border border-0">
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -182,8 +171,8 @@
                           </g>
                       </g>
                   </svg>
-                  <h4>most approachable</h4>
-                  <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                  <h4>Partenaire fiable</h4>
+                  <p>Kensoh est un partenaire fiable sur lequel compté. </p>
               </div>
           </div>
       </section>
@@ -194,18 +183,18 @@
   <!-- how to start section start -->
   <section class="section-b-space become-vendor">
       <div class="container">
-          <h4>doing business on multikart is really easy</h4>
+          <h4>faire affaires sur Kensoh est vraiment facile</h4>
           <div class="step-bg">
               <div class="row">
                   <div class="col-lg-4">
                       <div class="step-box">
                           <div>
                               <div class="steps">1</div>
-                              <h4>List your products & Get support service provider</h4>
-                              <p>Register your business for free and create a product catalogue. Sell under your own
-                                  private label or sell an existing brand. Get your documentation & cataloging done
-                                  with
-                                  ease from our Professional Services network.</p>
+                              <h4>Listez vos produits et obtenez une assistance en cas de besoin</h4>
+                              <p>Enregistrez votre entreprise gratuitement et créez un catalogue de produits. Vendez sous votre propre
+                                marque maison ou vendre une marque existante. Réalisez votre documentation et votre catalogage
+                                avec
+                                facilité de notre réseau de services professionnels.</p>
                           </div>
                       </div>
                   </div>
@@ -213,10 +202,10 @@
                       <div class="step-box">
                           <div>
                               <div class="steps">2</div>
-                              <h4>Receive orders & Schedule a pickup</h4>
-                              <p>Once listed, your products will be available to millions of users.Get orders and
-                                  manage
-                                  your online business via our Seller Panel and Seller Zone Mobile App.</p>
+                              <h4>Recevez des commandes et planifiez un ramassage</h4>
+                              <p>Une fois répertoriés, vos produits seront disponibles pour des millions d'utilisateurs.Obtenez des commandes et
+                                faire en sorte
+                                votre activité en ligne via notre panel vendeur et l'application mobile Seller Zone.</p>
                           </div>
                       </div>
                   </div>
@@ -224,10 +213,10 @@
                       <div class="step-box">
                           <div>
                               <div class="steps">3</div>
-                              <h4> Receive quick payment & grow your business</h4>
-                              <p>Receive quick and hassle-free payments in your account once your orders are
-                                  fulfilled.
-                                  Expand your business with low interest & collateral-free loans.</p>
+                              <h4> Recevez vos paiements et développez votre entreprise</h4>
+                              <p>Recevez des paiements rapides et sans tracas sur votre compte une fois vos commandes passées
+                                remplie.
+                                Développez votre entreprise avec des prêts à faible taux d'intérêt et sans garantie.</p>
                           </div>
                       </div>
                   </div>
@@ -243,28 +232,18 @@
       <div class="container">
           <div class="col">
               <div>
-                  <h4>start selling</h4>
-                  <p>Multikart marketplace is India’s leading platform for selling online. Be it a manufacturer,
-                      vendor or
-                      supplier, simply sell your products online on Multikart and become a top ecommerce player with
-                      minimum investment. Through a team of experts offering exclusive seller workshops, training,
-                      seller
-                      support and convenient seller portal, Multikart focuses on educating and empowering sellers
-                      across
-                      India.
-                      Selling on Multikart.com is easy and absolutely free. All you need is to register, list your
-                      catalogue and start selling your products.</p>
+                  <h4>commencer à vendre</h4>
+                  <p>Kensoh est la principale plate-forme camerounaise de vente en ligne. Que vous soyez un fabricant,
+                    vendeur ou fournisseur, vendez simplement vos produits en ligne sur Kensoh et devenez un acteur majeur du commerce électronique avec
+                    investissement minimal. Grâce à une équipe d'experts proposant des ateliers exclusifs aux vendeurs, des formations,
+                    vendeur support et portail vendeur pratique, Kensoh se concentre sur l'éducation et l'autonomisation des vendeurs.
+
+                    Vendre sur kensoh.com est facile et absolument gratuit. Il vous suffit de vous inscrire, de lister vos
+                    catalogue et commencez à vendre vos produits.</p>
                   <form>
-                      <div class="row">
-                          <div class="col-sm-6">
-                              <input type="text" class="form-control" placeholder="Email ID">
-                          </div>
-                          <div class="col-sm-6">
-                              <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" placeholder="Phone Number">
-                          </div>
-                      </div>
+                     
                   </form>
-                  <a href="#" class="btn btn-solid btn-sm">start selling</a>
+                  <a href="{{ route('register') }}" class="btn btn-solid btn-sm">commencer à vendre</a>
               </div>
           </div>
       </div>

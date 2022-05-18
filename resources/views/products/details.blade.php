@@ -149,7 +149,8 @@
                               
                                 <h6 class="product-title">Entrez votre prix en FCFA</h6>
                                 <div class="qty-box">
-                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field=""><i class="fa fa-angle-left"></i></button> </span>
+                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
+                                        <i class="fa fa-angle-left"></i></button> </span>
                                         <input type="text" name="quantity" id="price" class="form-control input-number" value="1">
                                         <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="fa fa-angle-right"></i></button></span>
                                     </div>

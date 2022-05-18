@@ -63,14 +63,22 @@
                                     @endif
                                 </div>
                                 <div class="cart-info cart-wrap">
-                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </button> <a href="javascript:void(0)" title="Add to Wishlist">
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    </a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View">
-                                            <i class="fa fa-search" aria-hidden="true"></i></a> 
-                                            <a href="compare.html.htm" title="Compare">
-                                                <i class="fa fa-refresh" aria-hidden="true"></i></a>
+
+                                     <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view{{ $product->id }}" title="Aperçu">
+                                        <i class="fa fa-search" aria-hidden="true">
+                                        </i>
+                                    </a>
+
+                                    <a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
+                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    </a> 
+
+                                    
+                                            
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view{{ $product->id }}" title="Faire un offre de prix">
+                                        <i class="fa fa-dollar" aria-hidden="true"></i>
+                                    </a>
+
                                 </div>
                             </div>
                             <div class="product-detail">
@@ -329,5 +337,66 @@
         </div>
     </section>
     <!--  logo section end-->
+
+    <!-- Quick-view modal popup start-->
+    @forelse($products as $product)
+        <div class="modal fade bd-example-modal-lg" id="quick-view{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content quick-view-modal">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-12">
+
+                                @php $images = $product->product_images @endphp
+								@foreach($images as $image )
+                                    @if ($loop->first)
+                                        <div><img src="{{route('product.displayImage',$image->id)}}" alt="" class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
+                                   
+                                    @else
+                                      @break
+									 @endif
+							   	@endforeach
+
+     
+                            </div>
+                            <div class="col-lg-6 rtl-text">
+                                <div class="product-right">
+                                    <h2>{{ $product->name }}</h2>
+                                    <h3>@if($product->new == 1) NEUF @else OCCASSION @endif</h3>
+                                    <ul class="color-variant">
+                                        <li class="bg-light0"></li>
+                                        <li class="bg-light1"></li>
+                                        <li class="bg-light2"></li>
+                                    </ul>
+                                    <div class="border-product">
+                                        <h6 class="product-title">Détails du produit</h6>
+                                        <p>{{ $product->meta_description }}</p>
+                                    </div>
+                                    <div class="product-description border-product">
+                                       
+                                        <h6 class="product-title">Entrez votre prix en FCFA</h6>
+                                      <div class="qty-box">
+                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
+                                        <i class="fa fa-angle-left"></i></button> </span>
+                                        <input type="number" name="quantity" id="price" class="form-control input-number" value="1">
+                                        <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="fa fa-angle-right"></i></button></span>
+                                    </div>
+                                </div>
+                                    </div>
+                                  
+                                      <div class="product-buttons">
+                                            <a  id="cartEffect" onclick="console.log(document.getElementById('price').value) " class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a> 
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @empty
+    @endforelse
+    <!-- Quick-view modal popup end-->
 
 @endsection

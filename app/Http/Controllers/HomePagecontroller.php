@@ -9,7 +9,7 @@ class HomePagecontroller extends Controller
 {
     public function index(){
         //select all product from databases
-        $products = Product::with('product_images')->get();
+        $products = Product::where('state',1)->with('product_images')->get();
         //$products = Product::all();
         //dd($products);
         /*foreach($products as $product){

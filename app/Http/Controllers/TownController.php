@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Town;
+use App\Models\town;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
@@ -38,16 +38,16 @@ class TownController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=>['required','unique:App\Models\Town,name','string'],
+            'name'=>['required','unique:App\Models\town,name','string'],
             'country_id'=>['required','exists:App\Models\Country,id'],
-            'type'=>['required','boolean'],
+            //'type'=>['required','boolean'],
         ]);
 
         //dd("hi");
         $town = new Town;
         $town->name = $request->name;
         $town->country_id = $request->country_id;
-        $town->type = $request->type;
+       // $town->type = $request->type;
 
         if($town->save())
             return redirect()->route('town.index')->with('update_success','Ville ajouté avec succès');

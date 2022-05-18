@@ -26,7 +26,7 @@ class DashboardController extends Controller
                     $packages=package::all();
                     $towns=town::all();
 
-					return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns'));
+					// return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :

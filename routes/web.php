@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomePagecontroller;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ContactController;
@@ -10,7 +11,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SearchController;
@@ -29,7 +29,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-	Route::get('/', [HomePageController::class,'index'])->name('homepage');
+	Route::get('/', [homepageController::class,'index'])->name('homepage');
 
 	Route::get('about-us', [HomePageController::class,'about'])->name('about');
 

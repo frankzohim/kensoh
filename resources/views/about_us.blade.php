@@ -28,73 +28,88 @@
    <section class="about-page section-b-space">
     <div class="container">
         <div class="row">
+
             <div class="col-lg-12">
-                <div class="banner-section"><img src="/assets/frontend/images/about/kensoh.jpg" class="img-fluid blur-up lazyload" alt=""></div>
+                <div class="banner-section"><img src="/assets/frontend/images/about/logo.jpg" class="img-fluid blur-up lazyload" alt=""></div>
             </div>
             <div class="col-sm-12">
-                <h4>Kensoh Cameroon Logistics & Transports
+                <h4 style="font-weight: bold; font-size:25px;">Kensoh Cameroon Logistics & Transports
                 </h4>
                 
-                <p>Nos services:
+                <p style="font-weight: bold; font-size:15px;">Nos services:
                     Achat des produits de qualité sur commande
                     Vente des produits de qualité
                     Groupage
                     Transport en toute securite vers le cameroun
                 </p>
             </div>
+          
         </div>
     </div>
 </section>
 <!-- about section end -->
 
 
-<!--Team start-->
-<section id="team" class="team section-b-space slick-default-margin ratio_asos">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2>Notre Equipe</h2>
-                <div class="team-4">
-                    <div>
-                        <div>
-                            <img src="/assets/frontend/images/team/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+<div style="
+display: flex;
+flex-direction : row;
+align-items : strech;
+margin-left : 50px;
+margin-right : 50px;
+">
+
+    <div style=" flex:1;">
+        <img src="/assets/frontend/images/about/kensoh.jpg" style="width:100%" alt="">
+    </div>
+    <div style="flex:1;">
+        <section id="team" class="team section-b-space slick-default-margin ratio_asos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Notre Equipe</h2>
+                        <div class="team-4">
+                            <div>
+                                <div>
+                                    <img src="/assets/frontend/images/team/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                </div>
+                                <h4>Hileri Keol</h4>
+                                <h6>CEo & Founder At Company</h6>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="/assets/frontend/images/team/2.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                </div>
+                                <h4>Hileri Keol</h4>
+                                <h6>CEo & Founder At Company</h6>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="/assets/frontend/images/team/3.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                </div>
+                                <h4>Hileri Keol</h4>
+                                <h6>CEo & Founder At Company</h6>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="/assets/frontend/images/team/4.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                </div>
+                                <h4>Hileri Keol</h4>
+                                <h6>CEo & Founder At Company</h6>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="/assets/frontend/images/team/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                </div>
+                                <h4>Hileri Keol</h4>
+                                <h6>CEo & Founder At Company</h6>
+                            </div>
                         </div>
-                        <h4>Hileri Keol</h4>
-                        <h6>CEo & Founder At Company</h6>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="/assets/frontend/images/team/2.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                        </div>
-                        <h4>Hileri Keol</h4>
-                        <h6>CEo & Founder At Company</h6>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="/assets/frontend/images/team/3.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                        </div>
-                        <h4>Hileri Keol</h4>
-                        <h6>CEo & Founder At Company</h6>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="/assets/frontend/images/team/4.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                        </div>
-                        <h4>Hileri Keol</h4>
-                        <h6>CEo & Founder At Company</h6>
-                    </div>
-                    <div>
-                        <div>
-                            <img src="/assets/frontend/images/team/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                        </div>
-                        <h4>Hileri Keol</h4>
-                        <h6>CEo & Founder At Company</h6>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-</section>
+</div>
 <!--Team ends-->
 
 @endsection

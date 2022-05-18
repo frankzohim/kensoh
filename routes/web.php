@@ -35,6 +35,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 	Route::get('become-vendor', [HomePageController::class,'vendor'])->name('vendor');
 
+	//route to access shop page
+	Route::get('shop', [ShopController::class, 'index'])
+                ->name('shop');
+
 	Route::get('/backend', function () {
 
 		if (Auth::check()) {
@@ -83,8 +87,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
 
-		Route::get('shop', [ShopController::class, 'index'])
-                ->name('shop');
+
 
 
 		//Route to save product's images

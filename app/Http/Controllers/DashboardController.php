@@ -23,7 +23,7 @@ class DashboardController extends Controller
 					$customersNumbers = User::where('role_id','=',2)->count();
 					$productsNumbers = Product::count();
 					$products = Product::all();
-                    $packages=package::all();
+                    $packages=package::all(); 
                     $towns=town::all();
 
 					return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns'));

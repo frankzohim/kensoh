@@ -8,19 +8,20 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * 
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        Schema::create('partner_images', function (Blueprint $table) {
             $table->id();
-            $table->string('name_fr');
-			$table->string('name_en');
-            $table->string('code');
-			$table->string('postal_code');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('path');
+            $table->foreignId('partners_id')
+            ->constrained()
+            ->onUpdate('restrict')
+            ->onDelete('restrict');
+            $table->timestamps(); 
+           
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        //
     }
 };

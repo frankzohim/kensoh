@@ -8,20 +8,24 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     * 
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name_fr');
-			$table->string('name_en');
-            $table->string('code');
-			$table->string('postal_code');
-            $table->rememberToken();
+             
+        	Schema::create('partners', function (Blueprint $table) {
+			$table->id();
+            $table->string('social_reason');
+			$table->string('contact');
+			$table->foreignId('logo_id')
+				  ->constrained()
+				  ->onUpdate('restrict')
+				  ->onDelete('restrict');
+			$table->string('website');
+			$table->string('email');
             $table->timestamps();
-        });
+		});
     }
 
     /**
@@ -31,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        //
     }
 };

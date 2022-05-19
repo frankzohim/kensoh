@@ -27,6 +27,7 @@
             </div>
         </div>
     </div>
+    
     <script type="text/javascript">
                     Dropzone.options.dropzoneo = {
                         maxFilesize: 10,
@@ -202,6 +203,8 @@
                                     </div>
                                 </form>
                             </div>
+
+
                             <div class="tab-pane fade" id="restriction" role="tabpanel" aria-labelledby="restriction-tabs">
                                 <div class="card-body">
                                     <div class=" login-page section-b-space col-lg-12 right-login">
@@ -228,104 +231,108 @@
                                         
                                     </form>
                                 </div>
+
                                 <div class="card-body vendor-table">
                
-                                <table class="display" id="basic-1">
-                                    <thead>
-                                    <tr>
-                                        <th>Numéro</th>
-                                        <th>Image</th>
-                                        <th>Afficher</th>
-                                        <th>Date Ajout</th>
-                                        <th>Nom</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($productImages as $productImage)
+                                    <table class="display" id="basic-1">
+                                        <thead>
                                         <tr>
-                                            <td>{{$loop->index}}</td>
-                                            <td>
-                                                <div class="d-flex vendor-list">
-                                                <img src="{{ route('product.displayImage',$productImage->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
-                                                </div>
-                                            </td>
-                                          
-                                            <td><a href="{{ route('product.displayImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#displayImage{{$productImage->id}}"><i class="fa fa-eye font-danger"></i></a></td>
-                                            <td> <span>{{$productImage->created_at}}</span></td>
-                                            <td>{{$productImage->path}}</td>
-                                            <td>
-                                                <div>
-                                               <a href="{{ route('product.destroyImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$productImage->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                              
-                                                <div class="modal fade" id="exampleModal{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
-                                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form method="POST" action="{{ route('product.destroyImage',['id' => $productImage->id]) }}" id="delete-form{{$productImage->id}}">
-                                                                @csrf
-                                                                <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
-                                                                
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary">Oui</button>
-                                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
-                                                            </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                               
-                                                <div class="modal fade" id="displayImage{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">{{$product->name}}</h5>
-                                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <img src="{{ route('product.displayImage',$productImage->id) }}" alt="" class="img-fluid  blur-up lazyloaded">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Fermer</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                </div>
-                                            </td>
+                                            <th>Numéro</th>
+                                            <th>Image</th>
+                                            <th>Afficher</th>
+                                            <th>Date Ajout</th>
+                                            <th>Nom</th>
+                                            <th>Action</th>
                                         </tr>
-                                    @endforeach
+                                        </thead>
+                                        <tbody>
+                                        @foreach($productImages as $productImage)
+                                            <tr>
+                                                <td>{{$loop->index}}</td>
+                                                <td>
+                                                    <div class="d-flex vendor-list">
+                                                    <img src="{{ route('product.displayImage',$productImage->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
+                                                    </div>
+                                                </td>
+                                            
+                                                <td><a href="{{ route('product.displayImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#displayImage{{$productImage->id}}"><i class="fa fa-eye font-danger"></i></a></td>
+                                                <td> <span>{{$productImage->created_at}}</span></td>
+                                                <td>{{$productImage->path}}</td>
+                                                <td>
+                                                    <div>
+                                                <a href="{{ route('product.destroyImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$productImage->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                                
+                                                    <div class="modal fade" id="exampleModal{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form method="POST" action="{{ route('product.destroyImage',['id' => $productImage->id]) }}" id="delete-form{{$productImage->id}}">
+                                                                    @csrf
+                                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                                    
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="modal fade" id="displayImage{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">{{$product->name}}</h5>
+                                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <img src="{{ route('product.displayImage',$productImage->id) }}" alt="" class="img-fluid  blur-up lazyloaded">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Fermer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                    </tbody>
-                                </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            </div>
+                               
+                 
+                            
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                                <form class="needs-validation" novalidate="">
-                                    <h4>Dimensions</h4>
-                                    <div class="form-group row">
-                                        <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom6" type="number">
+                                    <form class="needs-validation" novalidate="">
+                                        <h4>Dimensions</h4>
+                                        <div class="form-group row">
+                                            <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
+                                            <div class="col-md-7">
+                                                <input class="form-control" id="validationCustom6" type="number">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom7" type="number">
+                                        <div class="form-group row">
+                                            <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
+                                            <div class="col-md-7">
+                                                <input class="form-control" id="validationCustom7" type="number">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                    </div>
-                                </form>
-                            </div>
+                                        <div class="col-md-8">
+                                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                        </div>
+                                    </form>
+                                </div>
                         </div>
                         
                     </div>

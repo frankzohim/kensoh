@@ -1,21 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\StoreController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomePageController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
-use App\Http\Controllers\PackageController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PackageController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PartnersController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -91,6 +94,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 		Route::post('product/image', [ProductController::class, 'images'])
                 ->name('product.image');
 
+		//Route to save product's images
+		Route::post('partner/image', [PartnersController::class, 'saveimage'])
+                ->name('partner.image');
+
 		//Route test
 		Route::get('test', [ProductController::class, 'test'])
                 ->name('test');
@@ -102,9 +109,11 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 			'product' => ProductController::class,
 			'coupon' => CouponController::class,
 			'review' => ReviewController::class,
-      'packages'=>PackageController::class,
+      		'packages'=>PackageController::class,
 			'user' => UserController::class,
 			'town' => TownController::class,
+			'partners' => PartnersController::class,
+			'countries' => CountryController::class,
 		]);
 	});
 

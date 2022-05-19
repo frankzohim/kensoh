@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name_fr',
+        'name_en',
+        'code',
+        'postal_code',
+    ];
 }

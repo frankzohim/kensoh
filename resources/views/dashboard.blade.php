@@ -242,10 +242,14 @@
                         <div class="col-xl-3 col-sm-6 xl-50">
                             <div class="order-graph">
                                 <h6>Colis Départs</h6>
+
                                 <div class="chart-block chart-vertical-center">
                                     <canvas id="myDoughnutGraph"></canvas>
                                 </div>
                                 <div class="order-graph-bottom">
+                                    @foreach ($stats as $stat)
+
+                                    @endforeach
                                     <div class="media">
                                         <div class="order-color-primary"></div>
                                         <div class="media-body">

@@ -40,14 +40,14 @@ class TownController extends Controller
         $validatedData = $request->validate([
             'name'=>['required','unique:App\Models\town,name','string'],
             'country_id'=>['required','exists:App\Models\Country,id'],
-            //'type'=>['required','boolean'],
+            'type'=>['required','boolean'],
         ]);
 
         //dd("hi");
         $town = new Town;
         $town->name = $request->name;
         $town->country_id = $request->country_id;
-       // $town->type = $request->type;
+        $town->type = $request->type;
 
         if($town->save())
             return redirect()->route('town.index')->with('update_success','Ville ajouté avec succès');

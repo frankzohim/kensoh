@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Town;
+use App\Models\town;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
@@ -38,7 +38,7 @@ class TownController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=>['required','unique:App\Models\Town,name','string'],
+            'name'=>['required','unique:App\Models\town,name','string'],
             'country_id'=>['required','exists:App\Models\Country,id'],
             'type'=>['required','boolean'],
         ]);

@@ -38,13 +38,17 @@ class DashboardController extends Controller
                         $final=$final+$stat->total;
                     }
 
-                    dd($final);
+
+                    foreach($stats as $stat){
+                        $s=$stat->total*100/$final;
+                        echo $s. "%";
+                    }
 
 
 					$stat1=package::distinct('destination')->count();
 
                     //return $stat;
-					//return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','country','stats'));
+				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','country','stats','final'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :

@@ -39,10 +39,7 @@ class DashboardController extends Controller
                     }
 
 
-                    foreach($stats as $stat){
-                        $s=$stat->total*100/$final;
-                        echo $s. "%";
-                    }
+
 
 
 					$stat1=package::distinct('destination')->count();

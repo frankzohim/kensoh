@@ -247,9 +247,7 @@
                                     <canvas id="myDoughnutGraph"></canvas>
                                 </div>
                                 <div class="order-graph-bottom">
-                                    @foreach ($stats as $stat)
 
-                                    @endforeach
                                     <div class="media">
                                         <div class="order-color-primary"></div>
                                         <div class="media-body">

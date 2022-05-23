@@ -111,7 +111,7 @@ class UserController extends Controller
 
     public function images(Request $request)
     {
-        if (user < 3) {
+        if ($user < 3) {
             $image = $request->file('file');
             $name = "toto";
             $extension = $image->getClientOriginalExtension();
@@ -126,13 +126,13 @@ class UserController extends Controller
             } else {
 
                 //Storing file in disk
-                $fileName = $user->id . '_' . time() . '_' . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+                $fileName = $image->id . '_' . time() . '_' . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('user', $fileName);
 
                 //Add image to database (product_images table)
                 $user = new \App\Models\productImage;
-                $user->path = $fileName;
-                $user->product_id = $product->id;
+                $user->profil = $fileName;
+                $user->user = $user->id;
                 $user->save();
                 return response('Image ajoutée avec succès', 200);
             }

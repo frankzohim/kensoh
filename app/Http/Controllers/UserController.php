@@ -109,3 +109,7 @@ class UserController extends Controller
         //
     }
 }
+    public function images(Request $request)
+    {
+
+    }

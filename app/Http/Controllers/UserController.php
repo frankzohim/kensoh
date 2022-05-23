@@ -108,8 +108,36 @@ class UserController extends Controller
     {
         //
     }
-}
+
     public function images(Request $request)
     {
+        if (user < 3) {
+            $image = $request->file('file');
+            $name = "toto";
+            $extension = $image->getClientOriginalExtension();
 
+            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
+
+            $check = in_array($extension, $allowedfileExtension);
+
+            if (!$check) {
+
+                return response('invalid extension', 400);
+            } else {
+
+                //Storing file in disk
+                $fileName = $user->id . '_' . time() . '_' . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('user', $fileName);
+
+                //Add image to database (product_images table)
+                $user = new \App\Models\productImage;
+                $user->path = $fileName;
+                $user->product_id = $product->id;
+                $user->save();
+                return response('Image ajoutée avec succès', 200);
+            }
+        } else {
+            return response('Quota d\'images atteint', 400);
+        }
     }
+}

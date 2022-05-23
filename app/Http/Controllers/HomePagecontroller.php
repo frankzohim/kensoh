@@ -17,7 +17,7 @@ class HomePagecontroller extends Controller
             foreach($reviews as $review){
                 dd($review->id);
             }
-                
+
         }*/
         return view('homepage', compact('products'));
     }

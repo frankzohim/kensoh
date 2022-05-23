@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendPackageMail;
 use App\Models\package;
-use App\Models\Town;
+use App\Models\town;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

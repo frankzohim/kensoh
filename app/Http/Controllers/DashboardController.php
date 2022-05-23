@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\package;
 use App\Models\Product;
 use App\Models\town;
+use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -25,8 +27,25 @@ class DashboardController extends Controller
 					$products = Product::all();
                     $packages=package::all();
                     $towns=town::all();
+                    $country=Country::all();
 
-					return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns'));
+                    $stats= DB::table('packages')
+					->select('departure', DB::raw('count(*) as total'))
+					->groupBy('departure')
+					->get();
+                    $final=0;
+                    foreach($stats as $stat){
+                        $final=$final+$stat->total;
+                    }
+
+
+
+
+
+					$stat1=package::distinct('destination')->count();
+
+                    //return $stat;
+				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','country','stats','final'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :

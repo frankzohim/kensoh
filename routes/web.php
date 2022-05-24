@@ -17,7 +17,6 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomePageController;
-use App\Http\Controllers\PartnersController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -112,7 +111,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
       		'packages'=>PackageController::class,
 			'user' => UserController::class,
 			'town' => TownController::class,
-			'partners' => PartnersController::class,
 			'countries' => CountryController::class,
 		]);
 	});

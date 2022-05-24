@@ -44,19 +44,10 @@
                     <li><a class="sidebar-header" href="{{route('user.index')}}"><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
                     </li>
 
-                    <li><a class="sidebar-header" href="#"><i data-feather="plus"></i><span>Partenaires</span><i class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-
-                            <li><a href="{{route('partners.index')}}"><i class="fa fa-circle"></i>Liste Partenaires</a></li>
-                            <li><a href="{{route('partners.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
-
-                        </ul>
-                    </li>
-
                     <li><a class="sidebar-header" href="#"><i data-feather="plus"></i><span>Pays</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
 
-                            <li><a href="{{route('countries.index')}}"><i class="fa fa-circle"></i>Liste Partenaires</a></li>
+                            <li><a href="{{route('countries.index')}}"><i class="fa fa-circle"></i>Liste Pays</a></li> 
                             <li><a href="{{route('countries.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
 
                         </ul>

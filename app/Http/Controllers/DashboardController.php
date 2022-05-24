@@ -42,6 +42,7 @@ class DashboardController extends Controller
 
 
 
+
 					$stat1=package::distinct('destination')->count();
 
                     //return $stat;

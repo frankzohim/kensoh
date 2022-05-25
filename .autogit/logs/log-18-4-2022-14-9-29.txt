@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Wed May 18 2022 14:09:29 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/UserController.php
+
+
+Created files:
+* .autogit/logs/log-18-4-2022-12-5-11.txt
+
+
+Deleted files:
+
+
+Renamed files:

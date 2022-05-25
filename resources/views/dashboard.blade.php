@@ -261,7 +261,7 @@
                                                         </div>
 
 
-                                                    @else
+                                                    @elseif ($stat->total1<50 )
                                                         <div class="media">
                                                             <div class="order-color-secondary"></div>
                                                             <div class="media-body">
@@ -269,6 +269,14 @@
                                                                 <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
                                                             </div>
                                                         </div>
+                                                    @elseif ($stat->total1>26)
+                                                    <div class="media">
+                                                        <div class="order-color-warning"></div>
+                                                        <div class="media-body">
+
+                                                            <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
+                                                        </div>
+                                                    </div>
                                                 @endif
                                             @endif
 
@@ -276,30 +284,7 @@
 
                                     @endforeach
 
-                                    <div class="media">
-                                        <div class="order-color-secondary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0">Kenya <span class="pull-right">$347</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-color-danger"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0">Nigéria<span class="pull-right">$468</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-color-warning"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0">Sénégal<span class="pull-right">$742</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-color-success"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0">Niger <span class="pull-right">$647</span></h6>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

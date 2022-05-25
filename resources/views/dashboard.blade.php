@@ -248,12 +248,14 @@
                                 </div>
                                 <div class="order-graph-bottom">
                                     @foreach ($PackageDepartureStats as $stat)
+
                                         @foreach ($towns as $town)
                                             @if ($town->id===$stat->departure)
                                             <div class="media">
                                                 <div class="order-color-primary"></div>
                                                 <div class="media-body">
-                                                    <h6 class="mb-0">{{ $town->name }}<span class="pull-right">$157</span></h6>
+
+                                                    <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
                                                 </div>
                                             </div>
                                             @endif

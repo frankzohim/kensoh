@@ -32,31 +32,14 @@ class DashboardController extends Controller
                     ->select('towns.id as id','towns.name as name','countries.name_fr as country')
                     ->get();
 
-                    $countries=Country::all();
+
 
 					$PackageDepartureStats=$this->PackageDepartureStats();
-                    $final=0;
+                    $stat1=package::distinct('destination')->count();
 
-                    foreach($PackageDepartureStats as $stat){
-                        $final=$final+$stat->total1;
-                    }
-                    foreach($PackageDepartureStats as $stat){
-                        $percent=$stat->total1*100/$final;
+                    //return $PackageDepartureStats;
 
-                    }
-
-
-
-
-
-
-
-
-					$stat1=package::distinct('destination')->get();
-
-
-
-				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','countries','PackageDepartureStats','final'));
+				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :
@@ -66,11 +49,20 @@ class DashboardController extends Controller
 		}
 	}
     public function PackageDepartureStats(){
+        $total=$this->totalOfpackage();
         $PackageDepartureStats= DB::table('packages')
-					->select('departure', DB::raw('count(*) as total1'))
+					->select('departure', DB::raw("count(*)*100/'$total' as total1"))
 					->groupBy('departure')
 					->get();
 					return $PackageDepartureStats;
+    }
+    public function PackageDepartureStats1(){
+
+        $p= DB::table('packages')
+					->select('departure', DB::raw('count(*) as total1'))
+					->groupBy('departure')
+					->get();
+					return $p;
     }
     public function PackageDestinationStats(){
         $PackageDestinationStats= DB::table('packages')
@@ -78,7 +70,14 @@ class DashboardController extends Controller
 					->groupBy('destination')
 					->get();
     }
-    public function totalOfpackage($packages){
+    public function totalOfpackage(){
+        $final=0;
+        $PackageDepartureStats =$this->PackageDepartureStats1();
+        foreach($PackageDepartureStats as $stat){
+            $final=$final+$stat->total1;
+        }
+
+        return $final;
 
     }
 }

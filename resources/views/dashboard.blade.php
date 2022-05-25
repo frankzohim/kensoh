@@ -247,13 +247,21 @@
                                     <canvas id="myDoughnutGraph"></canvas>
                                 </div>
                                 <div class="order-graph-bottom">
+                                    @foreach ($PackageDepartureStats as $stat)
+                                        @foreach ($towns as $town)
+                                            @if ($town->id===$stat->departure)
+                                            <div class="media">
+                                                <div class="order-color-primary"></div>
+                                                <div class="media-body">
+                                                    <h6 class="mb-0">{{ $town->name }}<span class="pull-right">$157</span></h6>
+                                                </div>
+                                            </div>
+                                            @endif
 
-                                    <div class="media">
-                                        <div class="order-color-primary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0">Cameroun <span class="pull-right">$157</span></h6>
-                                        </div>
-                                    </div>
+                                        @endforeach
+
+                                    @endforeach
+
                                     <div class="media">
                                         <div class="order-color-secondary"></div>
                                         <div class="media-body">

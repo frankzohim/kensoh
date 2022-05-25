@@ -26,16 +26,23 @@ class DashboardController extends Controller
 					$productsNumbers = Product::count();
 					$products = Product::all();
                     $packages=package::all();
-                    $towns=town::all();
-                    $country=Country::all();
 
-                    $stats= DB::table('packages')
-					->select('departure', DB::raw('count(*) as total'))
-					->groupBy('departure')
-					->get();
+                    $towns=DB::table('towns')
+                    ->join('countries','countries.id','=','towns.country_id')
+                    ->select('towns.id as id','towns.name as name','countries.name_fr as country')
+                    ->get();
+
+                    $countries=Country::all();
+
+					$PackageDepartureStats=$this->PackageDepartureStats();
                     $final=0;
-                    foreach($stats as $stat){
-                        $final=$final+$stat->total;
+
+                    foreach($PackageDepartureStats as $stat){
+                        $final=$final+$stat->total1;
+                    }
+                    foreach($PackageDepartureStats as $stat){
+                        $percent=$stat->total1*100/$final;
+
                     }
 
 
@@ -43,10 +50,13 @@ class DashboardController extends Controller
 
 
 
-					$stat1=package::distinct('destination')->count();
 
-                    //return $stat;
-				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','country','stats','final'));
+
+					$stat1=package::distinct('destination')->get();
+
+
+
+				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','countries','PackageDepartureStats','final'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :
@@ -55,4 +65,20 @@ class DashboardController extends Controller
 				dd("incorrect route");
 		}
 	}
+    public function PackageDepartureStats(){
+        $PackageDepartureStats= DB::table('packages')
+					->select('departure', DB::raw('count(*) as total1'))
+					->groupBy('departure')
+					->get();
+					return $PackageDepartureStats;
+    }
+    public function PackageDestinationStats(){
+        $PackageDestinationStats= DB::table('packages')
+					->select('destination', DB::raw('count(*) as total2'))
+					->groupBy('destination')
+					->get();
+    }
+    public function totalOfpackage($packages){
+
+    }
 }

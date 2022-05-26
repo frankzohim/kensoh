@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+
 
 class UserController extends Controller
 {
@@ -17,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('users.index',compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -78,7 +80,7 @@ class UserController extends Controller
         //Validating request
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-			'lastname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', Rules\Password::defaults()],
             'country_id' => ['required', 'exists:App\Models\Country,id'],
@@ -86,14 +88,14 @@ class UserController extends Controller
         ]);
 
         $user->name = $request->name;
-	    $user->lastname = $request->lastname;
+        $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->country_id = $request->country_id;
         $user->password = Hash::make($request->password);
 
         $user->save();
-        return back()->with('update_success','Modifications prises en compte');
+        return back()->with('update_success', 'Modifications prises en compte');
     }
 
     /**
@@ -105,5 +107,37 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function images(Request $request)
+    {
+        if ($user < 3) {
+            $image = $request->file('file');
+            $name = "toto";
+            $extension = $image->getClientOriginalExtension();
+
+            $allowedfileExtension = ['jpg', 'png', 'jpeg'];
+
+            $check = in_array($extension, $allowedfileExtension);
+
+            if (!$check) {
+
+                return response('invalid extension', 400);
+            } else {
+
+                //Storing file in disk
+                $fileName = $image->id . '_' . time() . '_' . $image->getClientOriginalName() . '.' . $image->getClientOriginalExtension();
+                $image->storeAs('user', $fileName);
+
+                //Add image to database (product_images table)
+                $user = new \App\Models\productImage;
+                $user->profil = $fileName;
+                $user->user = $user->id;
+                $user->save();
+                return response('Image ajoutée avec succès', 200);
+            }
+        } else {
+            return response('Quota d\'images atteint', 400);
+        }
     }
 }

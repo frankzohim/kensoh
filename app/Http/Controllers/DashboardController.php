@@ -70,6 +70,13 @@ class DashboardController extends Controller
 					->groupBy('destination')
 					->get();
     }
+    public function PackageDestinationStats1(){
+        $p= DB::table('packages')
+					->select('destination', DB::raw('count(*) as total2'))
+					->groupBy('destination')
+					->get();
+        return $p;
+    }
     public function totalOfpackage(){
         $final=0;
         $PackageDepartureStats =$this->PackageDepartureStats1();

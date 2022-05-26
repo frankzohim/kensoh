@@ -297,9 +297,29 @@
                                 <div class="order-graph-bottom sales-location">
 
                                     @foreach ($PackageDestinationStats as $statPackageDestination)
-                                        @if ($town->id===$statPackageDestination->destination)
+                                            @foreach ($towns as $town)
+                                                @if ($town->id===$statPackageDestination->destination)
 
-                                        @endif
+                                                    @if ($statPackageDestination->total2>=50)
+
+                                                                <div class="media">
+                                                                    <div class="order-shape-primary"></div>
+                                                                    <div class="media-body">
+                                                                        <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
+                                                                    </div>
+                                                                </div>
+
+                                                        @elseif ($statPackageDestination->total2<50)
+
+                                                                <div class="media">
+                                                                    <div class="order-shape-secondary"></div>
+                                                                    <div class="media-body">
+                                                                        <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
+                                                                    </div>
+                                                                </div>
+                                                    @endif
+                                                @endif
+                                        @endforeach
                                     @endforeach
 
                                     <div class="media">

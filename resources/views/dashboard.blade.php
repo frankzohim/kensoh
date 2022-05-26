@@ -295,6 +295,13 @@
                                     <span class="pie-colours-1">4,7,6,5</span>
                                 </div>
                                 <div class="order-graph-bottom sales-location">
+
+                                    @foreach ($PackageDestinationStats as $statPackageDestination)
+                                        @if ($town->id===$statPackageDestination->destination)
+
+                                        @endif
+                                    @endforeach
+
                                     <div class="media">
                                         <div class="order-shape-primary"></div>
                                         <div class="media-body">

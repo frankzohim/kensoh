@@ -35,11 +35,12 @@ class DashboardController extends Controller
 
 
 					$PackageDepartureStats=$this->PackageDepartureStats();
+                    $PackageDestinationStats=$this->PackageDestinationStats();
                     $stat1=package::distinct('destination')->count();
 
-                    //return $PackageDepartureStats;
+                    //return $PackageDestinationStats;
 
-				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats'));
+			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :
@@ -49,7 +50,7 @@ class DashboardController extends Controller
 		}
 	}
     public function PackageDepartureStats(){
-        $total=$this->totalOfpackage();
+        $total=$this->totalOfpackageDeparture();
         $PackageDepartureStats= DB::table('packages')
 					->select('departure', DB::raw("count(*)*100/'$total' as total1"))
 					->groupBy('departure')
@@ -65,11 +66,12 @@ class DashboardController extends Controller
 					return $p;
     }
     public function PackageDestinationStats(){
-        $total=$this->totalOfpackage();
+        $total=$this->totalOfpackageDestination();
         $PackageDestinationStats= DB::table('packages')
-					->select('destination', DB::raw('count(*)*100/'$total' as total2'))
+					->select('destination', DB::raw("count(*)*100/'$total'  as total2"))
 					->groupBy('destination')
 					->get();
+                    return $PackageDestinationStats;
     }
     public function PackageDestinationStats1(){
         $p= DB::table('packages')
@@ -83,6 +85,16 @@ class DashboardController extends Controller
         $PackageDepartureStats =$this->PackageDepartureStats1();
         foreach($PackageDepartureStats as $stat){
             $final=$final+$stat->total1;
+        }
+
+        return $final;
+
+    }
+    public function totalOfpackageDestination(){
+        $final=0;
+        $PackageDepartureStats =$this->PackageDestinationStats1();
+        foreach($PackageDepartureStats as $stat){
+            $final=$final+$stat->total2;
         }
 
         return $final;

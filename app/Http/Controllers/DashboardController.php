@@ -65,8 +65,9 @@ class DashboardController extends Controller
 					return $p;
     }
     public function PackageDestinationStats(){
+        $total=$this->totalOfpackage();
         $PackageDestinationStats= DB::table('packages')
-					->select('destination', DB::raw('count(*) as total2'))
+					->select('destination', DB::raw('count(*)*100/'$total' as total2'))
 					->groupBy('destination')
 					->get();
     }
@@ -77,7 +78,7 @@ class DashboardController extends Controller
 					->get();
         return $p;
     }
-    public function totalOfpackage(){
+    public function totalOfpackageDeparture(){
         $final=0;
         $PackageDepartureStats =$this->PackageDepartureStats1();
         foreach($PackageDepartureStats as $stat){

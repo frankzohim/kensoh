@@ -185,37 +185,38 @@
                                 <th scope="col">lenght</th>
                                 <th scope="col">width</th>
                                 <th scope="col">weight</th>
+                                <th scope="col">departure</th>
                                 <th scope="col">destination</th>
 
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                @foreach ($packages as $package)
+                                @foreach ($lastPackages as $last)
 
 
-                                <td>{{$package->length}}</td>
-                                <td>{{$package->width}}</td>
-                                <td>{{$package->weight}}</td>
-
+                                <td>{{$last->description}}</td>
+                                <td>{{$last->length}}</td>
+                                <td>{{$last->width}}</td>
+                                <td>{{$last->weight}}</td>
                                 <td>
                                     @foreach($towns as $town)
-                                        @if($town->id==$package->departure)
+                                        @if($town->id==$last->departure)
                                             {{$town->name}}
                                         @endif
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach ($towns as $town)
-                                        @if ($town->id==$package->destination)
+                                        @if ($town->id==$last->destination)
                                             {{ $town->name }}
                                         @endif
                                     @endforeach
 
                                 </td>
-                                @endforeach
-                            </tr>
 
+                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

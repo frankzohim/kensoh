@@ -41,8 +41,8 @@ class DashboardController extends Controller
                     $stat1=package::distinct('destination')->count();
 
                     //return $PackageDestinationStats;
-
-			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats'));
+                    //return $lastPackages;
+			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats','lastPackages'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :

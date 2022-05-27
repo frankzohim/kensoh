@@ -20,12 +20,13 @@ class DashboardController extends Controller
 			case 1 :
 					//Admin dashboad
 					//Retrieving dashboard information like package, products, users and so on
-					$packagesNumbers = 0;
+					$packagesNumbers = package::count();
 					$sellersNumbers = User::where('role_id','=',3)->count();
 					$customersNumbers = User::where('role_id','=',2)->count();
 					$productsNumbers = Product::count();
 					$products = Product::all();
                     $packages=package::all();
+
 
                     $towns=DB::table('towns')
                     ->join('countries','countries.id','=','towns.country_id')
@@ -92,8 +93,8 @@ class DashboardController extends Controller
     }
     public function totalOfpackageDestination(){
         $final=0;
-        $PackageDepartureStats =$this->PackageDestinationStats1();
-        foreach($PackageDepartureStats as $stat){
+        $PackageDestinationStats=$this->PackageDestinationStats1();
+        foreach($PackageDestinationStats as $stat){
             $final=$final+$stat->total2;
         }
 

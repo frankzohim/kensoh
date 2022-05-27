@@ -322,36 +322,7 @@
                                         @endforeach
                                     @endforeach
 
-                                    <div class="media">
-                                        <div class="order-shape-primary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Allegmane <span class="pull-right">25%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-secondary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Brésil <span class="pull-right">10%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-danger"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Angleterre<span class="pull-right">34%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-warning"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Australie<span class="pull-right">5%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-success"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Canada <span class="pull-right">25%</span></h6>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

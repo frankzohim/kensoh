@@ -185,37 +185,38 @@
                                 <th scope="col">lenght</th>
                                 <th scope="col">width</th>
                                 <th scope="col">weight</th>
+                                <th scope="col">departure</th>
                                 <th scope="col">destination</th>
 
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                @foreach ($packages as $package)
+                                @foreach ($lastPackages as $last)
 
 
-                                <td>{{$package->length}}</td>
-                                <td>{{$package->width}}</td>
-                                <td>{{$package->weight}}</td>
-
+                                <td>{{$last->description}}</td>
+                                <td>{{$last->length}}</td>
+                                <td>{{$last->width}}</td>
+                                <td>{{$last->weight}}</td>
                                 <td>
                                     @foreach($towns as $town)
-                                        @if($town->id==$package->departure)
+                                        @if($town->id==$last->departure)
                                             {{$town->name}}
                                         @endif
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach ($towns as $town)
-                                        @if ($town->id==$package->destination)
+                                        @if ($town->id==$last->destination)
                                             {{ $town->name }}
                                         @endif
                                     @endforeach
 
                                 </td>
-                                @endforeach
-                            </tr>
 
+                            </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -322,36 +323,7 @@
                                         @endforeach
                                     @endforeach
 
-                                    <div class="media">
-                                        <div class="order-shape-primary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Allegmane <span class="pull-right">25%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-secondary"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Brésil <span class="pull-right">10%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-danger"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Angleterre<span class="pull-right">34%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-warning"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Australie<span class="pull-right">5%</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="order-shape-success"></div>
-                                        <div class="media-body">
-                                            <h6 class="mb-0 me-0">Canada <span class="pull-right">25%</span></h6>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

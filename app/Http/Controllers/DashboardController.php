@@ -20,12 +20,14 @@ class DashboardController extends Controller
 			case 1 :
 					//Admin dashboad
 					//Retrieving dashboard information like package, products, users and so on
-					$packagesNumbers = 0;
+					$packagesNumbers = package::count();
 					$sellersNumbers = User::where('role_id','=',3)->count();
 					$customersNumbers = User::where('role_id','=',2)->count();
 					$productsNumbers = Product::count();
 					$products = Product::all();
                     $packages=package::all();
+
+                    $lastPackages=$this->lastPackage();
 
                     $towns=DB::table('towns')
                     ->join('countries','countries.id','=','towns.country_id')
@@ -39,8 +41,8 @@ class DashboardController extends Controller
                     $stat1=package::distinct('destination')->count();
 
                     //return $PackageDestinationStats;
-
-			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats'));
+                    //return $lastPackages;
+			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats','lastPackages'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :
@@ -92,12 +94,17 @@ class DashboardController extends Controller
     }
     public function totalOfpackageDestination(){
         $final=0;
-        $PackageDepartureStats =$this->PackageDestinationStats1();
-        foreach($PackageDepartureStats as $stat){
+        $PackageDestinationStats=$this->PackageDestinationStats1();
+        foreach($PackageDestinationStats as $stat){
             $final=$final+$stat->total2;
         }
 
         return $final;
 
+    }
+
+    public function lastPackage(){
+        $lastPackages=package::orderBy('id','DESC')->take(3)->get();
+        return $lastPackages;
     }
 }

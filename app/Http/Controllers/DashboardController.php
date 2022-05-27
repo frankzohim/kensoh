@@ -27,6 +27,7 @@ class DashboardController extends Controller
 					$products = Product::all();
                     $packages=package::all();
 
+                    $lastPackages=$this->lastPackage();
 
                     $towns=DB::table('towns')
                     ->join('countries','countries.id','=','towns.country_id')
@@ -100,5 +101,10 @@ class DashboardController extends Controller
 
         return $final;
 
+    }
+
+    public function lastPackage(){
+        $lastPackages=package::orderBy('id','DESC')->take(3)->get();
+        return $lastPackages;
     }
 }

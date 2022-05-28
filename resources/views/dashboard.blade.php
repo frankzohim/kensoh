@@ -256,25 +256,25 @@
                                             @if ($town->id===$stat->departure)
                                                 @if ($stat->total1>=50)
                                                         <div class="media">
-                                                            <div class="order-color-primary"></div>
-                                                            <div class="media-body">
-
-                                                                <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
-                                                            </div>
-                                                        </div>
-
-
-                                                    @elseif ($stat->total1<50 )
-                                                        <div class="media">
                                                             <div class="order-color-secondary"></div>
                                                             <div class="media-body">
 
                                                                 <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
                                                             </div>
                                                         </div>
-                                                    @elseif ($stat->total1>26)
+
+
+                                                    @elseif ($stat->total1<50 && $stat->total1>26)
+                                                        <div class="media">
+                                                            <div class="order-color-warning"></div>
+                                                            <div class="media-body">
+
+                                                                <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
+                                                            </div>
+                                                        </div>
+                                                    @elseif ($stat->total1<=25)
                                                     <div class="media">
-                                                        <div class="order-color-warning"></div>
+                                                        <div class="order-color-primary"></div>
                                                         <div class="media-body">
 
                                                             <h6 class="mb-0">{{ $town->name }}<span class="pull-right">{{ $stat->total1 }}%</span></h6>
@@ -294,9 +294,9 @@
                         <div class="col-xl-3 col-sm-6 xl-50">
                             <div class="order-graph sm-order-space">
                                 <h6>Colis Arrivés</h6>
-                                <div class="peity-chart-dashboard text-center">
+                                <!--<div class="peity-chart-dashboard text-center">
                                     <span class="pie-colours-1">4,7,6,5</span>
-                                </div>
+                                </div>-->
                                 <div class="order-graph-bottom sales-location">
 
                                     @foreach ($PackageDestinationStats as $statPackageDestination)
@@ -306,20 +306,28 @@
                                                     @if ($statPackageDestination->total2>=50)
 
                                                                 <div class="media">
-                                                                    <div class="order-shape-primary"></div>
-                                                                    <div class="media-body">
-                                                                        <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
-                                                                    </div>
-                                                                </div>
-
-                                                        @elseif ($statPackageDestination->total2<50)
-
-                                                                <div class="media">
                                                                     <div class="order-shape-secondary"></div>
                                                                     <div class="media-body">
                                                                         <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
                                                                     </div>
                                                                 </div>
+
+                                                        @elseif ($statPackageDestination->total2<50 && $statPackageDestination->total2>26)
+
+                                                                <div class="media">
+                                                                    <div class="order-shape-warning"></div>
+                                                                    <div class="media-body">
+                                                                        <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
+                                                                    </div>
+                                                                </div>
+                                                        @elseif ($statPackageDestination->total2<=25)
+
+                                                                    <div class="media">
+                                                                        <div class="order-shape-primary"></div>
+                                                                        <div class="media-body">
+                                                                            <h6 class="mb-0 me-0">{{ $town->name }}<span class="pull-right">{{ $statPackageDestination->total2 }}%</span></h6>
+                                                                        </div>
+                                                                    </div>
                                                     @endif
                                                 @endif
                                         @endforeach

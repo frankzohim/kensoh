@@ -192,35 +192,37 @@
                             </thead>
                             <tbody>
                             <tr>
-                                @foreach ($lastPackages as $last)
+                                    @foreach ($lastPackages as $last)
 
 
-                                <td>{{$last->description}}</td>
-                                <td>{{$last->length}}</td>
-                                <td>{{$last->width}}</td>
-                                <td>{{$last->weight}}</td>
-                                <td>
-                                    @foreach($towns as $town)
-                                        @if($town->id==$last->departure)
-                                            {{$town->name}}
-                                        @endif
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach ($towns as $town)
-                                        @if ($town->id==$last->destination)
-                                            {{ $town->name }}
-                                        @endif
-                                    @endforeach
+                                            <td>{{$last->description}}</td>
+                                            <td>{{$last->length}}</td>
+                                            <td>{{$last->width}}</td>
+                                            <td>{{$last->weight}}</td>
+                                        <td>
+                                            @foreach($towns as $town)
+                                                @if($town->id==$last->departure)
+                                                    {{$town->name}}
+                                                @endif
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach ($towns as $town)
+                                                @if ($town->id==$last->destination)
+                                                    {{ $town->name }}
+                                                @endif
+                                            @endforeach
 
-                                </td>
+                                        </td>
 
                             </tr>
-                            @endforeach
+                                    @endforeach
                             </tbody>
                         </table>
+                        <a href="{{route('packages.index')}}" class="btn btn-primary ">Voir Toutes les Colis</a>
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="col-sm-12">
@@ -244,9 +246,9 @@
                             <div class="order-graph">
                                 <h6>Colis Départs</h6>
 
-                                <div class="chart-block chart-vertical-center">
+                                <!--<div class="chart-block chart-vertical-center">
                                     <canvas id="myDoughnutGraph"></canvas>
-                                </div>
+                                </div>-->
                                 <div class="order-graph-bottom">
                                     @foreach ($PackageDepartureStats as $stat)
 

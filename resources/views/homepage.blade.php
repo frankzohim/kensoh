@@ -188,96 +188,42 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="slide-3 no-arrow slick-default-margin">
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 Janvier 2022</h4>
+                        @forelse ($blogs as $blog)
+                            <div class="col-md-12">
                                 <a href="#">
-                                    <p>Top 10 January Best-Sellers Products – All Under $50!</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/2.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <div class="classic-effect">
+                                        <div>
+                                            <img src="{{route('blog.displayImage',$blog->id)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                        </div>
+                                        <span></span>
                                     </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 Février 2022</h4>
-                                <a href="#">
-                                    <p>Quarantine Birthday Celebration | In The Times of COVID-19</p>
                                 </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/3.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
+                                <div class="blog-details">
+                                    <h4>
+                                        @php
+                                            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                                            
+                                            $date = explode(" ",$blog->created_at);
+                                            //echo $date[0];
+                                            $date = date_create($date[0]);
+                                            $date = date_format($date, 'd F Y');
+                                            //echo $date;
+                                            //echo (strftime('%d %B %Y',strtotime($date)));
+                                        @endphp
+                                        {{ strftime('%d %B %Y',strtotime($date)) }}
+                                    </h4>
+                                    <a href="#">
+                                        <p>{{ $blog->title }}</p>
+                                    </a>
+                                    <hr class="style1">
+                                    <h6>par: Kensoh , transport & logistics</h6>
                                 </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>10 Mars 2022</h4>
-                                <a href="#">
-                                    <p>London fashion & Hair Trends From Fashion Week</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/4.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 January 2018</h4>
-                                <a href="#">
-                                    <p>Fun Fashion Clothing and Ideas for Valentine’s Day</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/5.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 January 2018</h4>
-                                <a href="#">
-                                    <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
+                        @empty
+                            
+                        @endforelse
+                        
+                        
                     </div>
                 </div>
             </div>

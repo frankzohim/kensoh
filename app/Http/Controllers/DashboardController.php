@@ -20,12 +20,14 @@ class DashboardController extends Controller
 			case 1 :
 					//Admin dashboad
 					//Retrieving dashboard information like package, products, users and so on
-					$packagesNumbers = 0;
+					$packagesNumbers = package::count();
 					$sellersNumbers = User::where('role_id','=',3)->count();
 					$customersNumbers = User::where('role_id','=',2)->count();
 					$productsNumbers = Product::count();
 					$products = Product::all();
                     $packages=package::all();
+
+                    $lastPackages=$this->lastPackage();
 
                     $towns=DB::table('towns')
                     ->join('countries','countries.id','=','towns.country_id')
@@ -35,11 +37,12 @@ class DashboardController extends Controller
 
 
 					$PackageDepartureStats=$this->PackageDepartureStats();
+                    $PackageDestinationStats=$this->PackageDestinationStats();
                     $stat1=package::distinct('destination')->count();
 
-                    //return $PackageDepartureStats;
-
-				return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats'));
+                    //return $PackageDestinationStats;
+                    //return $lastPackages;
+			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats','lastPackages'));
 			case 3 :
 				return view('vendor_dashboard');
 			case 2 :
@@ -49,7 +52,7 @@ class DashboardController extends Controller
 		}
 	}
     public function PackageDepartureStats(){
-        $total=$this->totalOfpackage();
+        $total=$this->totalOfpackageDeparture();
         $PackageDepartureStats= DB::table('packages')
 					->select('departure', DB::raw("count(*)*100/'$total' as total1"))
 					->groupBy('departure')
@@ -65,12 +68,21 @@ class DashboardController extends Controller
 					return $p;
     }
     public function PackageDestinationStats(){
+        $total=$this->totalOfpackageDestination();
         $PackageDestinationStats= DB::table('packages')
+					->select('destination', DB::raw("count(*)*100/'$total'  as total2"))
+					->groupBy('destination')
+					->get();
+                    return $PackageDestinationStats;
+    }
+    public function PackageDestinationStats1(){
+        $p= DB::table('packages')
 					->select('destination', DB::raw('count(*) as total2'))
 					->groupBy('destination')
 					->get();
+        return $p;
     }
-    public function totalOfpackage(){
+    public function totalOfpackageDeparture(){
         $final=0;
         $PackageDepartureStats =$this->PackageDepartureStats1();
         foreach($PackageDepartureStats as $stat){
@@ -79,5 +91,20 @@ class DashboardController extends Controller
 
         return $final;
 
+    }
+    public function totalOfpackageDestination(){
+        $final=0;
+        $PackageDestinationStats=$this->PackageDestinationStats1();
+        foreach($PackageDestinationStats as $stat){
+            $final=$final+$stat->total2;
+        }
+
+        return $final;
+
+    }
+
+    public function lastPackage(){
+        $lastPackages=package::orderBy('id','DESC')->take(3)->get();
+        return $lastPackages;
     }
 }

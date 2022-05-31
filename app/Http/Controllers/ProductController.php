@@ -61,13 +61,13 @@ class ProductController extends Controller
         $product->position = $request->position;
        
         $product->user_id = auth()->user()->id;
-        $product->featured = $request->vedette;
+        $product->featured = 0;
         $product->stock_quantity = $request->stock_quantity;
         $product->unit_price = $request->price;
         $product->nature = $request->nature;
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
-        $product->state = $request->state;
+        $product->state = 0;
         $product->video_url = $request->video_url;
 
         if($product->save())
@@ -166,6 +166,20 @@ class ProductController extends Controller
         $product->delete();
 
         return back()->with('delete','votre Produit à bien été bien supprimé');
+    }
+
+    /**
+     * publish the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function publish(Product $product)
+    {
+        $product->state = 1;
+        $product->save();
+
+        return back()->with('update_success','votre Produit à bien été bien publié');
     }
 
      /**

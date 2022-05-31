@@ -16,6 +16,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -81,11 +82,14 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 	Route::group(['middleware' => ['auth','verified']], function () {
 
-		Route::get('/dashboard', [DashboardController::class, 'index'])
+	Route::get('/dashboard', [DashboardController::class, 'index'])
                 ->name('dashboard');
 
-		Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
+	Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
                 ->name('store.displayImage');
+
+	Route::get('blog/displayImage{id}', [BlogController::class, 'displayImage'])
+                ->name('blog.displayImage');
 
 
 
@@ -108,6 +112,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
       'packages'=>PackageController::class,
 			'user' => UserController::class,
 			'town' => TownController::class,
+			'blog' => BlogController::class,
 		]);
 	});
 

@@ -63,14 +63,22 @@
                                     @endif
                                 </div>
                                 <div class="cart-info cart-wrap">
-                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart">
-                                        <i class="fa fa-shopping-cart"></i>
-                                    </button> <a href="javascript:void(0)" title="Add to Wishlist">
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    </a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View">
-                                            <i class="fa fa-search" aria-hidden="true"></i></a> 
-                                            <a href="compare.html.htm" title="Compare">
-                                                <i class="fa fa-refresh" aria-hidden="true"></i></a>
+
+                                     <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view{{ $product->id }}" title="Aperçu">
+                                        <i class="fa fa-search" aria-hidden="true">
+                                        </i>
+                                    </a>
+
+                                    <a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
+                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    </a> 
+
+                                    
+                                            
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view{{ $product->id }}" title="Faire un offre de prix">
+                                        <i class="fa fa-dollar" aria-hidden="true"></i>
+                                    </a>
+
                                 </div>
                             </div>
                             <div class="product-detail">
@@ -180,96 +188,42 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="slide-3 no-arrow slick-default-margin">
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/1.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 Janvier 2022</h4>
+                        @forelse ($blogs as $blog)
+                            <div class="col-md-12">
                                 <a href="#">
-                                    <p>Top 10 January Best-Sellers Products – All Under $50!</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/2.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
+                                    <div class="classic-effect">
+                                        <div>
+                                            <img src="{{route('blog.displayImage',$blog->id)}}" class="img-fluid blur-up lazyload bg-img" alt="">
+                                        </div>
+                                        <span></span>
                                     </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 Février 2022</h4>
-                                <a href="#">
-                                    <p>Quarantine Birthday Celebration | In The Times of COVID-19</p>
                                 </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/3.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
+                                <div class="blog-details">
+                                    <h4>
+                                        @php
+                                            setlocale(LC_TIME, 'fr_FR.utf8','fra');
+                                            
+                                            $date = explode(" ",$blog->created_at);
+                                            //echo $date[0];
+                                            $date = date_create($date[0]);
+                                            $date = date_format($date, 'd F Y');
+                                            //echo $date;
+                                            //echo (strftime('%d %B %Y',strtotime($date)));
+                                        @endphp
+                                        {{ strftime('%d %B %Y',strtotime($date)) }}
+                                    </h4>
+                                    <a href="#">
+                                        <p>{{ $blog->title }}</p>
+                                    </a>
+                                    <hr class="style1">
+                                    <h6>par: Kensoh , transport & logistics</h6>
                                 </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>10 Mars 2022</h4>
-                                <a href="#">
-                                    <p>London fashion & Hair Trends From Fashion Week</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/4.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 January 2018</h4>
-                                <a href="#">
-                                    <p>Fun Fashion Clothing and Ideas for Valentine’s Day</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <a href="#">
-                                <div class="classic-effect">
-                                    <div>
-                                        <img src="/assets/frontend/images/blog/5.jpg" class="img-fluid blur-up lazyload bg-img" alt="">
-                                    </div>
-                                    <span></span>
-                                </div>
-                            </a>
-                            <div class="blog-details">
-                                <h4>25 January 2018</h4>
-                                <a href="#">
-                                    <p>Lorem ipsum dolor sit consectetur adipiscing elit,</p>
-                                </a>
-                                <hr class="style1">
-                                <h6>by: John Dio , 2 Comment</h6>
-                            </div>
-                        </div>
+                        @empty
+                            
+                        @endforelse
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -329,5 +283,66 @@
         </div>
     </section>
     <!--  logo section end-->
+
+    <!-- Quick-view modal popup start-->
+    @forelse($products as $product)
+        <div class="modal fade bd-example-modal-lg" id="quick-view{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content quick-view-modal">
+                    <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-12">
+
+                                @php $images = $product->product_images @endphp
+								@foreach($images as $image )
+                                    @if ($loop->first)
+                                        <div><img src="{{route('product.displayImage',$image->id)}}" alt="" class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
+                                   
+                                    @else
+                                      @break
+									 @endif
+							   	@endforeach
+
+     
+                            </div>
+                            <div class="col-lg-6 rtl-text">
+                                <div class="product-right">
+                                    <h2>{{ $product->name }}</h2>
+                                    <h3>@if($product->new == 1) NEUF @else OCCASSION @endif</h3>
+                                    <ul class="color-variant">
+                                        <li class="bg-light0"></li>
+                                        <li class="bg-light1"></li>
+                                        <li class="bg-light2"></li>
+                                    </ul>
+                                    <div class="border-product">
+                                        <h6 class="product-title">Détails du produit</h6>
+                                        <p>{{ $product->meta_description }}</p>
+                                    </div>
+                                    <div class="product-description border-product">
+                                       
+                                        <h6 class="product-title">Entrez votre prix en FCFA</h6>
+                                      <div class="qty-box">
+                                    <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
+                                        <i class="fa fa-angle-left"></i></button> </span>
+                                        <input type="number" name="quantity" id="price" class="form-control input-number" value="1">
+                                        <span class="input-group-prepend"><button type="button" class="btn quantity-right-plus" data-type="plus" data-field=""><i class="fa fa-angle-right"></i></button></span>
+                                    </div>
+                                </div>
+                                    </div>
+                                  
+                                      <div class="product-buttons">
+                                            <a  id="cartEffect" onclick="console.log(document.getElementById('price').value) " class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a> 
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @empty
+    @endforelse
+    <!-- Quick-view modal popup end-->
 
 @endsection

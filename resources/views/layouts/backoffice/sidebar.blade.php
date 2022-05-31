@@ -67,6 +67,10 @@
                             <li><a href="taxes.html.htm"><i class="fa fa-circle"></i>Liste FAQ</a></li>
                         </ul>
                     </li>
+
+                    <li><a class="sidebar-header" href="{{ route('blog.index') }}"><i data-feather="settings"></i><span>Blog</span></a>
+                    </li>
+
                     <li><a class="sidebar-header" href=""><i data-feather="settings"></i><span>Paramètres</span></a>
                     </li>
                 </ul>

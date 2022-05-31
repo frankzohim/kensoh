@@ -107,32 +107,27 @@
                                 <span class="input-group-text">.00</span>
                             </div>
 
-                               <div class="col-md-6">
+                              <div class="col-md-6">
                                 <label for="inputCity" class="form-label">Quantité de stock</label>
                                 <input type="number" class="form-control" class="form-control" name="stock_quantity" id="" required>
                               </div>
+
                               <div class="col-md-6">
+
                                 <label for="inputState" class="form-label">Nature</label>
+
                                 <select id="inputState" class="form-select" name="nature">
+
                                   <option selected>Choisir...</option>
                                   <option value="1">Produit</option>
                                   <option value="0">Service</option>
+
                                 </select>
+
                               </div>
-                              <div class="col-md-6">
-                                <label for="exampleFormControlTextarea1" class="form-label">En vedette</label>
-                              <select class="form-select" aria-label="Default select example" name="vedette">
-                                <option value="1">Oui</option>
-                                <option value="0">Non</option>
-                              </select>
-                            </div>
-                            <div class="col-md-6">
-                              <label for="exampleInputPassword1">Status</label>
-                              <select class="form-control" name="state">
-                                  <option value="1">Publié</option>
-                                <option value="0">Non Publié</option>
-                              </select>
-                            </div>
+                              <input type="hidden" name="state" value="0">
+                              <input type="hidden" name="vedette" value="0">
+                        
 
                             <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
                             <div class="input-group mb-3">

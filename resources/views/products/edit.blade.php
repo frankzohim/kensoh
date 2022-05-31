@@ -173,21 +173,9 @@
                                         <option value="0" @selected($product->nature == 0)>Service</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="exampleFormControlTextarea1" class="form-label">En vedette</label>
-                                    <select class="form-select" aria-label="Default select example" name="vedette">
-                                        <option value="1" @selected($product->featured == 1)>Oui</option>
-                                        <option value="0" @selected($product->featured == 1)>Non</option>
-                                    </select>
-                                    </div>
 
-                                    <div class="col-md-6">
-                                        <label for="exampleInputPassword1">Status</label>
-                                        <select class="form-control" name="state">
-                                            <option value="1" @selected($product->state == 1)>Publié</option>
-                                            <option value="0" @selected($product->state == 0)>Non Publié</option>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="state" value="0">
+                                    <input type="hidden" name="vedette" value="0">
 
                                     <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
                                     <div class="input-group mb-3">
@@ -196,10 +184,27 @@
 
                                         <input type="url" class="form-control"  id="video_url" name="video_url" value="{{$product->video_url}}">
                                     </div>
+                                    
+                                    <div style="display: flex;
+                                                align-items : center;
+                                                
+                                    ">
 
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Mise à jour</button>
+                                        <div class="col-md-8">
+                                            <button type="submit" class="btn btn-primary">Mise à jour</button>
+                                        </div>
+
+                                        @if($productImages->count() >= 2)
+                                            <div class="col-md-8">
+                                                <button type="submit" class="btn btn-primary">Publié</button>
+                                            </div>
+                                        @else
+                                            <div class="col-md-8">
+                                                <button type="submit" class="btn btn-primary" disabled>Publié</button>
+                                            </div>
+                                        @endif
                                     </div>
+                                    
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="restriction" role="tabpanel" aria-labelledby="restriction-tabs">

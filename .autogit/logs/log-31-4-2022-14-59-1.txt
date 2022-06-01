@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+Tue May 31 2022 14:59:01 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+* app/Http/Controllers/FaqController.php
+* app/Models/faq.php
+* resources/views/faq/create.blade.php
+* routes/web.php
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

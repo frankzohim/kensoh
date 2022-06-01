@@ -17,6 +17,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FaqController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*

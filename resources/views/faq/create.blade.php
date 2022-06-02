@@ -1,55 +1,86 @@
 @extends('layouts.app')
-@section('title',__('Ajout d\'un faq'))
+@section('title',__('Ajout d\'une faq'))
 
 @section('content')
- <!-- breadcrumb start -->
- <div class="breadcrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="page-title">
-                    <h2>faq</h2>
+
+<div class="page-body">
+
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="page-header-left">
+                        <h3>Ajouter une faq
+                            <small>Kensoh Administration</small>
+                        </h3>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <nav aria-label="breadcrumb" class="theme-breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html.htm">home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">faq</li>
+                <div class="col-lg-6">
+                    <ol class="breadcrumb pull-right">
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item"><a href="{{route('coupon.index')}}">FAQ</li></a>
+                        <li class="breadcrumb-item">Ajouter</li>
                     </ol>
-                </nav>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- breadcrumb end -->
+    <!-- Container-fluid Ends-->
 
- <!--section start-->
- <section class="faq-section section-b-space">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="accordion theme-accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0"><button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How
-                                    can I downgrade to an earlier version of Dummy Content?</button></h5>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="card-body">
-                                <p>it look like readable English. Many desktop publishing packages and web page
-                                    editors now use Lorem Ipsum as their default model text, and a search for 'lorem
-                                    ipsum' will uncover many web sites still in their infancy. Various versions have
-                                    evolved over the years,All the Lorem Ipsum generators on the Internet tend to
-                                    repeat predefined chunks as necessary, making this the first true generator on
-                                    the Internet. It uses a dictionary of over 200 Latin words, combined with a
-                                    handful of model sentence structures</p>
+     <!-- Container-fluid starts-->
+     <div class="container-fluid">
+            <form method="post" action="{{route('coupon.store')}}">
+                @csrf
+                <!-- Validation Errors -->
+				<x-auth-validation-errors class="mb-4" :errors="$errors" />
+                <div class="card tab2-card">
+                    <div class="card-header">
+                        <h5>Détails d'une faq de Réduction</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade active show" id="general" role="tabpanel" aria-labelledby="general-tab">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group row">
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4">question</label>
+                                                <div class="col-md-7">
+                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4">answer</label>
+                                                <div class="col-md-7">
+                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4">Status</label>
+                                                <div class="col-md-7">
+                                                    <select class="custom-select w-100 form-control" name="state" required="">
+                                                        <option value="1">Publié</option>
+                                                        <option value="0">Non Publié</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                             </div>
+                        </div>
+                        <div >
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
-        </div>
-    </div>
+            <!-- Container-fluid Ends-->
 
+
+</div>
 @endsection

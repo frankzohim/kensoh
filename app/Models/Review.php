@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Model\Product;
 
-class Review extends Model
+class review extends Model
 {
     use HasFactory;
 

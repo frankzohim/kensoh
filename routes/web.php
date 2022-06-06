@@ -27,6 +27,12 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
+
+		/*listes des utilisateurs kensoh*/
+
+
+
+
 	Route::get('/', [HomePageController::class,'index'])->name('homepage');
 
 	Route::get('/backend', function () {

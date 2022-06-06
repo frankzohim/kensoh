@@ -123,8 +123,9 @@
                                         <div>
                                         <a href="{{route('product.edit',$product->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
+                                        <a href="{{route('product.show',$product->id)}}" >details</i></a>
+                                        
                                         <a href="{{ route('product.destroy',['product' => $product->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$product->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                            
                                         <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -137,6 +138,10 @@
                                                     @csrf
                                                     <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
                                                     @method('DELETE')
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">Oui</button>

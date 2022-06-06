@@ -91,6 +91,15 @@
                                     data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage" 
                                     aria-selected="false" data-original-title="" title="">
                                     Notes
+                                    
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="usage-tab" 
+                                    data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage" 
+                                    aria-selected="false" data-original-title="" title="">
+                                    details
+                                    
                                 </a>
                             </li>
                         </ul>
@@ -307,25 +316,192 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                                <form class="needs-validation" novalidate="">
-                                    <h4>Dimensions</h4>
-                                    <div class="form-group row">
-                                        <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom6" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom7" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                    </div>
-                                </form>
+                                
+                                @forelse ($review as $review)
+                                {{$review->content}}
+                            @empty
+                                aucune note pour ce produit
+                            @endforelse
+                                  
+        
+
+                <!-- Favicons -->
+            <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+            <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+            <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+            <link rel="manifest" href="/docs/5.2/assets/img/favicons/manifest.json">
+            <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+            <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+            <meta name="theme-color" content="#712cf9">
+
+
+                <style>
+                .bd-placeholder-img {
+                    font-size: 1.125rem;
+                    text-anchor: middle;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    user-select: none;
+                }
+
+                @media (min-width: 768px) {
+                    .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                    }
+                }
+
+                .b-example-divider {
+                    height: 3rem;
+                    background-color: rgba(0, 0, 0, .1);
+                    border: solid rgba(0, 0, 0, .15);
+                    border-width: 1px 0;
+                    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+                }
+
+                .b-example-vr {
+                    flex-shrink: 0;
+                    width: 1.5rem;
+                    height: 100vh;
+                }
+
+                .bi {
+                    vertical-align: -.125em;
+                    fill: currentColor;
+                }
+
+                .nav-scroller {
+                    position: relative;
+                    z-index: 2;
+                    height: 2.75rem;
+                    overflow-y: hidden;
+                }
+
+                .nav-scroller .nav {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    padding-bottom: 1rem;
+                    margin-top: -1px;
+                    overflow-x: auto;
+                    text-align: center;
+                    white-space: nowrap;
+                    -webkit-overflow-scrolling: touch;
+                }
+                /* stylelint-disable selector-list-comma-newline-after */
+
+            .blog-header {
+            border-bottom: 1px solid #e5e5e5;
+            }
+
+            .blog-header-logo {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+            font-size: 2.25rem;
+            }
+
+            .blog-header-logo:hover {
+            text-decoration: none;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+            }
+
+            .display-4 {
+            font-size: 2.5rem;
+            }
+            @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+            }
+
+            .flex-auto {
+            flex: 0 0 auto;
+            }
+
+            .h-250 { height: 250px; }
+            @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
+            }
+
+            /* Pagination */
+            .blog-pagination {
+            margin-bottom: 4rem;
+            }
+
+            /*
+            * Blog posts
+            */
+            .blog-post {
+            margin-bottom: 4rem;
+            }
+            .blog-post-title {
+            font-size: 2.5rem;
+            }
+            .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+            }
+
+            /*
+            * Footer
+            */
+            .blog-footer {
+            padding: 2.5rem 0;
+            color: #727272;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+            }
+            .blog-footer p:last-child {
+            margin-bottom: 0;
+            }
+                </style>
+
+                
+                <!-- Custom styles for this template -->
+                <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+                <!-- Custom styles for this template -->
+                <link href="blog.css" rel="stylesheet">
+            </head>
+            <body>
+                
+            <div class="container">
+            
+
+            
+            <main class="container">
+            
+
+            <div class="row mb-2">
+                <div class="col-md-6">
+        </div>
+                </div>
+                <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success"></strong>
+                    <h3 class="mb-0">{{ $product->nane}}</h3>
+                    <div class="mb-1 text-muted">{{ $product->meta_description}}</div>
+                    <p class="mb-auto">{{$product->slug}}</p>
+                    <p class="mb-auto">{{$product->unit_price}}</p>
+                
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+
+
+            </main>
+
+
                             </div>
+
+                              
+        
+
+                            
                         </div>
                         
                     </div>

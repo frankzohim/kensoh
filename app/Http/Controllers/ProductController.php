@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\review;
 use App\Models\Product;
 use App\Models\Coupon;
 use App\Models\ProductImage;
@@ -38,7 +39,7 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.create',compact('categories','brands','stores'));
+        return view('products.create',compact('categories','brands','stores',));
     }
 
     /**
@@ -84,7 +85,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = product::findOrfail($id);
+        $review = review::where('product_id','=',$id)->count();
+        return view('products.show' , compact('product', 'review'));
     }
 
     /**
@@ -96,12 +99,13 @@ class ProductController extends Controller
     public function edit($id)
     {
         $productImages = ProductImage::where('product_id','=',$id)->get();
-
+        $review = review::where('product_id','=',$id)->get();
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.edit',compact('product','stores','categories','brands','productImages'));
+        
+        return view('products.edit',compact('product','stores','categories','brands','productImages', 'review' ));
     }
 
     /**

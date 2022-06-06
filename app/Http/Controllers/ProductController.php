@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
+use App\Models\user;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
@@ -104,8 +105,11 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
+        $users = user::all();
+
+       
         
-        return view('products.edit',compact('product','stores','categories','brands','productImages', 'review' ));
+        return view('products.edit',compact('product','stores','categories','brands','productImages', 'review', 'users' ));
     }
 
     /**

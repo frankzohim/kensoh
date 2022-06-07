@@ -125,7 +125,7 @@
                             <div class="rating-section">
                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                 </div>
-                                <h6>120 notes</h6>
+                                <h6>{{$review}}notes</h6>
                             </div>
                             <div class="label-section">
                                 <span class="badge badge-grey-color">@if($product->new==1) Neuf @else Occassion @endif</span>

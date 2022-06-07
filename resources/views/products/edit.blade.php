@@ -312,24 +312,13 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                                <form class="needs-validation" novalidate="">
-                                    <h4>Dimensions</h4>
-                                    <div class="form-group row">
-                                        <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom6" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom7" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                    </div>
-                                </form>
+                               @forelse ($review as $review )
+                                   {{$review->comment}}
+                                   {{$review->star}}
+                                   <hr>
+                               @empty
+                                   aucun commentaire et star trouve
+                               @endforelse
                             </div>
                         </div>
                         

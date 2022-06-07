@@ -74,7 +74,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq = faq::findOrFail($id);
+        $stores = Store::all();
+        return view('faqs.edit', compact('faq', 'stores'));
     }
 
     /**
@@ -84,9 +86,12 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FaqRequest $request, Faq $faq)
     {
-        //
+        //$validatedData = $request->validated();
+        $faq->update($request->all());
+
+        return redirect()->route('faq.index')->with('update_success', 'Categorie à bien été modifier');
     }
 
     /**
@@ -97,6 +102,7 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Faq::destroy($id);
+        return back()->with('update_success', 'Le faq a bien été suprimé');
     }
 }

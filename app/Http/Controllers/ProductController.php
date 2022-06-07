@@ -7,6 +7,7 @@ use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
+use App\Models\review;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
@@ -96,12 +97,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         $productImages = ProductImage::where('product_id','=',$id)->get();
-
+        $review = review::where('product_id','=',$id)->get();
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.edit',compact('product','stores','categories','brands','productImages'));
+        return view('products.edit',compact('product','stores','categories','brands','productImages' , 'review'));
     }
 
     /**

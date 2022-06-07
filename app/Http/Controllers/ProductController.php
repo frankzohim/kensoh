@@ -85,7 +85,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = product::findOrfail($id);
+        $review = review::where('product_id','=',$id)->count();
+        return view('products.show',compact('product','review'));
     }
 
     /**

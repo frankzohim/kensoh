@@ -61,10 +61,10 @@
                     </li>
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="search"></i><span>Recherches</span></a></li>
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="phone"></i><span>Contact</span></a></li>
-                    <li><a class="sidebar-header" href=""><i data-feather="hash"></i><span>FAQ</span><i class="fa fa-angle-right pull-right"></i></a>
+                    <li><a class="sidebar-header" href="{{route('faq.index')}}"><i data-feather="tag"></i><span>faqs</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="currency-rates.html.htm"><i class="fa fa-circle"></i>Ajouter</a></li>
-                            <li><a href="taxes.html.htm"><i class="fa fa-circle"></i>Liste FAQ</a></li>
+                            <li><a href="{{route('faq.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
+                            <li><a href="{{route('faq.index')}}"><i class="fa fa-circle"></i>Liste FAQ</a></li>
                         </ul>
                     </li>
 

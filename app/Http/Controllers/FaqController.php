@@ -16,7 +16,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faq = Faq::all();
+        $stores = Store::all();
+        return view('faq.index', compact('faq', 'stores'));
     }
 
     /**
@@ -38,7 +40,19 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $faq = new Faq;
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->state = $request->state;
+        $faq->store_id = $request->store;
+        $faq->user_id = auth()->user()->id;
+
+        if ($faq->save())
+            return redirect()->route('faq.index')->with('update_success', 'faq ajouté avec succès');
+        else
+            return redirect() - back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
     }
 
     /**

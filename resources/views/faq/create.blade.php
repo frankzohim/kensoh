@@ -36,7 +36,7 @@
 				<x-auth-validation-errors class="mb-4" :errors="$errors" />
                 <div class="card tab2-card">
                     <div class="card-header">
-                        <h5>Détails d'une faq de Réduction</h5>
+                        <h5>Détails d'une faq </h5>
                     </div>
                     <div class="card-body">
 

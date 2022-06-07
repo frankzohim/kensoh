@@ -313,8 +313,13 @@
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
                                @forelse ($review as $review )
-                                   {{$review->comment}}
-                                   {{$review->star}}
+                                   @foreach ($users as $user )
+                                       @if ($review->user_id== $user->id)
+                                       {{$review->comment}}
+                                       {{$review->star}}
+                                       {{$user->name}}
+                                       @endif
+                                   @endforeach
                                    <hr>
                                @empty
                                    aucun commentaire et star trouve

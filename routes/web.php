@@ -132,4 +132,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+//cree une route parametre
+Route::get('categories/{id}', [HomePageController::class, 'productcategories'])->name('categories.product');
+
 require __DIR__ . '/auth.php';

@@ -253,7 +253,7 @@
                                   <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                                        
                                       @foreach ($categories as $categorie)
-                                      <li> <a href="#">{{$categorie->name}}</a>
+                                      <li> <a href="{{route('categories.product', $categorie->id)}}">{{$categorie->name}}</a>
                                         <ul>
                                             <li><a href="#">shopper bags</a></li>
                                             <li><a href="#">laptop bags</a></li>

@@ -54,7 +54,23 @@
         }
         .profil-review{
             width: 30px;
-
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+        .comment{
+            margin-left: 12px;
+        }
+        .user-review{
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: 10px;
+            font-weight: bold;
+            color:black;
+        }
+        .review-comment{
+            margin-bottom: 0;
+            margin-top: 0;
         }
     </style>
 </head>

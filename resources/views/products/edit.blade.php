@@ -318,8 +318,19 @@
                                         @if($user->id==$review->user_id)
                                         <div class="review-container">
                                             <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
-                                        {{ $user->name }}
-                                        {{$review->comment}}
+                                            <div class="comment">
+                                                <div style="height:12px; ">
+                                                    <p class="user-review">
+                                                        {{ $user->name }}
+                                                    </p>
+                                                </div>
+
+                                                <p class="review-comment">
+                                                    {{$review->comment}}
+                                                </p>
+
+                                            </div>
+
                                         </div>
 
                                         @endif
@@ -327,7 +338,7 @@
 
                                    <hr>
                                @empty
-                                   aucun commentaire et star trouve
+                                   aucun commentaire
                                @endforelse
                             </div>
                         </div>

@@ -314,9 +314,14 @@
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
                                @forelse ($review as $review )
                                     @foreach ($users as $user)
+
                                         @if($user->id==$review->user_id)
+                                        <div class="review-container">
+                                            <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
                                         {{ $user->name }}
                                         {{$review->comment}}
+                                        </div>
+
                                         @endif
                                     @endforeach
 

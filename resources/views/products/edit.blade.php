@@ -336,7 +336,7 @@
                                         @endif
                                     @endforeach
 
-                                   <hr>
+
                                @empty
                                    aucun commentaire
                                @endforelse

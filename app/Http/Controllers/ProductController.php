@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use App\Models\User;
+
 
 class ProductController extends Controller
 {
@@ -109,7 +109,7 @@ class ProductController extends Controller
         $brands = Brand::all();
         $stores = Store::all();
         $users = user::all();
-      
+
         return view('products.edit',compact('product','stores','categories','brands','productImages' , 'review','users'));
     }
 

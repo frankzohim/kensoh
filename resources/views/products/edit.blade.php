@@ -1,6 +1,38 @@
 @extends('layouts.app')
 @section('title',__('Editer un produit'))
+<style>
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .profil-review{
+        width: 30px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment{
+        margin-left: 12px;
+        padding: 12px;
+        background-color: rgb(226, 226, 226);
+    }
+    .user-review{
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 10px;
+        font-weight: bold;
+        color:black;
+    }
+    .review-comment{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .comment div{
+        height:12px;
+    }
 
+</style>
 @section('content')
 
 <div class="page-body">
@@ -312,21 +344,8 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-<<<<<<< Updated upstream
-                               @forelse ($review as $review )
-
-                                   @foreach ($users as $user )
-                                       @if ($review->user_id== $user->id)
-                                       {{$review->comment}}
-                                       {{$review->star}}
-                                       {{$user->name}}
-                                       @endif
-                                   @endforeach
-                                   <hr>
-=======
 
                                     @forelse ($review as $review )
->>>>>>> Stashed changes
                                     @foreach ($users as $user)
 
                                         @if($user->id==$review->user_id)
@@ -354,7 +373,7 @@
                                @empty
                                    aucun commentaire
                                @endforelse
-                            </div>
+
 
 
                         </div>

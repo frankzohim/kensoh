@@ -7,12 +7,13 @@ use App\Models\ProductImage;
 use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
-use App\Models\review;
+use App\Models\Review;
 use App\Models\user;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class ProductController extends Controller
 {
@@ -61,7 +62,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->new = $request->new;
         $product->position = $request->position;
-       
+
         $product->user_id = auth()->user()->id;
         $product->featured = 0;
         $product->stock_quantity = $request->stock_quantity;
@@ -87,7 +88,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = product::findOrfail($id);
-        $review = review::where('product_id','=',$id)->count();
+
+        $review = Review::where('product_id','=',$id)->count();
         return view('products.show',compact('product','review'));
     }
 
@@ -100,12 +102,14 @@ class ProductController extends Controller
     public function edit($id)
     {
         $productImages = ProductImage::where('product_id','=',$id)->get();
-        $review = review::where('product_id','=',$id)->get();
+        $review = Review::where('product_id','=',$id)->get();
+        $users=User::all();
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
         $users = user::all();
+      
         return view('products.edit',compact('product','stores','categories','brands','productImages' , 'review','users'));
     }
 
@@ -128,7 +132,7 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->new = $request->new;
         $product->position = $request->position;
-       
+
         $product->user_id = auth()->user()->id;
         $product->featured = $request->vedette;
         $product->stock_quantity = $request->stock_quantity;
@@ -201,7 +205,7 @@ class ProductController extends Controller
 
         //deleting product's image from disk
         Storage::delete('product-images/'.$oldfile);
-        
+
         //delete file in database
         $productImage->delete();
 
@@ -224,20 +228,20 @@ class ProductController extends Controller
 
         //Check if images quota of 5 is still maintain, before adding image
         if($productImages < 3){
-            $image = $request->file('file'); 
+            $image = $request->file('file');
             $name = "toto";
             $extension = $image->getClientOriginalExtension();
 
             $allowedfileExtension=['jpg','png','jpeg'];
 
             $check = in_array($extension,$allowedfileExtension);
-                
+
             if(!$check){
-                
+
                 return response('invalid extension', 400);
             }
             else{
-                
+
                 //Storing file in disk
                 $fileName = $product->id.'_'.time().'_'.$image->getClientOriginalName().'.'.$image->getClientOriginalExtension();
                 $image->storeAs('product-images', $fileName);
@@ -253,22 +257,22 @@ class ProductController extends Controller
         else{
             return response('Quota d\'images atteint', 400);
         }
-        
-        
+
+
     }
 
     public function displayImage($id)
     {
        $productIamge = ProductImage::FindOrFail($id);
        return response()->download(storage_path('app/product-images/' . $productIamge->path));
-        
+
     }
 
     public function deleteImage($id)
     {
        $productIamge = ProductImage::FindOrFail($id);
        return response()->download(storage_path('app/product-images/' . $productIamge->path));
-        
+
     }
 
 

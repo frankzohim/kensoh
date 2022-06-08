@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',__('Ajout d\'une faq'))
+@section('title',__('Editer une faq'))
 
 @section('content')
 
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-header-left">
-                        <h3>Ajouter une faq
+                        <h3>Editer une faq
                             <small>Kensoh Administration</small>
                         </h3>
                     </div>
@@ -30,8 +30,9 @@
 
      <!-- Container-fluid starts-->
      <div class="container-fluid">
-            <form method="post" action="{{route('faq.store')}}">
+            <form method="post" action="{{route('faq.update',$faq->id)}}">
                 @csrf
+                @method('PUT')
                 <!-- Validation Errors -->
 				<x-auth-validation-errors class="mb-4" :errors="$errors" />
                 <div class="card tab2-card">
@@ -47,18 +48,18 @@
                                             <div class="form-group row">
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4">question</label>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" id="name" name="question" type="text"   required="" autofocus>
+                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4">answer</label>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" id="name" name="answer" type="text"   required="" autofocus>
+                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4">State</label>
+                                                <label class="col-xl-3 col-md-4">Status</label>
                                                 <div class="col-md-7">
                                                     <select class="custom-select w-100 form-control" name="state" required="">
                                                         <option value="1">Publié</option>

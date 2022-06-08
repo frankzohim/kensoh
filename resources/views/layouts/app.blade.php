@@ -11,7 +11,7 @@
     <link rel="icon" href="{{ asset('assets/backend/images/dashboard/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/backend/images/dashboard/favicon.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/97e37c6653.js" crossorigin="anonymous"></script>
-    
+
     <title>@yield('title')</title>
 
     <!-- Google font-->
@@ -48,7 +48,37 @@
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/admin.css') }}">
 	<style>
-        
+        .review-container{
+            display: flex;
+            align-items: center;
+
+        }
+        .profil-review{
+            width: 30px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+        .comment{
+            margin-left: 12px;
+            padding: 12px;
+            background-color: rgb(226, 226, 226);
+        }
+        .user-review{
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: 10px;
+            font-weight: bold;
+            color:black;
+        }
+        .review-comment{
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        .comment div{
+            height:12px;
+        }
+
     </style>
 </head>
 
@@ -80,7 +110,7 @@
 
     <!-- Sidebar jquery-->
     <script src="{{ asset('assets/backend/js/sidebar-menu.js') }}"></script>
-	
+
 	<!-- Datatables js-->
 	<script src="{{ asset('assets/backend/js/datatables/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/backend/js/datatables/custom-basic.js') }}"></script>

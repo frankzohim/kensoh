@@ -51,7 +51,7 @@
         .review-container{
             display: flex;
             align-items: center;
-
+            margin-bottom: 12px;
         }
         .profil-review{
             width: 30px;

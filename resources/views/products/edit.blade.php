@@ -312,6 +312,7 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
+<<<<<<< Updated upstream
                                @forelse ($review as $review )
 
                                    @foreach ($users as $user )
@@ -322,6 +323,10 @@
                                        @endif
                                    @endforeach
                                    <hr>
+=======
+
+                                    @forelse ($review as $review )
+>>>>>>> Stashed changes
                                     @foreach ($users as $user)
 
                                         @if($user->id==$review->user_id)
@@ -350,6 +355,8 @@
                                    aucun commentaire
                                @endforelse
                             </div>
+
+
                         </div>
 
                     </div>

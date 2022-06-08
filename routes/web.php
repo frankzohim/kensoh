@@ -37,6 +37,12 @@ Route::get('about-us', [HomePageController::class, 'about'])->name('about');
 
 Route::get('become-vendor', [HomePageController::class, 'vendor'])->name('vendor');
 
+	//Route to email template
+	Route::get('email', [HomePageController::class,'emailTemplate']);
+
+	//route to access shop page
+	Route::get('shop', [ShopController::class, 'index'])
+                ->name('shop');
 //route to access shop page
 Route::get('shop', [ShopController::class, 'index'])
     ->name('shop');

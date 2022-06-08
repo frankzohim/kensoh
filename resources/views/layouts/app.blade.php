@@ -47,7 +47,9 @@
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/admin.css') }}">
-	
+	<style>
+        
+    </style>
 </head>
 
 <body>
@@ -63,7 +65,7 @@
             @yield('content')
             </div>
             @include('layouts.backoffice.footer')
-        </div>
+         </div>
     </div>
 
     <!-- latest jquery-->

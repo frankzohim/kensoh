@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\faq;
+use App\Models\Store;
+use App\Http\requests\FaqRequest;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -13,7 +16,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        //
+        $faqs = Faq::all();
+
+        return view('faq.index', compact('faqs'));
     }
 
     /**
@@ -23,8 +28,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        $stores = Store::all();
-        return view('faq.create', compact('stores'));
+        return view('faq.create');
     }
 
     /**
@@ -35,7 +39,18 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $faq = new faq;
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->state = $request->state;
+        $faq->user_id = auth()->user()->id;
+
+        if ($faq->save())
+            return redirect()->route('faq.index')->with('update_success', 'faq ajouté avec succès');
+        else
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
     }
 
     /**
@@ -57,7 +72,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
+        $faqs = faq::findOrFail($id);
+
+        return view('faq.edit', compact('faqs'));
     }
 
     /**
@@ -67,9 +84,12 @@ class FaqController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FaqRequest $request, Faq $faq)
     {
-        //
+        //$validatedData = $request->validated();
+        $faq->update($request->all());
+
+        return redirect()->route('faq.index')->with('update_success', 'Categorie à bien été modifier');
     }
 
     /**
@@ -80,6 +100,7 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Faq::destroy($id);
+        return back()->with('update_success', 'Le faq a bien été suprimé');
     }
 }

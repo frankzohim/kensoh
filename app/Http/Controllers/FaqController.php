@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Faq;
+use App\Models\faq;
 use App\Models\Store;
 use App\Http\requests\FaqRequest;
 use Illuminate\Http\Request;
@@ -28,8 +28,7 @@ class FaqController extends Controller
      */
     public function create()
     {
-        $stores = Store::all();
-        return view('faq.create', compact('stores'));
+        return view('faq.create');
     }
 
     /**
@@ -40,19 +39,18 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validated();
 
-        $faq = new Faq;
+
+        $faq = new faq;
         $faq->question = $request->question;
         $faq->answer = $request->answer;
         $faq->state = $request->state;
-        $faq->store_id = $request->store;
         $faq->user_id = auth()->user()->id;
 
         if ($faq->save())
             return redirect()->route('faq.index')->with('update_success', 'faq ajouté avec succès');
         else
-            return redirect() - back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
     }
 
     /**

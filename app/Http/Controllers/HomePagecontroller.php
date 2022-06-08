@@ -23,6 +23,11 @@ class HomePagecontroller extends Controller
         return view('homepage', compact('products','blogs' , 'categories'));
     }
 
+    public function product($id)
+    {
+        return view('categories.productcategorie');
+    }
+
     public function vendor(){
         return view('become_vendor');
     }

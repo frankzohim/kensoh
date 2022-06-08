@@ -58,7 +58,7 @@
 
                     <div class="card-body vendor-table">
                     <div class="btn-popup pull-right">
-                        <a href='{{route("coupon.create")}}'><button type="button" class="btn btn-primary">Ajouter une faq</button></a>
+                        <a href='{{route("faq.create")}}'><button type="button" class="btn btn-primary">Ajouter une faq</button></a>
                     </div>
                         <table class="display" id="basic-1">
                             <thead>
@@ -81,13 +81,7 @@
                                     <td>{{$faq->reponse}}</td>
                                     <td>{{$faq->state}}</td>
 
-                                    <td>
-                                        @foreach($stores as $store)
-                                            @if($faq->store_id == $store->id)
-                                                {{$store->name}}
-                                            @endif
-                                        @endforeach
-                                    </td>
+
                                     <td>
                                         <div>
                                         <a href="{{route('faq.edit',$faq->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
@@ -102,7 +96,7 @@
                                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form method="POST" action="{{ route('coupon.destroy',['faq' => $faq->id]) }}" id="delete-form{{$faq->id}}">
+                                                    <form method="POST" action="{{ route('faq.destroy',['faq' => $faq->id]) }}" id="delete-form{{$faq->id}}">
                                                     @csrf
                                                     <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
                                                     @method('DELETE')

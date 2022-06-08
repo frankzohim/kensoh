@@ -16,9 +16,9 @@ class FaqController extends Controller
      */
     public function index()
     {
-        $faq = Faq::all();
+        $faqs = Faq::all();
 
-        return view('faq.index');
+        return view('faq.index', compact('faqs'));
     }
 
     /**
@@ -72,9 +72,9 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        $faq = faq::findOrFail($id);
+        $faqs = faq::findOrFail($id);
 
-        return view('faq.edit');
+        return view('faq.edit', compact('faqs'));
     }
 
     /**

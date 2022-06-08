@@ -39,21 +39,7 @@
                                 <h6>{{auth()->user()->email}}</h6>
                             </div>
                         </div>
-                        <div class="faq-tab">
-                            <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Commandes</a>
-                                </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Colis</a>
-                                </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
-                                </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Déconnexion</a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -75,19 +61,19 @@
                                                     <div class="row">
                                                         <label for="exampleFormControlTextarea1" class="form-label">Description du colis</label>
                                                 <div class="input-group mb-3">
-                    
-                    
-                    
+
+
+
                                                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
-                    
+
                                                   </div>
                                                         <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
                                                 <div class="input-group mb-3">
-                    
-                    
-                    
+
+
+
                                                     <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length">
-                    
+
                                                   </div>
                                                   <div class="col-md-6">
                                                     <label for="inputCity" class="form-label">Largeur</label>
@@ -99,28 +85,28 @@
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Départ</label>
                                                 <div class="input-group mb-3">
-                    
-                    
-                    
+
+
+
                                                     <select id="inputState" class="form-select" name="departure">
 
                                                         <option selected>Choisir...</option>
-                                                        
+
                                                         @foreach ($departures as $departure)
 
                                                             <option value="{{$departure->id}}">{{$departure->name}}</option>
-                                                        
+
                                                         @endforeach
-                                                       
-                    
+
+
                                                       </select>
-                    
+
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
                                                   <div class="input-group mb-3">
-                    
-                    
-                    
+
+
+
                                                     <select id="inputState" class="form-select" name="destination">
 
                                                         <option selected>Choisir...</option>
@@ -128,19 +114,19 @@
                                                         @foreach ($destinations as $destination)
 
                                                             <option value="{{$destination->id}}">{{$destination->name}}</option>
-                                                    
+
                                                         @endforeach
 
                                                       </select>
-                    
+
                                                     </div>
                                                     </div>
                                                 </div>
-                    
+
                                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                                             </form>
                                     </div>
-                                 
+
                                    </div>
                                </div>
                            </div>

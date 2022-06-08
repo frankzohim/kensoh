@@ -313,6 +313,15 @@
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
                                @forelse ($review as $review )
+
+                                   @foreach ($users as $user )
+                                       @if ($review->user_id== $user->id)
+                                       {{$review->comment}}
+                                       {{$review->star}}
+                                       {{$user->name}}
+                                       @endif
+                                   @endforeach
+                                   <hr>
                                     @foreach ($users as $user)
 
                                         @if($user->id==$review->user_id)

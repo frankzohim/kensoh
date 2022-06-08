@@ -78,6 +78,7 @@
         .comment div{
             height:12px;
         }
+
     </style>
 </head>
 
@@ -94,7 +95,7 @@
             @yield('content')
             </div>
             @include('layouts.backoffice.footer')
-        </div>
+         </div>
     </div>
 
     <!-- latest jquery-->

@@ -13,7 +13,7 @@ class ProductCategory extends Model
         'name',
         'meta_description',
         'meta_keyword',
-        'state',
+        'state'
     ];
 
     public function products(){

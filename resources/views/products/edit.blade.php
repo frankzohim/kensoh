@@ -319,7 +319,7 @@
                                         <div class="review-container">
                                             <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
                                             <div class="comment">
-                                                <div style="height:12px; ">
+                                                <div>
                                                     <p class="user-review">
                                                         {{ $user->name }}
                                                     </p>

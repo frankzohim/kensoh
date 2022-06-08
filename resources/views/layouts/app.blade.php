@@ -51,6 +51,7 @@
         .review-container{
             display: flex;
             align-items: center;
+
         }
         .profil-review{
             width: 30px;
@@ -60,6 +61,8 @@
         }
         .comment{
             margin-left: 12px;
+            padding: 12px;
+            background-color: rgb(226, 226, 226);
         }
         .user-review{
             margin-bottom: 0;
@@ -71,6 +74,9 @@
         .review-comment{
             margin-bottom: 0;
             margin-top: 0;
+        }
+        .comment div{
+            height:12px;
         }
     </style>
 </head>

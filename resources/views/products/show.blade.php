@@ -42,6 +42,37 @@
     .rate > label:hover ~ input:checked ~ label {
         color: #c59b08;
     }
+
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .profil-review{
+        width: 30px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment{
+        margin-left: 12px;
+        padding: 12px;
+        background-color: rgb(226, 226, 226);
+    }
+    .user-review{
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 10px;
+        font-weight: bold;
+        color:black;
+    }
+    .review-comment{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .comment div{
+        height:12px;
+    }
 </style>
 @section('content')
         <div class="breadcrumb-section">
@@ -206,6 +237,9 @@
 												<li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab" href="#top-home" role="tab" aria-selected="true"><i class="icofont icofont-ui-home"></i>Détails</a>
 													<div class="material-border"></div>
 												</li>
+                                                <li class="nav-item"><a class="nav-link" id="list-review" data-bs-toggle="tab" href="#top-list-review" role="tab" aria-selected="false"><i class="icofont icofont-ui-home"></i>Notes</a>
+													<div class="material-border"></div>
+												</li>
 
 												<li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-selected="false"><i class="icofont icofont-contacts"></i>Vidéo</a>
 													<div class="material-border"></div>
@@ -233,7 +267,36 @@
 														</div>
 													</div>
 												</div>
+                                                <div class="tab-pane fade" id="top-list-review" role="tabpanel" aria-labelledby="list-review">
+                                                    @forelse ($reviews as $review )
+                                                    @foreach ($users as $user)
 
+                                                        @if($user->id==$review->user_id)
+                                                        <div class="review-container">
+                                                            <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
+                                                            <div class="comment">
+                                                                <div>
+                                                                    <p class="user-review">
+                                                                        {{ $user->name }}
+                                                                    </p>
+                                                                </div>
+
+                                                                <p class="review-comment">
+                                                                    {{$review->comment}}
+                                                                </p>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        @endif
+                                                    @endforeach
+
+
+                                               @empty
+                                                   aucun commentaire
+                                               @endforelse
+												</div>
 												<div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
 													<div class="">
 														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>

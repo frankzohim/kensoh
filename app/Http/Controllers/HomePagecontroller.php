@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Blog;
 use App\Models\Product;
 use App\Models\ProductImage;
-use App\Models\Blog;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
 
 class HomePagecontroller extends Controller
 {
@@ -16,7 +17,15 @@ class HomePagecontroller extends Controller
         //Selct all news from blog tables
         $blogs = Blog::where('state',1)->get();
 
-        return view('homepage', compact('products','blogs'));
+        $categories=ProductCategory::all();
+        
+
+        return view('homepage', compact('products','blogs' , 'categories'));
+    }
+
+    public function product($id)
+    {
+        return view('categories.productcategorie');
     }
 
     public function vendor(){
@@ -25,5 +34,9 @@ class HomePagecontroller extends Controller
 
     public function about(){
         return view('about_us');
+    }
+
+    public function emailTemplate(){
+        return view('mail.template.product');
     }
 }

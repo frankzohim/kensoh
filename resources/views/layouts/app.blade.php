@@ -11,7 +11,7 @@
     <link rel="icon" href="{{ asset('assets/backend/images/dashboard/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('assets/backend/images/dashboard/favicon.png') }}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/97e37c6653.js" crossorigin="anonymous"></script>
-    
+
     <title>@yield('title')</title>
 
     <!-- Google font-->
@@ -47,7 +47,7 @@
 
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/admin.css') }}">
-	
+
 </head>
 
 <body>
@@ -63,7 +63,7 @@
             @yield('content')
             </div>
             @include('layouts.backoffice.footer')
-        </div>
+         </div>
     </div>
 
     <!-- latest jquery-->
@@ -78,7 +78,7 @@
 
     <!-- Sidebar jquery-->
     <script src="{{ asset('assets/backend/js/sidebar-menu.js') }}"></script>
-	
+
 	<!-- Datatables js-->
 	<script src="{{ asset('assets/backend/js/datatables/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/backend/js/datatables/custom-basic.js') }}"></script>

@@ -14,6 +14,6 @@ class NewsletterController extends Controller
 
             return redirect('homepage')->with('success', 'Thanks For Subscribe');
         }
-        return redirect('newsletter')->with('failure', 'Sorry! You have already subscribed ');
+        return redirect('homepage')->with('failure', 'Sorry! You have already subscribed ');
     }
 }

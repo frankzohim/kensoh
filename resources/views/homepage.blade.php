@@ -31,6 +31,16 @@
         <h2 class="title-inner1">Articles Récents</h2>
     </div>
     <div class="container">
+        @if(session(success))
+            <script>
+                alert({{ session(success) }});
+            </script>
+        @endif
+        @if(session(failure))
+        <script>
+            alert({{ session(failure) }});
+        </script>
+        @endif
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="product-para">
@@ -71,10 +81,10 @@
 
                                     <a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                                    </a> 
+                                    </a>
 
-                                    
-                                            
+
+
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view{{ $product->id }}" title="Faire un offre de prix">
                                         <i class="fa fa-dollar" aria-hidden="true"></i>
                                     </a>
@@ -202,7 +212,7 @@
                                     <h4>
                                         @php
                                             setlocale(LC_TIME, 'fr_FR.utf8','fra');
-                                            
+
                                             $date = explode(" ",$blog->created_at);
                                             //echo $date[0];
                                             $date = date_create($date[0]);
@@ -220,10 +230,10 @@
                                 </div>
                             </div>
                         @empty
-                            
+
                         @endforelse
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -298,13 +308,13 @@
 								@foreach($images as $image )
                                     @if ($loop->first)
                                         <div><img src="{{route('product.displayImage',$image->id)}}" alt="" class="img-fluid blur-up lazyload image_zoom_cls-0"></div>
-                                   
+
                                     @else
                                       @break
 									 @endif
 							   	@endforeach
 
-     
+
                             </div>
                             <div class="col-lg-6 rtl-text">
                                 <div class="product-right">
@@ -320,7 +330,7 @@
                                         <p>{{ $product->meta_description }}</p>
                                     </div>
                                     <div class="product-description border-product">
-                                       
+
                                         <h6 class="product-title">Entrez votre prix en FCFA</h6>
                                       <div class="qty-box">
                                     <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
@@ -330,9 +340,9 @@
                                     </div>
                                 </div>
                                     </div>
-                                  
+
                                       <div class="product-buttons">
-                                            <a  id="cartEffect" onclick="console.log(document.getElementById('price').value) " class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a> 
+                                            <a  id="cartEffect" onclick="console.log(document.getElementById('price').value) " class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a>
                                         </div>
                                 </div>
                             </div>

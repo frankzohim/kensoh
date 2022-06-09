@@ -88,9 +88,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = product::findOrfail($id);
-
+        $reviews = Review::where('product_id','=',$id)->get();
+        $users=User::all();
         $review = Review::where('product_id','=',$id)->count();
-        return view('products.show',compact('product','review'));
+        return view('products.show',compact('product','review','reviews','users'));
     }
 
     /**
@@ -102,7 +103,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $productImages = ProductImage::where('product_id','=',$id)->get();
-        $review = Review::where('product_id','=',$id)->get();
+        $reviews= Review::where('product_id','=',$id)->get();
         $users=User::all();
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();

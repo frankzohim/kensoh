@@ -42,6 +42,37 @@
     .rate > label:hover ~ input:checked ~ label {
         color: #c59b08;
     }
+
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .profil-review{
+        width: 30px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment{
+        margin-left: 12px;
+        padding: 12px;
+        background-color: rgb(226, 226, 226);
+    }
+    .user-review{
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 10px;
+        font-weight: bold;
+        color:black;
+    }
+    .review-comment{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .comment div{
+        height:12px;
+    }
 </style>
 @section('content')
         <div class="breadcrumb-section">
@@ -237,9 +268,34 @@
 													</div>
 												</div>
                                                 <div class="tab-pane fade" id="top-list-review" role="tabpanel" aria-labelledby="list-review">
-													<div class="">
-														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-													</div>
+                                                    @forelse ($reviews as $review )
+                                                    @foreach ($users as $user)
+
+                                                        @if($user->id==$review->user_id)
+                                                        <div class="review-container">
+                                                            <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
+                                                            <div class="comment">
+                                                                <div>
+                                                                    <p class="user-review">
+                                                                        {{ $user->name }}
+                                                                    </p>
+                                                                </div>
+
+                                                                <p class="review-comment">
+                                                                    {{$review->comment}}
+                                                                </p>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        @endif
+                                                    @endforeach
+
+
+                                               @empty
+                                                   aucun commentaire
+                                               @endforelse
 												</div>
 												<div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
 													<div class="">

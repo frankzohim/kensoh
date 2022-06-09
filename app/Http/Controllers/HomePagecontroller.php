@@ -13,12 +13,12 @@ class HomePagecontroller extends Controller
 
         //select all product from databases
         $products = Product::where('state',1)->with('product_images')->get();
-        
+
         //Selct all news from blog tables
         $blogs = Blog::where('state',1)->get();
 
         $categories=ProductCategory::all();
-        
+
 
         return view('homepage', compact('products','blogs' , 'categories'));
     }
@@ -29,11 +29,17 @@ class HomePagecontroller extends Controller
     }
 
     public function vendor(){
-        return view('become_vendor');
+
+        $categories=ProductCategory::all();
+
+        return view('become_vendor',compact('categories'));
     }
 
     public function about(){
-        return view('about_us');
+
+        $categories=ProductCategory::all();
+
+        return view('about_us',compact('categories'));
     }
 
     public function emailTemplate(){

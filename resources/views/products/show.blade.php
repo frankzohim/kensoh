@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', __('Détails'.' '.$product->name))
 <style>
-	
+
     *{
         margin: 0;
         padding: 0;
@@ -29,11 +29,11 @@
         content: '★ ';
     }
     .rate > input:checked ~ label {
-        color: #eebe0f;    
+        color: #eebe0f;
     }
     .rate:not(:checked) > label:hover,
     .rate:not(:checked) > label:hover ~ label {
-        color: #deb217;  
+        color: #deb217;
     }
     .rate > input:checked + label:hover,
     .rate > input:checked + label:hover ~ label,
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-		
+
 		 <!-- section start -->
      <section>
         <div class="collection-wrapper">
@@ -125,7 +125,7 @@
                             <div class="rating-section">
                                 <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                 </div>
-                                <h6>{{$review}}notes</h6>
+                                <h6>{{$review}} notes</h6>
                             </div>
                             <div class="label-section">
                                 <span class="badge badge-grey-color">@if($product->new==1) Neuf @else Occassion @endif</span>
@@ -143,10 +143,10 @@
                                     @endswitch
                                 </span>
                             </div>
-                            
+
                             <div id="selectSize" class="addeffect-section product-description border-product">
-                              
-                              
+
+
                                 <h6 class="product-title">Entrez votre prix en FCFA</h6>
                                 <div class="qty-box">
                                     <div class="input-group"><span class="input-group-prepend"><button type="button" class="btn quantity-left-minus" data-type="minus" data-field="">
@@ -156,12 +156,12 @@
                                     </div>
                                 </div>
                             </div>
-							
+
                             <div class="product-buttons">
-                                <a  id="cartEffect" onclick="javacript:window.location.assign('https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}, mon offre de prix : '+ document.getElementById('price').value, '_blank')" class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a> 
+                                <a  id="cartEffect" onclick="javacript:window.location.assign('https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}, mon offre de prix : '+ document.getElementById('price').value, '_blank')" class="btn btn-solid hover-solid btn-animation"><i class="fa fa-dollar fz-16 me-2" aria-hidden="true"></i>Faire une Offre </a>
                                 <a href="https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}" target="_blank" class="btn btn-solid"><i class="fa fa-whatsapp me-1" aria-hidden="true"></i>Discuter sur WhatsApp</a>
                             </div>
-							
+
                             <div class="product-count">
                                 <ul>
                                     <li>
@@ -170,7 +170,7 @@
                                     </li>
                                 </ul>
                             </div>
-                           
+
                             <div class="border-product">
                                 <h6 class="product-title">Informations d'expédition</h6>
                                 <ul class="shipping-info">
@@ -196,7 +196,7 @@
                                 <h6 class="product-title">100% secure payment</h6>
                                 <img src="/assets/frontend/images/payment.png" class="img-fluid mt-1" alt="">
                             </div>
-							
+
 							<!-- product-tab starts -->
 							  <section class="tab-product m-0">
 								<div class="container">
@@ -206,7 +206,7 @@
 												<li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab" href="#top-home" role="tab" aria-selected="true"><i class="icofont icofont-ui-home"></i>Détails</a>
 													<div class="material-border"></div>
 												</li>
-												
+
 												<li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-selected="false"><i class="icofont icofont-contacts"></i>Vidéo</a>
 													<div class="material-border"></div>
 												</li>
@@ -222,18 +222,18 @@
 														</div>
 														<div class="part">
 															<h5 class="inner-title">Quantité en stock : {{$product->stock_quantity}}</h5>
-														  
+
 														</div>
 														<div class="part">
 															<h5 class="inner-title">Marque : {{$product->brand->name}}</h5>
 														</div>
 														<div class="part">
 															<h5 class="inner-title">Catégorie : {{$product->category->name}}</h5>
-														   
+
 														</div>
 													</div>
 												</div>
-									   
+
 												<div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
 													<div class="">
 														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
@@ -291,8 +291,8 @@
     <!-- Section ends -->
 
 
-      
-     
+
+
 
 
 

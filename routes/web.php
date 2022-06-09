@@ -17,11 +17,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
-<<<<<<< HEAD
 use App\Http\Controllers\OrderController;
-=======
 use App\Http\Controllers\FaqController;
->>>>>>> 8267eaf5ae18a40b6f1ce23ed4ec7cb51bfd0e0e
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*

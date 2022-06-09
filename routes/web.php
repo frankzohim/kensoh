@@ -20,6 +20,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FaqController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------

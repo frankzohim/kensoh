@@ -18,7 +18,7 @@ return [
     /*
      * The listName to use when no listName has been specified in a method.
      */
-    'defaultListName' => 'subscribers',
+    'defaultListName' => 'Kensoh',
 
     /*
      * Here you can define properties of the lists.

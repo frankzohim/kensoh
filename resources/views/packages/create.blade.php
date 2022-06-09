@@ -66,7 +66,7 @@
 
                                                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
 
-                                                  </div>
+                                        </div>
                                                         <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
                                                 <div class="input-group mb-3">
 
@@ -106,7 +106,7 @@
                                                   <div class="input-group mb-3">
 
 
-
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="destination">
                                                     <select id="inputState" class="form-select" name="destination">
 
                                                         <option selected>Choisir...</option>
@@ -117,7 +117,7 @@
 
                                                         @endforeach
 
-                                                      </select>
+                                                        </select>
 
                                                     </div>
                                                     </div>
@@ -127,10 +127,10 @@
                                             </form>
                                     </div>
 
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

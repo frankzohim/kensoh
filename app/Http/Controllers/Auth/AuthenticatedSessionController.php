@@ -18,7 +18,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        $categories=ProductCategory::all();
+        return view('auth.login',compact('categories'));
     }
 
     /**
@@ -29,11 +30,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-		
+
         $request->authenticate();
-		
+
         $request->session()->regenerate();
-		
+
 		return redirect()->intended(RouteServiceProvider::HOME);
     }
 

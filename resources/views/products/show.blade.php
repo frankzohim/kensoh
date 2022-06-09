@@ -206,6 +206,9 @@
 												<li class="nav-item"><a class="nav-link active" id="top-home-tab" data-bs-toggle="tab" href="#top-home" role="tab" aria-selected="true"><i class="icofont icofont-ui-home"></i>Détails</a>
 													<div class="material-border"></div>
 												</li>
+                                                <li class="nav-item"><a class="nav-link" id="list-review" data-bs-toggle="tab" href="#top-list-review" role="tab" aria-selected="false"><i class="icofont icofont-ui-home"></i>Notes</a>
+													<div class="material-border"></div>
+												</li>
 
 												<li class="nav-item"><a class="nav-link" id="contact-top-tab" data-bs-toggle="tab" href="#top-contact" role="tab" aria-selected="false"><i class="icofont icofont-contacts"></i>Vidéo</a>
 													<div class="material-border"></div>
@@ -233,7 +236,11 @@
 														</div>
 													</div>
 												</div>
-
+                                                <div class="tab-pane fade" id="top-list-review" role="tabpanel" aria-labelledby="list-review">
+													<div class="">
+														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+													</div>
+												</div>
 												<div class="tab-pane fade" id="top-contact" role="tabpanel" aria-labelledby="contact-top-tab">
 													<div class="">
 														<iframe width="560" height="315" src="{{$product->video_url}}" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>

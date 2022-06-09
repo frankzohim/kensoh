@@ -31,14 +31,14 @@
         <h2 class="title-inner1">Articles Récents</h2>
     </div>
     <div class="container">
-        @if(session(success))
+        @if(session('success'))
             <script>
-                alert({{ session(success) }});
+                alert({{ session('success') }});
             </script>
         @endif
-        @if(session(failure))
+        @if(session('failure'))
         <script>
-            alert({{ session(failure) }});
+            alert({{ session('failure') }});
         </script>
         @endif
         <div class="row">

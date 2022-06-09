@@ -132,7 +132,7 @@ Route::post('contact', [ContactController::class, 'store'])->name('contact.store
 Route::get('search/', [SearchController::class, 'find'])->name('search.find');
 
 // newsletter
-Route::post('newsletter/store','NewsletterController@store');
+Route::post('newsletter/store',[NewsletterController::class,'store'])->name('newsletter.store');
 
 
 Route::group(['prefix' => 'admin'], function () {

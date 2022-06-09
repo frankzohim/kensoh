@@ -111,7 +111,7 @@ class ProductController extends Controller
         $stores = Store::all();
         $users = user::all();
 
-        return view('products.edit',compact('product','stores','categories','brands','productImages' , 'review','users'));
+        return view('products.edit',compact('product','stores','categories','brands','productImages' , 'reviews','users'));
     }
 
     /**

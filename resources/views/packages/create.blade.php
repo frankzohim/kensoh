@@ -101,13 +101,11 @@
 
                                                       </select>
 
-                                                  </div>
-                                                  <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
-                                                  <div class="input-group mb-3">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
 
-
-                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="destination">
-                                                    <select id="inputState" class="form-select" name="destination">
+                                                        <select  class="form-select"  aria-label="Default select example"name="destination_id">
 
                                                         <option selected>Choisir...</option>
 

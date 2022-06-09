@@ -46,7 +46,8 @@
     .review-container{
         display: flex;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
+
     }
     .profil-review{
         width: 30px;
@@ -154,8 +155,7 @@
                             </div>
                             <h2>{{$product->name}}</h2>
                             <div class="rating-section">
-                                <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                                </div>
+
                                 <h6>{{$review}} notes</h6>
                             </div>
                             <div class="label-section">
@@ -269,35 +269,37 @@
 												</div>
                                                 <div class="tab-pane fade" id="top-list-review" role="tabpanel" aria-labelledby="list-review">
 
-                                                    @forelse ($reviews as $review )
-                                                    <?php $count=1; ?>
-                                                    @foreach ($users as $user)
+
+
+                                                        @forelse ($reviews as $review )
+                                                            <?php $count=1; ?>
+                                                            @foreach ($users as $user)
 
 
 
-                                                        @if($user->id==$review->user_id)
-                                                        <div class="review-container">
-                                                            <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
-                                                            <div class="comment">
-                                                                <div>
-                                                                    <p class="user-review">
-                                                                        {{ $user->name }}
-                                                                    </p>
-                                                                </div>
+                                                                @if($user->id==$review->user_id)
+                                                                <div class="review-container">
+                                                                    <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
+                                                                    <div class="comment">
+                                                                        <div>
+                                                                            <p class="user-review">
+                                                                                {{ $user->name }}
+                                                                            </p>
+                                                                        </div>
 
-                                                                <p class="review-comment">
-                                                                    {{$review->comment}}
-                                                                </p>
-                                                                <div>
+                                                                        <p class="review-comment">
+                                                                            {{$review->comment}}
+                                                                        </p>
+                                                                    <div>
                                                                     @while ($count <= $review->star)
-                                                                    <span style="color:#c59b08;">&#9733;</span>
-                                                                    <?php $count++;?>
+                                                                        <span style="color:#c59b08;">&#9733;</span>
+                                                                        <?php $count++;?>
                                                                     @endwhile
-                                                                </div>
-                                                            </div>
+                                                    </div>
+
 
                                                         </div>
-
+                                                    </div>
                                                         @endif
 
                                                     @endforeach

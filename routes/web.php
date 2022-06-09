@@ -131,6 +131,9 @@ Route::get('contact', [ContactController::class, 'create'])->name('contact.creat
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('search/', [SearchController::class, 'find'])->name('search.find');
 
+// newsletter
+Route::get('newsletter','NewsletterController@index');
+Route::post('newsletter/store','NewsletterController@store');
 
 
 Route::group(['prefix' => 'admin'], function () {

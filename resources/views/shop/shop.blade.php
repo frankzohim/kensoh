@@ -115,7 +115,7 @@
                                                             <div class="product-detail">
                                                                 <div>
                                                                     <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                    <a href="product-page(no-sidebar).html.htm">
+                                                                    <a href="{{ route('product.showbyId',$product->id) }}">
                                                                         <h6>{{ $product->name }}</h6>
                                                                     </a>
                                                                     <p>{{ $product->meta_description }}</p>

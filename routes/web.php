@@ -183,7 +183,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
-Route::get('search/', [SearchController::class, 'find'])->name('search.find');
+Route::get('search', [SearchController::class, 'find'])->name('search.find');
 
 // newsletter
 Route::post('newsletter/store',[NewsletterController::class,'store'])->name('newsletter.store');

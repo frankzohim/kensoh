@@ -345,7 +345,8 @@
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
 
-                                    @forelse ($review as $review )
+                                    @forelse ($reviews as $review )
+                                    <?php $count=1; ?>
                                     @foreach ($users as $user)
 
                                         @if($user->id==$review->user_id)
@@ -361,7 +362,12 @@
                                                 <p class="review-comment">
                                                     {{$review->comment}}
                                                 </p>
-
+                                                <div>
+                                                    @while ($count <= $review->star)
+                                                    <span style="color:#c59b08;">&#9733;</span>
+                                                    <?php $count++;?>
+                                                    @endwhile
+                                                </div>
                                             </div>
 
                                         </div>

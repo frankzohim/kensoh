@@ -66,7 +66,7 @@
 
                                                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description">
 
-                                                  </div>
+                                        </div>
                                                         <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
                                                 <div class="input-group mb-3">
 
@@ -101,13 +101,11 @@
 
                                                       </select>
 
-                                                  </div>
-                                                  <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
-                                                  <div class="input-group mb-3">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
 
-
-
-                                                    <select id="inputState" class="form-select" name="destination">
+                                                        <select  class="form-select"  aria-label="Default select example"name="destination">
 
                                                         <option selected>Choisir...</option>
 
@@ -117,7 +115,7 @@
 
                                                         @endforeach
 
-                                                      </select>
+                                                        </select>
 
                                                     </div>
                                                     </div>
@@ -127,10 +125,10 @@
                                             </form>
                                     </div>
 
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

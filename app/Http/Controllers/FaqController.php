@@ -6,6 +6,7 @@ use App\Models\faq;
 use App\Models\Store;
 use App\Http\requests\FaqRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\requests\FaqRequests;
 
 class FaqController extends Controller
 {
@@ -16,9 +17,12 @@ class FaqController extends Controller
      */
     public function index()
     {
+
         $faqs = Faq::all();
 
         return view('faq.index', compact('faqs'));
+        return view('faq.index');
+
     }
 
     /**
@@ -40,17 +44,24 @@ class FaqController extends Controller
     public function store(Request $request)
     {
 
-
-        $faq = new faq;
+        $faq = new Faq;
         $faq->question = $request->question;
         $faq->answer = $request->answer;
         $faq->state = $request->state;
         $faq->user_id = auth()->user()->id;
 
+
         if ($faq->save())
             return redirect()->route('faq.index')->with('update_success', 'faq ajouté avec succès');
         else
             return redirect()->back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
+
+
+        if ($faq->save())
+            return redirect()->route('faq.index')->with('update_success', 'faq ajouté avec succès');
+        else
+            return redirect() - back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
+
     }
 
     /**
@@ -72,9 +83,14 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
+
         $faqs = faq::findOrFail($id);
 
         return view('faq.edit', compact('faqs'));
+
+        $faq = faq::findOrFail($id);
+        return view('faq.edit');
+
     }
 
     /**
@@ -100,7 +116,11 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
+
         Faq::destroy($id);
         return back()->with('update_success', 'Le faq a bien été suprimé');
+
+        faq::destroy($id);
+        return back()->with('update_success', 'La faq a bien été suprimé');
     }
 }

@@ -18,10 +18,9 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
-<<<<<<< HEAD
-=======
+
 use App\Http\Controllers\FaqController;
->>>>>>> 710b8601ddb56e3c0beb24dc1b8cdf7f20c6b948
+
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\NewsletterController;
 
@@ -191,12 +190,9 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-<<<<<<< HEAD
-=======
+
 
 //cree une route parametre
 Route::get('categories/{id}', [HomePageController::class, 'product'])->name('categories.product');
 
-
->>>>>>> 710b8601ddb56e3c0beb24dc1b8cdf7f20c6b948
 require __DIR__ . '/auth.php';

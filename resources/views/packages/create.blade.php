@@ -105,7 +105,7 @@
                                                     <div class="input-group mb-3">
                                                     <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
 
-                                                        <select  class="form-select"  aria-label="Default select example"name="destination_id">
+                                                        <select  class="form-select"  aria-label="Default select example"name="destination">
 
                                                         <option selected>Choisir...</option>
 

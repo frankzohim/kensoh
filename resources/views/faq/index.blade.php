@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<<<<<<< HEAD
 
 @section('title',__('Liste des faqs'))
 
@@ -26,7 +25,7 @@
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">faqs</li></a>
                         <li class="breadcrumb-item active">Liste</li>
                     </ol>
-=======
+
 @section('title',__('Ajout d\'une faq'))
 
 @section('content')
@@ -196,12 +195,12 @@
         <!-- footer end -->
                         </div>
                     </div>
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
+
                 </div>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
+
     <!-- Container-fluid Ends-->
 
    	<!-- Container-fluid starts-->
@@ -296,7 +295,5 @@
             <!-- Container-fluid Ends-->
 
 </div>
-=======
 
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
 @endsection

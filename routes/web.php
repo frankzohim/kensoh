@@ -10,7 +10,6 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CouponController;
-<<<<<<< HEAD
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PackageController;
@@ -19,9 +18,6 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
-=======
-use App\Http\Controllers\HomePageController;
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
 use App\Http\Controllers\FaqController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\NewsletterController;
@@ -37,7 +33,7 @@ use App\Http\Controllers\NewsletterController;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/', [homepageController::class, 'index'])->name('homepage');
 
 Route::get('about-us', [HomePageController::class, 'about'])->name('about');
@@ -89,7 +85,6 @@ Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'
 Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage'])
     ->name('product.destroyImage');
 
-=======
 Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 Route::get('/backend', function () {
@@ -127,7 +122,7 @@ Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'
 Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage'])
     ->name('product.destroyImage');
 
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
+
 //Route to product's details
 Route::get('product/details{id}', [ProductController::class, 'details'])
     ->name('product.details');
@@ -139,7 +134,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
         ->name('store.displayImage');
-<<<<<<< HEAD
+
 
     Route::get('blog/displayImage{id}', [BlogController::class, 'displayImage'])
         ->name('blog.displayImage');
@@ -154,7 +149,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //Route test
     Route::get('test', [ProductController::class, 'test'])
         ->name('test');
-=======
+
 
 
     //Route to save product's images
@@ -162,7 +157,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         ->name('product.image');
 
 
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
 
     Route::resources([
         'brand' => BrandController::class,
@@ -170,7 +164,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         'category' => CategoryController::class,
         'product' => ProductController::class,
         'coupon' => CouponController::class,
-<<<<<<< HEAD
+
         'review' => ReviewController::class,
         'packages' => PackageController::class,
         'user' => UserController::class,
@@ -178,15 +172,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         'blog' => BlogController::class,
         'faq' => FaqController::class,
         'orders' => OrderController::class,
-=======
+
         'faq'   => FaqController::class,
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
+
     ]);
 });
 
 
 
-<<<<<<< HEAD
+
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('search/', [SearchController::class, 'find'])->name('search.find');
@@ -194,17 +188,15 @@ Route::get('search/', [SearchController::class, 'find'])->name('search.find');
 // newsletter
 Route::post('newsletter/store',[NewsletterController::class,'store'])->name('newsletter.store');
 
-=======
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-<<<<<<< HEAD
+
 //cree une route parametre
 Route::get('categories/{id}', [HomePageController::class, 'productcategories'])->name('categories.product');
 
-=======
->>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
+
 require __DIR__ . '/auth.php';

@@ -114,6 +114,7 @@
                                 <th scope="col">Longueur</th>
                                 <th scope="col">Largeur</th>
                                 <th scope="col">Poids</th>
+                                <th scope="col">Depart</th>
                                 <th scope="col">Destination</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -132,8 +133,19 @@
                                 <td>{{$package->length}}</td>
                                 <td>{{$package->width}}</td>
                                 <td>{{$package->weight}}</td>
-                                <td>{{$package->departure}}</td>
-                                <td>{{$package->destination}}</td>
+                                @foreach ($towns as $town )
+
+                                        @if($package->departure== $town->id)
+                                            <td>{{$town->name}}</td>
+                                        @endif
+                                @endforeach
+
+                                 @foreach ($towns as $town )
+
+                                        @if($package->destination== $town->id)
+                                            <td>{{$town->name}}</td>
+                                        @endif
+                                @endforeach
 
                                 <td>
 
@@ -142,6 +154,7 @@
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
                                 </td>
+
                         @endforeach
 
 
@@ -151,7 +164,7 @@
                 </div>
             </div>
         </div>
-      
+
     </div>
 
 </section>

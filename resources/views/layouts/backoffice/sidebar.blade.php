@@ -41,8 +41,17 @@
                         </ul>
                     </li>
 
+
                     <li><a class="sidebar-header" href="{{route('user.index')}}"><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
-                    </li>
+
+                    <li><a class="sidebar-header" href="media.html.htm"><i data-feather="camera"></i><span>Media</span></a></li>
+
+                    <li><a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <ul class="sidebar-submenu">
+                            <li><a href="user-list.html.htm"><i class="fa fa-circle"></i>Liste Utilisateurs</a></li>
+                            <li><a href="create-user.html.htm"><i class="fa fa-circle"></i>Créer Utilisateur</a></li>
+                        </ul>
+
 
                     <li>
                         <a class="sidebar-header" href="{{ route('review.index') }}">
@@ -53,6 +62,10 @@
                             </span>
                         </a>
                     </li>
+
+
+                    <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="message-circle"></i><span>Evaluations</span></a></li>
+
                     <li><a class="sidebar-header" href=""><i data-feather="map-pin"></i><span>Localisation</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="currency-rates.html.htm"><i class="fa fa-circle"></i>Pays</a></li>

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use App\Models\Product;
 
 class ShopController extends Controller
 {
     public function index(){
-        return view('shop/shop');
+
+        $categories=ProductCategory::all();
+        $products=Product::select('name','meta_description')->paginate(8);
+
+        return view('shop/shop',compact('categories','products'));
     }
 }

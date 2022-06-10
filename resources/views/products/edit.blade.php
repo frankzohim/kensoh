@@ -1,6 +1,38 @@
 @extends('layouts.app')
 @section('title',__('Editer un produit'))
+<style>
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .profil-review{
+        width: 30px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment{
+        margin-left: 12px;
+        padding: 12px;
+        background-color: rgb(226, 226, 226);
+    }
+    .user-review{
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 10px;
+        font-weight: bold;
+        color:black;
+    }
+    .review-comment{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .comment div{
+        height:12px;
+    }
 
+</style>
 @section('content')
 
 <div class="page-body">
@@ -312,7 +344,9 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                               @forelse ($review as $review )
+
+                                    @forelse ($reviews as $review )
+                                    <?php $count=1; ?>
                                     @foreach ($users as $user)
 
                                         @if($user->id==$review->user_id)
@@ -328,7 +362,12 @@
                                                 <p class="review-comment">
                                                     {{$review->comment}}
                                                 </p>
-
+                                                <div>
+                                                    @while ($count <= $review->star)
+                                                    <span style="color:#c59b08;">&#9733;</span>
+                                                    <?php $count++;?>
+                                                    @endwhile
+                                                </div>
                                             </div>
 
                                         </div>
@@ -340,7 +379,9 @@
                                @empty
                                    aucun commentaire
                                @endforelse
-                            </div>
+
+
+
                         </div>
 
                     </div>

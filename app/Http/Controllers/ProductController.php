@@ -8,11 +8,12 @@ use App\Models\ProductCategory;
 use App\Models\Brand;
 use App\Models\Store;
 use App\Models\Review;
+use App\Models\user;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use App\Models\User;
+
 
 class ProductController extends Controller
 {
@@ -87,9 +88,10 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = product::findOrfail($id);
-
+        $reviews = Review::where('product_id','=',$id)->get();
+        $users=User::all();
         $review = Review::where('product_id','=',$id)->count();
-        return view('products.show',compact('product','review'));
+        return view('products.show',compact('product','review','reviews','users'));
     }
 
     /**
@@ -101,13 +103,15 @@ class ProductController extends Controller
     public function edit($id)
     {
         $productImages = ProductImage::where('product_id','=',$id)->get();
-        $review = Review::where('product_id','=',$id)->get();
+        $reviews= Review::where('product_id','=',$id)->get();
         $users=User::all();
         $product=Product::findOrFail($id);
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.edit',compact('product','stores','categories','brands','productImages' , 'review','users'));
+        $users = user::all();
+
+        return view('products.edit',compact('product','stores','categories','brands','productImages' , 'reviews','users'));
     }
 
     /**

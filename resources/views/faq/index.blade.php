@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('title',__('Liste des faqs'))
 
 @section('content')
@@ -25,10 +26,12 @@
                         <li class="breadcrumb-item"><a href="{{route('dashboard')}}">faqs</li></a>
                         <li class="breadcrumb-item active">Liste</li>
                     </ol>
+
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Container-fluid Ends-->
 
    	<!-- Container-fluid starts-->
@@ -123,4 +126,7 @@
             <!-- Container-fluid Ends-->
 
 </div>
+
+
+
 @endsection

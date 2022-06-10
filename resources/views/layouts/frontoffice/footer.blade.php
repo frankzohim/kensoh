@@ -13,9 +13,10 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <form action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                            <form method="POST" action="{{ route('newsletter.store') }}" class="form-inline subscribe-form auth-form needs-validation" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+                                @csrf
                                 <div class="form-group mx-sm-3">
-                                    <input type="text" class="form-control" name="EMAIL" id="mce-EMAIL" placeholder="Entrer votre Email" required="required">
+                                    <input type="text" class="form-control" name="email" id="mce-EMAIL" placeholder="Entrer votre Email" required="required">
                                 </div>
                                 <button type="submit" class="btn btn-solid" id="mc-submit">S'abonner</button>
                             </form>

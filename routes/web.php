@@ -17,11 +17,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
-<<<<<<< HEAD
 use App\Http\Controllers\OrderController;
-=======
-use App\Http\Controllers\FaqController;
->>>>>>> 8267eaf5ae18a40b6f1ce23ed4ec7cb51bfd0e0e
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
@@ -41,12 +37,6 @@ Route::get('about-us', [HomePageController::class, 'about'])->name('about');
 
 Route::get('become-vendor', [HomePageController::class, 'vendor'])->name('vendor');
 
-	//Route to email template
-	Route::get('email', [HomePageController::class,'emailTemplate']);
-
-	//route to access shop page
-	Route::get('shop', [ShopController::class, 'index'])
-                ->name('shop');
 //route to access shop page
 Route::get('shop', [ShopController::class, 'index'])
     ->name('shop');
@@ -139,8 +129,5 @@ Route::get('search/', [SearchController::class, 'find'])->name('search.find');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
-//cree une route parametre
-Route::get('categories/{id}', [HomePageController::class, 'productcategories'])->name('categories.product');
 
 require __DIR__ . '/auth.php';

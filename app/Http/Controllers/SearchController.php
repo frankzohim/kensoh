@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductCategory;
 
 class SearchController extends Controller
 {
@@ -22,10 +23,12 @@ class SearchController extends Controller
             ->orWhere('stock_quantity','like',"%$str%")
             ->paginate(8);
 
+            $categories=ProductCategory::all();
+
 
             // dd($products);
 
-            return view('Search.Productresults',compact('products'));
+            return view('Search.Productresults',compact('products','categories'));
         }
         else{
             return view('homepage');

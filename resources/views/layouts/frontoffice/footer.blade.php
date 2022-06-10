@@ -54,11 +54,10 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">Électroménager</a></li>
+
                                     <li><a href="#">Électronique</a></li>
-                                    <li><a href="#">Cosmétiques</a></li>
-                                    <li><a href="#">Accessoires</a></li>
-                                    <li><a href="#">Informatique</a></li>
+                                    <li><a href="#">ordimateurs</a></li>
+
                                 </ul>
                             </div>
                         </div>

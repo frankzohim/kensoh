@@ -1,5 +1,5 @@
 @extends('layouts.master')
-        @section('title', 'Boutique')
+        @section('title', 'Search Result')
 
         @section('content')
         <!-- breadcrumb start -->

@@ -1,7 +1,7 @@
 
-   
+
 @extends('layouts.master')
-@section('title', 'Boutique')
+@section('title', 'Category de Produits')
 
 @section('content')
 <!-- breadcrumb start -->
@@ -135,7 +135,7 @@
                                                 </div>
                                             </div>
                                               @endforeach
-                            
+
                                           </div>
                                       </div>
                                       <div class="product-pagination">

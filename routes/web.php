@@ -196,7 +196,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 //cree une route parametre
-Route::get('categories/{id}', [HomePageController::class, 'productcategories'])->name('categories.product');
+Route::get('categories/{id}', [HomePageController::class, 'product'])->name('categories.product');
 
 
 require __DIR__ . '/auth.php';

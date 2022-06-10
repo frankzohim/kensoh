@@ -188,7 +188,9 @@ Route::get('search', [SearchController::class, 'find'])->name('search.find');
 // newsletter
 Route::post('newsletter/store',[NewsletterController::class,'store'])->name('newsletter.store');
 
+//Show Product
 
+Route::get('show/product/{id}',[ProductController::class,'show'])->name('product.showbyId');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

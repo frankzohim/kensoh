@@ -25,7 +25,7 @@ class SearchController extends Controller
 
             // dd($products);
 
-            return view('Search.results',compact('products'));
+            return view('Search.Productresults',compact('products'));
         }
         else{
             return view('homepage');

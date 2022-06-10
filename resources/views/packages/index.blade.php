@@ -114,6 +114,7 @@
                                 <th scope="col">Longueur</th>
                                 <th scope="col">Largeur</th>
                                 <th scope="col">Poids</th>
+                                <th scope="col">Depart</th>
                                 <th scope="col">Destination</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -151,7 +152,7 @@
                 </div>
             </div>
         </div>
-      
+
     </div>
 
 </section>

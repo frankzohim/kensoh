@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Mes Colis'))
+@section('title', __('Mes Commandes'))
 
 @section('content')
 
@@ -16,7 +16,7 @@
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Colis</li>
+                        <li class="breadcrumb-item active" aria-current="page">Commandes</li>
                     </ol>
                 </nav>
             </div>
@@ -100,61 +100,47 @@
 
 
 
-                        <h3>Colis</h3>
+                        <h3>Commandes</h3>
                         <!-- Button trigger modal -->
 
 
-                        <a class="btn btn-sm btn-solid" href="{{ route('packages.create') }}" role="button">Ajouter un colis</a>
+                        <a class="btn btn-sm btn-solid" href="{{ route('orders.create') }}" role="button">Ajouter une commande</a>
                     </div>
 
                     <table class="table mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">Description</th>
-                                <th scope="col">Longueur</th>
-                                <th scope="col">Largeur</th>
-                                <th scope="col">Poids</th>
-                                <th scope="col">Depart</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">id</th>
+                                <th scope="col">Categories</th>
+                                <th scope="col">Etat commande</th>
+                                <th scope="col">Budget</th>
+                                <th scope="col">id utilisateur</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($packages as $package)
+                        @foreach($orders as $commande)
 
 
                             <tr>
                                 <td>
                                     <div class="d-flex vendor-list">
 
-                                        <span>{{$package->description}}</span>
+                                        <span>{{$commande->categories_id}}</span>
                                     </div>
                                 </td>
-                                <td>{{$package->length}}</td>
-                                <td>{{$package->width}}</td>
-                                <td>{{$package->weight}}</td>
-                                @foreach ($towns as $town )
-
-                                        @if($package->departure== $town->id)
-                                            <td>{{$town->name}}</td>
-                                        @endif
-                                @endforeach
-
-                                 @foreach ($towns as $town )
-
-                                        @if($package->destination== $town->id)
-                                            <td>{{$town->name}}</td>
-                                        @endif
-                                @endforeach
+                                <td>{{$commande->state}}</td>
+                                <td>{{$commande->budget}}</td>
+                                <td>{{$commande->user_id}}</td>
+                                <!-- <td>{{$commande->departure}}</td>
+                                <td>{{$commande->destination}}</td> -->
 
                                 <td>
 
                                     <div>
-                                    <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$commande->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
 
-                                    <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                    <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$commande->id}}"><i class="fa fa-trash font-danger"></i></a>
                                 </td>
-
                         @endforeach
 
 
@@ -164,7 +150,7 @@
                 </div>
             </div>
         </div>
-
+      
     </div>
 
 </section>

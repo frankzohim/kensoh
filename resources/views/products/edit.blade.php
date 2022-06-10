@@ -1,6 +1,38 @@
 @extends('layouts.app')
 @section('title',__('Editer un produit'))
+<style>
+    .review-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    .profil-review{
+        width: 30px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment{
+        margin-left: 12px;
+        padding: 12px;
+        background-color: rgb(226, 226, 226);
+    }
+    .user-review{
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 10px;
+        font-weight: bold;
+        color:black;
+    }
+    .review-comment{
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .comment div{
+        height:12px;
+    }
 
+</style>
 @section('content')
 
 <div class="page-body">
@@ -69,26 +101,26 @@
                         <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
 
                             <li class="nav-item">
-                                <a class="nav-link active show" id="general-tab" 
-                                    data-bs-toggle="tab" href="#general" role="tab" aria-controls="general" 
-                                    aria-selected="true" 
+                                <a class="nav-link active show" id="general-tab"
+                                    data-bs-toggle="tab" href="#general" role="tab" aria-controls="general"
+                                    aria-selected="true"
                                     data-original-title="" title="">
                                     Général
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="restriction-tabs" 
-                                    data-bs-toggle="tab" href="#restriction" role="tab" aria-controls="restriction" 
-                                    aria-selected="false" 
+                                <a class="nav-link" id="restriction-tabs"
+                                    data-bs-toggle="tab" href="#restriction" role="tab" aria-controls="restriction"
+                                    aria-selected="false"
                                     data-original-title="" title="">
                                     Images
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" id="usage-tab" 
-                                    data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage" 
+                                <a class="nav-link" id="usage-tab"
+                                    data-bs-toggle="tab" href="#usage" role="tab" aria-controls="usage"
                                     aria-selected="false" data-original-title="" title="">
                                     Notes
                                 </a>
@@ -153,7 +185,7 @@
                                         @endforeach
                                     </select>
                                     </div>
-                                
+
                                     <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
                                     <div class="input-group mb-3">
 
@@ -184,10 +216,10 @@
 
                                         <input type="url" class="form-control"  id="video_url" name="video_url" value="{{$product->video_url}}">
                                     </div>
-                                    
+
                                     <div style="display: flex;
                                                 align-items : center;
-                                                
+
                                     ">
 
                                         <div class="col-md-8">
@@ -204,7 +236,7 @@
                                             </div>
                                         @endif
                                     </div>
-                                    
+
                                 </form>
                             </div>
                             <div class="tab-pane fade" id="restriction" role="tabpanel" aria-labelledby="restriction-tabs">
@@ -212,29 +244,29 @@
                                     <div class=" login-page section-b-space col-lg-12 right-login">
                                         <div class="theme-card authentication-right">
                                             <h6 class="title-font">Instructions</h6>
-                                                <p>Vous pouvez ajoutez jusqu'à 3 images pour votre produit. Les images doivent avoir l'une 
-                                                    des extensions suivantes : .png, .jpg, .jpeg. 
-                                                    L'ajout des images se fait dans la zone rectangulaire 
-                                                    ci-dessous, vous pouvez ajouter plusieurs images à la fois. 
-                                                    Si vous avez atteint le quota, merci de supprimer quelques images pour pouvoir en 
+                                                <p>Vous pouvez ajoutez jusqu'à 3 images pour votre produit. Les images doivent avoir l'une
+                                                    des extensions suivantes : .png, .jpg, .jpeg.
+                                                    L'ajout des images se fait dans la zone rectangulaire
+                                                    ci-dessous, vous pouvez ajouter plusieurs images à la fois.
+                                                    Si vous avez atteint le quota, merci de supprimer quelques images pour pouvoir en
                                                     ajouter d'autres.
                                                 </p>
                                                     <a href="#" class="btn btn-solid">Vous avez déjà {{$productImages->count()}} Image(s) sur  3  autorisés</a>
                                         </div>
                                     </div>
-                                                
+
                                     <form class="dropzone" id="dropzoneo" method="POST" action="{{route('product.image')}}" name="file" files="true" enctype="multipart/form-data">
                                         @csrf
-                                    
+
                                         <input type="hidden" name="productId" id="productId" value="{{$product->id}}">
                                         <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
                                             <h4 class="mb-0 f-w-600">Drop files here or click to upload.</h4>
                                         </div>
-                                        
+
                                     </form>
                                 </div>
                                 <div class="card-body vendor-table">
-               
+
                                 <table class="display" id="basic-1">
                                     <thead>
                                     <tr>
@@ -255,14 +287,14 @@
                                                 <img src="{{ route('product.displayImage',$productImage->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
                                                 </div>
                                             </td>
-                                          
+
                                             <td><a href="{{ route('product.displayImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#displayImage{{$productImage->id}}"><i class="fa fa-eye font-danger"></i></a></td>
                                             <td> <span>{{$productImage->created_at}}</span></td>
                                             <td>{{$productImage->path}}</td>
                                             <td>
                                                 <div>
                                                <a href="{{ route('product.destroyImage',['id' => $productImage->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$productImage->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                              
+
                                                 <div class="modal fade" id="exampleModal{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -274,7 +306,7 @@
                                                                 <form method="POST" action="{{ route('product.destroyImage',['id' => $productImage->id]) }}" id="delete-form{{$productImage->id}}">
                                                                 @csrf
                                                                 <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
-                                                                
+
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn btn-primary">Oui</button>
@@ -284,7 +316,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="modal fade" id="displayImage{{$productImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -312,31 +344,50 @@
                             </div>
                             </div>
                             <div class="tab-pane fade" id="usage" role="tabpanel" aria-labelledby="usage-tab">
-                                <form class="needs-validation" novalidate="">
-                                    <h4>Dimensions</h4>
-                                    <div class="form-group row">
-                                        <label for="validationCustom6" class="col-xl-3 col-md-4">Per Limit</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom6" type="number">
+
+                                    @forelse ($reviews as $review )
+                                    <?php $count=1; ?>
+                                    @foreach ($users as $user)
+
+                                        @if($user->id==$review->user_id)
+                                        <div class="review-container">
+                                            <img class="profil-review" src="{{ asset('assets/backend/images/dashboard/profile.png') }}" alt="">
+                                            <div class="comment">
+                                                <div>
+                                                    <p class="user-review">
+                                                        {{ $user->name }}
+                                                    </p>
+                                                </div>
+
+                                                <p class="review-comment">
+                                                    {{$review->comment}}
+                                                </p>
+                                                <div>
+                                                    @while ($count <= $review->star)
+                                                    <span style="color:#c59b08;">&#9733;</span>
+                                                    <?php $count++;?>
+                                                    @endwhile
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="validationCustom7" class="col-xl-3 col-md-4">Per Customer</label>
-                                        <div class="col-md-7">
-                                            <input class="form-control" id="validationCustom7" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                    </div>
-                                </form>
-                            </div>
+
+                                        @endif
+                                    @endforeach
+
+
+                               @empty
+                                   aucun commentaire
+                               @endforelse
+
+
+
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
             <!-- Container-fluid Ends-->
-            
+
 </div>
 @endsection

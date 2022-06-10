@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\town;
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -15,7 +16,10 @@ class TownController extends Controller
     public function index()
     {
         $towns = Town::all();
-        return view('towns.index')->with('towns',$towns);
+
+        $countries = Country::all();
+
+        return view('towns.index', compact('towns', 'countries'));
     }
 
     /**
@@ -26,7 +30,7 @@ class TownController extends Controller
     public function create()
     {
         $countries = Country::all();
-        return view('towns.create', ['countries'=>$countries]);
+        return view('towns.create', ['countries' => $countries]);
     }
 
     /**
@@ -38,9 +42,9 @@ class TownController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name'=>['required','unique:App\Models\town,name','string'],
-            'country_id'=>['required','exists:App\Models\Country,id'],
-            'type'=>['required','boolean'],
+            'name' => ['required', 'unique:App\Models\town,name', 'string'],
+            'country_id' => ['required', 'exists:App\Models\Country,id'],
+            'type' => ['required', 'boolean'],
         ]);
 
         //dd("hi");
@@ -49,11 +53,10 @@ class TownController extends Controller
         $town->country_id = $request->country_id;
         $town->type = $request->type;
 
-        if($town->save())
-            return redirect()->route('town.index')->with('update_success','Ville ajouté avec succès');
+        if ($town->save())
+            return redirect()->route('town.index')->with('update_success', 'Ville ajouté avec succès');
         else
-            return redirect()->back()->with('update_failure','Une erreur est survenue, merci de réessayer');
-
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, merci de réessayer');
     }
 
     /**

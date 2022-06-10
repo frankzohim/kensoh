@@ -30,13 +30,15 @@
 
      <!-- Container-fluid starts-->
      <div class="container-fluid">
-            <form method="post" action="{{route('coupon.store')}}">
+            <form method="post" action="{{route('faq.store')}}">
                 @csrf
                 <!-- Validation Errors -->
+
 				<x-auth-validation-errors class="mb-4" :errors="$errors" />
+
                 <div class="card tab2-card">
                     <div class="card-header">
-                        <h5>Détails d'une faq de Réduction</h5>
+                        <h5>Détails d'une faq </h5>
                     </div>
                     <div class="card-body">
 
@@ -45,20 +47,27 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group row">
-                                                <label for="validationCustom0" class="col-xl-3 col-md-4">question</label>
+
+
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4"> Question </label>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
+                                                    <input class="form-control" id="name" name="question" type="text"   required="" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4">answer</label>
                                                 <div class="col-md-7">
-                                                    <input class="form-control" id="name" name="name" type="text"   required="" autofocus>
+                                                    <input class="form-control" id="name" name="answer" type="text"   required="" autofocus>
                                                 </div>
                                             </div>
 
+
+
+
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
+
                                                 <div class="col-md-7">
                                                     <select class="custom-select w-100 form-control" name="state" required="">
                                                         <option value="1">Publié</option>

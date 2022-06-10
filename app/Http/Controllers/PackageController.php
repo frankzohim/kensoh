@@ -17,16 +17,15 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $towns=town::all();
-        $packages=package::all();
+        $towns = town::all();
+        $packages = package::all();
 
-        if(auth()->user()->role_id==2 || auth()->user()->role_id==3)
-        return view('packages.index',compact('towns','packages'));
+        if (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
+            return view('packages.index', compact('towns', 'packages'));
 
-        if(auth()->user()->role_id==1)
+        if (auth()->user()->role_id == 1)
 
-        return view('packages.view-admin',compact('towns','packages'));
-
+            return view('packages.view-admin', compact('towns', 'packages'));
     }
 
     /**
@@ -37,15 +36,15 @@ class PackageController extends Controller
     public function create()
     {
         //Loading towns
-        $departures = Town::where('type',1)
-                        ->orderBy('name')
-                        ->get();
+        $departures = Town::where('type', 1)
+            ->orderBy('name')
+            ->get();
 
-        $destinations = Town::where('type',0)
-                        ->orderBy('name')
-                        ->get();
+        $destinations = Town::where('type', 0)
+            ->orderBy('name')
+            ->get();
         //dd($departures);
-        return view('packages.create', compact('departures','destinations'));
+        return view('packages.create', compact('departures', 'destinations'));
     }
 
     /**
@@ -56,33 +55,30 @@ class PackageController extends Controller
      */
     public function store(Request $request)
     {
-        $package=new package;
-        $package->description=$request->description;
-        $package->length=$request->length;
-        $package->width=$request->width;
-        $package->weight=$request->weight;
-        $package->departure=$request->departure;
-        $package->destination=$request->destination;
-        $package->user_id=auth()->user()->id;
+        $package = new package;
+        $package->description = $request->description;
+        $package->length = $request->length;
+        $package->width = $request->width;
+        $package->weight = $request->weight;
+        $package->departure = $request->departure;
+        $package->destination = $request->destination;
+        $package->user_id = auth()->user()->id;
 
-        $packagedata=[
-            'description'=>$package->description,
-            'lenght'=>$package->length,
-            'width'=>$package->width,
-            'weight'=>$package->weight,
-            'departure'=>$package->departure,
-            'destination'=> $package->destination,
-            'name'=>auth()->user()->name
+        $packagedata = [
+            'description' => $package->description,
+            'lenght' => $package->length,
+            'width' => $package->width,
+            'weight' => $package->weight,
+            'departure' => $package->departure,
+            'destination' => $package->destination,
+            'name' => auth()->user()->name
         ];
-        Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-        if($package->save()){
-            return redirect()->route('packages.index')->with('update_success','Colis bien enregidtré');
-
+        //Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
+        if ($package->save()) {
+            return redirect()->route('packages.index')->with('update_success', 'Colis bien enregidtré');
+        } else {
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, veuillez réessayez plutard');
         }
-        else{
-            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
-        }
-
     }
 
     /**
@@ -104,7 +100,6 @@ class PackageController extends Controller
      */
     public function edit(package $package)
     {
-
     }
 
     /**
@@ -117,19 +112,18 @@ class PackageController extends Controller
     public function update(Request $request, $id)
     {
         $package = package::FindOrFail($id);
-        $package->description=$request->description;
-        $package->length=$request->length;
-        $package->width=$request->width;
-        $package->weight=$request->weight;
-        $package->departure=$request->departure;
-        $package->destination=$request->destination;
-        $package->user_id=auth()->user()->id;
+        $package->description = $request->description;
+        $package->length = $request->length;
+        $package->width = $request->width;
+        $package->weight = $request->weight;
+        $package->departure = $request->departure;
+        $package->destination = $request->destination;
+        $package->user_id = auth()->user()->id;
 
-        if($package->save())
-            return redirect()->route('packages.index')->with('update_success','Colis mise à jour avec succès');
+        if ($package->save())
+            return redirect()->route('packages.index')->with('update_success', 'Colis mise à jour avec succès');
         else
-            return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
-
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**
@@ -142,6 +136,6 @@ class PackageController extends Controller
     {
         $package->delete();
 
-        return back()->with('delete','votre Colis à bien été bien supprimé');
+        return back()->with('delete', 'votre Colis à bien été bien supprimé');
     }
 }

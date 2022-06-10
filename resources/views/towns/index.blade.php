@@ -55,7 +55,7 @@
 										</div>
 									@endif
                     </div>
-                    
+
                     <div class="card-body vendor-table">
                     <div class="btn-popup pull-right">
                         <a href='{{route("town.create")}}'><button type="button" class="btn btn-primary">Ajouter un ville</button></a>
@@ -74,24 +74,27 @@
                                 <tr>
                                     <td>
                                         <div class="d-flex vendor-list">
-                                            
+
                                             <span>{{$town->id}}</span>
                                         </div>
                                     </td>
                                     <td>
                                         <span>{{$town->name}}</span>
                                     </td>
-                                    
-                                    <td>
-                                        <span>{{$town->name}}</span>
-                                    </td>
-                                    
+                                    @foreach ($countries as $country )
+
+                                    @if($country->id== $town->country_id)
+                                        <td>{{$town->name}}</td>
+                                    @endif
+                            @endforeach
+
+
                                     <td>
                                         <div>
                                         <a href="{{route('town.edit',$town->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
                                         <a href="{{ route('town.destroy',['town' => $town->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$town->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                            
+
                                         <div class="modal fade" id="exampleModal{{$town->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -123,7 +126,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <!-- Container-fluid Ends-->
 
 </div>

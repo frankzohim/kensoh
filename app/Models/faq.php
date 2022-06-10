@@ -13,6 +13,6 @@ class faq extends Model
         'question',
         'answer',
         'state',
-
+        'user_id',
     ];
 }

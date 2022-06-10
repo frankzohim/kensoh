@@ -13,6 +13,10 @@ class faq extends Model
         'question',
         'answer',
         'state',
+<<<<<<< HEAD
+=======
+        'user_id',
+>>>>>>> 5961a5f (CREATEFAQ IS CORRECT)
 
     ];
 }

@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Thu Apr 14 2022 14:41:17 GMT+0100 (heure normale d’Afrique de l’Ouest)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-14-3-2022-14-10-47.txt
+* app/Http/Controllers/FaqController.php
+* app/Models/faq.php
+* resources/views/faq/create.blade.php
+
+
+Deleted files:
+* resources/views/faq.blade.php
+
+
+Renamed files:

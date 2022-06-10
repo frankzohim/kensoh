@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\package;
+use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\town;
 use App\Models\Country;

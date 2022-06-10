@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ProductMail;
 
 
 class ProductController extends Controller
@@ -73,8 +75,14 @@ class ProductController extends Controller
         $product->state = 0;
         $product->video_url = $request->video_url;
 
-        if($product->save())
+        if($product->save()){
+           
+                //Sendig mail to admin
+                Mail::to('delanofofe@gmail.com')
+                    ->send(new ProductMail($product));
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
+        }
+            
         else
             return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
@@ -221,7 +229,7 @@ class ProductController extends Controller
      */
     public function images(Request $request)
     {
-        //Loafing product for which we want to add images
+        //Loading product for which we want to add images
         $product = Product::FindOrFail($request->productId);
 
         //Count images already added to that product
@@ -252,6 +260,8 @@ class ProductController extends Controller
                 $productImage->path = $fileName;
                 $productImage->product_id = $product->id;
                 $productImage->save();
+              
+
                 return response('Image ajoutée avec succès', 200);
             }
         }

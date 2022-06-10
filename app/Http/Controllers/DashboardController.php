@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\package;
+use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\town;
 use App\Models\Country;
@@ -44,9 +45,11 @@ class DashboardController extends Controller
                     //return $lastPackages;
 			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats','lastPackages'));
 			case 3 :
-				return view('vendor_dashboard');
+                $categories=ProductCategory::all();
+				return view('vendor_dashboard',compact('categories'));
 			case 2 :
-				return view('customer_dashboard');
+                $categories=ProductCategory::all();
+				return view('customer_dashboard',compact('categories'));
 			default :
 				dd("incorrect route");
 		}

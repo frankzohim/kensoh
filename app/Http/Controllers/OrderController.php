@@ -125,10 +125,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $commande)
+    public function destroy(Order $order)
      {
-         $commande->delete();
+         $order->delete();
 
-         return back()->with('delete','votre commande à bien été bien supprimée');
+         return back()->with('delete','votre commandee à bien été bien supprimée');
      }
 }

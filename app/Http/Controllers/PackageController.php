@@ -104,6 +104,8 @@ class PackageController extends Controller
     public function edit($id)
     {
         $package=package::findOrFail($id);
+
+        return view('packages.edit',compact('package'));
     }
 
     /**

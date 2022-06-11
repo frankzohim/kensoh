@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Tableau de bord'))
+@section('title', __('Creation Commande'))
 
 @section('content')
 <!-- breadcrumb start -->
@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Tableau de bord</a></li>
                             <li class="breadcrumb-item active" aria-current="page">commandes</li>
                         </ol>
                     </nav>
@@ -75,41 +75,41 @@
                                                     <div class="row">
                                                         <label for="exampleFormControlTextarea1" class="form-label">Categories de la commande</label>
                                                 <div class="input-group mb-3">
-                    
-                    
+
+
                                                 <select id="inputState" class="form-select" name="categories_id">
                                                     @foreach($categories as $category)
                                                     <option value="{{$category->id}}">
                                                     {{$category->name}}
                                                     </option>
                                                     @endforeach
-                                                    
-<!--                                                 
+
+<!--
                                                     <option value="1">Produit</option>
                                                     <option value="0">Service</option> -->
 
                                                 </select>
-                    
+
                                                   </div>
                                                         <label for="exampleFormControlTextarea1" class="form-label">Etat</label>
                                                <select name="state" id="inputState" class="form-select">
-                                                    
+
                                                     <option value="1">Publié</option>
                                                     <option value="0">Non publié</option>
                                                </select>
-                    
+
                                                   </div>
                                                   <div class="col-md-6">
                                                     <label for="inputCity" class="form-label">Budget</label>
                                                     <input type="number" class="form-control" class="form-control" name="budget" id="">
                                                   </div>
-                                                  
+
                                                 </div><br><br>
-                    
+
                                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                                             </form>
                                     </div>
-                                 
+
                                    </div>
                                </div>
                            </div>

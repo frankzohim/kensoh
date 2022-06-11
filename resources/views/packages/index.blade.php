@@ -150,7 +150,7 @@
                                 <td>
 
                                     <div>
-                                    <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$package->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a href="{{ route('packages.edit',$package->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
                                 </td>

@@ -101,8 +101,9 @@ class PackageController extends Controller
      * @param  \App\Models\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(package $package)
+    public function edit($id)
     {
+        $package=package::findOrFail($id);
     }
 
     /**

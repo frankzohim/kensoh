@@ -41,12 +41,13 @@ class PackageController extends Controller
         $departures = Town::where('type', 1)
             ->orderBy('name')
             ->get();
+            $categories=ProductCategory::all();
 
         $destinations = Town::where('type', 0)
             ->orderBy('name')
             ->get();
         //dd($departures);
-        return view('packages.create', compact('departures', 'destinations'));
+        return view('packages.create', compact('departures', 'destinations','categories'));
     }
 
     /**
@@ -100,8 +101,19 @@ class PackageController extends Controller
      * @param  \App\Models\package  $package
      * @return \Illuminate\Http\Response
      */
-    public function edit(package $package)
+    public function edit($id)
     {
+        $package=package::findOrFail($id);
+        $departures = Town::where('type', 1)
+            ->orderBy('name')
+            ->get();
+            $categories=ProductCategory::all();
+
+        $destinations = Town::where('type', 0)
+            ->orderBy('name')
+            ->get();
+
+        return view('packages.edit',compact('package','departures','destinations','categories'));
     }
 
     /**

@@ -46,7 +46,17 @@
                                 <label for="review">Mot de passe</label>
                                 <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" autocomplete="current-password" required>
                             </div>
-							<button class="btn btn-solid" type="submit">Connexion</button>
+
+                                <button class="btn btn-solid" type="submit">Connexion</button>
+                                <p style="margin-top: 12px;">
+                                    <a href="" style="color: gray;">
+                                        Mot de passe oublié?
+                                    </a>
+
+                                </p>
+
+
+
                         </form>
                     </div>
                 </div>

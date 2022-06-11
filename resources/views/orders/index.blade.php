@@ -15,7 +15,7 @@
             <div class="col-sm-6">
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Commandes</li>
                     </ol>
                 </nav>
@@ -110,11 +110,12 @@
                     <table class="table mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">id</th>
+                                <th scope="col">Nom Produit</th>
                                 <th scope="col">Categories</th>
-                                <th scope="col">Etat commande</th>
+                                <th scope="col">Description</th>
                                 <th scope="col">Budget</th>
-                                <th scope="col">id utilisateur</th>
+                                <th scope="col">Numero</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -122,24 +123,46 @@
 
 
                             <tr>
-                                <td>
-                                    <div class="d-flex vendor-list">
+                                <td>{{$commande->Product_name}}</td>
+                                <td>{{$commande->categories_id}}</td>
+                                <div class="d-flex vendor-list">
 
-                                        <span>{{$commande->categories_id}}</span>
-                                    </div>
-                                </td>
-                                <td>{{$commande->state}}</td>
+                                    <td>{{$commande->description}}</td>
+                                </div>
+
                                 <td>{{$commande->budget}}</td>
-                                <td>{{$commande->user_id}}</td>
-                                <!-- <td>{{$commande->departure}}</td>
-                                <td>{{$commande->destination}}</td> -->
+                                <td>{{$commande->phone_number}}</td>
+
 
                                 <td>
 
                                     <div>
-                                    <a data-bs-toggle="modal" data-original-title="test1" data-bs-target="#exampleModal1{{$commande->id}}"><i class="fa fa-edit me-2 font-success"></i></a>
+                                    <a href="{{ route('orders.edit',$commande->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$commande->id}}"><i class="fa fa-trash font-danger"></i></a>
+
+                                    <div class="modal fade" id="exampleModal{{$commande->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{ route('orders.destroy',$commande->id) }}" id="delete-form{{$commande->id}}">
+                                                    @csrf
+                                                    <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                    @method('DELETE')
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Oui</button>
+                                                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
                                 </td>
                         @endforeach
 
@@ -150,7 +173,7 @@
                 </div>
             </div>
         </div>
-      
+
     </div>
 
 </section>

@@ -41,10 +41,10 @@
                         </div>
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Commandes</a>
+                                <li class="nav-item"><a class="nav-link active" href="{{ route('dashboard') }}">Tableau de bord</a></li>
+                                <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Colis</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{ route('packages.index') }}">Colis</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
                                 </li>

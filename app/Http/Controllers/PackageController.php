@@ -7,6 +7,7 @@ use App\Models\package;
 use App\Models\town;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\ProductCategory;
 
 class PackageController extends Controller
 {
@@ -18,10 +19,11 @@ class PackageController extends Controller
     public function index()
     {
         $towns = town::all();
+        $categories=ProductCategory::all();
         $packages = package::all();
 
         if (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
-            return view('packages.index', compact('towns', 'packages'));
+            return view('packages.index', compact('towns', 'packages','categories'));
 
         if (auth()->user()->role_id == 1)
 

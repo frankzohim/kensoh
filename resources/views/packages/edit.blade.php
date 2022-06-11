@@ -69,7 +69,7 @@
 
                                         </div>
                                                         <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
-                                                <div class="input-group mb-3">
+                                                <div class="input-group mb-3" value="{{ $package->length }}>
 
 
 
@@ -78,11 +78,11 @@
                                                   </div>
                                                   <div class="col-md-6">
                                                     <label for="inputCity" class="form-label">Largeur</label>
-                                                    <input type="number" class="form-control" class="form-control" name="width" id="">
+                                                    <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->length }}>
                                                   </div>
                                                   <div class="col-md-6">
                                                     <label for="inputCity" class="form-label">Poids</label>
-                                                    <input type="number" class="form-control" class="form-control" name="weight" id="">
+                                                    <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->length }}>
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Départ</label>
                                                 <div class="input-group mb-3">
@@ -95,7 +95,7 @@
 
                                                         @foreach ($departures as $departure)
 
-                                                            <option value="{{$departure->id}}">{{$departure->name}}</option>
+                                                            <option value="{{$departure->id}}" @selected($departure->id==$package->departure)>{{$departure->name}}</option>
 
                                                         @endforeach
 
@@ -112,7 +112,8 @@
 
                                                         @foreach ($destinations as $destination)
 
-                                                            <option value="{{$destination->id}}">{{$destination->name}}</option>
+                                                        <option value="{{$destination->id}}" @selected($destination->id==$package->destination)>{{$destination->name}}</option>
+
 
                                                         @endforeach
 
@@ -122,7 +123,7 @@
                                                     </div>
                                                 </div>
 
-                                                <button type="submit" class="btn btn-primary">Ajouter</button>
+                                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
                                             </form>
                                     </div>
 

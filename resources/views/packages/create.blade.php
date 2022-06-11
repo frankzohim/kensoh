@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Tableau de bord'))
+@section('title', __('Creation colis'))
 
 @section('content')
 <!-- breadcrumb start -->
@@ -102,9 +102,9 @@
                                                       </select>
 
                                                     </div>
-                                                    <div class="input-group mb-3">
-                                                    <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
 
+                                                    <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
+                                                    <div class="input-group mb-3">
                                                         <select  class="form-select"  aria-label="Default select example"name="destination">
 
                                                         <option selected>Choisir...</option>

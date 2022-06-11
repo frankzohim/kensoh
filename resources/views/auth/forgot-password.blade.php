@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="/assets/frontend/images/icon/logo.png" class="img-fluid blur-up lazyload" alt="">
             </a>
         </x-slot>
 

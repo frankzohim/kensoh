@@ -104,8 +104,16 @@ class PackageController extends Controller
     public function edit($id)
     {
         $package=package::findOrFail($id);
+        $departures = Town::where('type', 1)
+            ->orderBy('name')
+            ->get();
+            $categories=ProductCategory::all();
 
-        return view('packages.edit',compact('package'));
+        $destinations = Town::where('type', 0)
+            ->orderBy('name')
+            ->get();
+
+        return view('packages.edit',compact('package','departures','destinations','categories'));
     }
 
     /**

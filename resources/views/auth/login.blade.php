@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="route('homepage')">Accueil</a></li>
                             <li class="breadcrumb-item active">Connexion</li>
                         </ol>
                     </nav>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <!-- breadcrumb End -->
-	
+
 	<!--section start-->
     <section class="login-page section-b-space">
         <div class="container">
@@ -55,7 +55,7 @@
                     <div class="theme-card authentication-right">
                         <h6 class="title-font">Créer un compte</h6>
                         <p>Créez un compte gratuit dans notre magasin. L'inscription est simple et rapide. Il vous permet d'être
-                            en mesure de commander dans notre boutique. Pour commencer à magasiner, cliquez sur "Créer un compte".</p><a href="#" class="btn btn-solid">Créer un compte</a>
+                            en mesure de commander dans notre boutique. Pour commencer à magasiner, cliquez sur "Créer un compte".</p><a href="{{ route('register') }}" class="btn btn-solid">Créer un compte</a>
                     </div>
                 </div>
             </div>

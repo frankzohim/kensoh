@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Country;
+use App\Models\ProductCategory;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -22,7 +23,8 @@ class RegisteredUserController extends Controller
     public function create()
     {
         $countries = Country::all();
-        return view('auth.register',compact('countries'));
+        $categories=ProductCategory::all();
+        return view('auth.register',compact('countries','categories'));
     }
 
     /**

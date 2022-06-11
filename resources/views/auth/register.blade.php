@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Accueil</a></li>
                             <li class="breadcrumb-item active" aria-current="page">créer un compte</li>
                         </ol>
                     </nav>
@@ -57,7 +57,7 @@
                                         <option value="3">{{ __('Vendeur') }}</option>
                                      </select>
                                 </div>
-                               
+
                             </div>
 							<div class="form-row row">
                                 <div class="col-md-6">
@@ -84,7 +84,7 @@
                                     <input type="tel" id="telephone" name="telephone" required  class="form-control" placeholder="Numéro de téléphone sans indicatif">
                                 </div>
                             </div>
-                          
+
                             <input id="country_name" name="country_name" type="hidden">
 						<input id="country_code" name="country_code" type="hidden">
 						<input id="country_iso2" name="country_iso2" type="hidden">
@@ -99,7 +99,7 @@
     <!--Section ends-->
     <script src="intl-tel-input-master/build/js/intlTelInput.js"></script>
   <script>
-  
+
 		var input = document.querySelector("#phone");
 		var iti = window.intlTelInput(input, {
 		  allowDropdown: true,
@@ -124,13 +124,13 @@
 		  separateDialCode: true,
 		  utilsScript: "E:/laragon/www/kensoh/public/intl-tel-input-master/buildbuild/js/utils.js",
 		});
-		
-      
+
+
 		var countryData = iti.getSelectedCountryData();
 		//alert(countryData.dialCode);
 		//alert(countryData.name);
-		
-		
+
+
 		function myFunction() {
 			var countryData = iti.getSelectedCountryData();
 			//alert(countryData.dialCode);
@@ -138,8 +138,8 @@
 			document.getElementById("country_name").value = countryData.name;
 			document.getElementById("country_code").value = countryData.dialCode;
 			document.getElementById("country_iso2").value = countryData.iso2;
-			
+
 		}
-		
+
   </script>
 @endsection

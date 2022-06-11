@@ -7,6 +7,7 @@ use App\Models\package;
 use App\Models\town;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Models\ProductCategory;
 
 class PackageController extends Controller
 {

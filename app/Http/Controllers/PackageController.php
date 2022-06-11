@@ -41,12 +41,13 @@ class PackageController extends Controller
         $departures = Town::where('type', 1)
             ->orderBy('name')
             ->get();
+            $categories=ProductCategory::all();
 
         $destinations = Town::where('type', 0)
             ->orderBy('name')
             ->get();
         //dd($departures);
-        return view('packages.create', compact('departures', 'destinations'));
+        return view('packages.create', compact('departures', 'destinations','categories'));
     }
 
     /**

@@ -54,18 +54,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
      {
-         $commande=new order;
-         $commande->categories_id=$request->categories_id;
-         $commande->state=$request->state;
-         $commande->budget=$request->budget;
-        //  $commande->user_id=$request->user_id;
-         $commande->user_id=auth()->user()->id;
+         $order=new order;
+         $order->categories_id=$request->categories_id;
+         $order->state=$request->state;
+         $order->Product_name=$request->name;
+         $order->description=$request->description;
+         $order->phone_number=$request->number;
+         $order->budget=$request->budget;
+         $order->user_id=auth()->user()->id;
 
-         
-         //Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-        //  Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-         if($commande->save()){
-             return redirect()->route('orders.index')->with('update_success','Colis bien enregidtré');
+
+
+         if($order->save()){
+             return redirect()->route('orders.index')->with('update_success','Commande bien enregidtré');
 
          }
          else{

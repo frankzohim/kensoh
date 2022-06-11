@@ -16,7 +16,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}">home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">collection</li>
                         </ol>
                     </nav>
@@ -115,16 +115,11 @@
                                                             <div class="product-detail">
                                                                 <div>
                                                                     <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
-                                                                    <a href="product-page(no-sidebar).html.htm">
+                                                                    <a href="{{ route('product.showbyId',$product->id) }}">
                                                                         <h6>{{ $product->name }}</h6>
                                                                     </a>
-                                                                    <p>Lorem Ipsum is simply dummy text of the printing and
-                                                                        typesetting industry. Lorem Ipsum has been the
-                                                                        industry's standard dummy text ever since the 1500s,
-                                                                        when an unknown printer took a galley
-                                                                        of type and scrambled it to make a type specimen
-                                                                        book</p>
-                                                                    <h4>$500.00</h4>
+                                                                    <p>{{ $product->meta_description }}</p>
+                                                                    <h4>{{ $product->unit_price }} Fcfa</h4>
                                                                     <ul class="color-variant">
                                                                         <li class="bg-light0"></li>
                                                                         <li class="bg-light1"></li>

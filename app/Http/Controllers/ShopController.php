@@ -11,8 +11,11 @@ class ShopController extends Controller
     public function index(){
 
         $categories=ProductCategory::all();
-        $products=Product::select('name','meta_description')->paginate(8);
+        $products=Product::select('id','name','meta_description','state')
+        ->where('state','=',1)
+        ->paginate(24);
 
+        //dd($products);
         return view('shop/shop',compact('categories','products'));
     }
 }

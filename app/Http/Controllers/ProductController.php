@@ -76,13 +76,13 @@ class ProductController extends Controller
         $product->video_url = $request->video_url;
 
         if($product->save()){
-           
+
                 //Sendig mail to admin
                 Mail::to('delanofofe@gmail.com')
                     ->send(new ProductMail($product));
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
         }
-            
+
         else
             return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
@@ -95,11 +95,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        $categories=ProductCategory::all();
         $product = product::findOrfail($id);
         $reviews = Review::where('product_id','=',$id)->get();
         $users=User::all();
         $review = Review::where('product_id','=',$id)->count();
-        return view('products.show',compact('product','review','reviews','users'));
+        return view('products.show',compact('product','review','reviews','users','categories'));
     }
 
     /**
@@ -260,7 +261,7 @@ class ProductController extends Controller
                 $productImage->path = $fileName;
                 $productImage->product_id = $product->id;
                 $productImage->save();
-              
+
 
                 return response('Image ajoutée avec succès', 200);
             }

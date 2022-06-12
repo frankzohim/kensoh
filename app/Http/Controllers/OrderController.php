@@ -94,7 +94,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view(orders.edit);
     }
 
     /**

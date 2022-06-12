@@ -124,7 +124,13 @@
 
                             <tr>
                                 <td>{{$commande->Product_name}}</td>
-                                <td>{{$commande->categories_id}}</td>
+                                @foreach ($categories as $category)
+                                    @if($category->id==$commande->categories_id)
+                                        <td>{{$category->name}}</td>
+                                    @endif
+
+                                @endforeach
+
                                 <div class="d-flex vendor-list">
 
                                     <td>{{$commande->description}}</td>

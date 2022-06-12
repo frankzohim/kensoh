@@ -20,13 +20,14 @@ class PackageController extends Controller
     {
         $towns = town::all();
         $categories=ProductCategory::all();
-        $packages = package::all();
+        $packages = package::all()->where('user_id','=',auth()->user()->id);
 
         if (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
+
             return view('packages.index', compact('towns', 'packages','categories'));
 
         if (auth()->user()->role_id == 1)
-
+        $packages = package::all();
             return view('packages.view-admin', compact('towns', 'packages'));
     }
 

@@ -94,8 +94,9 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        $order=order::findOrFail($id);
-        return view(orders.edit,compact('order'));
+        $order=Order::findOrFail($id);
+        $categories = ProductCategory::all();
+        return view('orders.edit',compact('order','categories'));
     }
 
     /**

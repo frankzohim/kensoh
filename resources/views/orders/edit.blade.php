@@ -69,8 +69,9 @@
                                        </div>
                                        <div class="card-body">
 
-                                        <form action="{{route('orders.store')}}" method="post">
+                                        <form action="{{route('orders.update',$order->id)}}" method="post">
                                             @csrf
+                                            @method('PUT')
                                                 <div class="container">
                                                     <div class="row">
                                                         <label for="exampleFormControlTextarea1" class="form-label">Categories du Produit</label>
@@ -79,14 +80,11 @@
 
                                                 <select id="inputState" class="form-select" name="categories_id">
                                                     @foreach($categories as $category)
-                                                    <option value="{{$category->id}}">
+                                                    <option value="{{$category->id}}" @selected($category->id==$order->category_id)>
                                                     {{$category->name}}
                                                     </option>
                                                     @endforeach
 
-<!--
-                                                    <option value="1">Produit</option>
-                                                    <option value="0">Service</option> -->
 
                                                 </select>
 
@@ -94,27 +92,27 @@
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Nom du Produit</label>
                                                   <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" class="form-control" name="name" id="">
+                                                    <input type="text" class="form-control" class="form-control" name="name" id="" value="{{ $order->Product_name }}">
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Description du Produit</label>
                                                   <div class="input-group mb-3">
-                                                    <textarea name="description" id="" cols="76" rows="2"></textarea>
+                                                    <textarea name="description" id="" cols="76" rows="2" value="{{ $order->description }}"></textarea>
                                                   </div>
                                                   <label for="inputCity" class="form-label">Budget</label>
                                                   <div class="input-group mb-3">
-                                                    <input type="number" class="form-control" class="form-control" name="budget" id="">
+                                                    <input type="number" class="form-control" class="form-control" name="budget" id="" value="{{ $order->budget }}">
                                                   </div>
                                                   <label for="inputCity" class="form-label">Numero Whatsapps</label>
                                                   <div class="input-group mb-3">
-                                                    <input type="number" class="form-control" class="form-control" name="number" id="">
+                                                    <input type="number" class="form-control" class="form-control" name="number" id="" value="{{ $order->phone_number }}">
                                                   </div>
 
                                                     <label for="exampleFormControlTextarea1" class="form-label">Etat</label>
                                                     <div class="input-group mb-3">
                                                             <select name="state" id="inputState" class="form-select">
 
-                                                                    <option value="1">Publié</option>
-                                                                    <option value="0">Non publié</option>
+                                                                    <option value="1" @selected($order->state==1)>Publié</option>
+                                                                    <option value="0" @selected($order->state==0)>Non publié</option>
                                                             </select>
                                                         </div>
 

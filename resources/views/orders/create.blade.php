@@ -98,7 +98,8 @@
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Description du Produit</label>
                                                   <div class="input-group mb-3">
-                                                    <textarea name="description" id="" cols="76" rows="2"></textarea>
+
+                                                    <input type="text" name="description">
                                                   </div>
                                                   <label for="inputCity" class="form-label">Budget</label>
                                                   <div class="input-group mb-3">

@@ -117,7 +117,7 @@ class OrderController extends Controller
          $order->budget=$request->budget;
          $order->user_id=auth()->user()->id;
 
-         if($commande->save())
+         if($order->save())
              return redirect()->route('orders.index')->with('update_success','Commandes mises à jour avec succès');
          else
              return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');

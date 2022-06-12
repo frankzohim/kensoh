@@ -96,9 +96,8 @@
                                                   </div>
                                                   <label for="exampleFormControlTextarea1" class="form-label">Description du Produit</label>
                                                   <div class="input-group mb-3">
-
-                                                    <input type="text" name="description" value="{{ $order->description }}">
-                                                </div>
+                                                    <input type="text" class="form-control" class="form-control" name="description" id="" value="{{ $order->description }}">
+                                                  </div>
                                                   <label for="inputCity" class="form-label">Budget</label>
                                                   <div class="input-group mb-3">
                                                     <input type="number" class="form-control" class="form-control" name="budget" id="" value="{{ $order->budget }}">

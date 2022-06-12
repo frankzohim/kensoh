@@ -108,11 +108,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
      {
-         $commande = order::FindOrFail($id);
-         $commande->categories_id=$request->categories_id;
-         $commande->state=$request->state;
-         $commande->budget=$request->budget;
-         $commande->user_id=auth()->user()->id;
+         $order = order::FindOrFail($id);
+         $order->categories_id=$request->categories_id;
+         $order->state=$request->state;
+         $order->Product_name=$request->name;
+         $order->description=$request->description;
+         $order->phone_number=$request->number;
+         $order->budget=$request->budget;
+         $order->user_id=auth()->user()->id;
 
          if($commande->save())
              return redirect()->route('orders.index')->with('update_success','Commandes mises à jour avec succès');

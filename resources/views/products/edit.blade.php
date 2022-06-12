@@ -149,7 +149,7 @@
                                         <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
                                     <select class="form-select" aria-label="Default select example" name="category_id">
                                         @foreach ($categories as $category)
-                                        <option value="{{$category->id}}" @selected($category->id==$product->category_id)>{{$category->name}}</option>
+                                        <option value="{{$category->id}}" @selected($category->id==$order->category_id)>{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                     </div>

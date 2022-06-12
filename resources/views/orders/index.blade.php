@@ -16,7 +16,7 @@
                 <nav aria-label="breadcrumb" class="theme-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Commandes</li>
+                        <li class="breadcrumb-item active" aria-current="page">Mes Commandes</li>
                     </ol>
                 </nav>
             </div>
@@ -45,9 +45,9 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Commandes</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Mes Commandes</a>
                                 </li>
-                                <li class="nav-item"><a  class="nav-link" href="{{route('packages.index')}}" active="request()->routeIs('packages.index')">{{__('Colis')}}</a>
+                                <li class="nav-item"><a  class="nav-link" href="{{route('packages.index')}}" active="request()->routeIs('packages.index')">Mes Colis</a>
                                 </li>
 
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
@@ -124,7 +124,13 @@
 
                             <tr>
                                 <td>{{$commande->Product_name}}</td>
-                                <td>{{$commande->categories_id}}</td>
+                                @foreach ($categories as $category)
+                                    @if($category->id==$commande->categories_id)
+                                        <td>{{$category->name}}</td>
+                                    @endif
+
+                                @endforeach
+
                                 <div class="d-flex vendor-list">
 
                                     <td>{{$commande->description}}</td>

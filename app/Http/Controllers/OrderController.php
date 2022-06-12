@@ -21,7 +21,7 @@ class OrderController extends Controller
     {
         //gestion des commandes cote clients
 
-        $orders = order::all();
+        $orders = order::all()->where('user_id','=',auth()->user()->id);
         $categories = ProductCategory::all();
 
 

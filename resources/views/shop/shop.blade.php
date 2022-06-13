@@ -109,7 +109,13 @@
                                                                     <a href="#"><img src="../assets/images/pro3/36.jpg" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                                 </div>
                                                                 <div class="cart-info cart-wrap">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="ti-heart" aria-hidden="true"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view" title="Quick View"><i class="ti-search" aria-hidden="true"></i></a> <a href="compare.html.htm" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
+                                                                    <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+
+                                    </a><a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
+                                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                    </a>
+
+                                     <a href="compare.html.htm" title="Compare"><i class="ti-reload" aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
                                                             <div class="product-detail">

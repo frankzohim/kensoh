@@ -111,7 +111,7 @@
                                                                 <div class="cart-info cart-wrap">
                                                                     <button data-bs-toggle="modal" data-bs-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button> <a href="javascript:void(0)" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
 
-                                    </a><a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
+                                    </a><a href="https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}" target="_blank" title="Discuter sur WhatsApp">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                     </a>
 

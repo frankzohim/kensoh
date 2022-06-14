@@ -78,9 +78,12 @@
                                         <i class="fa fa-search" aria-hidden="true">
                                         </i>
                                     </a>
-                                    @if (auth()->user()->role_id==2)
-                                    <a href="javascript:void(0)" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                    @endif
+                                    @auth
+                                        @if (auth()->user()->role_id==2)
+                                        <a href="javascript:void(0)" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                        @endif
+                                    @endauth
+
 
 
                                     <a href="https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}" target="_blank" title="Discuter sur WhatsApp">

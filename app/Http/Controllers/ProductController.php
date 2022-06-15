@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Store;
 use App\Models\Review;
 use App\Models\user;
+use App\Models\product_favorite;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
@@ -298,5 +299,10 @@ class ProductController extends Controller
         $text=preg_replace('~-+~','-',$text);
         $text=strtolower($text);
         return $text;
+    }
+
+    function favorite_product(Request $request,$id){
+        $productfavorite=new product_favorite;
+
     }
 }

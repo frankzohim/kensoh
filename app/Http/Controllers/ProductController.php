@@ -303,5 +303,6 @@ class ProductController extends Controller
 
     function favorite_product($id){
         $productfavorite=new product_favorite;
+
     }
 }

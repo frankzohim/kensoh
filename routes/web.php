@@ -175,7 +175,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 });
 
 
-
+Route::get('/Ilove/{id}/',[ProductController::class,'favorite_product'])->name('favorite');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');

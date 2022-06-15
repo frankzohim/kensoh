@@ -170,8 +170,10 @@ class ProductController extends Controller
         $product = Product::with('product_images', 'brand','category','store')->where('id','=',$id)->first();
         //$product = $product[0];
         //dd($product);
+        $categories=ProductCategory::all();
 
-        return view('products.details', compact('product'));
+
+        return view('products.details', compact('product','categories'));
     }
 
     /**

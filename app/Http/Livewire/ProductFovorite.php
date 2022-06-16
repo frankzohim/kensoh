@@ -15,6 +15,8 @@ class ProductFovorite extends Component
     public function store(){
 
         product_favorite::create($this->state);
+        $this->reset('state');
+        $this->product_favorite = product_favorite::all();
     }
 
     public function render()

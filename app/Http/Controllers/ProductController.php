@@ -301,8 +301,5 @@ class ProductController extends Controller
         return $text;
     }
 
-    function favorite_product(Request $request,$id){
-        $productfavorite=new product_favorite;
 
-    }
 }

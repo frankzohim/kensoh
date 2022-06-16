@@ -81,7 +81,7 @@
                                     @auth
                                         @if (auth()->user()->role_id==2)
                                             @livewire('product-fovorite')
-
+                                            <a href="javascript:void(0)" wire:click.prevent="store({{ auth()->user()->id }},{{ $product->id }})" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
                                         @endif
                                     @endauth
 

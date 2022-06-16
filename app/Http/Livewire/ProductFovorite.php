@@ -12,8 +12,13 @@ class ProductFovorite extends Component
     public $state=[];
     public $updateMode= false;
 
-    public function store(){
-
+    public function store($user_id,$product_id,){
+        $this->state=[
+            $user_id,
+            $product_id,
+            '1'
+        ];
+        //product_favorite::add();
         product_favorite::create($this->state);
         $this->reset('state');
         $this->product_favorite = product_favorite::all();

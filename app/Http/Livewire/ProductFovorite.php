@@ -18,6 +18,10 @@ class ProductFovorite extends Component
         $this->reset('state');
         $this->product_favorite = product_favorite::all();
     }
+    public function mount()
+    {
+        $this->product_favorite = product_favorite::all();
+    }
 
     public function render()
     {

@@ -20,7 +20,7 @@
 
     <!-- Icons -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/fontawesome.css">
-                  
+
     <!--Slick slider css-->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick.css">
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick-theme.css">
@@ -33,10 +33,10 @@
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/bootstrap.css">
-	
+
     <!-- App css-->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/style.css">
-        
+
     <!-- intel css -->
     <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
 
@@ -66,7 +66,7 @@
 	@endauth
     @yield('content')
     @include('layouts.frontoffice.footer')
-    
+
     <!-- cookie bar start -->
     <div class="cookie-bar">
         <p>Nous utilisons des cookies pour améliorer notre site et votre expérience d'achat. En poursuivant votre navigation sur notre site vous acceptez
@@ -179,6 +179,7 @@
     s0.parentNode.insertBefore(s1,s0);
     })();
     </script>
+    @livewireScripts
     <!--End of Tawk.to Script-->
 </body>
 </html>

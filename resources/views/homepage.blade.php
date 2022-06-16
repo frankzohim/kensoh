@@ -80,7 +80,7 @@
                                     </a>
                                     @auth
                                         @if (auth()->user()->role_id==2)
-                                            @livewire('product-favorite')
+                                            @livewire('product-fovorite')
 
                                         @endif
                                     @endauth

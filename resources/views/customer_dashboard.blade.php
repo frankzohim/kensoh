@@ -66,7 +66,7 @@
                                         <div class="counter-box">
                                             <img src="/assets/frontend/images/icon/dashboard/order.png" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
+                                                <h3>{{ $orders }}</h3>
                                                 <h5>Commandes</h5>
                                             </div>
                                         </div>

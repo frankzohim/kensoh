@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}}}">Accueil</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
                         </ol>
                     </nav>

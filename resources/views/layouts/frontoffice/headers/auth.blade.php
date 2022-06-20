@@ -70,7 +70,7 @@
                                         <li><a href="{{ route('about') }}">a propos<div class="lable-nav">new</div></a></li>
                                         <li>
                                             <a href="{{ route('shop') }}">Boutique</a>
-                                           
+
                                         </li>
                                         <li><a href=" {{ route('vendor') }} ">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">Colis</a></li>
@@ -297,7 +297,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                                
+
                                             @endforeach
                                         </ul>
                                     </nav>
@@ -319,7 +319,7 @@
                                         <li><a href="{{route('about')}}">a propos<div class="lable-nav">new</div></a></li>
                                         <li>
                                             <a href="{{route('shop')}}">Boutique</a>
-                                            
+
                                         </li>
                                         <li><a href="{{route('vendor')}}">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">Colis</a></li>
@@ -337,7 +337,8 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
-                                                                    <form>
+                                                                    <form action="{{route('search.find')}}" method="GET">
+                                                                        @csrf
                                                                         <div class="form-group">
                                                                             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rechercher un produit">
                                                                         </div>

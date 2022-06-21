@@ -44,17 +44,25 @@
                         </div>
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
+
+                                <li class="nav-item"><a class="nav-link"  href="{{route('dashboard')}}">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">Produits</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link active" href="{{route('orders.index')}}">Commandes</a>
+
                                 <li class="nav-item"><a  class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}" >Mes Commandes</a>
                                 </li>
                                 <li class="nav-item"><a  class="nav-link" href="{{route('packages.index')}}" active="request()->routeIs('packages.index')">Mes Colis</a>
-                                </li>
 
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
+                                <li class="nav-item"><a class="nav-link" href="{{route('packages.index')}}">Colis</a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Déconnexion</a>
+                                <li class="nav-item"><a class="nav-link" href="#profile">Profil</a>
+                                </li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Reglages</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Deconnexion</a>
                                 </li>
                             </ul>
                         </div>
@@ -143,6 +151,11 @@
                                 <td>
 
                                     <div>
+
+                                    <a href="{{route('orders.edit',$commande->id)}}"><i class="fa fa-edit me-2 font-success"></i></a>
+
+                                    <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target=""><i class="fa fa-trash font-danger"></i></a>
+
                                     <a href="{{ route('orders.edit',$commande->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
 
                                     <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$commande->id}}"><i class="fa fa-trash font-danger"></i></a>
@@ -169,6 +182,7 @@
                                         </div>
                                     </div>
                                     </div>
+
                                 </td>
                         @endforeach
 

@@ -40,23 +40,35 @@
                             </div>
                         </div>
                         <div class="faq-tab">
+                        <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">dashboard</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">products</a>
+                                <li class="nav-item"><a class="nav-link active" href="{{route('dashboard')}}">Dashboard</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">Produits</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">orders</a>
+                                <li class="nav-item"><a class="nav-link" href="{{route('orders.index')}}">Commandes</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profile</a>
+                                <li class="nav-item"><a class="nav-link " href="{{route('packages.index')}}">Colis</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">settings</a>
+                                <li class="nav-item"><a class="nav-link" href="#profile">Profil</a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">logout</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Reglages</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="{{route('logout')}}" href="">Deconnexion</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9">
+                </div>
+
+
+
+                
+
+
+
+
+                 <div class="col-lg-9">
                     <div class="faq-content tab-content" id="top-tabContent">
                         <div class="tab-pane fade show active" id="dashboard">
                             <div class="counter-section">
@@ -69,7 +81,7 @@
                                                 <h5>total products</h5>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-4">
                                         <div class="counter-box">
                                             <img src="/assets/frontend/images/icon/dashboard/sale.png" class="img-fluid">
@@ -106,6 +118,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
@@ -273,7 +286,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="orders">
+                        <!-- <div class="tab-pane fade" id="orders">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card dashboard-table mt-0">
@@ -352,7 +365,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="tab-pane fade" id="profile">
                             <div class="row">
                                 <div class="col-12">
@@ -462,7 +475,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                         <div class="tab-pane fade" id="settings">
                             <div class="row">
                                 <div class="col-12">

@@ -78,8 +78,16 @@
                                         <i class="fa fa-search" aria-hidden="true">
                                         </i>
                                     </a>
+                                    @auth
+                                        @if (auth()->user()->role_id==2)
+                                            @livewire('product-fovorite')
+                                            <a href="javascript:void(0)" wire:click.prevent="store({{ auth()->user()->id }},{{ $product->id }})" title="Add to Wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                        @endif
+                                    @endauth
 
-                                    <a href="https://wa.me/4917624604129" target="_blank" title="Discuter sur WhatsApp">
+
+
+                                    <a href="https://wa.me/4917624604129?text=Je suis intéressé par le produit : {{$product->name}}" target="_blank" title="Discuter sur WhatsApp">
                                         <i class="fa fa-whatsapp" aria-hidden="true"></i>
                                     </a>
 

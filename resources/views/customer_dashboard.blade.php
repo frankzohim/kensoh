@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}}}">Accueil</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
                         </ol>
                     </nav>
@@ -66,7 +66,7 @@
                                         <div class="counter-box">
                                             <img src="/assets/frontend/images/icon/dashboard/order.png" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
+                                                <h3>{{ $orders }}</h3>
                                                 <h5>Commandes</h5>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                         <div class="counter-box">
                                             <img src="/assets/frontend/images/icon/dashboard/sale.png" class="img-fluid">
                                             <div>
-                                                <h3>12500</h3>
+                                                <h3>{{ $packages }}</h3>
                                                 <h5>Colis</h5>
                                             </div>
                                         </div>

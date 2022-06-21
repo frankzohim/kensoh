@@ -21,7 +21,7 @@ class OrderController extends Controller
     {
         //gestion des commandes cote clients
 
-        $orders = order::all();
+        $orders = Order::all()->where('user_id','=',auth()->user()->id);
         $categories = ProductCategory::all();
 
 
@@ -54,18 +54,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
      {
-         $commande=new order;
-         $commande->categories_id=$request->categories_id;
-         $commande->state=$request->state;
-         $commande->budget=$request->budget;
-        //  $commande->user_id=$request->user_id;
-         $commande->user_id=auth()->user()->id;
+         $order=new order;
+         $order->categories_id=$request->categories_id;
+         $order->state=$request->state;
+         $order->Product_name=$request->name;
+         $order->description=$request->description;
+         $order->phone_number=$request->number;
+         $order->budget=$request->budget;
+         $order->user_id=auth()->user()->id;
 
-         
-         //Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-        //  Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-         if($commande->save()){
-             return redirect()->route('orders.index')->with('update_success','Colis bien enregidtré');
+
+
+         if($order->save()){
+             return redirect()->route('orders.index')->with('update_success','Commande bien enregidtré');
 
          }
          else{
@@ -93,10 +94,16 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
+
         //
         $orders= order::findOrFail($id);
         $categories=Productcategory::all();
         return view('orders.edit',compact('orders','categories'));
+
+        $order=Order::findOrFail($id);
+        $categories = ProductCategory::all();
+        return view('orders.edit',compact('order','categories'));
+
     }
 
     /**
@@ -108,13 +115,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
      {
-         $commande = order::FindOrFail($id);
-         $commande->categories_id=$request->categories_id;
-         $commande->state=$request->state;
-         $commande->budget=$request->budget;
-         $commande->user_id=auth()->user()->id;
+         $order = order::FindOrFail($id);
+         $order->categories_id=$request->categories_id;
+         $order->state=$request->state;
+         $order->Product_name=$request->name;
+         $order->description=$request->description;
+         $order->phone_number=$request->number;
+         $order->budget=$request->budget;
+         $order->user_id=auth()->user()->id;
 
-         if($commande->save())
+         if($order->save())
              return redirect()->route('orders.index')->with('update_success','Commandes mises à jour avec succès');
          else
              return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
@@ -127,10 +137,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $commande)
+    public function destroy(Order $order)
      {
-         $commande->delete();
+         $order->delete();
 
-         return back()->with('delete','votre commande à bien été bien supprimée');
+         return back()->with('delete','votre commandee à bien été bien supprimée');
      }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Tableau de bord'))
+@section('title', __('Creation Commande'))
 
 @section('content')
 <!-- breadcrumb start -->
@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html.htm">Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Tableau de bord</a></li>
                             <li class="breadcrumb-item active" aria-current="page">commandes</li>
                         </ol>
                     </nav>
@@ -41,10 +41,17 @@
                         </div>
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
+
                                 <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">Produits</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('orders.index')}}">Commandes</a>
+
+                                <li class="nav-item"><a class="nav-link active" href="{{ route('dashboard') }}">Tableau de bord</a></li>
+                                <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
+                                </li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{ route('packages.index') }}">Colis</a>
+
                                 </li>
                                 <li class="nav-item"><a class="nav-link active" href="{{route('packages.index')}}">Colis</a>
                                 </li>
@@ -75,43 +82,61 @@
                                             @csrf
                                                 <div class="container">
                                                     <div class="row">
-                                                        <label for="exampleFormControlTextarea1" class="form-label">Categories de la commande</label>
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Categories du Produit</label>
                                                 <div class="input-group mb-3">
-                    
-                    
+
+
                                                 <select id="inputState" class="form-select" name="categories_id">
                                                     @foreach($categories as $category)
                                                     <option value="{{$category->id}}">
                                                     {{$category->name}}
                                                     </option>
                                                     @endforeach
-                                                    
-<!--                                                 
+
+<!--
                                                     <option value="1">Produit</option>
                                                     <option value="0">Service</option> -->
 
                                                 </select>
-                    
+
+
                                                   </div>
-                                                        <label for="exampleFormControlTextarea1" class="form-label">Etat</label>
-                                               <select name="state" id="inputState" class="form-select">
-                                                    
-                                                    <option value="1">Publié</option>
-                                                    <option value="0">Non publié</option>
-                                               </select>
-                    
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Nom du Produit</label>
+                                                  <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" class="form-control" name="name" id="">
                                                   </div>
-                                                  <div class="col-md-6">
-                                                    <label for="inputCity" class="form-label">Budget</label>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Description du Produit</label>
+                                                  <div class="input-group mb-3">
+                                                    <input type="text" class="form-control" class="form-control" name="name" id="">
+                                                  </div>
+                                                  <label for="inputCity" class="form-label">Budget</label>
+                                                  <div class="input-group mb-3">
                                                     <input type="number" class="form-control" class="form-control" name="budget" id="">
                                                   </div>
-                                                  
+                                                  <label for="inputCity" class="form-label">Numero Whatsapps</label>
+                                                  <div class="input-group mb-3">
+                                                    <input type="number" class="form-control" class="form-control" name="number" id="">
+                                                  </div>
+
+
+<label for="exampleFormControlTextarea1" class="form-label">Etat</label>
+                                                    <div class="input-group mb-3">
+                                                            <select name="state" id="inputState" class="form-select">
+
+                                                                    <option value="1">Publié</option>
+                                                                    <option value="0">Non publié</option>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+
+
                                                 </div><br><br>
-                    
+
                                                 <button type="submit" class="btn btn-primary">Ajouter</button>
                                             </form>
                                     </div>
-                                 
+
                                    </div>
                                </div>
                            </div>

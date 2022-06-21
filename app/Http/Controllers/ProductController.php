@@ -9,6 +9,7 @@ use App\Models\Brand;
 use App\Models\Store;
 use App\Models\Review;
 use App\Models\user;
+use App\Models\product_favorite;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Collection;
@@ -170,8 +171,10 @@ class ProductController extends Controller
         $product = Product::with('product_images', 'brand','category','store')->where('id','=',$id)->first();
         //$product = $product[0];
         //dd($product);
+        $categories=ProductCategory::all();
 
-        return view('products.details', compact('product'));
+
+        return view('products.details', compact('product','categories'));
     }
 
     /**
@@ -297,4 +300,6 @@ class ProductController extends Controller
         $text=strtolower($text);
         return $text;
     }
+
+
 }

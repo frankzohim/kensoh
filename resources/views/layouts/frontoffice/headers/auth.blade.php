@@ -337,10 +337,10 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-xl-12">
-                                                                    <form action="{{route('search.find')}}" method="GET">
+                                                                    <form action="{{route('search.findauth')}}" method="GET">
                                                                         @csrf
                                                                         <div class="form-group">
-                                                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Rechercher un produit">
+                                                                            <input type="text"  class="form-control" id="exampleInputPassword1" placeholder="Rechercher un produit" name="str">
                                                                         </div>
                                                                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                                                     </form>

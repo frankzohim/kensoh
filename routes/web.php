@@ -128,6 +128,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
 
+
     Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
         ->name('store.displayImage');
 
@@ -151,6 +152,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     //Route to save product's images
     Route::post('product/image', [ProductController::class, 'images'])
         ->name('product.image');
+
 
 
 
@@ -182,6 +184,8 @@ Route::get('/Ilove/{id}/',[ProductController::class,'favorite_product'])->name('
 Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('search', [SearchController::class, 'find'])->name('search.find');
+Route::get('searchAuth', [SearchController::class, 'find'])->name('search.findauth')->middleware('auth');
+
 
 // newsletter
 Route::post('newsletter/store',[NewsletterController::class,'store'])->name('newsletter.store');
@@ -189,6 +193,7 @@ Route::post('newsletter/store',[NewsletterController::class,'store'])->name('new
 //Show Product
 
 Route::get('show/product/{id}',[ProductController::class,'show'])->name('product.showbyId');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

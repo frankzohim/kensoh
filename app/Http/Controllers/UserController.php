@@ -82,7 +82,6 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', Rules\Password::defaults()],
             'country_id' => ['required', 'exists:App\Models\Country,id'],
             'phone' => ['required', 'numeric'],
         ]);
@@ -92,7 +91,6 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->country_id = $request->country_id;
-        $user->password = Hash::make($request->password);
 
         $user->save();
         return back()->with('update_success', 'Modifications prises en compte');

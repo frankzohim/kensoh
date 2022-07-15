@@ -64,7 +64,6 @@
                         <ul class="profile-dropdown onhover-show-div p-20 profile-dropdown-hover">
                             <li><a href="{{route('user.show',auth()->user()->id)}}"><i data-feather="user"></i>Editer le profil</a></li>
                             <li><a href="{{route('homepage')}}" target="_blank"><i data-feather="home" ></i>Font Office</a></li>
-                            <li><a href="#"><i data-feather="settings"></i>Paramètres</a></li>
                             <form method="POST" action="{{ route('logout') }}" id="logout-form">
                             @csrf
 

@@ -25,6 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick.css">
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick-theme.css">
 
+        <!-- Datatable css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/vendors/datatables.css') }}">
+
     <!-- Animate icon -->
     <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/animate.css">
 
@@ -151,6 +154,10 @@
     <!-- Theme js-->
     <script src="/assets/frontend/js/theme-setting.js"></script>
     <script src="/assets/frontend/js/script.js"></script>
+
+    	<!-- Datatables js-->
+	<script src="{{ asset('assets/backend/js/datatables/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('assets/backend/js/datatables/custom-basic.js') }}"></script>
 
     <script>
         $(window).on('load', function () {

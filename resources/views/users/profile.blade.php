@@ -77,9 +77,13 @@
                                                                             <input class="form-control" id="email" name="email"  type="email" value="{{$user->email}}" required>
                                                                         </div>
                                                                         <div class="form-group">
-                                                                        <label for="validationCustom02" class="col-form-label"><span>*</span>Photo de profil</label>
-                                                                                <input class="form-control" type="file" id="avatar" name="avatar" >
-                                                                        </div>                                 
+                                                                            <label class="col-form-label"><span>*</span> Pays</label>
+                                                                            <select class="custom-select form-control" name="country_id" required>
+                                                                                @foreach($countries as $country)
+                                                                                <option value="{{$country->id}}" @selected($country->id == $user->country_id)>{{$country->name_fr}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>                        
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -98,14 +102,7 @@
                                                                             <input class="form-control" id="phone" name="phone"  type="text" value="{{$user->phone}}" required>
                                                                         </div>
 
-                                                                        <div class="form-group">
-                                                                            <label class="col-form-label"><span>*</span> Pays</label>
-                                                                            <select class="custom-select form-control" name="country_id" required>
-                                                                                @foreach($countries as $country)
-                                                                                <option value="{{$country->id}}" @selected($country->id == $user->country_id)>{{$country->name_fr}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
+                                                                        
 
                                                                         
                                                                     </div>

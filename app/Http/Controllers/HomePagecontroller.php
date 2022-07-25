@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Product;
+use App\Models\Tracking;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
@@ -17,16 +18,20 @@ class HomePagecontroller extends Controller
         //Selct all news from blog tables
         $blogs = Blog::where('state',1)->get();
 
+        //Select all tracking from tracking tables
+        $trackings = Tracking::where('state',1)->get();
+
         $categories=ProductCategory::all();
 
 
-        return view('homepage', compact('products','blogs' , 'categories'));
+        return view('homepage', compact('products','blogs' , 'categories','trackings'));
     }
 
     public function product($id)
     {
         $categories=product::where('category_id','=',$id)->get();
         $product=Product::where('category_id','=',$id)->get();
+        //dd($categories);
         return view('categories.productcategories', compact('categories','product'));
     }
 

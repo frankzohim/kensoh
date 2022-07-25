@@ -69,7 +69,7 @@
                             </div>
                             <div class="footer-contant">
                                 <ul>
-                                    <li><a href="#">Recherche</a></li>
+                                    <li><a href="{{ route("tracking-list") }}">Tracking</a></li>
                                     <li><a href="#">Review</a></li>
                                     <li><a href="#">Blog</a></li>
                                     <li><a href="#">FAQ</a></li>

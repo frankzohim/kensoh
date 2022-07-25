@@ -13,8 +13,7 @@
               </div>
               <div class="col-lg-6 text-end">
                   <ul class="header-dropdown">
-          <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-          </li>
+          
           <li class="onhover-dropdown mobile-account"> <i class="fa fa-lock" aria-hidden="true"></i>
             <a href="{{ route('login') }}">Connexion</a>
           </li>
@@ -216,8 +215,7 @@
               </div>
       <div class="col-lg-6 text-end">
         <ul class="header-dropdown">
-          <li class="mobile-wishlist"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-          </li>
+          
           <li class="onhover-dropdown mobile-account"> <i class="fa fa-lock" aria-hidden="true"></i>
             <a href="{{ route('login') }}">Connexion</a>
           </li>
@@ -249,13 +247,7 @@
                                        
                                       @foreach ($categories as $categorie)
                                       <li> <a href="{{route('categories.product', $categorie->id)}}">{{$categorie->name}}</a>
-                                        <ul>
-                                            <li><a href="#">shopper bags</a></li>
-                                            <li><a href="#">laptop bags</a></li>
-                                            <li><a href="#">clutches</a></li>
-                                            <li> <a href="#">purses</a>
-                                            </li>
-                                        </ul>
+                                       
                                     </li>
                                       @endforeach
                                       

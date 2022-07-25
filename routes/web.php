@@ -18,9 +18,8 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TownController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
-
+use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FaqController;
-
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\NewsletterController;
 
@@ -39,6 +38,7 @@ use App\Http\Controllers\NewsletterController;
 Route::get('/', [homepageController::class, 'index'])->name('homepage');
 
 Route::get('about-us', [HomePageController::class, 'about'])->name('about');
+Route::get('tracking-list', [TrackingController::class, 'list'])->name('tracking-list');
 
 Route::get('become-vendor', [HomePageController::class, 'vendor'])->name('vendor');
 
@@ -162,7 +162,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         'category' => CategoryController::class,
         'product' => ProductController::class,
         'coupon' => CouponController::class,
-
+        'country'=> CountryController::class,
         'review' => ReviewController::class,
         'packages' => PackageController::class,
         'user' => UserController::class,
@@ -170,7 +170,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         'blog' => BlogController::class,
         'faq' => FaqController::class,
         'orders' => OrderController::class,
-
+        'tracking'=> TrackingController::class,
         'faq'   => FaqController::class,
 
     ]);

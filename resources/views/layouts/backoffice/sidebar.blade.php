@@ -19,6 +19,8 @@
                         <ul class="sidebar-submenu">
 
                             <li><a href="{{route('category.index')}}"><i class="fa fa-circle"></i>Catégories</a></li>
+                             <li><a  href="{{route('brand.index')}}"><i class="fa fa-circle"></i><span>Marques</span></a>
+                            </li>
                             <li><a href="{{route('product.index')}}"><i class="fa fa-circle"></i>Liste Produits</a></li>
                             <li><a href="{{route('product.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>
 
@@ -26,8 +28,7 @@
                     </li>
                     <li><a class="sidebar-header" href="{{route('store.index')}}"><i data-feather="codepen"></i><span>Boutiques</span></a>
                     </li>
-                    <li><a class="sidebar-header" href="{{route('brand.index')}}"><i data-feather="droplet"></i><span>Marques</span></a>
-                    </li>
+                   
                     
                     <li><a class="sidebar-header" href="{{route('coupon.index')}}"><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
@@ -39,13 +40,7 @@
 
                     <li><a class="sidebar-header" href="{{route('user.index')}}"><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
 
-                    <li><a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
-                        <ul class="sidebar-submenu">
-                            <li><a href="user-list.html.htm"><i class="fa fa-circle"></i>Liste Utilisateurs</a></li>
-                            <li><a href="create-user.html.htm"><i class="fa fa-circle"></i>Créer Utilisateur</a></li>
-                        </ul>
-
-
+                    
                     <li>
                         <a class="sidebar-header" href="{{ route('review.index') }}">
                             <i data-feather="message-circle">
@@ -58,8 +53,9 @@
 
                     <li><a class="sidebar-header" href=""><i data-feather="map-pin"></i><span>Localisation</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="currency-rates.html.htm"><i class="fa fa-circle"></i>Pays</a></li>
+                            <li><a href="{{ route('country.index') }}"><i class="fa fa-circle"></i>Pays</a></li>
                             <li><a href="{{ route('town.index') }}"><i class="fa fa-circle"></i>Villes</a></li>
+                            <li><a href="{{ route('tracking.index') }}"><i class="fa fa-circle"></i>Tracking</a></li>
                         </ul>
                     </li>
                     <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="phone"></i><span>Contact</span></a></li>

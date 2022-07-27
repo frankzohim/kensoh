@@ -61,7 +61,7 @@
                                         <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                                         <ul class="sm pixelstrap sm-horizontal">
                                             <li>
-                                                <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                                                <div class="mobile-back text-end">Retour<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                             </li>
                                            <li><a href="{{route('homepage')}}">Accueil</a></li>
                                         <li><a href="{{ route('about') }}">a propos<div class="lable-nav">new</div></a></li>
@@ -268,24 +268,12 @@
                                     <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
                                     <nav>
                                         <div onclick="closeNav()">
-                                            <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Back</div>
+                                            <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Retour</div>
                                         </div>
                                         <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                                             @foreach ($categories as $categories )
                                             <li> <a href="{{route('categories.product', $categories->id)}}">{{$categories->name}}</a>
-                                                <ul>
-                                                    <li><a href="#">shopper bags</a></li>
-                                                    <li><a href="#">laptop bags</a></li>
-                                                    <li><a href="#">clutches</a></li>
-                                                    <li> <a href="#">purses</a>
-                                                        <ul>
-                                                            <li><a href="#">purses</a></li>
-                                                            <li><a href="#">wallets</a></li>
-                                                            <li><a href="#">leathers</a></li>
-                                                            <li><a href="#">satchels</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                               
                                             </li>
 
                                             @endforeach
@@ -303,7 +291,7 @@
                                     <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                                         <li>
-                                            <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                                            <div class="mobile-back text-end">Retour<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                         </li>
                                         <li><a href="{{route('homepage')}}">Accueil</a></li>
                                         <li><a href="{{route('about')}}">a propos<div class="lable-nav">new</div></a></li>

@@ -30,9 +30,9 @@ class HomePagecontroller extends Controller
     public function product($id)
     {
         $categories=product::where('category_id','=',$id)->get();
-        $product=Product::where('category_id','=',$id)->get();
+        $products=Product::where('category_id','=',$id)->get();
         //dd($categories);
-        return view('categories.productcategories', compact('categories','product'));
+        return view('shop/shop',compact('categories','products'));
     }
 
     public function vendor(){

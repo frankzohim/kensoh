@@ -47,7 +47,7 @@
                                   <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                                   <ul class="sm pixelstrap sm-horizontal">
                                       <li>
-                                          <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                                          <div class="mobile-back text-end">Retour<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                       </li>
                                      <li><a href="{{route('homepage')}}">Accueil</a></li>
                                   <li><a href="{{ route('about') }}">a propos<div class="lable-nav">new</div></a></li>
@@ -241,7 +241,7 @@
                               <a href="javascript:void(0)" class="sidebar-overlay" onclick="closeNav()"></a>
                               <nav>
                                   <div onclick="closeNav()">
-                                      <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Back</div>
+                                      <div class="sidebar-back text-start"><i class="fa fa-angle-left pe-2" aria-hidden="true"></i> Retour</div>
                                   </div>
                                   <ul id="sub-menu" class="sm pixelstrap sm-vertical">
                                        
@@ -265,7 +265,7 @@
                               <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                               <ul id="main-menu" class="sm pixelstrap sm-horizontal">
                                   <li>
-                                      <div class="mobile-back text-end">Back<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                                      <div class="mobile-back text-end">Retour<i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                                   </li>
                                   <li><a href="{{route('homepage')}}">Accueil</a></li>
                                   <li><a href="{{ route('about') }}">a propos<div class="lable-nav">new</div></a></li>

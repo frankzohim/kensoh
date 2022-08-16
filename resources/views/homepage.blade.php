@@ -11,11 +11,11 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <div class="slider-contain">
+                                <div class="slider-contain" style="margin-left:20%">
                                     <div>
                                         <h4 style="color:white;">Bienvenu(e) sur Kensoh</h4>
                                         <h1 style="color:white;">Logistics & Transport</h1>
-                                        <a href="#" class="btn btn-solid">En Savoir Plus</a>
+                                        <a href="{{ route('about') }}" class="btn btn-solid">En Savoir Plus</a>
                                     </div>
                                 </div>
                             </div>
@@ -255,46 +255,20 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="slide-6 no-arrow">
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/1.png" alt=""></a>
+
+                        @forelse ($partners as $partner)
+                             <div>
+                                <div class="logo-block">
+                                    <div class="d-flex vendor-list">
+                                        <img src="{{ route('partner.displayImage',$partner->id) }}" alt="" class="img-fluid img-40  blur-up lazyloaded">
+                                        </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/2.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/3.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/4.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/5.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/6.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/7.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="logo-block">
-                                <a href="#"><img src="/assets/frontend/images/logos/8.png" alt=""></a>
-                            </div>
-                        </div>
+                        @empty
+                            
+                        @endforelse
+                
+                  
                     </div>
                 </div>
             </div>

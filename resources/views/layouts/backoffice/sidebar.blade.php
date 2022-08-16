@@ -66,6 +66,9 @@
                         </ul>
                     </li>
 
+                    <li><a class="sidebar-header" href="{{ route('partner.index') }}"><i data-feather="settings"></i><span>Partenaires</span></a>
+                    </li>
+
                     <li><a class="sidebar-header" href="{{ route('blog.index') }}"><i data-feather="settings"></i><span>Blog</span></a>
                     </li>
 

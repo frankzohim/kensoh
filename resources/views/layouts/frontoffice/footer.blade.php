@@ -34,8 +34,7 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo"><img src="/assets/frontend/images/icon/logo.png" alt=""></div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                            <p>L’entreprise KENSOH CAMEROUN LOGISTIQUE ET TRANSPORT est spécialisée dans le e-commerce, le groupage et le transport.</p>
                             <div class="footer-social">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -47,22 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col offset-xl-1">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>Catégories</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-
-                                    <li><a href="#">Électronique</a></li>
-                                    <li><a href="#">ordimateurs</a></li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
+                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
                                 <h4>Liens Rapides</h4>
@@ -78,18 +62,35 @@
                             </div>
                         </div>
                     </div>
+                 
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>information Kensoh</h4>
+                                <h4>KENSOH DOUALA</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul class="contact-list">
-                                    <li><i class="fa fa-map-marker"></i>Kensoh, Augsbourg, Allemagne 345-659
+                                    <li><i class="fa fa-phone"></i>Appel : +237 654 15 93 09
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Appel : +49 176 2460-4129</li>
+                                    <li><i class="fa fa-whatsapp"></i>WhatsApp : +237 654 15 93 09</li>
                                     <li><i class="fa fa-envelope-o"></i>Email : <a href="#">Support@kensoh.com</a></li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <li><i class="fa fa-map-marker"></i>Grande Shell village sur l’axe lourd Douala-Yaoundé</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>KENSOH YAOUNDE</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-phone"></i>Appel : +237 677 22 01 75
+                                    </li>
+                                    <li><i class="fa fa-whatsapp"></i>WhatsApp : +237 677 22 01 75</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#">Support@kensoh.com</a></li>
+                                    <li><i class="fa fa-map-marker"></i>Ngousso cimetière Fourgerol</li>
                                 </ul>
                             </div>
                         </div>

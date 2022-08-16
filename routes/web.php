@@ -22,6 +22,7 @@ use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\FaqController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PartnerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,17 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('product/displayImage{id}', [ProductController::class, 'displayImage'])
     ->name('product.displayImage');
 
+Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
+        ->name('store.displayImage');
+
+     Route::get('partner/displayImage{id}', [PartnerController::class, 'displayImage'])
+        ->name('partner.displayImage');
+
+
+
+    Route::get('blog/displayImage{id}', [BlogController::class, 'displayImage'])
+        ->name('blog.displayImage');
+
 //Route to delete product's image
 Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage'])
     ->name('product.destroyImage');
@@ -131,6 +143,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
         ->name('store.displayImage');
+
+     Route::get('partner/displayImage{id}', [PartnerController::class, 'displayImage'])
+        ->name('partner.displayImage');
+
 
 
     Route::get('blog/displayImage{id}', [BlogController::class, 'displayImage'])
@@ -172,7 +188,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         'orders' => OrderController::class,
         'tracking'=> TrackingController::class,
         'faq'   => FaqController::class,
-
+        'partner'   => PartnerController::class,
     ]);
 });
 

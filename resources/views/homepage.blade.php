@@ -9,9 +9,9 @@
                 <div class="home  text-center">
                     <img src="/assets/frontend/images/home-banner/1.jpg" alt="" class="bg-img blur-up lazyload">
                     <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="slider-contain" style="margin-left:20%">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6" >
+                                <div class="slider-contain" >
                                     <div>
                                         <h4 style="color:white;">Bienvenu(e) sur Kensoh</h4>
                                         <h1 style="color:white;">Logistics & Transport</h1>
@@ -19,6 +19,8 @@
                                     </div>
                                 </div>
                             </div>
+                           
+                           
                         </div>
                     </div>
                 </div>
@@ -255,17 +257,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="slide-6 no-arrow">
-
+                       
                         @forelse ($partners as $partner)
+
                              <div>
                                 <div class="logo-block">
                                     <div class="d-flex vendor-list">
-                                        <img src="{{ route('partner.displayImage',$partner->id) }}" alt="" class="img-fluid img-40  blur-up lazyloaded">
+                                        <img src="{{ route('partner.displayImage',$partner->id) }}" alt="" width="50%" class="img-fluid img-40  blur-up lazyloaded">
                                         </div>
                                 </div>
                             </div>
                         @empty
-                            
+
                         @endforelse
                 
                   
@@ -275,6 +278,8 @@
         </div>
     </section>
     <!--  logo section end-->
+
+       
 
     <!-- Quick-view modal popup start-->
     @forelse($products as $product)

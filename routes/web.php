@@ -144,14 +144,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
         ->name('store.displayImage');
 
-     Route::get('partner/displayImage{id}', [PartnerController::class, 'displayImage'])
-        ->name('partner.displayImage');
-
-
-
-    Route::get('blog/displayImage{id}', [BlogController::class, 'displayImage'])
-        ->name('blog.displayImage');
-
 
 
 

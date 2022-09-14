@@ -27,7 +27,10 @@ class HomePagecontroller extends Controller
         //Select all partners
         $partners = Partner::where('state',1)->get();
 
+        //dd($partners);
+
         return view('homepage', compact('products','blogs' , 'categories','trackings','partners'));
+        
     }
 
     public function product($id)

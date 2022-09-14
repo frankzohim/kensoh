@@ -37,8 +37,8 @@
                             <p>L’entreprise KENSOH CAMEROUN LOGISTIQUE ET TRANSPORT est spécialisée dans le e-commerce, le groupage et le transport.</p>
                             <div class="footer-social">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://www.facebook.com/KenSoh-CLT-2194498840822699" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="kensoh.logistics@gmail.com"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
@@ -46,22 +46,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>Liens Rapides</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="{{ route("tracking-list") }}">Tracking</a></li>
-                                    <li><a href="#">Review</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">FAQ</a></li>
-                                    <li><a href="{{ route('contact.create') }}">contacts</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                   
                  
                     <div class="col">
                         <div class="sub-title">
@@ -73,7 +58,7 @@
                                     <li><i class="fa fa-phone"></i>Appel : +237 654 15 93 09
                                     </li>
                                     <li><i class="fa fa-whatsapp"></i>WhatsApp : +237 654 15 93 09</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#">Support@kensoh.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#"><span style="text-transform: none"> kensoh.logistics@gmail.com </span></a></li>
                                     <li><i class="fa fa-map-marker"></i>Grande Shell village sur l’axe lourd Douala-Yaoundé</li>
                                 </ul>
                             </div>
@@ -89,8 +74,24 @@
                                     <li><i class="fa fa-phone"></i>Appel : +237 677 22 01 75
                                     </li>
                                     <li><i class="fa fa-whatsapp"></i>WhatsApp : +237 677 22 01 75</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#">Support@kensoh.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#"> <span style="text-transform: none"> kensoh.logistics@gmail.com </span> </a></li>
                                     <li><i class="fa fa-map-marker"></i>Ngousso cimetière Fourgerol</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                       <div class="col">
+                        <div class="sub-title">
+                            <div class="footer-title">
+                                <h4>KENSOH ALLEMAGNE</h4>
+                            </div>
+                            <div class="footer-contant">
+                                <ul class="contact-list">
+                                    <li><i class="fa fa-phone"></i>Appel : +49 176 24604129
+                                    </li>
+                                    <li><i class="fa fa-whatsapp"></i>WhatsApp : +49 176 24604129</li>
+                                    <li><i class="fa fa-envelope-o"></i>Email : <a href="#"><span style="text-transform: none"> kensoh.logistics@gmail.com </span></a></li>
+                                    <li><i class="fa fa-map-marker"></i>Augsbourg, Allemagne</li>
                                 </ul>
                             </div>
                         </div>

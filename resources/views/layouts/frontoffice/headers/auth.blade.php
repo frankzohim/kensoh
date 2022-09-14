@@ -71,6 +71,7 @@
                                         </li>
                                         <li><a href=" {{ route('vendor') }} ">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">Colis</a></li>
+                                        <li><a href="{{ route('tracking-list') }}">Tracking</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -301,6 +302,7 @@
                                         </li>
                                         <li><a href="{{route('vendor')}}">Devenir Vendeur</a></li>
                                         <li><a href="{{ route('packages.index') }}">Colis</a></li>
+                                        <li><a href="{{ route('tracking-list') }}">Tracking</a></li>
                                     </ul>
                                 </nav>
                             </div>

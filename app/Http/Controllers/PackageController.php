@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\SendPackageMail;
 use App\Models\package;
-use App\Models\town;
+use App\Models\Town;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\ProductCategory;
@@ -18,7 +18,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $towns = town::all();
+        $towns = Town::all();
         $categories=ProductCategory::all();
         $packages = package::all()->where('user_id','=',auth()->user()->id);
 

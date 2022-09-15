@@ -44,9 +44,11 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Produits</a>
-                                </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
+                                </li>
+                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Colis</a>
+                                </li>
+                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Tracking</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
                                 </li>
@@ -61,30 +63,22 @@
                         <div class="tab-pane fade show active" id="dashboard">
                             <div class="counter-section">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
                                                 <h3>25</h3>
-                                                <h5>Total Produits</h5>
+                                                <h5>Colis</h5>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="counter-box">
-                                            <img src="{{ asset('assets/frontend/images/icon/dashboard/sale.png') }}" class="img-fluid">
-                                            <div>
-                                                <h3>1</h3>
-                                                <h5>Boutique</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
+                                    
+                                    <div class="col-md-6">
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
                                                 <h3>50</h3>
-                                                <h5>Produits en publication</h5>
+                                                <h5>Traking</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +104,7 @@
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>trending products</h3>
+                                            <h3>Liste des colis</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>

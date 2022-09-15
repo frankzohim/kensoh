@@ -46,9 +46,11 @@ class DashboardController extends Controller
                     //return $lastPackages;
 			return view('dashboard', compact('products','packagesNumbers','sellersNumbers','customersNumbers','productsNumbers','packages','towns','PackageDepartureStats','PackageDestinationStats','lastPackages'));
 			case 3 :
+                //Vendor Dashboard
                 $categories=ProductCategory::all();
 				return view('vendor_dashboard',compact('categories'));
 			case 2 :
+                //Customer Dashboard
                 $categories=ProductCategory::all();
                 $orders = Order::all()->where('user_id','=',auth()->user()->id)->count();
                 $packages=package::all()->where('user_id','=',auth()->user()->id)->count();

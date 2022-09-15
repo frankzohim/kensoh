@@ -2,20 +2,21 @@
 @section('title', __('Tableaux de bord'))
 
 @section('content')
-<!-- breadcrumb start -->
+
+ <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Votre Tableau de bord</h2>
+                        <h2>Tableau de bord</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <nav aria-label="breadcrumb" class="theme-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}}}">Accueil</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
+                            <li class="breadcrumb-item"><a href="{{ route('homepage') }}">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Tableau de bord </li>
                         </ol>
                     </nav>
                 </div>
@@ -23,6 +24,7 @@
         </div>
     </div>
     <!-- breadcrumb End -->
+	
 	<!--  dashboard section start -->
     <section class="dashboard-section section-b-space">
         <div class="container">
@@ -31,23 +33,20 @@
                     <div class="dashboard-sidebar">
                         <div class="profile-top">
                             <div class="profile-image">
-                                <img src="/assets/frontend/images/appolinaire.jpg" alt="" class="img-fluid">
+                                <img src="{{ asset("assets/frontend/images/profile.webp") }}" alt="" class="img-fluid">
                             </div>
                             <div class="profile-detail">
-                                <h5>{{auth()->user()->name}}</h5>
-                                <h6>750 followers | 10 review</h6>
-                                <h6>{{auth()->user()->email}}</h6>
+                                <h5>{{ Auth::user()->name }}</h5>
+                                <h6>{{ Auth::user()->lastname }}</h6>
+                                <h6>{{ Auth::user()->email }}</h6>
                             </div>
                         </div>
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('orders.index')}}">Commandes</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Produits</a>
                                 </li>
-                                <li class="nav-item"><a  class="nav-link" href="{{route('packages.index')}}">Colis</a>
-                                </li>
-
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">profil</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
                                 </li>
@@ -64,28 +63,28 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="counter-box">
-                                            <img src="/assets/frontend/images/icon/dashboard/order.png" class="img-fluid">
+                                            <img src="{{ asset('assets/frontend/images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>{{ $orders }}</h3>
-                                                <h5>Commandes</h5>
+                                                <h3>25</h3>
+                                                <h5>Total Produits</h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="counter-box">
-                                            <img src="/assets/frontend/images/icon/dashboard/sale.png" class="img-fluid">
+                                            <img src="{{ asset('assets/frontend/images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>{{ $packages }}</h3>
-                                                <h5>Colis</h5>
+                                                <h3>1</h3>
+                                                <h5>Boutique</h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="counter-box">
-                                            <img src="/assets/frontend/images/icon/dashboard/homework.png" class="img-fluid">
+                                            <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
                                                 <h3>50</h3>
-                                                <h5>Livraisons</h5>
+                                                <h5>Produits en publication</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -123,19 +122,19 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/dashboard/product/1.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>neck velvet dress</td>
                                                         <td>$205</td>
                                                         <td>1000</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/dashboard/product/9.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>belted trench coat</td>
                                                         <td>$350</td>
                                                         <td>800</td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/pro3/34.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>man print tee</td>
                                                         <td>$150</td>
                                                         <td>750</td>
@@ -214,7 +213,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/dashboard/product/1.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>neck velvet dress</td>
                                                         <td>women clothes</td>
                                                         <td>$205</td>
@@ -223,7 +222,7 @@
                                                         <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/dashboard/product/9.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>belted trench coat</td>
                                                         <td>women clothes</td>
                                                         <td>$350</td>
@@ -232,7 +231,7 @@
                                                         <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/pro3/34.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>men print tee</td>
                                                         <td>men clothes</td>
                                                         <td>$150</td>
@@ -241,7 +240,7 @@
                                                         <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/pro3/1.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/1.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>woman print tee</td>
                                                         <td>women clothes</td>
                                                         <td>$150</td>
@@ -250,7 +249,7 @@
                                                         <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/pro3/27.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/27.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>men print tee</td>
                                                         <td>men clothes</td>
                                                         <td>$150</td>
@@ -259,7 +258,7 @@
                                                         <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
                                                     </tr>
                                                     <tr>
-                                                        <th scope="row"><img src="/assets/frontend/images/pro3/36.jpg" class="blur-up lazyloaded"></th>
+                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/36.jpg') }}" class="blur-up lazyloaded"></th>
                                                         <td>men print tee</td>
                                                         <td>men clothes</td>
                                                         <td>$150</td>
@@ -275,9 +274,85 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="orders">
-
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-sm">
+                                            <div class="top-sec">
+                                                <h3>orders</h3>
+                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                            </div>
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">order id</th>
+                                                        <th scope="col">product details</th>
+                                                        <th scope="col">status</th>
+                                                        <th scope="col">price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">#125021</th>
+                                                        <td>neck velvet dress</td>
+                                                        <td>shipped</td>
+                                                        <td>$205</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#521214</th>
+                                                        <td>belted trench coat</td>
+                                                        <td>shipped</td>
+                                                        <td>$350</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#521021</th>
+                                                        <td>men print tee</td>
+                                                        <td>pending</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#245021</th>
+                                                        <td>woman print tee</td>
+                                                        <td>shipped</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#122141</th>
+                                                        <td>men print tee</td>
+                                                        <td>canceled</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#125015</th>
+                                                        <td>men print tee</td>
+                                                        <td>pending</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#245021</th>
+                                                        <td>woman print tee</td>
+                                                        <td>shipped</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#122141</th>
+                                                        <td>men print tee</td>
+                                                        <td>canceled</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">#125015</th>
+                                                        <td>men print tee</td>
+                                                        <td>pending</td>
+                                                        <td>$150</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                         <div class="tab-pane fade" id="profile">
                             <div class="row">
                                 <div class="col-12">
@@ -496,4 +571,26 @@
     </section>
     <!--  dashboard section end -->
 
+
+    <!-- Modal start -->
+    <div class="modal logout-modal fade" id="logout" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Logging Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you want to log out?
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-dark btn-custom" data-bs-dismiss="modal">no</a>
+                    <a href="index.html.htm" class="btn btn-solid btn-custom">yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
 @endsection

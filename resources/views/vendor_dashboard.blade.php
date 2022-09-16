@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', __('Tableau de bord'))
 
+
 @section('content')
 
 	 <!-- breadcrumb start -->
@@ -65,6 +66,8 @@
 
 
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Boutique</a>
+                                </li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#ordersCreate">Creer une Boutique</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
@@ -474,6 +477,137 @@
 
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ordersCreate">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-sm">
+                                            <div class="top-sec">
+                                                <h3>Vos boutiques</h3>
+                                                <a href="#" class="btn btn-sm btn-solid">ajouter une boutique</a>
+                                            </div>
+                                            <!-- Container-fluid starts-->
+                                            <div class="container-fluid">
+                                                <div class="page-header">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="page-header-left">
+                                                                <h3>Ajouter une boutique
+                                                                    <small>Kensoh Dashboard</small>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <ol class="breadcrumb pull-right">
+                                                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
+                                                                <li class="breadcrumb-item"><a href="{{route('store.index')}}">Boutique</li></a>
+                                                                <li class="breadcrumb-item active">Ajouter</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Container-fluid Ends-->
+
+                                            <!-- Container-fluid starts-->
+                                            <div class="container-fluid">
+                                            <form method="post" action="{{route('vendor.stores.store')}}" class="dropzone digits" id="singleFileUpload" enctype="multipart/form-data">
+                                                @csrf
+                                                <!-- Validation Errors -->
+                                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                <div class="row product-adding">
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Général</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Nom</label>
+                                                                            <input class="form-control" id="name" name="name" type="text" required autofocus>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> Téléphone</label>
+                                                                            <input class="form-control" id="phone" name="phone"  type="text" required>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Email</label>
+                                                                            <input class="form-control" id="email" name="email"  type="email" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label">Résumé de l'entreprise</label>
+                                                                            <textarea  name="description" rows="5" cols="30" required></textarea>
+                                                                        </div>
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Localisation</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label"><span>*</span> Pays</label>
+                                                                            <select class="custom-select form-control" name="country_id" required>
+                                                                                @foreach($countries as $country)
+                                                                                <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Ville</label>
+                                                                            <input class="form-control" id="town" name="town" type="text" required>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Quartier/ Rue</label>
+                                                                            <input class="form-control" id="street" name="street" type="text" required>
+                                                                        </div>
+                                                                        <label class="col-form-label pt-0"> Logo Boutique</label>
+
+                                                                            <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
+
+                                                                                <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
+                                                                            </div>
+
+
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="card">
+
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <div class="product-buttons text-center">
+                                                                                <button type="submit" class="btn btn-primary">Creer la boutique</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

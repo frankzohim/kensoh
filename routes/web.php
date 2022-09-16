@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\vendor\ProductController as VendorProductController;
+use App\Http\Controllers\backend\vendor\StoreController as VendorStoreController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DashboardController;
@@ -205,6 +206,7 @@ Route::get('show/product/{id}',[ProductController::class,'show'])->name('product
 
 Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(function(){
     Route::resource('products',VendorProductController::class);
+    Route::resource('stores',VendorStoreController::class);
 });
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

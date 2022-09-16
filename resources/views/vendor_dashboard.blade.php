@@ -307,11 +307,11 @@
                                                             </td>
                                                             <td>{{ $store->description }}</td>
                                                             <td>
-                                                                @if($store->status==1)
-                                                                    <span style="color:green">publié</span>
-                                                                @else
-                                                                <span style="color:red">en cours de traitement</span>
-                                                                    @endif
+                                                                @if($store->state==1)
+                                                                        <span style="color:green">publié</span>
+                                                                    @else
+                                                                        <span style="color:red">en cours de traitement</span>
+                                                                @endif
                                                         </td>
                                                         </tr>
                                                     @empty

@@ -59,12 +59,14 @@ class DashboardController extends Controller
                 ->take('3')
                 ->get();
                 $products_count=Product::where('user_id',auth()->user()->id)->count();
-                $productsVendor=Product::where('user_id',2)->get();
+                $productsVendor=Product::where('user_id',auth()->user()->id)->get();
                 $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
                 $store_count=Store::where('user_id',auth()->user()->id)->count();
+                $countries=Country::all();
+                $stores=Store::all();
                 //dd($products_count);
                 //dd($productsNoPublisher);
-				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor','orderVendor','brands','productsVendor'));
+				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor','orderVendor','brands','productsVendor','stores','countries'));
 			case 2 :
                 //Customer Dashboard
                 $categories=ProductCategory::all();

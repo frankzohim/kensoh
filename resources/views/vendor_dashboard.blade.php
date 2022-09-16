@@ -259,8 +259,9 @@
                                                         </tr>
                                                     @empty
                                                             <tr>
-                                                                <td>
-                                                                     Aucun produit
+
+                                                                    <p style="text-align: center">Aucun produit disponible</p>
+
                                                                 </td>
                                                             </tr>
                                                     @endforelse
@@ -278,73 +279,55 @@
                                     <div class="card dashboard-table mt-0">
                                         <div class="card-body table-responsive-sm">
                                             <div class="top-sec">
-                                                <h3>orders</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                                <h3>Vos boutiques</h3>
+                                                <a href="#" class="btn btn-sm btn-solid">ajouter une boutique</a>
                                             </div>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
-                                                        <th scope="col">status</th>
-                                                        <th scope="col">price</th>
+                                                        <th scope="col">Nom</th>
+                                                        <th scope="col">localité</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Statuts</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">#125021</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>shipped</td>
-                                                        <td>$205</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#521214</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                        <td>$350</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#521021</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
+
+                                                    @forelse ($stores as $store)
+                                                        <tr>
+                                                            <th scope="row">{{ $store->name }}</th>
+                                                            <td>{{ $store->town }}-
+                                                                @foreach ($countries as $country)
+                                                                    @if($country->id==$store->country_id)
+                                                                        {{ $country->name_fr }}
+
+                                                                    @endif
+                                                                @endforeach
+
+                                                            </td>
+                                                            <td>{{ $store->description }}</td>
+                                                            <td>
+                                                                @if($store->status==1)
+                                                                    <span style="color:green">publié</span>
+                                                                @else
+                                                                <span style="color:red">en cours de traitement</span>
+                                                                    @endif
+                                                        </td>
+                                                        </tr>
+                                                    @empty
+
+                                                    @endforelse
+
+
+
+
+
+
+
+
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>

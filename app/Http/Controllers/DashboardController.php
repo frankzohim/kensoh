@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\town;
 use App\Models\User;
 use App\Models\Order;
@@ -49,16 +50,21 @@ class DashboardController extends Controller
 			case 3 :
                 //Vendor Dashboard
                 $categories=ProductCategory::all();
+                $brands=Brand::all();
                 $product_vendor=Product::where('user_id',auth()->user()->id)
                 ->orderBy('id','DESC')
                 ->take('3')
                 ->get();
+                $orderVendor=Order::orderBy('id','DESC')
+                ->take('3')
+                ->get();
                 $products_count=Product::where('user_id',auth()->user()->id)->count();
+                $productsVendor=Product::where('user_id',2)->get();
                 $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
                 $store_count=Store::where('user_id',auth()->user()->id)->count();
                 //dd($products_count);
                 //dd($productsNoPublisher);
-				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor'));
+				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor','orderVendor','brands','productsVendor'));
 			case 2 :
                 //Customer Dashboard
                 $categories=ProductCategory::all();

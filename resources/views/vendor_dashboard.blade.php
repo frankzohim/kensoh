@@ -154,41 +154,37 @@
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>recent orders</h3>
+                                            <h3>Commande recentes</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
-                                                        <th scope="col">status</th>
+                                                        <th scope="col">Categorie</th>
+                                                        <th scope="col">Nom du produit</th>
+                                                        <th scope="col">Budget</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">#21515</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>confrimed</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
+
+                                                    @forelse ($orderVendor as $order)
+                                                        <tr>
+                                                            <th scope="row">
+                                                                @foreach ($categories as $category)
+                                                                    @if($category->id==$order->categories_id)
+                                                                        {{ $category->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </th>
+                                                            <td>{{ $order->description }}</td>
+                                                            <td>{{ $order->budget }}</td>
+                                                        </tr>
+                                                    @empty
+
+                                                    @endforelse
+
+
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -203,76 +199,72 @@
                                     <div class="card dashboard-table mt-0">
                                         <div class="card-body table-responsive-md">
                                             <div class="top-sec">
-                                                <h3>all products</h3>
+                                                <h3>Vos produits</h3>
                                                 <a href="#" class="btn btn-sm btn-solid">add product</a>
                                             </div>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">category</th>
-                                                        <th scope="col">price</th>
+
+                                                        <th scope="col">Nom du Produit</th>
+                                                        <th scope="col">categorie</th>
+                                                        <th scope="col">Marque</th>
+                                                        <th scope="col">Prix unitaire</th>
                                                         <th scope="col">stock</th>
-                                                        <th scope="col">sales</th>
-                                                        <th scope="col">edit/delete</th>
+                                                        <th scope="col">Position</th>
+                                                        <th scope="col">Etat</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>women clothes</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
-                                                        <td>2000</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>women clothes</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                        <td>350</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>woman print tee</td>
-                                                        <td>women clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/27.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/36.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
+
+                                                    @forelse ($productsVendor as $product)
+                                                        <tr>
+
+                                                            <td>{{ $product->name }}</td>
+                                                            <td>
+                                                                @foreach ($categories as $category)
+                                                                    @if($category->id==$product->category_id)
+                                                                        {{ $category->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>
+                                                                @foreach ($brands as $brand)
+                                                                    @if($brand->id==$product->brand_id)
+                                                                        {{ $brand->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>{{ $product->unit_price }}</td>
+                                                            <td>{{ $product->stock_quantity }}</td>
+                                                            <td>
+                                                                @if($product->position==1)
+                                                                        En Mer
+                                                                    @elseif($product->position==2)
+                                                                        Magasin
+                                                                    @elseif($product->position==3)
+                                                                        Sur le Web
+                                                                @endif
+
+                                                            </td>
+                                                            <td>
+                                                                @if($product->state==1)
+                                                                        Publié
+                                                                    @else
+                                                                        Non publié
+                                                                @endif
+                                                            </td>
+                                                            <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                    @empty
+                                                            <tr>
+                                                                <td>
+                                                                     Aucun produit
+                                                                </td>
+                                                            </tr>
+                                                    @endforelse
+
                                                 </tbody>
                                             </table>
                                         </div>

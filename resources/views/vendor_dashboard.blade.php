@@ -299,7 +299,7 @@
                                                            <div class="card">
 
                                                                <div class="card-body">
-                                                                   <form class="row"  method="POST" action="{{route('product.store')}}">
+                                                                   <form class="row"  method="POST" action="{{route("vendor.products.store")}}">
                                                                        @csrf
                                                                        <div class="col-md-6">
                                                                          <label for="exampleInputName" class="form-label">Nom Produit</label>
@@ -388,13 +388,8 @@
                                                                          <input type="hidden" name="vedette" value="0">
 
 
-                                                                       <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
-                                                                       <div class="input-group mb-3">
 
-                                                                           <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
 
-                                                                           <input type="url" class="form-control"  id="video_url" name="video_url" >
-                                                                       </div>
 
                                                                        <div class="col-md-8">
                                                                            <button type="submit" class="btn btn-primary">Créer</button>

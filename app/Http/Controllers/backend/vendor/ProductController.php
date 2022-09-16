@@ -57,7 +57,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
         $product->state = 0;
-        $product->video_url = $request->video_url;
+
 
         if($product->save()){
 
@@ -115,5 +115,14 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+    function create_slug($text){
+        $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);
+        $text=iconv('utf-8','us-ascii//TRANSLIT',$var_slug);
+        $text=preg_replace('~[^-\w]+~','',$text);
+        $text=trim($text,'-');
+        $text=preg_replace('~-+~','-',$text);
+        $text=strtolower($text);
+        return $text;
     }
 }

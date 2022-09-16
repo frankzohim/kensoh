@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\package;
-use App\Models\Order;
-use App\Models\ProductCategory;
-use App\Models\Product;
 use App\Models\town;
-use App\Models\Country;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Country;
+use App\Models\package;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use DB;
+use App\Models\ProductCategory;
+use App\Models\Store;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -48,7 +49,12 @@ class DashboardController extends Controller
 			case 3 :
                 //Vendor Dashboard
                 $categories=ProductCategory::all();
-				return view('vendor_dashboard',compact('categories'));
+                $products_count=Product::where('user_id',auth()->user()->id)->count();
+                $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
+                $store_count=Store::where('user_id',auth()->user()->id)->count();
+                //dd($products_count);
+                //dd($productsNoPublisher);
+				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher'));
 			case 2 :
                 //Customer Dashboard
                 $categories=ProductCategory::all();

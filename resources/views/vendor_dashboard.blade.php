@@ -2,7 +2,7 @@
 @section('title', __('Tableau de bord'))
 
 @section('content')
-	
+
 	 <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -24,7 +24,7 @@
         </div>
     </div>
     <!-- breadcrumb End -->
-	
+
 	<!--  dashboard section start -->
     <section class="dashboard-section section-b-space">
         <div class="container">
@@ -67,8 +67,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
-                                                <h5>Total Produits</h5>
+                                                <h3>{{ $products_count }}</h3>
+                                                <h5>Produits</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>1</h3>
+                                                <h3>{{ $store_count }}</h3>
                                                 <h5>Boutique</h5>
                                             </div>
                                         </div>
@@ -85,8 +85,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>50</h3>
-                                                <h5>Produits en publication</h5>
+                                                <h3>{{ $productsNoPublisher }}</h3>
+                                                <h5>Produits Non publié</h5>
                                             </div>
                                         </div>
                                     </div>

@@ -44,8 +44,17 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Produits</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">mes Produits</a>
+
                                 </li>
+
+
+                                        <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#productsCreate">Creer un produit</a>
+
+                                        </li>
+
+
+
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Boutique</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
@@ -200,7 +209,8 @@
                                         <div class="card-body table-responsive-md">
                                             <div class="top-sec">
                                                 <h3>Vos produits</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                                <a data-bs-toggle="tab" class="nav-link btn btn-sm btn-solid" href="#productsCreate">Creer un produit</a>
+
                                             </div>
                                             <table class="table mb-0">
                                                 <thead>
@@ -268,6 +278,136 @@
 
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="productsCreate">
+                            <h3>Creation Produit</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-md">
+                                            <div class="top-sec">
+
+                                                <div class="container-fluid">
+                                                    <!-- Validation Errors -->
+                                                           <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                   <div class="row">
+                                                       <div class="col-sm-12">
+                                                           <div class="card">
+
+                                                               <div class="card-body">
+                                                                   <form class="row"  method="POST" action="{{route('product.store')}}">
+                                                                       @csrf
+                                                                       <div class="col-md-6">
+                                                                         <label for="exampleInputName" class="form-label">Nom Produit</label>
+                                                                         <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name" required>
+
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Déscription</label>
+                                                                           <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description" required>
+                                                                         </div>
+                                                                         <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Mots clés</label>
+                                                                           <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="keyword" required>
+                                                                         </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
+                                                                         <select class="form-select" aria-label="Default select example" name="category_id">
+                                                                           @foreach ($categories as $category)
+                                                                           <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                           @endforeach
+                                                                         </select>
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="inputCity" class="form-label">État</label>
+                                                                           <select id="inputState" class="form-select" name="new">
+                                                                               <option selected>Choisir...</option>
+                                                                               <option value="1">Neuf</option>
+                                                                               <option value="0">Occasion</option>
+                                                                             </select>
+                                                                         </div>
+                                                                         <div class="col-md-6">
+                                                                           <label for="inputState" class="form-label">Position</label>
+                                                                           <select id="inputState" class="form-select" name="position">
+                                                                             <option selected>Choisir...</option>
+                                                                             <option value="1">En mer</option>
+                                                                             <option value="2">Magasin</option>
+                                                                             <option value="3">Sur le web</option>
+                                                                           </select>
+                                                                         </div>
+
+                                                                         <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Marque</label>
+                                                                           <select class="form-select" aria-label="Default select example" name="brand_id" required>
+                                                                             @foreach ($brands as $brand)
+                                                                               <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                               @endforeach
+                                                                           </select>
+                                                                        </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Boutique</label>
+                                                                         <select class="form-select" aria-label="Default select example" name="store_id">
+                                                                           @foreach ($stores as $store)
+                                                                             <option value="{{$store->id}}">{{$store->name}}</option>
+                                                                           @endforeach
+                                                                         </select>
+                                                                       </div>
+
+                                                                       <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
+                                                                       <div class="input-group mb-3">
+
+                                                                           <span class="input-group-text">$</span>
+
+                                                                           <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price" required>
+                                                                           <span class="input-group-text">.00</span>
+                                                                       </div>
+
+                                                                         <div class="col-md-6">
+                                                                           <label for="inputCity" class="form-label">Quantité de stock</label>
+                                                                           <input type="number" class="form-control" class="form-control" name="stock_quantity" id="" required>
+                                                                         </div>
+
+                                                                         <div class="col-md-6">
+
+                                                                           <label for="inputState" class="form-label">Nature</label>
+
+                                                                           <select id="inputState" class="form-select" name="nature">
+
+                                                                             <option selected>Choisir...</option>
+                                                                             <option value="1">Produit</option>
+                                                                             <option value="0">Service</option>
+
+                                                                           </select>
+
+                                                                         </div>
+                                                                         <input type="hidden" name="state" value="0">
+                                                                         <input type="hidden" name="vedette" value="0">
+
+
+                                                                       <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
+                                                                       <div class="input-group mb-3">
+
+                                                                           <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
+
+                                                                           <input type="url" class="form-control"  id="video_url" name="video_url" >
+                                                                       </div>
+
+                                                                       <div class="col-md-8">
+                                                                           <button type="submit" class="btn btn-primary">Créer</button>
+                                                                       </div>
+
+                                                                     </form>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

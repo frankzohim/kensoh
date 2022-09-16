@@ -124,21 +124,24 @@
                                                 </thead>
                                                 <tbody>
                                                     @forelse ($product_vendor as $product)
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>{{ $product->name }}</td>
-                                                        <td>{{ $product->unit_price }}</td>
-                                                        <td>@foreach ($categories as $category)
-                                                                @if($category->id==$product->category_id)
-                                                                    {{ $category->name }}
+                                                        <tr>
+                                                            <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
+                                                            <td>{{ $product->name }}</td>
+                                                            <td>{{ $product->unit_price }}</td>
+                                                            <td>@foreach ($categories as $category)
+                                                                    @if($category->id==$product->category_id)
+                                                                        {{ $category->name }}
 
-                                                                @endif
-                                                        @endforeach
+                                                                    @endif
+                                                            @endforeach
 
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
                                                     @empty
+                                                        <tr>
+                                                            <p style="text-align: center">Aucun produit</p>
 
+                                                        </tr>
                                                     @endforelse
 
 

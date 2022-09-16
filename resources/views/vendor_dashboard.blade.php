@@ -230,7 +230,6 @@
                                         <div class="card-body table-responsive-md">
                                             <div class="top-sec">
                                                 <h3>Vos produits</h3>
-                                                <a data-bs-toggle="tab" class="nav-link btn btn-sm btn-solid" href="#productsCreate">Creer un produit</a>
 
                                             </div>
                                             <table class="table mb-0">
@@ -412,7 +411,7 @@
 
 
 
-                                                                       <div class="col-md-8">
+                                                                       <div class="col-md-8 mt-2">
                                                                            <button type="submit" class="btn btn-primary">Créer</button>
                                                                        </div>
 
@@ -606,7 +605,7 @@
                                                                 <div class="card-body">
                                                                     <div class="digital-add needs-validation">
                                                                         <div class="form-group">
-                                                                            <div class="product-buttons text-center">
+                                                                            <div class="product-buttons text-center"">
                                                                                 <button type="submit" class="btn btn-primary">Creer la boutique</button>
                                                                             </div>
                                                                         </div>

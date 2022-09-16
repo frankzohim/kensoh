@@ -285,13 +285,160 @@
                                                                         Non publié
                                                                 @endif
                                                             </td>
-                                                            <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i>
+                                                            <td>
+                                                                <a href="" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModalEdit{{$product->id}}"><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i></a>
+
+                                                                <div class="modal fade" id="exampleModalEdit{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition:{{ $product->name }}</h5>
+                                                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form method="POST" action="{{ route('vendor.products.destroy',['product' => $product->id]) }}" id="delete-form{{$product->id}}">
+                                                                                @csrf
+
+                                                                                @method('PUT')
+
+                                                                                <form class="row"  method="POST" action="{{route("vendor.products.store")}}">
+                                                                                    @csrf
+                                                                                    <div class="col-md-12">
+                                                                                      <label for="exampleInputName" class="form-label">Nom Produit</label>
+                                                                                      <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{$product->name}}" name="name" required>
+
+                                                                                    </div>
+                                                                                    <div class="col-md-12">
+                                                                                        <label for="exampleFormControlTextarea1" class="form-label">Déscription</label>
+                                                                                        <input type="text" class="form-control" id="description" value="{{$product->meta_description}}" aria-describedby="NameHelp" name="description" required>
+                                                                                      </div>
+                                                                                      <div class="col-md-12">
+                                                                                        <label for="exampleFormControlTextarea1" class="form-label">Mots clés</label>
+                                                                                        <input type="text" value="{{$product->meta_keywords}}" class="form-control" id="description" aria-describedby="NameHelp" name="keyword" required>
+                                                                                      </div>
+                                                                                      <div class="row">
+                                                                                        <div class="col-md-6">
+                                                                                            <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
+                                                                                          <select class="form-select" aria-label="Default select example" name="category_id">
+                                                                                            @foreach ($categories as $category)
+                                                                                                @if($category->id==$product->category_id)
+
+                                                                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                          </select>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <label for="inputCity" class="form-label">État</label>
+                                                                                            <select id="inputState" class="form-select" name="new">
+                                                                                                <option value="1" @selected($product->new == 1)>Neuf</option>
+                                                                                                <option value="0" @selected($product->new == 0)>Occasion</option>
+                                                                                              </select>
+                                                                                          </div>
+                                                                                      </div>
+
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-6">
+                                                                                                    <label for="inputState" class="form-label">Position</label>
+                                                                                                    <select id="inputState" class="form-select" name="position">
+                                                                                                        @if($product->position==1)
+                                                                                                                <option value="1" @selected($product->position == 2)>En mer</option>
+                                                                                                            @elseif($product->position==2)
+                                                                                                            <option value="2">Magasin</option>
+                                                                                                            @elseif($product->position==3)
+                                                                                                            <option value="3">Sur le web</option>
+                                                                                                        @endif
+                                                                                                    </select>
+                                                                                                  </div>
+
+                                                                                                  <div class="col-md-6">
+                                                                                                    <label for="exampleFormControlTextarea1" class="form-label">Marque</label>
+                                                                                                    <select class="form-select" aria-label="Default select example" name="brand_id" required>
+                                                                                                      @foreach ($brands as $brand)
+                                                                                                            @if($brand->id==$product->brand_id)
+                                                                                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                                                            @endif
+
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                 </div>
+                                                                                            </div>
+
+
+
+
+
+                                                                                    <div class="col-md-12">
+                                                                                        <label for="exampleFormControlTextarea1" class="form-label">Boutique</label>
+                                                                                      <select class="form-select" aria-label="Default select example" name="store_id">
+                                                                                        @foreach ($stores as $store)
+                                                                                        @if($store->id==$product->store_id)
+                                                                                        <option value="{{$store->id}}">{{$store->name}}</option>
+                                                                                        @endif
+                                                                                        @endforeach
+                                                                                      </select>
+                                                                                    </div>
+
+                                                                                    <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
+                                                                                    <div class="input-group mb-3">
+
+                                                                                        <span class="input-group-text">$</span>
+
+                                                                                        <input type="number" value="{{$product->unit_price}}" class="form-control" aria-label="Amount (to the nearest dollar)" name="price">                                                                                      <span class="input-group-text">.00</span>
+                                                                                    </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-6">
+                                                                                                <label for="inputCity" class="form-label">Quantité de stock</label>
+                                                                                                <input type="number" class="form-control" value="{{ $product->stock_quantity }}" class="form-control" name="stock_quantity" id="" required>
+                                                                                            </div>
+                                                                                            <div class="col-md-6">
+
+                                                                                                <label for="inputState" class="form-label">Nature</label>
+
+                                                                                                <select id="inputState" class="form-select" name="nature">
+
+
+                                                                                                  @if($product->nature==1)
+                                                                                                            <option value="1">Produit</option>
+                                                                                                        @else
+
+                                                                                                            <option value="0">Service</option>
+                                                                                                    @endif
+                                                                                                </select>
+
+                                                                                              </div>
+                                                                                        </div>
+
+
+
+                                                                                      <input type="hidden" name="state" value="0">
+                                                                                      <input type="hidden" name="vedette" value="0">
+
+
+
+
+
+                                                                                    <div class="col-lg-12 mt-2">
+                                                                                        <button type="submit" class="btn btn-primary">Mise a jour</button>
+                                                                                    </div>
+
+                                                                                  </form>
+
+                                                                            </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
                                                                 <a href="{{ route('product.destroy',['product' => $product->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$product->id}}"><i class="fa fa-trash font-danger"></i></a>
                                                                 <div class="modal fade" id="exampleModal{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition du produit</h5>
                                                                                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                                             </div>
                                                                             <div class="modal-body">

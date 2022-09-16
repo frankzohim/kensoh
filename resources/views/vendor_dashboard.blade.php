@@ -1,8 +1,9 @@
 @extends('layouts.master')
 @section('title', __('Tableau de bord'))
 
+
 @section('content')
-	
+
 	 <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -24,9 +25,27 @@
         </div>
     </div>
     <!-- breadcrumb End -->
-	
+
 	<!--  dashboard section start -->
     <section class="dashboard-section section-b-space">
+        @if (session('update_success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+            <span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if (session('update_failure'))
+										<div class="alert alert-danger alert-dismissible fade show" role="alert">
+											<span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+											<span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+										</div>
+		@endif
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -44,9 +63,20 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Produits</a>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">mes Produits</a>
+
                                 </li>
+
+
+                                        <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#productsCreate">Creer un produit</a>
+
+                                        </li>
+
+
+
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Boutique</a>
+                                </li>
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#ordersCreate">Creer une Boutique</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
@@ -67,8 +97,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
-                                                <h5>Total Produits</h5>
+                                                <h3>{{ $products_count }}</h3>
+                                                <h5>Produits</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +106,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/sale.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>1</h3>
+                                                <h3>{{ $store_count }}</h3>
                                                 <h5>Boutique</h5>
                                             </div>
                                         </div>
@@ -85,8 +115,8 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>50</h3>
-                                                <h5>Produits en publication</h5>
+                                                <h3>{{ $productsNoPublisher }}</h3>
+                                                <h5>Produits Non publié</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -112,35 +142,40 @@
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>trending products</h3>
+                                            <h3>Produits recents</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">price</th>
-                                                        <th scope="col">sales</th>
+                                                        <th scope="col">Nom du Produit</th>
+                                                        <th scope="col">prix</th>
+                                                        <th scope="col">Category</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>man print tee</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                    </tr>
+                                                    @forelse ($product_vendor as $product)
+                                                        <tr>
+                                                            <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
+                                                            <td>{{ $product->name }}</td>
+                                                            <td>{{ $product->unit_price }}</td>
+                                                            <td>@foreach ($categories as $category)
+                                                                    @if($category->id==$product->category_id)
+                                                                        {{ $category->name }}
+
+                                                                    @endif
+                                                            @endforeach
+
+                                                            </td>
+                                                        </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <p style="text-align: center">Aucun produit</p>
+
+                                                        </tr>
+                                                    @endforelse
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -149,41 +184,37 @@
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>recent orders</h3>
+                                            <h3>Commande recentes</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
-                                                        <th scope="col">status</th>
+                                                        <th scope="col">Categorie</th>
+                                                        <th scope="col">Nom du produit</th>
+                                                        <th scope="col">Budget</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">#21515</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>confrimed</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#78153</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#51512</th>
-                                                        <td>man print tee</td>
-                                                        <td>pending</td>
-                                                    </tr>
+
+                                                    @forelse ($orderVendor as $order)
+                                                        <tr>
+                                                            <th scope="row">
+                                                                @foreach ($categories as $category)
+                                                                    @if($category->id==$order->categories_id)
+                                                                        {{ $category->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </th>
+                                                            <td>{{ $order->description }}</td>
+                                                            <td>{{ $order->budget }}</td>
+                                                        </tr>
+                                                    @empty
+
+                                                    @endforelse
+
+
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -198,78 +229,201 @@
                                     <div class="card dashboard-table mt-0">
                                         <div class="card-body table-responsive-md">
                                             <div class="top-sec">
-                                                <h3>all products</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                                <h3>Vos produits</h3>
+                                                <a data-bs-toggle="tab" class="nav-link btn btn-sm btn-solid" href="#productsCreate">Creer un produit</a>
+
                                             </div>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">category</th>
-                                                        <th scope="col">price</th>
+
+                                                        <th scope="col">Nom du Produit</th>
+                                                        <th scope="col">categorie</th>
+                                                        <th scope="col">Marque</th>
+                                                        <th scope="col">Prix unitaire</th>
                                                         <th scope="col">stock</th>
-                                                        <th scope="col">sales</th>
-                                                        <th scope="col">edit/delete</th>
+                                                        <th scope="col">Position</th>
+                                                        <th scope="col">Etat</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>women clothes</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
-                                                        <td>2000</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>women clothes</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                        <td>350</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>woman print tee</td>
-                                                        <td>women clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/27.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/36.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>men print tee</td>
-                                                        <td>men clothes</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                        <td>150</td>
-                                                        <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
-                                                    </tr>
+
+                                                    @forelse ($productsVendor as $product)
+                                                        <tr>
+
+                                                            <td>{{ $product->name }}</td>
+                                                            <td>
+                                                                @foreach ($categories as $category)
+                                                                    @if($category->id==$product->category_id)
+                                                                        {{ $category->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>
+                                                                @foreach ($brands as $brand)
+                                                                    @if($brand->id==$product->brand_id)
+                                                                        {{ $brand->name }}
+                                                                    @endif
+                                                                @endforeach
+                                                            </td>
+                                                            <td>{{ $product->unit_price }}</td>
+                                                            <td>{{ $product->stock_quantity }}</td>
+                                                            <td>
+                                                                @if($product->position==1)
+                                                                        En Mer
+                                                                    @elseif($product->position==2)
+                                                                        Magasin
+                                                                    @elseif($product->position==3)
+                                                                        Sur le Web
+                                                                @endif
+
+                                                            </td>
+                                                            <td>
+                                                                @if($product->state==1)
+                                                                        Publié
+                                                                    @else
+                                                                        Non publié
+                                                                @endif
+                                                            </td>
+                                                            <td><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i><i class="fa fa-trash-o ms-1" aria-hidden="true"></i></td>
+                                                        </tr>
+                                                    @empty
+                                                            <tr>
+
+                                                                    <p style="text-align: center">Aucun produit disponible</p>
+
+                                                                </td>
+                                                            </tr>
+                                                    @endforelse
+
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="productsCreate">
+                            <h3>Creation Produit</h3>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-md">
+                                            <div class="top-sec">
+
+                                                <div class="container-fluid">
+                                                    <!-- Validation Errors -->
+                                                           <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                   <div class="row">
+                                                       <div class="col-sm-12">
+                                                           <div class="card">
+
+                                                               <div class="card-body">
+                                                                   <form class="row"  method="POST" action="{{route("vendor.products.store")}}">
+                                                                       @csrf
+                                                                       <div class="col-md-6">
+                                                                         <label for="exampleInputName" class="form-label">Nom Produit</label>
+                                                                         <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name" required>
+
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Déscription</label>
+                                                                           <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="description" required>
+                                                                         </div>
+                                                                         <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Mots clés</label>
+                                                                           <input type="text" class="form-control" id="description" aria-describedby="NameHelp" name="keyword" required>
+                                                                         </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
+                                                                         <select class="form-select" aria-label="Default select example" name="category_id">
+                                                                           @foreach ($categories as $category)
+                                                                           <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                           @endforeach
+                                                                         </select>
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="inputCity" class="form-label">État</label>
+                                                                           <select id="inputState" class="form-select" name="new">
+                                                                               <option selected>Choisir...</option>
+                                                                               <option value="1">Neuf</option>
+                                                                               <option value="0">Occasion</option>
+                                                                             </select>
+                                                                         </div>
+                                                                         <div class="col-md-6">
+                                                                           <label for="inputState" class="form-label">Position</label>
+                                                                           <select id="inputState" class="form-select" name="position">
+                                                                             <option selected>Choisir...</option>
+                                                                             <option value="1">En mer</option>
+                                                                             <option value="2">Magasin</option>
+                                                                             <option value="3">Sur le web</option>
+                                                                           </select>
+                                                                         </div>
+
+                                                                         <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Marque</label>
+                                                                           <select class="form-select" aria-label="Default select example" name="brand_id" required>
+                                                                             @foreach ($brands as $brand)
+                                                                               <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                                                               @endforeach
+                                                                           </select>
+                                                                        </div>
+                                                                       <div class="col-md-6">
+                                                                           <label for="exampleFormControlTextarea1" class="form-label">Boutique</label>
+                                                                         <select class="form-select" aria-label="Default select example" name="store_id">
+                                                                           @foreach ($stores as $store)
+                                                                             <option value="{{$store->id}}">{{$store->name}}</option>
+                                                                           @endforeach
+                                                                         </select>
+                                                                       </div>
+
+                                                                       <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
+                                                                       <div class="input-group mb-3">
+
+                                                                           <span class="input-group-text">$</span>
+
+                                                                           <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price" required>
+                                                                           <span class="input-group-text">.00</span>
+                                                                       </div>
+
+                                                                         <div class="col-md-6">
+                                                                           <label for="inputCity" class="form-label">Quantité de stock</label>
+                                                                           <input type="number" class="form-control" class="form-control" name="stock_quantity" id="" required>
+                                                                         </div>
+
+                                                                         <div class="col-md-6">
+
+                                                                           <label for="inputState" class="form-label">Nature</label>
+
+                                                                           <select id="inputState" class="form-select" name="nature">
+
+                                                                             <option selected>Choisir...</option>
+                                                                             <option value="1">Produit</option>
+                                                                             <option value="0">Service</option>
+
+                                                                           </select>
+
+                                                                         </div>
+                                                                         <input type="hidden" name="state" value="0">
+                                                                         <input type="hidden" name="vedette" value="0">
+
+
+
+
+
+                                                                       <div class="col-md-8">
+                                                                           <button type="submit" class="btn btn-primary">Créer</button>
+                                                                       </div>
+
+                                                                     </form>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -281,75 +435,188 @@
                                     <div class="card dashboard-table mt-0">
                                         <div class="card-body table-responsive-sm">
                                             <div class="top-sec">
-                                                <h3>orders</h3>
-                                                <a href="#" class="btn btn-sm btn-solid">add product</a>
+                                                <h3>Vos boutiques</h3>
+                                                <a href="#" class="btn btn-sm btn-solid">ajouter une boutique</a>
                                             </div>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">order id</th>
-                                                        <th scope="col">product details</th>
-                                                        <th scope="col">status</th>
-                                                        <th scope="col">price</th>
+                                                        <th scope="col">Nom</th>
+                                                        <th scope="col">localité</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Statuts</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th scope="row">#125021</th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>shipped</td>
-                                                        <td>$205</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#521214</th>
-                                                        <td>belted trench coat</td>
-                                                        <td>shipped</td>
-                                                        <td>$350</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#521021</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#245021</th>
-                                                        <td>woman print tee</td>
-                                                        <td>shipped</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#122141</th>
-                                                        <td>men print tee</td>
-                                                        <td>canceled</td>
-                                                        <td>$150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">#125015</th>
-                                                        <td>men print tee</td>
-                                                        <td>pending</td>
-                                                        <td>$150</td>
-                                                    </tr>
+
+                                                    @forelse ($stores as $store)
+                                                        <tr>
+                                                            <th scope="row">{{ $store->name }}</th>
+                                                            <td>{{ $store->town }}-
+                                                                @foreach ($countries as $country)
+                                                                    @if($country->id==$store->country_id)
+                                                                        {{ $country->name_fr }}
+
+                                                                    @endif
+                                                                @endforeach
+
+                                                            </td>
+                                                            <td>{{ $store->description }}</td>
+                                                            <td>
+                                                                @if($store->state==1)
+                                                                        <span style="color:green">publié</span>
+                                                                    @else
+                                                                        <span style="color:red">en cours de traitement</span>
+                                                                @endif
+                                                        </td>
+                                                        </tr>
+                                                    @empty
+
+                                                    @endforelse
+
+
+
+
+
+
+
+
+
+
+
                                                 </tbody>
                                             </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="ordersCreate">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-sm">
+                                            <div class="top-sec">
+                                                <h3>Vos boutiques</h3>
+                                                <a href="#" class="btn btn-sm btn-solid">ajouter une boutique</a>
+                                            </div>
+                                            <!-- Container-fluid starts-->
+                                            <div class="container-fluid">
+                                                <div class="page-header">
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <div class="page-header-left">
+                                                                <h3>Ajouter une boutique
+                                                                    <small>Kensoh Dashboard</small>
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <ol class="breadcrumb pull-right">
+                                                                <li class="breadcrumb-item"><a href="{{route('dashboard')}}"><i data-feather="home"></i></a></li>
+                                                                <li class="breadcrumb-item"><a href="{{route('store.index')}}">Boutique</li></a>
+                                                                <li class="breadcrumb-item active">Ajouter</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Container-fluid Ends-->
+
+                                            <!-- Container-fluid starts-->
+                                            <div class="container-fluid">
+                                            <form method="post" action="{{route('vendor.stores.store')}}" class="dropzone digits" id="singleFileUpload" enctype="multipart/form-data">
+                                                @csrf
+                                                <!-- Validation Errors -->
+                                                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                                                <div class="row product-adding">
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Général</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Nom</label>
+                                                                            <input class="form-control" id="name" name="name" type="text" required autofocus>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> Téléphone</label>
+                                                                            <input class="form-control" id="phone" name="phone"  type="text" required>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Email</label>
+                                                                            <input class="form-control" id="email" name="email"  type="email" required>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label">Résumé de l'entreprise</label>
+                                                                            <textarea  name="description" rows="5" cols="30" required></textarea>
+                                                                        </div>
+
+
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6">
+                                                            <div class="card">
+                                                                <div class="card-header">
+                                                                    <h5>Localisation</h5>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+
+                                                                        <div class="form-group">
+                                                                            <label class="col-form-label"><span>*</span> Pays</label>
+                                                                            <select class="custom-select form-control" name="country_id" required>
+                                                                                @foreach($countries as $country)
+                                                                                <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Ville</label>
+                                                                            <input class="form-control" id="town" name="town" type="text" required>
+                                                                        </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="validationCustom02" class="col-form-label"><span>*</span> Quartier/ Rue</label>
+                                                                            <input class="form-control" id="street" name="street" type="text" required>
+                                                                        </div>
+                                                                        <label class="col-form-label pt-0"> Logo Boutique</label>
+
+                                                                            <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
+
+                                                                                <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
+                                                                            </div>
+
+
+
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="card">
+
+                                                                <div class="card-body">
+                                                                    <div class="digital-add needs-validation">
+                                                                        <div class="form-group">
+                                                                            <div class="product-buttons text-center">
+                                                                                <button type="submit" class="btn btn-primary">Creer la boutique</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

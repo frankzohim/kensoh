@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\package;
-use App\Models\Order;
-use App\Models\ProductCategory;
-use App\Models\Product;
+use App\Models\Brand;
 use App\Models\town;
-use App\Models\Country;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Country;
+use App\Models\package;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use DB;
+use App\Models\ProductCategory;
+use App\Models\Store;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -48,7 +50,23 @@ class DashboardController extends Controller
 			case 3 :
                 //Vendor Dashboard
                 $categories=ProductCategory::all();
-				return view('vendor_dashboard',compact('categories'));
+                $brands=Brand::all();
+                $product_vendor=Product::where('user_id',auth()->user()->id)
+                ->orderBy('id','DESC')
+                ->take('3')
+                ->get();
+                $orderVendor=Order::orderBy('id','DESC')
+                ->take('3')
+                ->get();
+                $products_count=Product::where('user_id',auth()->user()->id)->count();
+                $productsVendor=Product::where('user_id',auth()->user()->id)->get();
+                $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
+                $store_count=Store::where('user_id',auth()->user()->id)->count();
+                $countries=Country::all();
+                $stores=Store::all();
+                //dd($products_count);
+                //dd($productsNoPublisher);
+				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor','orderVendor','brands','productsVendor','stores','countries'));
 			case 2 :
                 //Customer Dashboard
                 $categories=ProductCategory::all();

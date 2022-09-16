@@ -110,7 +110,36 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+
+
+         $store = Store::FindOrFail($id);
+         $logo=$store->logo;
+
+         if ($request->hasFile('logo')) {
+
+            Storage::delete($store->logo);
+
+            $fileName = $request->name.'_'.time().'_'.$request->logo->getClientOriginalName().'.'.$request->logo->extension();
+            $logo=$request->file('logo')->storeAs('logo', $fileName);
+        }
+
+        $store->name=$request->name;
+        $store->email=$request->email;
+        $store->description=$request->description;
+        $store->country_id=$request->country_id;
+        $store->town=$request->town;
+        $store->phone=$request->phone;
+        $store->state=0;
+        $store->logo=$logo;
+        $store->street=$request->street;
+        $store->user_id=auth()->user()->id;
+
+
+        $store->save();
+
+        return redirect()->route('dashboard')->with('update_success', "Boutique mise à jour avec succès.");
     }
 
     /**

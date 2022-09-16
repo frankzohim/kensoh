@@ -615,6 +615,7 @@
                                                         <th scope="col">localité</th>
                                                         <th scope="col">Description</th>
                                                         <th scope="col">Statuts</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -638,6 +639,98 @@
                                                                     @else
                                                                         <span style="color:red">en cours de traitement</span>
                                                                 @endif
+                                                        </td>
+                                                        <td>
+                                                            <a href="" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModalEditStore{{$store->id}}"><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i></a>
+                                                            <div class="modal fade" id="exampleModalEditStore{{$store->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition:{{ $store->name }}</h5>
+                                                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+
+
+
+
+                                                                            <form class="row"  method="POST" action="{{route("vendor.stores.update",$store->id)}}" enctype="multipart/form-data">
+                                                                                @csrf
+                                                                                @method('PUT')
+                                                                                <div class="col-md-12">
+                                                                                  <label for="exampleInputName" class="form-label">Nom De la Boutique</label>
+                                                                                  <input class="form-control" id="name" name="name" type="text" value="{{$store->name}}" required autofocus>
+
+                                                                                </div>
+                                                                                <div class="col-md-12">
+                                                                                    <label for="exampleFormControlTextarea1" class="form-label">Numero de telephone</label>
+                                                                                    <input class="form-control" id="phone" name="phone" value="{{$store->phone}}"  type="text" required>
+                                                                                  </div>
+                                                                                  <div class="col-md-12">
+                                                                                    <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                                                                                    <input class="form-control" id="email" name="email" value="{{$store->email}}" type="email" required>
+                                                                                  </div>
+                                                                                  <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="col-form-label"><span>*</span> Pays</label>
+                                                                                        <select class="custom-select form-control" name="country_id" required>
+                                                                                            @foreach($countries as $country)
+                                                                                                @if($store->country_id==$country->id)
+                                                                                                <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                                                                                @endif
+
+                                                                                            @endforeach
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <label class="col-form-label"><span>*</span>ville</label>
+                                                                                        <input value="{{ $store->town }}" class="form-control" id="town" name="town" type="text" required>
+                                                                                    </div>
+
+
+                                                                                  </div>
+                                                                                  <div class="col-md-12">
+                                                                                    <label class="col-form-label"><span>*</span>Rue</label>
+                                                                                    <input value="{{ $store->street }}" class="form-control" id="town" name="street" type="text" required>
+                                                                                </div>
+
+                                                                                  <div class="form-group">
+                                                                                    <label class="col-form-label">Résumé de l'entreprise</label>
+                                                                                    <textarea rows="4" cols="50" name="description" required>{{$store->description}}</textarea>
+                                                                                </div>
+                                                                                <label class="col-form-label pt-0"> Logo Boutique</label>
+                                        <img src="{{ route('store.displayImage',$store->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
+                                            <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
+
+                                                <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                <div class="col-lg-12 mt-2">
+                                                                                    <button type="submit" class="btn btn-primary">Mise a jour</button>
+                                                                                </div>
+
+                                                                              </form>
+
+                                                                        </div>
+
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                         </tr>
                                                     @empty

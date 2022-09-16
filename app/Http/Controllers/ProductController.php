@@ -187,7 +187,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return back()->with('delete','votre Produit à bien été bien supprimé');
+        return back()->with('update_failure','votre Produit à bien été bien supprimé');
     }
 
     /**

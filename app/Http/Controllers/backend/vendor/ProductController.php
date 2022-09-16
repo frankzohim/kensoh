@@ -112,9 +112,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return back()->with('delete','votre Produit à bien été bien supprimé');
     }
     function create_slug($text){
         $var_slug= preg_replace('~^[A-Z0-9]{8}$~','-',$text);

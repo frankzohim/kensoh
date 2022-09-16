@@ -55,7 +55,7 @@
 										</div>
 									@endif
                     </div>
-                    
+
                     <div class="card-body vendor-table">
                     <div class="btn-popup pull-right">
                         <a href='{{route("tracking.create")}}'><button type="button" class="btn btn-primary">Ajouter un tracking</button></a>
@@ -67,26 +67,27 @@
                                 <th>Description</th>
                                 <th>Lien</th>
                                 <th>Statut</th>
-                               
+
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                                
                             @foreach($trackings as $tracking)
                                 <tr>
                                     <td>
                                         <div class="d-flex vendor-list">
-                                            
+
                                             <span>{{$tracking->date}}</span>
                                         </div>
                                     </td>
                                     <td>
                                          {{$tracking->description}}
                                     </td>
-                                    <td> 
+                                    <td>
                                         {{$tracking->link}}
                                     </td>
-                                    <td> 
+                                    <td>
                                        @switch($tracking->state)
                                             @case(1)
                                               Publié
@@ -96,13 +97,13 @@
                                             @break
                                         @endswitch
                                     </td>
-                                    
+
                                     <td>
                                         <div>
                                         <a href="{{route('tracking.edit',$tracking->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
 
                                         <a href="{{ route('tracking.destroy',['tracking' => $tracking->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$tracking->id}}"><i class="fa fa-trash font-danger"></i></a>
-                                            
+
                                         <a href="{{route('tracking.show',$tracking->id)}}" ></i></a>
 
                                         <div class="modal fade" id="exampleModal{{$tracking->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,7 +137,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <!-- Container-fluid Ends-->
 
 </div>

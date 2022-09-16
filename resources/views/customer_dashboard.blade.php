@@ -24,7 +24,7 @@
         </div>
     </div>
     <!-- breadcrumb End -->
-	
+
 	<!--  dashboard section start -->
     <section class="dashboard-section section-b-space">
         <div class="container">
@@ -41,14 +41,14 @@
                                 <h6>{{ Auth::user()->email }}</h6>
                             </div>
                         </div>
-                        <div class="faq-tab">
+                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
-                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#products">Colis</a>
+                                 <li class="nav-item"><a class="nav-link" href="{{ route('packages.index') }}">Colis</a>
                                 </li>
-                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#orders">Tracking</a>
+                                 <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
                                 </li>
@@ -56,6 +56,7 @@
                                 </li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -72,7 +73,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
@@ -108,32 +109,44 @@
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">price</th>
-                                                        <th scope="col">sales</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Poids</th>
+                                                        <th scope="col">Depart</th>
+                                                        <th scope="col">Destination</th>
+                                                        <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                {{-- <tbody>
+
+                                                @foreach($packages as $package)
+
+
                                                     <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>man print tee</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                    </tr>
-                                                </tbody>
+                                                        <td>
+                                                            <div class="d-flex vendor-list">
+
+                                                                <span>{{$package->description}}</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>{{$package->weight}}</td>
+                                                        @foreach ($towns as $town )
+
+                                                                @if($package->departure== $town->id)
+                                                                    <td>{{$town->name}}</td>
+                                                                @endif
+                                                        @endforeach
+
+                                                         @foreach ($towns as $town )
+
+                                                                @if($package->destination== $town->id)
+                                                                    <td>{{$town->name}}</td>
+                                                                @endif
+                                                        @endforeach
+                                                @endforeach
+
+
+                                            </tbody> --}}
+
                                             </table>
                                         </div>
                                     </div>
@@ -362,93 +375,73 @@
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>company name</h6>
+                                                                    <h6>name</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>Fashion Store</h6>
+                                                                    <h6>{{ Auth::user()->name }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>email address</h6>
+                                                                    <h6>Last Name</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>mark.enderess@mail.com</h6>
+                                                                    <h6>{{ Auth::user()->lastname }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Country / Region</h6>
+                                                                    <h6>Email</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>Downers Grove, IL</h6>
+                                                                    <h6>{{ Auth::user()->email }}<</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Year Established</h6>
+                                                                    <h6>telephone</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>2018</h6>
+                                                                    <h6>{{ Auth::user()->telephone}}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>Total Employees</h6>
+                                                                    <h6>Pays</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>101 - 200 People</h6>
+                                                                    <h6>
+                                                                        {{-- <SELECT name="country_id">
+                                                                            @foreach($countries as $country)
+                                                                                <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                                                            @endforeach
+                                                                        </SELECT> --}}
+
+                                                                    </h6>
                                                                 </div>
                                                             </div>
                                                         </li>
                                                         <li>
                                                             <div class="details">
                                                                 <div class="left">
-                                                                    <h6>category</h6>
+                                                                    <h6>type de compte</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>clothing</h6>
+                                                                    <h6>
+                                                                        Compte clients
+                                                                    </h6>
                                                                 </div>
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>street address</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>549 Sulphur Springs Road</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>city/state</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>Downers Grove, IL</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="details">
-                                                                <div class="left">
-                                                                    <h6>zip</h6>
-                                                                </div>
-                                                                <div class="right">
-                                                                    <h6>60515</h6>
-                                                                </div>
-                                                            </div>
-                                                        </li>
+
                                                     </ul>
                                                 </div>
                                             </div>

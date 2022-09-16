@@ -49,12 +49,16 @@ class DashboardController extends Controller
 			case 3 :
                 //Vendor Dashboard
                 $categories=ProductCategory::all();
+                $product_vendor=Product::where('user_id',auth()->user()->id)
+                ->orderBy('id','DESC')
+                ->take('3')
+                ->get();
                 $products_count=Product::where('user_id',auth()->user()->id)->count();
                 $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
                 $store_count=Store::where('user_id',auth()->user()->id)->count();
                 //dd($products_count);
                 //dd($productsNoPublisher);
-				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher'));
+				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor'));
 			case 2 :
                 //Customer Dashboard
                 $categories=ProductCategory::all();

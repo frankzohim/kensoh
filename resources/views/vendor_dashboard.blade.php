@@ -112,35 +112,37 @@
                                 <div class="col-lg-6">
                                     <div class="card dashboard-table">
                                         <div class="card-body">
-                                            <h3>trending products</h3>
+                                            <h3>Produits recents</h3>
                                             <table class="table mb-0">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">image</th>
-                                                        <th scope="col">product name</th>
-                                                        <th scope="col">price</th>
-                                                        <th scope="col">sales</th>
+                                                        <th scope="col">Nom du Produit</th>
+                                                        <th scope="col">prix</th>
+                                                        <th scope="col">Category</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse ($product_vendor as $product)
                                                     <tr>
                                                         <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/1.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>neck velvet dress</td>
-                                                        <td>$205</td>
-                                                        <td>1000</td>
+                                                        <td>{{ $product->name }}</td>
+                                                        <td>{{ $product->unit_price }}</td>
+                                                        <td>@foreach ($categories as $category)
+                                                                @if($category->id==$product->category_id)
+                                                                    {{ $category->name }}
+
+                                                                @endif
+                                                        @endforeach
+
+                                                        </td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/dashboard/product/9.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>belted trench coat</td>
-                                                        <td>$350</td>
-                                                        <td>800</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row"><img src="{{ asset('assets/frontend/images/pro3/34.jpg') }}" class="blur-up lazyloaded"></th>
-                                                        <td>man print tee</td>
-                                                        <td>$150</td>
-                                                        <td>750</td>
-                                                    </tr>
+                                                    @empty
+
+                                                    @endforelse
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>

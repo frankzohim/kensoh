@@ -38,7 +38,15 @@ class StoreController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $valitatedData = $request->validated();
+        $store_count=Store::where('user_id',auth()->user()->id)->count();
+
+        if($store_count ==1){
+            return redirect()->route('dashboard')->with('update_failure',"Vous n'etes pas autorisé a creer plus de boutique,vous pouvez en creer juste une seule boutique");
+        }
+
+        if($store_count ==0){
+
+            $valitatedData = $request->validated();
         $store = new Store;
         $store->name=$request->name;
         $store->email=$request->email;
@@ -59,10 +67,16 @@ class StoreController extends Controller
 
         //preparing to save
         $store->logo = $fileName;
-        if($store->save())
+
+        if($store->save() && $store_count !=0 && $store_count<1)
             return redirect()->route('dashboard')->with('update_success','Boutique ajoutée avec succès');
+
+
         else
             return redirect()->back()>with('update_failure','Une erreur est survenue, merci de réessayer');
+
+        }
+
     }
 
     /**

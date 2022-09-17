@@ -49,7 +49,7 @@
                                             <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> Téléphone</label>
                                             <input class="form-control" id="phone" name="phone" value="{{$store->phone}}"  type="text" required>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="validationCustom02" class="col-form-label"><span>*</span> Email</label>
                                             <input class="form-control" id="email" name="email" value="{{$store->email}}" type="email" required>
@@ -77,7 +77,7 @@
                                                 <h4 class="mb-0 f-w-600">TYPE DE FICHIER : .JPG,.PNG,.JPEG.</h4>
                                                 <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
                                             </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="digital-add needs-validation">
-                                        
+
                                         <div class="form-group">
                                             <label class="col-form-label"><span>*</span> Pays</label>
                                             <select class="custom-select form-control" name="country_id" required>
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="card">
-                                
+
                                 <div class="card-body">
                                     <div class="digital-add needs-validation">
                                         <div class="form-group mb-0">

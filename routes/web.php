@@ -1,30 +1,31 @@
 <?php
 
-use App\Http\Controllers\backend\vendor\ProductController as VendorProductController;
-use App\Http\Controllers\backend\vendor\StoreController as VendorStoreController;
-use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomePagecontroller;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\StoreController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\PackageController;
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\TownController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\TrackingController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\TownController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\CouponController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomePagecontroller;
+use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NewsletterController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\backend\vendor\StoreController as VendorStoreController;
+use App\Http\Controllers\backend\vendor\ProductController as VendorProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -207,6 +208,8 @@ Route::get('show/product/{id}',[ProductController::class,'show'])->name('product
 Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(function(){
     Route::resource('products',VendorProductController::class);
     Route::resource('stores',VendorStoreController::class);
+    Route::get('store/displayImage{id}', [VendorStoreController::class, 'displayImage'])
+        ->name('store.StoredisplayImage');
 });
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

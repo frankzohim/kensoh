@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
 use App\Models\town;
 use App\Models\User;
+use App\Models\Brand;
 use App\Models\Order;
+use App\Models\Store;
 use App\Models\Country;
 use App\Models\package;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
-use App\Models\Store;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 class DashboardController extends Controller
 {
@@ -63,7 +64,9 @@ class DashboardController extends Controller
                 $productsNoPublisher=Product::where([['user_id',auth()->user()->id],['state',1]])->count();
                 $store_count=Store::where('user_id',auth()->user()->id)->count();
                 $countries=Country::all();
-                $stores=Store::all();
+                $stores=Store::where('user_id',auth()->user()->id)->get();
+
+            //$password=decrypt(auth()->user()->password);
                 //dd($products_count);
                 //dd($productsNoPublisher);
 				return view('vendor_dashboard',compact('categories','products_count','store_count','productsNoPublisher','product_vendor','orderVendor','brands','productsVendor','stores','countries'));

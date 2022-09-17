@@ -104,9 +104,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //user::destroy($id);
+        $user = user::find($id)->delete();
+        return redirect()->route('homepage')->with('info', 'votre compte a bien été supprimer.');
     }
-
     public function images(Request $request)
     {
         if ($user < 3) {
@@ -137,5 +138,6 @@ class UserController extends Controller
         } else {
             return response('Quota d\'images atteint', 400);
         }
+
     }
 }

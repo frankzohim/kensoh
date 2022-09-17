@@ -71,8 +71,13 @@ class DashboardController extends Controller
                 //Customer Dashboard
                 $categories=ProductCategory::all();
                 $orders = Order::all()->where('user_id','=',auth()->user()->id)->count();
-                $packages=package::all()->where('user_id','=',auth()->user()->id)->count();
-				return view('customer_dashboard',compact('categories','orders','packages'));
+                $packages=package::where('user_id','=',auth()->user()->id)->count();
+                $colis=package::where('user_id','=',auth()->user()->id)->get();
+                $countries=Country::all();
+                $towns=town::all();
+                
+
+				return view('customer_dashboard',compact('categories','orders','packages','countries','colis','towns',  ));
 			default :
 				dd("incorrect route");
 		}

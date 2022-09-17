@@ -2,6 +2,12 @@
 @section('title', __('Tableaux de bord'))
 
 @section('content')
+@if(session()->has('info'))
+<div class="notification is-success">
+    {{ session('info') }}
+</div>
+@endif
+
 
  <!-- breadcrumb start -->
     <div class="breadcrumb-section">
@@ -110,15 +116,17 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">Description</th>
+                                                        <th scope="col">Longueur</th>
+                                                        <th scope="col">Largeur</th>
                                                         <th scope="col">Poids</th>
                                                         <th scope="col">Depart</th>
                                                         <th scope="col">Destination</th>
-                                                        <th scope="col">Action</th>
+
                                                     </tr>
                                                 </thead>
-                                                {{-- <tbody>
+                                                <tbody>
 
-                                                @foreach($packages as $package)
+                                                @foreach($colis as $package)
 
 
                                                     <tr>
@@ -128,6 +136,8 @@
                                                                 <span>{{$package->description}}</span>
                                                             </div>
                                                         </td>
+                                                        <td>{{$package->length}}</td>
+                                                        <td>{{$package->width}}</td>
                                                         <td>{{$package->weight}}</td>
                                                         @foreach ($towns as $town )
 
@@ -145,7 +155,7 @@
                                                 @endforeach
 
 
-                                            </tbody> --}}
+                                            </tbody>
 
                                             </table>
                                         </div>
@@ -368,7 +378,9 @@
                                             <div class="dashboard-box">
                                                 <div class="dashboard-title">
                                                     <h4>profile</h4>
-                                                    <span data-toggle="modal" data-bs-target="#edit-profile">edit</span>
+                                                    <span data-toggle="modal" data-bs-target="#edit-profile"> edit</span>
+
+
                                                 </div>
                                                 <div class="dashboard-detail">
                                                     <ul>
@@ -419,11 +431,13 @@
                                                                 </div>
                                                                 <div class="right">
                                                                     <h6>
-                                                                        {{-- <SELECT name="country_id">
+
                                                                             @foreach($countries as $country)
+                                                                            @if ($country->id==Auth()->user()->country_id)
                                                                                 <option value="{{$country->id}}">{{$country->name_fr}}</option>
+                                                                            @endif
                                                                             @endforeach
-                                                                        </SELECT> --}}
+
 
                                                                     </h6>
                                                                 </div>
@@ -540,7 +554,13 @@
                                                                         other
                                                                     </label>
                                                                 </div>
-                                                                <button type="button" class="btn btn-solid btn-xs">Delete Account</button>
+
+                                                                <form action="{{ route('user.destroy', auth()->user()->id) }}" method="post">
+                                                                    @csrf
+
+                                                                    @method('DELETE')
+                                                                <button type="submit" class="btn btn-solid btn-xs">Delete Account</button>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>

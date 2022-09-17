@@ -695,14 +695,11 @@
                                                                                 </div>
 
                                                                                   <div class="form-group">
-                                                                                    <label class="col-form-label">Résumé de l'entreprise</label>
-                                                                                    <textarea rows="4" cols="50" name="description" required>{{$store->description}}</textarea>
-                                                                                </div>
-                                                                                <label class="col-form-label pt-0"> Logo Boutique</label>
-                                        <img src="{{ route('store.displayImage',$store->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
+                                                                                    <img src="{{ route('store.displayImage',$store->id) }}" alt="" class="img-fluid img-40 rounded-circle blur-up lazyloaded">
                                             <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
-
+                                                <h4 class="mb-0 f-w-600">TYPE DE FICHIER : .JPG,.PNG,.JPEG.</h4>
                                                 <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
+                                            </div>
                                             </div>
 
 
@@ -727,6 +724,28 @@
 
                                                                         </div>
 
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <a href="{{ route('vendor.stores.destroy',['store' => $store->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModalDelete{{$store->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                                            <div class="modal fade" id="exampleModalDelete{{$store->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition du produit</h5>
+                                                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form method="POST" action="{{ route('vendor.stores.destroy',['store' => $store->id]) }}" id="delete-form{{$product->id}}">
+                                                                            @csrf
+                                                                            <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                                            @method('DELETE')
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-primary">Oui</button>
+                                                                            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                                        </div>
                                                                         </form>
                                                                     </div>
                                                                 </div>

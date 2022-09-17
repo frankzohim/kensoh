@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\backend\vendor;
 
 use App\Models\Store;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
@@ -150,6 +151,18 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Product::where('store_id','=',$id)->count())
+        return redirect()->route('store.index')->with('update_failure', "Impossible de supprimer cette boutique car elle contient des produits.");
+        else {
+         $store = Store::destroy($id);
+         return redirect()->route('dashboard')->with('update_success', "Boutique supprimée avec succès.");
+
+        }
+    }
+    public function displayImage($id)
+    {
+       $store = Store::FindOrFail($id);
+       return response()->download(storage_path('app/logo/' . $store->logo));
+
     }
 }

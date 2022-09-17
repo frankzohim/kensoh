@@ -80,22 +80,9 @@
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
-                                {{-- -<li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
-                                </li> --}}
-
-
-
-                                <li class="nav-item">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')"
-                                                onclick="event.preventDefault();
-                                                            this.closest('form').submit();">
-                                            {{ __('Deconnexion') }}
-                                        </x-dropdown-link>
-                                    </form>
-
+                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Déconnexion</a>
                                 </li>
                             </ul>
                         </div>
@@ -919,7 +906,7 @@
                                             <div class="dashboard-box">
                                                 <div class="dashboard-title">
                                                     <h4>profile</h4>
-
+                                                    <span data-toggle="modal" data-bs-target="#edit-profile">edit</span>
                                                 </div>
                                                 <div class="dashboard-detail">
                                                     <ul>

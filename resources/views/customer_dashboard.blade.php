@@ -84,7 +84,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>50</h3>
+                                                <h3>{{ $tracking_count }}</h3>
                                                 <h5>Traking</h5>
                                             </div>
                                         </div>

@@ -91,7 +91,7 @@
 
                                                     <select id="inputState" class="form-select" name="departure">
 
-                                                        <option selected>Choisir...</option>
+
 
                                                         @foreach ($departures as $departure)
 

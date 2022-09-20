@@ -85,7 +85,7 @@
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/homework.png') }}" class="img-fluid">
                                             <div>
                                                 <h3>{{ $tracking_count }}</h3>
-                                                <h5>Traking</h5>
+                                                <h5>Trackings</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -410,7 +410,7 @@
                                                                     <h6>Email</h6>
                                                                 </div>
                                                                 <div class="right">
-                                                                    <h6>{{ Auth::user()->email }}<</h6>
+                                                                    <h6>{{ Auth::user()->email }}</h6>
                                                                 </div>
                                                             </div>
                                                         </li>

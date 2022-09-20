@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="page-title">
-                        <h2>Votre Tableau de bord</h2>
+                        <a href="{{ route('dashboard') }}"><h2>Votre Tableau de bord</h2></a>
                     </div>
                 </div>
                 <div class="col-sm-6">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\town;
+use App\Models\Town;
 use App\Models\User;
 use App\Models\Brand;
 use App\Models\Order;
@@ -12,6 +12,7 @@ use App\Models\package;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
+use App\Models\Tracking;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 
@@ -34,9 +35,9 @@ class DashboardController extends Controller
 
                     $lastPackages=$this->lastPackage();
 
-                    $towns=DB::table('towns')
+                    $towns=DB::table('Towns')
                     ->join('countries','countries.id','=','towns.country_id')
-                    ->select('towns.id as id','towns.name as name','countries.name_fr as country')
+                    ->select('Towns.id as id','towns.name as name','countries.name_fr as country')
                     ->get();
 
 
@@ -76,11 +77,13 @@ class DashboardController extends Controller
                 $orders = Order::all()->where('user_id','=',auth()->user()->id)->count();
                 $packages=package::where('user_id','=',auth()->user()->id)->count();
                 $colis=package::where('user_id','=',auth()->user()->id)->get();
+                $package_count=package::where('user_id',auth()->user()->id)->count();
                 $countries=Country::all();
-                $towns=town::all();
-                
+                $towns=Town::all();
+                $tracking_count=Tracking::all()->count();
 
-				return view('customer_dashboard',compact('categories','orders','packages','countries','colis','towns',  ));
+
+				return view('customer_dashboard',compact('categories','orders','packages','countries','colis','towns','package_count','tracking_count'));
 			default :
 				dd("incorrect route");
 		}

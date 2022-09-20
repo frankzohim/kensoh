@@ -74,7 +74,7 @@
                                         <div class="counter-box">
                                             <img src="{{ asset('assets/frontend/images/icon/dashboard/order.png') }}" class="img-fluid">
                                             <div>
-                                                <h3>25</h3>
+                                                <h3>{{ $package_count }}</h3>
                                                 <h5>Colis</h5>
                                             </div>
                                         </div>

@@ -205,7 +205,16 @@ Route::post('newsletter/store',[NewsletterController::class,'store'])->name('new
 
 Route::get('show/product/{id}',[ProductController::class,'show'])->name('product.showbyId');
 
+// Controllers vendor
 Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(function(){
+    Route::resource('products',VendorProductController::class);
+    Route::resource('stores',VendorStoreController::class);
+    Route::get('store/displayImage{id}', [VendorStoreController::class, 'displayImage'])
+        ->name('store.StoredisplayImage');
+});
+
+//Controller admin
+Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function(){
     Route::resource('products',VendorProductController::class);
     Route::resource('stores',VendorStoreController::class);
     Route::get('store/displayImage{id}', [VendorStoreController::class, 'displayImage'])

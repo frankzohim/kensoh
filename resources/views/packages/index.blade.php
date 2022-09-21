@@ -45,10 +45,10 @@
                         <div class="faq-tab">
                             <ul class="nav nav-tabs" id="top-tab" role="tablist">
 
-                                <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
+                                <li class="nav-item"><a  class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{route('product.index')}}">Produits</a>
 
-                                <li class="nav-item"><a  class="nav-link" href="{{route('dashboard')}}">Tableau de bord</a></li>
+
                                 <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
 
                                 </li>

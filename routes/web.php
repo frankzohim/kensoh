@@ -188,7 +188,7 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
         'tracking'=> TrackingController::class,
         'faq'   => FaqController::class,
         'partner'   => PartnerController::class,
-        'contact'=> AdminContactController::class,
+        'contacts'=> AdminContactController::class,
     ]);
 });
 

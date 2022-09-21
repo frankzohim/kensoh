@@ -28,8 +28,8 @@
                     </li>
                     <li><a class="sidebar-header" href="{{route('store.index')}}"><i data-feather="codepen"></i><span>Boutiques</span></a>
                     </li>
-                   
-                    
+
+
                     <li><a class="sidebar-header" href="{{route('coupon.index')}}"><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{route('coupon.index')}}"><i class="fa fa-circle"></i>Liste Coupons</a></li>
@@ -40,7 +40,7 @@
 
                     <li><a class="sidebar-header" href="{{route('user.index')}}"><i data-feather="user-plus"></i><span>Utilisateurs</span><i class="fa fa-angle-right pull-right"></i></a>
 
-                    
+
                     <li>
                         <a class="sidebar-header" href="{{ route('review.index') }}">
                             <i data-feather="message-circle">
@@ -58,7 +58,7 @@
                             <li><a href="{{ route('tracking.index') }}"><i class="fa fa-circle"></i>Tracking</a></li>
                         </ul>
                     </li>
-                    <li><a class="sidebar-header" href="reports.html.htm"><i data-feather="phone"></i><span>Contact</span></a></li>
+                    <li><a class="sidebar-header" href="{{ route('contacts.index') }}"><i data-feather="phone"></i><span>Contact</span></a></li>
                     <li><a class="sidebar-header" href="{{route('faq.index')}}"><i data-feather="tag"></i><span>faqs</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="sidebar-submenu">
                             <li><a href="{{route('faq.create')}}"><i class="fa fa-circle"></i>Ajouter</a></li>

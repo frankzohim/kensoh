@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,7 +15,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts=contact::all();
+
+        return view('admin.contacts.index',compact('contacts'));
     }
 
     /**

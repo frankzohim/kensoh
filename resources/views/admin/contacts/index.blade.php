@@ -88,7 +88,7 @@
 
                                     <td>
                                         <div>
-                                        <a href="{{route('contact.edit',$contact->id)}}" ><i class="fa fa-edit me-2 font-success"></i></a>
+
 
                                         <a href="{{ route('contact.destroy',['contact' => $contact->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$contact->id}}"><i class="fa fa-trash font-danger"></i></a>
 

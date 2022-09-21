@@ -83,6 +83,7 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        contact::destroy($id);
+        return back()->with('update_success','Le coupon a bien été suprimé');
     }
 }

@@ -29,6 +29,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\backend\User\PackageController as UserPackageController;
 use App\Http\Controllers\backend\vendor\StoreController as VendorStoreController;
 use App\Http\Controllers\backend\admin\ContactController as AdminContactController;
+use App\Http\Controllers\backend\User\ProductController as UserProductController;
 use App\Http\Controllers\backend\vendor\ProductController as VendorProductController;
 
 /*
@@ -221,6 +222,7 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(f
 });
 Route::resource('orders',OrderController::class);
 Route::resource('packages',PackageController::class);
+
 //Controller admin
 Route::middleware(['auth','user'])->name('user.')->prefix('user')->group(function(){
 

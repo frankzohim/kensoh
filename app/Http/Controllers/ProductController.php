@@ -31,7 +31,10 @@ class ProductController extends Controller
         $categories = ProductCategory::all();
         $brands = Brand::all();
         $stores = Store::all();
-        return view('products.index',compact('products','categories','stores','brands'));
+        if(auth()->user()->role_id==1)
+            return view('products.index',compact('products','categories','stores','brands'));
+        if(auth()->user()->role_id==2)
+            return view('products.index',compact('products','categories','stores','brands'));
     }
 
     /**

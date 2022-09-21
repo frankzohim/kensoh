@@ -82,8 +82,10 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('packages.index') }}">Colis</a>
-                                    <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
+
                                 </li>
+                                <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
+                                    <li class="nav-item"><a  class="nav-link" href="{{ route('user.products.index') }}">Produits</a>
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
                                 </li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>

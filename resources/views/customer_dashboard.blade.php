@@ -9,6 +9,7 @@
 @endif
 
 
+
  <!-- breadcrumb start -->
     <div class="breadcrumb-section">
         <div class="container">
@@ -33,6 +34,34 @@
 
 	<!--  dashboard section start -->
     <section class="dashboard-section section-b-space">
+
+            @if (session('update_success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                <span class="alert-text"><strong>Succès! </strong> <strong>{{ session('update_success') }} </strong></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        @if (session('update_failure'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+                <span class="alert-text"><strong>Danger!</strong> <strong> {{ session('update_failure') }} </strong> </span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        @endif
+        @if (session('delete'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <span class="alert-icon"><i class="ni ni-fat-remove"></i></span>
+                <span class="alert-text"><strong>Danger!</strong> <strong> {{ session('delete') }} </strong> </span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -519,7 +548,7 @@
                                                                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <form method="POST" action="{{ route('user.packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                    <form method="POST" action="{{ route('user.packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
                                                                                     @csrf
 
                                                                                     @method('PUT')

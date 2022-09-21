@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\backend\User;
 
-use App\Http\Controllers\Controller;
+use App\Models\package;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PackageController extends Controller
 {
@@ -69,7 +70,19 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $package = package::FindOrFail($id);
+        $package->description = $request->description;
+        $package->length = $request->length;
+        $package->width = $request->width;
+        $package->weight = $request->weight;
+        $package->departure = $request->departure;
+        $package->destination = $request->destination;
+        $package->user_id = auth()->user()->id;
+
+        if ($package->save())
+            return redirect()->route('dashboard')->with('update_success', 'Colis mise à jour avec succès');
+        else
+            return redirect()->back()->with('update_failure', 'Une erreur est survenue, veuillez réessayez plutard');
     }
 
     /**

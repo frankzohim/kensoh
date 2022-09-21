@@ -17,6 +17,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -24,8 +25,8 @@ use App\Http\Controllers\HomePagecontroller;
 use App\Http\Controllers\TrackingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\backend\User\PackageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\backend\User\PackageController as UserPackageController;
 use App\Http\Controllers\backend\vendor\StoreController as VendorStoreController;
 use App\Http\Controllers\backend\admin\ContactController as AdminContactController;
 use App\Http\Controllers\backend\vendor\ProductController as VendorProductController;
@@ -185,7 +186,7 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
         'town' => TownController::class,
         'blog' => BlogController::class,
         'faq' => FaqController::class,
-        'orders' => OrderController::class,
+
         'tracking'=> TrackingController::class,
         'faq'   => FaqController::class,
         'partner'   => PartnerController::class,
@@ -218,10 +219,12 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(f
     Route::get('store/displayImage{id}', [VendorStoreController::class, 'displayImage'])
         ->name('store.StoredisplayImage');
 });
-
+Route::resource('orders',OrderController::class);
 //Controller admin
 Route::middleware(['auth','user'])->name('user.')->prefix('user')->group(function(){
     Route::resource('packages',PackageController::class);
+
+
 });
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

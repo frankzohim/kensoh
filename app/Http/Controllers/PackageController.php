@@ -29,6 +29,7 @@ class PackageController extends Controller
         if (auth()->user()->role_id == 1)
         $packages = package::all();
             return view('packages.view-admin', compact('towns', 'packages'));
+
     }
 
     /**

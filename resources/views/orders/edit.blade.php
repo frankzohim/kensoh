@@ -69,7 +69,7 @@
                                        </div>
                                        <div class="card-body">
 
-                                        <form action="{{route('orders.update',$order->id)}}" method="post">
+                                        <form action="{{route('orders.edit',$order->id)}}" method="post">
                                             @csrf
                                             @method('PUT')
                                                 <div class="container">

@@ -155,9 +155,7 @@
 
                                     <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target=""><i class="fa fa-trash font-danger"></i></a>
 
-                                    <a href="{{ route('orders.edit',$commande->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
 
-                                    <a href="{{ route('orders.destroy',['order' => $commande->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$commande->id}}"><i class="fa fa-trash font-danger"></i></a>
 
                                     <div class="modal fade" id="exampleModal{{$commande->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">

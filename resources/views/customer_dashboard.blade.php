@@ -82,6 +82,7 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
                                  <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#colis">Colis</a>
+                                    <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
                                 </li>
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
                                 </li>
@@ -500,6 +501,182 @@
                                         <div class="card-body table-responsive-md">
                                             <div class="top-sec">
                                                 <h3>Vos Colis</h3>
+
+                                            </div>
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Longueur</th>
+                                                        <th scope="col">Largeur</th>
+                                                        <th scope="col">Poids</th>
+                                                        <th scope="col">Depart</th>
+                                                        <th scope="col">Destination</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @forelse ($packages as $package)
+                                                        <tr>
+
+                                                            <td>{{$package->description}}</td>
+                                                            <td>{{$package->length}}</td>
+                                                            <td>{{$package->width}}</td>
+                                                            <td>{{$package->weight}}</td>
+                                                            @foreach ($towns as $town )
+
+                                                            @if($package->departure== $town->id)
+                                                                <td>{{$town->name}}</td>
+                                                            @endif
+                                                    @endforeach
+                                                            @foreach ($towns as $town )
+
+                                                                @if($package->destination== $town->id)
+                                                                    <td>{{$town->name}}</td>
+                                                                @endif
+                                                            @endforeach
+                                                            <td>
+
+                                                                <div>
+                                                                    <a href="" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModalEdit{{$package->id}}"><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i></a>
+                                                                    <div class="modal fade" id="exampleModalEdit{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition:{{ $package->name }}</h5>
+                                                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form method="POST" action="{{ route('user.packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                    @csrf
+
+                                                                                    @method('PUT')
+
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Description du colis</label>
+                                                <div class="input-group mb-3" >
+
+
+
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description" value="{{ $package->description }}">
+
+
+                                        </div>
+                                        <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
+                                                <div class="input-group mb-3" >
+
+
+
+                                                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length" value="{{ $package->length }}">
+
+                                                  </div>
+
+                                                  <div class="col-md-6">
+                                                    <label for="inputCity" class="form-label">Largeur</label>
+                                                    <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->width }}">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <label for="inputCity" class="form-label">Poids</label>
+                                                    <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->weight }}">
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Départ</label>
+                                                  <div class="input-group mb-3">
+
+
+
+                                                      <select id="inputState" class="form-select" name="departure">
+
+
+
+                                                          @foreach ($departures as $departure)
+
+                                                              <option value="{{$departure->id}}" @selected($departure->id==$package->departure)>{{$departure->name}}</option>
+
+                                                          @endforeach
+
+
+                                                        </select>
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
+                                                    <div class="input-group mb-3">
+                                                        <select  class="form-select"  aria-label="Default select example"name="destination">
+
+                                                        <option selected>Choisir...</option>
+
+                                                        @foreach ($destinations as $destination)
+
+                                                        <option value="{{$destination->id}}" @selected($destination->id==$package->destination)>{{$destination->name}}</option>
+
+
+                                                        @endforeach
+
+                                                        </select>
+
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                                                                      </form>
+
+                                                                                </div>
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                                                <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form method="POST" action="{{ route('packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                @csrf
+                                                                                <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                                                @method('DELETE')
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" class="btn btn-primary">Oui</button>
+                                                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                    </div>
+                                                            </td>
+
+                                                        </tr>
+                                                    @empty
+                                                            <tr>
+
+                                                                    <p style="text-align: center">Aucun colis disponible</p>
+
+                                                                </td>
+                                                            </tr>
+                                                    @endforelse
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="commande">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-md">
+                                            <div class="top-sec">
+                                                <h3>Vos Commandes</h3>
 
                                             </div>
                                             <table class="table mb-0">

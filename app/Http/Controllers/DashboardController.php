@@ -81,9 +81,17 @@ class DashboardController extends Controller
                 $countries=Country::all();
                 $towns=Town::all();
                 $tracking_count=Tracking::all()->count();
+                $departures = Town::where('type', 1)
+            ->orderBy('name')
+            ->get();
 
 
-				return view('customer_dashboard',compact('categories','orders','packages','countries','colis','towns','package_count','tracking_count'));
+        $destinations = Town::where('type', 0)
+            ->orderBy('name')
+            ->get();
+
+
+				return view('customer_dashboard',compact('categories','orders','packages','countries','colis','towns','package_count','tracking_count','departures','destinations'));
 			default :
 				dd("incorrect route");
 		}

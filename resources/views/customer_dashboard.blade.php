@@ -510,8 +510,94 @@
                                                             <td>
 
                                                                 <div>
-                                                                <a href="{{ route('packages.edit',$package->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
+                                                                    <a href="" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModalEdit{{$package->id}}"><i class="fa fa-pencil-square-o me-1" aria-hidden="true"></i></a>
+                                                                    <div class="modal fade" id="exampleModalEdit{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Edition:{{ $package->name }}</h5>
+                                                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form method="POST" action="{{ route('user.packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                    @csrf
 
+                                                                                    @method('PUT')
+
+
+                                                    <div class="container">
+                                                        <div class="row">
+                                                        <label for="exampleFormControlTextarea1" class="form-label">Description du colis</label>
+                                                <div class="input-group mb-3" >
+
+
+
+                                                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" name="description" value="{{ $package->description }}">
+
+
+                                        </div>
+                                        <label for="exampleFormControlTextarea1" class="form-label">Longueur</label>
+                                                <div class="input-group mb-3" >
+
+
+
+                                                    <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="length" value="{{ $package->length }}">
+
+                                                  </div>
+
+                                                  <div class="col-md-6">
+                                                    <label for="inputCity" class="form-label">Largeur</label>
+                                                    <input type="number" class="form-control" class="form-control" name="width" id="" value="{{ $package->width }}">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <label for="inputCity" class="form-label">Poids</label>
+                                                    <input type="number" class="form-control" class="form-control" name="weight" id="" value="{{ $package->weight }}">
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Départ</label>
+                                                  <div class="input-group mb-3">
+
+
+
+                                                      <select id="inputState" class="form-select" name="departure">
+
+
+
+                                                          @foreach ($departures as $departure)
+
+                                                              <option value="{{$departure->id}}" @selected($departure->id==$package->departure)>{{$departure->name}}</option>
+
+                                                          @endforeach
+
+
+                                                        </select>
+                                                  </div>
+                                                  <label for="exampleFormControlTextarea1" class="form-label">Destination</label>
+                                                    <div class="input-group mb-3">
+                                                        <select  class="form-select"  aria-label="Default select example"name="destination">
+
+                                                        <option selected>Choisir...</option>
+
+                                                        @foreach ($destinations as $destination)
+
+                                                        <option value="{{$destination->id}}" @selected($destination->id==$package->destination)>{{$destination->name}}</option>
+
+
+                                                        @endforeach
+
+                                                        </select>
+
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                                                                                      </form>
+
+                                                                                </div>
+
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
                                                                 <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">

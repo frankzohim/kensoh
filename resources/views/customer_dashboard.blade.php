@@ -52,7 +52,7 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
-                                 <li class="nav-item"><a class="nav-link" href="{{ route('packages.index') }}">Colis</a>
+                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#colis">Colis</a>
                                 </li>
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
                                 </li>
@@ -464,6 +464,97 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="colis">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card dashboard-table mt-0">
+                                        <div class="card-body table-responsive-md">
+                                            <div class="top-sec">
+                                                <h3>Vos Colis</h3>
+
+                                            </div>
+                                            <table class="table mb-0">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Longueur</th>
+                                                        <th scope="col">Largeur</th>
+                                                        <th scope="col">Poids</th>
+                                                        <th scope="col">Depart</th>
+                                                        <th scope="col">Destination</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    @forelse ($packages as $package)
+                                                        <tr>
+
+                                                            <td>{{$package->description}}</td>
+                                                            <td>{{$package->length}}</td>
+                                                            <td>{{$package->width}}</td>
+                                                            <td>{{$package->weight}}</td>
+                                                            @foreach ($towns as $town )
+
+                                                            @if($package->departure== $town->id)
+                                                                <td>{{$town->name}}</td>
+                                                            @endif
+                                                    @endforeach
+                                                            @foreach ($towns as $town )
+
+                                                                @if($package->destination== $town->id)
+                                                                    <td>{{$town->name}}</td>
+                                                                @endif
+                                                            @endforeach
+                                                            <td>
+
+                                                                <div>
+                                                                <a href="{{ route('packages.edit',$package->id) }}"><i class="fa fa-edit me-2 font-success"></i></a>
+
+                                                                <a href="{{ route('packages.destroy',['package' => $package->id]) }}" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal{{$package->id}}"><i class="fa fa-trash font-danger"></i></a>
+                                                                <div class="modal fade" id="exampleModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title f-w-600" id="exampleModalLabel">Suppression</h5>
+                                                                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form method="POST" action="{{ route('packages.destroy',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                @csrf
+                                                                                <p>{{ __('Voulez vous supprimer cet élément?') }}</p>
+                                                                                @method('DELETE')
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit" class="btn btn-primary">Oui</button>
+                                                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Annuler</button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                    </div>
+                                                            </td>
+
+                                                        </tr>
+                                                    @empty
+                                                            <tr>
+
+                                                                    <p style="text-align: center">Aucun colis disponible</p>
+
+                                                                </td>
+                                                            </tr>
+                                                    @endforelse
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="tab-pane fade" id="settings">
                             <div class="row">
                                 <div class="col-12">

@@ -75,8 +75,8 @@ class DashboardController extends Controller
                 //Customer Dashboard
                 $categories=ProductCategory::all();
                 $orders = Order::all()->where('user_id','=',auth()->user()->id)->count();
-                $packages=package::where('user_id','=',auth()->user()->id)->count();
-                $colis=package::where('user_id','=',auth()->user()->id)->get();
+                $packages=package::where('user_id','=',auth()->user()->id)->get();
+                $colis=package::where('user_id',auth()->user()->id)->get();
                 $package_count=package::where('user_id',auth()->user()->id)->count();
                 $countries=Country::all();
                 $towns=Town::all();

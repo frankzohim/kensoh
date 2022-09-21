@@ -181,7 +181,7 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
         'coupon' => CouponController::class,
         'country'=> CountryController::class,
         'review' => ReviewController::class,
-        'packages' => PackageController::class,
+
         'user' => UserController::class,
         'town' => TownController::class,
         'blog' => BlogController::class,
@@ -220,9 +220,10 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(f
         ->name('store.StoredisplayImage');
 });
 Route::resource('orders',OrderController::class);
+Route::resource('packages',PackageController::class);
 //Controller admin
 Route::middleware(['auth','user'])->name('user.')->prefix('user')->group(function(){
-    Route::resource('packages',PackageController::class);
+
 
 
 });

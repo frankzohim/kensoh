@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
 use App\Models\contact;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use TCG\Voyager\Models\Category;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\CategoryRequest;
 
 class ContactController extends Controller
 {
     public function create(){
-
-        return view('contact.create');
+        $categories=Category::all();
+        return view('contact.create',compact('categories'));
     }
 
     public function store(Request $request){

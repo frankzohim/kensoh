@@ -81,7 +81,7 @@
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link active" href="#dashboard">Tableau de bord</a></li>
                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#profile">Profil</a>
                                 </li>
-                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#colis">Colis</a>
+                                 <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="{{ route('packages.index') }}">Colis</a>
                                     <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
                                 </li>
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
@@ -549,7 +549,7 @@
                                                                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <form method="POST" action="{{ route('user.packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                    <form method="POST" action="{{ route('packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
                                                                                     @csrf
 
                                                                                     @method('PUT')
@@ -725,7 +725,7 @@
                                                                                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                                                                 </div>
                                                                                 <div class="modal-body">
-                                                                                    <form method="POST" action="{{ route('user.packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
+                                                                                    <form method="POST" action="{{ route('packages.update',['package' => $package->id]) }}" id="delete-form{{$package->id}}">
                                                                                     @csrf
 
                                                                                     @method('PUT')

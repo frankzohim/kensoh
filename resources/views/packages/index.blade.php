@@ -52,8 +52,7 @@
                                 <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
 
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="{{route('orders.index')}}">Commandes</a>
-                                </li>
+
                                 <li class="nav-item"><a class="nav-link active" href="{{route('packages.index')}}">Colis</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="#profile">Profil</a>

@@ -35,9 +35,9 @@ class DashboardController extends Controller
 
                     $lastPackages=$this->lastPackage();
 
-                    $towns=DB::table('Towns')
+                    $towns=DB::table('towns')
                     ->join('countries','countries.id','=','towns.country_id')
-                    ->select('Towns.id as id','towns.name as name','countries.name_fr as country')
+                    ->select('towns.id as id','towns.name as name','countries.name_fr as country')
                     ->get();
 
 

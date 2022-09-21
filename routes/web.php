@@ -15,6 +15,7 @@ use App\Http\Controllers\CouponController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductController;
@@ -138,7 +139,8 @@ Route::post('product/destroyImage{id}', [ProductController::class, 'destroyImage
 Route::get('product/details{id}', [ProductController::class, 'details'])
     ->name('product.details');
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+    //Route Admin
+Route::group(['middleware' => ['auth', 'verified','admin']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
@@ -215,10 +217,7 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('vendor')->group(f
 
 //Controller admin
 Route::middleware(['auth','admin'])->name('admin.')->prefix('admin')->group(function(){
-    Route::resource('products',VendorProductController::class);
-    Route::resource('stores',VendorStoreController::class);
-    Route::get('store/displayImage{id}', [VendorStoreController::class, 'displayImage'])
-        ->name('store.StoredisplayImage');
+
 });
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

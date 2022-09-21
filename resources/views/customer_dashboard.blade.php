@@ -85,12 +85,21 @@
 
                                 </li>
                                 <li class="nav-item"><a  class="nav-link" href="{{ route('orders.index') }}">Commandes</a>
-                                    <li class="nav-item"><a  class="nav-link" href="{{ route('user.products.index') }}">Produits</a>
+
                                  <li class="nav-item"><a  class="nav-link" href="{{ route('tracking-list') }}">Tracking</a>
                                 </li>
-                                <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#settings">Paramètres</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" data-toggle="modal" data-bs-target="#logout" href="">Déconnexion</a>
+
+                                <li class="nav-item">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+
+                                        <x-dropdown-link :href="route('logout')"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                            {{ __('Deconnexion') }}
+                                        </x-dropdown-link>
+                                    </form>
+
                                 </li>
                             </ul>
                         </div>

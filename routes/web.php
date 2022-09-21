@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\admin\ContactController as AdminContactController;
 use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Support\Facades\Auth;
@@ -187,6 +188,7 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
         'tracking'=> TrackingController::class,
         'faq'   => FaqController::class,
         'partner'   => PartnerController::class,
+        'contact'=> AdminContactController::class,
     ]);
 });
 

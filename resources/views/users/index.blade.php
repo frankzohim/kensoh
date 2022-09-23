@@ -57,9 +57,11 @@
                     </div>
                     
                     <div class="card-body vendor-table">
+                    <!--
                     <div class="btn-popup pull-right">
-                        <a href='{{route("user.create")}}'><button type="button" class="btn btn-primary">Ajouter un produit</button></a>
+                        <a href='{{route("user.create")}}'><button type="button" class="btn btn-primary">Ajouter un utilisateur</button></a>
                     </div>
+                -->
                         <table class="display" id="basic-1">
                             <thead>
                             <tr>

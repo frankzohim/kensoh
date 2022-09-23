@@ -151,11 +151,6 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
 
 
 
-    Route::get('store/displayImage{id}', [StoreController::class, 'displayImage'])
-        ->name('store.displayImage');
-
-
-
 
     //Route to save product's images
     Route::post('product/image', [ProductController::class, 'images'])

@@ -169,7 +169,7 @@ class StoreController extends Controller
     public function displayImage($id)
     {
        $store = Store::FindOrFail($id);
-       return response()->download(storage_path('app/logo/' . $store->logo));
+       return response()->download(storage_path('app\logo\\' . $store->logo));
         
     }
 }

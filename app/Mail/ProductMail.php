@@ -34,7 +34,7 @@ class ProductMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kensoh : Nouveau Produit')
-            ->view('mail.template.product');
+        return $this->subject('Kensoh : Nouveau produit ajouté')
+            ->view('mail.product-mail');
     }
 }

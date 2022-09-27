@@ -44,6 +44,10 @@ use App\Http\Controllers\backend\vendor\ProductController as VendorProductContro
 */
 
 
+Route::get('mail', function () {
+    return view('mail.template');
+})->name('mail');
+
 Route::get('/', [homepageController::class, 'index'])->name('homepage');
 
 Route::get('about-us', [HomePageController::class, 'about'])->name('about');

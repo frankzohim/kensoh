@@ -33,7 +33,7 @@
                                     <h5 style="font-size: 16px;font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Etat : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $product->new }}</p>
+                                        @if($product->new==1) Neuf @else Occassion @endif</p>
                                 </td>
                             </tr>
                             <tr>

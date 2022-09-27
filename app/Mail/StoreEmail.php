@@ -16,9 +16,10 @@ class StoreEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $store;
+    public function __construct($store)
     {
-        //
+        $this->store=$store;
     }
 
     /**
@@ -28,6 +29,7 @@ class StoreEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject("Ajout d'une nouvelle Boutique")
+        ->view("mail.store.createStore");
     }
 }

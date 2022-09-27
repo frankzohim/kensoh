@@ -84,6 +84,7 @@ class ProductController extends Controller
                 //Sendig mail to admin
                 Mail::to('delanofofe@gmail.com')
                     ->send(new ProductMail($product));
+
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
         }
 

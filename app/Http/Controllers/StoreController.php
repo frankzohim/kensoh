@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Store;
-use App\Models\Product;
 use App\Models\Country;
-use App\Http\Requests\StoreRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
+use App\Mail\StoreEmail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
 {
@@ -30,7 +32,7 @@ class StoreController extends Controller
     public function create()
     {
         //Loading all countries from database
-        $countries = Country::all(); 
+        $countries = Country::all();
         return view('store.create', compact('countries'));
     }
 
@@ -57,13 +59,18 @@ class StoreController extends Controller
         //file management
 
         //giving new name to the uploaded file
-        $fileName = $request->name.'_'.time().'_'.$request->logo->getClientOriginalName().'.'.$request->logo->extension(); 
+        $fileName = $request->name.'_'.time().'_'.$request->logo->getClientOriginalName().'.'.$request->logo->extension();
 
         //Storing file in disk
         $request->logo->storeAs('logo', $fileName);
-        
+
         //preparing to save
         $store->logo = $fileName;
+
+        //Sendig mail to admin
+        Mail::to('Bramslevel129@gmail.com')
+        ->send(new StoreEmail($store));
+
         if($store->save())
             return redirect()->route('store.index')->with('update_success','Boutique ajoutée avec succès');
         else
@@ -92,7 +99,7 @@ class StoreController extends Controller
         //Loading store to edit
         $store = Store::FindOrFail($id);
         //Loading all countries from database
-        $countries = Country::all(); 
+        $countries = Country::all();
         return view('store.edit',compact('store','countries'));
     }
 
@@ -121,16 +128,16 @@ class StoreController extends Controller
                 'logo'=>['required','file','mimes:jpg,png,jpeg'],
              ]);
 
-             $fileName = $store->id.'_'.time().'_'.$request->logo->getClientOriginalName().'.'.$request->logo->extension(); 
-             
+             $fileName = $store->id.'_'.time().'_'.$request->logo->getClientOriginalName().'.'.$request->logo->extension();
+
              //Storing file in disk
              $request->logo->storeAs('logo', $fileName);
 
              //Updating file in store table
-             
+
              $oldfile = $store->logo; // Retrieving the old file name
              $store->logo = $fileName;
-             
+
              //Deleting the old file from the disk
              Storage::delete('logo/' . $oldfile);
         }
@@ -162,14 +169,14 @@ class StoreController extends Controller
         else {
          $store = Store::destroy($id);
          return redirect()->route('store.index')->with('update_success', "Boutique supprimée avec succès.");
-         
-        } 
+
+        }
     }
 
     public function displayImage($id)
     {
        $store = Store::FindOrFail($id);
        return response()->download(storage_path('app\logo\\' . $store->logo));
-        
+
     }
 }

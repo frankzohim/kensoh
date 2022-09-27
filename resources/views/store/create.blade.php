@@ -48,7 +48,7 @@
                                             <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> Téléphone</label>
                                             <input class="form-control" id="phone" name="phone"  type="text" required>
                                         </div>
-                                        
+
                                         <div class="form-group">
                                             <label for="validationCustom02" class="col-form-label"><span>*</span> Email</label>
                                             <input class="form-control" id="email" name="email"  type="email" required>
@@ -71,12 +71,12 @@
                                             <textarea rows="5" cols="12" name="description" required></textarea>
                                         </div>
                                         <label class="col-form-label pt-0"> Logo Boutique</label>
-                                       
-                                            <div class="dz-message needsclick"><i class="fa fa-cloud-upload"></i>
+
+
                                                 <h4 class="mb-0 f-w-600">TYPE DE FICHIER : .JPG,.PNG,.JPEG.</h4>
-                                                <input type="file" class="form-control-file" name="logo" id="logo" aria-describedby="fileHelp">
-                                            </div>
-                                        
+                                                <input type="file"  name="logo" id="logo" aria-describedby="fileHelp">
+
+
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="digital-add needs-validation">
-                                        
+
                                         <div class="form-group">
                                             <label class="col-form-label"><span>*</span> Pays</label>
                                             <select class="custom-select form-control" name="country_id" required>
@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="card">
-                                
+
                                 <div class="card-body">
                                     <div class="digital-add needs-validation">
                                         <div class="form-group mb-0">

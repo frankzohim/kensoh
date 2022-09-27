@@ -65,7 +65,7 @@
                                     <h5 style="font-size: 16px;font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Catégorie : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $product->category_id  }}</p>
+                                        {{ $product->category->name  }}</p>
                                 </td>
                             </tr>
                             <tr>
@@ -74,7 +74,7 @@
                                     <h5 style="font-size: 16px;font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Marque: </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $product->brand_id }}</p>
+                                        {{ $product->brand->name }}</p>
                                 </td>
 
                                 <td><img src="{{ asset('assets/email/email-temp/space.jpg') }}" alt=" " height="25" width="30">
@@ -85,7 +85,7 @@
                                     <h5 style="font-size: 16px; font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Boutique : </h5>
                                     <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        {{ $product->store_id  }}</p>
+                                        {{ $product->store->name  }}</p>
                                 </td>
                             </tr>
                             <tr>

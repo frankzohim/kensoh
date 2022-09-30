@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BrandMail extends Mailable
+class BrandDeleteMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +34,7 @@ class BrandMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kensoh : Nouvelle marque Créée')
-            ->view('mail.brand-mail');
+        return $this->subject('Kensoh : Marque supprimée')
+            ->view('mail.brand-delete-mail');
     }
 }

@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\BrandMail;
+use App\Mail\BrandDeleteMail;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 
 class BrandController extends Controller
 {
@@ -36,21 +41,37 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => ['required','unique:App\Models\Brand,name','string'], 
+            'name' => ['required','unique:App\Models\Brand,name','string'],
             'state' => ['required'],
          ]);
-		 
+
 		 //Registring new brand in database
-         
+
          $brand = new \App\Models\Brand;
          $brand->name = $request->name;
          $brand->state = $request->state;
 		 $brand->user_id = auth()->user()->id;
 
-         if($brand->save())
-			return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
-		 else
-			 return redirect()->route('brand.create')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
+         if($brand->save()){
+
+            //Sendig mail to admin
+            Mail::to('aleximagic2020gmail.com')
+                ->send(new BrandMail($brand));
+
+             Mail::to('Kensoh.logistics@gmail.com')
+                ->send(new BrandMail($brand));
+        return redirect()->route('brand.index')->with('update_success','Marque bien enregistrée');
+    }
+
+    else
+        return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
+
+
+        /** if($brand->save())
+		*	return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque ajoutée avec succès.");
+		 * else
+			* return redirect()->route('brand.create')->with('update_failure', "Une erreur s'est produite, veuillez réessayez plutard.");
+            */
     }
 
     /**
@@ -74,7 +95,7 @@ class BrandController extends Controller
     {
         //Loading brand to edit
         $brand = Brand::findOrFail($id);
-		
+
 		//Loading edition form
         return view('brand.edit', compact('brand'));
     }
@@ -89,10 +110,10 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $validatedData = $request->validate([
-            'name' => ['required','unique:App\Models\Brand,name','string'], 
+            'name' => ['required','unique:App\Models\Brand,name','string'],
             'state' => ['required'],
          ]);
-		 
+
          $brand->update($request->all());
          return redirect()->route('brand.edit', ['brand' => $brand->id])->with('update_success', "Marque mise à jour avec succès.");
     }
@@ -106,6 +127,19 @@ class BrandController extends Controller
     public function destroy($id)
     {
         Brand::destroy($id);
+        if(Brand::destroy($id)){
+
+            //Sendig mail to admin
+            Mail::to('aleximagic2020gmail.com')
+                ->send(new BrandDeleteMail($id));
+
+             Mail::to('Kensoh.logistics@gmail.com')
+                ->send(new BrandDeleteMail($id));
         return redirect()->route('brand.index');
     }
+
+    else
+        return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
+    }
+
 }

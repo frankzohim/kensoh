@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PackagePublisherMail extends Mailable
+class PackageDeleteMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -34,7 +34,7 @@ class PackagePublisherMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kensoh : colis publié')
-            ->view('mail.package-publish-mail');
+        return $this->subject('Kensoh : Colis suppimé')
+            ->view('mail.package-delete-email');
     }
 }

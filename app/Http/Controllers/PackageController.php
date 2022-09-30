@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PackageDeleteMail;
+use App\Mail\PackageMail;
 use App\Mail\SendPackageMail;
 use App\Models\package;
 use App\Models\Town;
@@ -78,12 +80,25 @@ class PackageController extends Controller
             'destination' => $package->destination,
             'name' => auth()->user()->name
         ];
+        if($package->save()){
+
+            //Sendig mail to admin
+            Mail::to('aleximagic2020@gmail.com')
+                ->send(new PackageMail($package));
+
+             Mail::to('Kensoh.logistics@gmail.com')
+                ->send(new PackageMail($package));
+                return redirect()->route('packages.index')->with('update_success', 'Colis bien enregidtré');
+    }
+
+    else
+        return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
         //Mail::to('delanofofe@gmail.com')->send(new SendPackageMail($packagedata));
-        if ($package->save()) {
-            return redirect()->route('packages.index')->with('update_success', 'Colis bien enregidtré');
-        } else {
-            return redirect()->back()->with('update_failure', 'Une erreur est survenue, veuillez réessayez plutard');
-        }
+        //if ($package->save()) {
+           // return redirect()->route('packages.index')->with('update_success', 'Colis bien enregidtré');
+        //} else {
+           // return redirect()->back()->with('update_failure', 'Une erreur est survenue, veuillez réessayez plutard');
+       // }
     }
 
     /**
@@ -152,6 +167,19 @@ class PackageController extends Controller
     {
         $package->delete();
 
-        return back()->with('delete', 'votre Colis à bien été bien supprimé');
+
+        if($package->delete()){
+
+            //Sendig mail to admin
+            Mail::to('aleximagic2020@gmail.com')
+                ->send(new PackageDeleteMail($package));
+
+             Mail::to('Kensoh.logistics@gmail.com')
+                ->send(new PackageDeleteMail($package));
+                return back()->with('delete', 'votre Colis à bien été bien supprimé');
+    }
+
+    else
+        return redirect()->back()->with('update_failure','Une erreur est survenue, veuillez réessayez plutard');
     }
 }

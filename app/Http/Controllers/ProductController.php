@@ -78,14 +78,14 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
         $product->state = 0;
-        $product->video_url = $request->video_url;
+        //$product->video_url = $request->video_url;
 
         if($product->save()){
 
                 //Sendig mail to admin
                 Mail::to('delanofofe@gmail.com')
                     ->send(new ProductMail($product));
-                
+
                  Mail::to('Kensoh.logistics@gmail.com')
                     ->send(new ProductMail($product));
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
@@ -213,7 +213,7 @@ class ProductController extends Controller
 
           Mail::to('delanofofe@gmail.com')
                     ->send(new ProductPublishMail($product));
-                
+
           Mail::to('Kensoh.logistics@gmail.com')
                     ->send(new ProductPublishMail($product));
 

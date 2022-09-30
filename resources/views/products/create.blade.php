@@ -129,13 +129,8 @@
                               <input type="hidden" name="vedette" value="0">
 
 
-                            <label for="exampleFormControlTextarea1" class="form-label" >Vidéo (Entrez l'URL de votre vidéo)</label>
-                            <div class="input-group mb-3">
 
-                                <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
-
-                                <input type="url" class="form-control"  id="video_url" name="video_url" required>
-                            </div>
+    
 
                             <div class="col-md-8">
                                 <button type="submit" class="btn btn-primary">Créer</button>

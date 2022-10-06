@@ -8,40 +8,40 @@
     <meta name="description" content="Kensoh">
     <meta name="keywords" content="Kensoh">
     <meta name="author" content="Kensoh">
-    <link rel="icon" href="/assets/frontend/images/favicon/1.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/assets/frontend/images/favicon/1.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/frontend/images/favicon/1.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/frontend/images/favicon/1.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
 
     <!--Google font-->
-    <link href="assets/frontend/fonts/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/fonts/css?family=Lato:300,400,700,900') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="assets/frontend/fonts/css2?family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="{{ asset('assets/frontend/fonts/css2?family=Yellowtail&display=swap') }}" rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/fontawesome.css') }}">
 
     <!--Slick slider css-->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick.css">
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/slick-theme.css') }}">
 
         <!-- Datatable css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/css/vendors/datatables.css') }}">
 
     <!-- Animate icon -->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/animate.css') }}">
 
     <!-- Themify icon -->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/themify-icons.css') }}">
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/vendors/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/vendors/bootstrap.css') }}">
 
     <!-- App css-->
-    <link rel="stylesheet" type="text/css" href="/assets/frontend/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/css/style.css') }}">
 
     <!-- intel css -->
-    <link rel="stylesheet" href="/intl-tel-input-master/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="{{ asset('intl-tel-input-master/build/css/intlTelInput.css') }}">
 
     <style>
         .floating-whatsapp{
@@ -115,45 +115,45 @@
 
 
     <!-- latest jquery-->
-    <script src="/assets/frontend/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/jquery-3.3.1.min.js') }}"></script>
 
     <!-- fly cart ui jquery-->
-    <script src="/assets/frontend/js/jquery-ui.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/jquery-ui.min.js') }}"></script>
 
     <!-- exitintent jquery-->
-    <script src="/assets/frontend/js/jquery.exitintent.js"></script>
-    <script src="/assets/frontend/js/exit.js"></script>
+    <script src="{{ asset('assets/frontend/js/jquery.exitintent.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/exit.js') }}"></script>
 
     <!-- slick js-->
-    <script src="/assets/frontend/js/slick.js"></script>
+    <script src="{{ asset('assets/frontend/js/slick.js') }}"></script>
 
     <!-- menu js-->
-    <script src="/assets/frontend/js/menu.js"></script>
+    <script src="{{ asset('assets/frontend/js/menu.js') }}"></script>
 
     <!-- lazyload js-->
-    <script src="/assets/frontend/js/lazysizes.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/lazysizes.min.js') }}"></script>
 
      <!-- sticky cart bottom js-->
      <script src="../assets/js/sticky-cart-bottom.js"></script>
 
      <!-- timer js-->
-    <script src="/assets/frontend/js/timer.js"></script>
+    <script src="{{ asset('assets/frontend/js/timer.js') }}"></script>
 
     <!-- Bootstrap js-->
-    <script src="/assets/frontend/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Bootstrap Notification js-->
-    <script src="/assets/frontend/js/bootstrap-notify.min.js"></script>
+    <script src="{{ asset('assets/frontend/js/bootstrap-notify.min.js') }}"></script>
 
       <!-- Zoom js-->
-      <script src="/assets/frontend/js/jquery.elevatezoom.js"></script>
+      <script src="{{ asset('assets/frontend/js/jquery.elevatezoom.js') }}"></script>
 
     <!-- Fly cart js-->
-    <script src="/assets/frontend/js/fly-cart.js"></script>
+    <script src="{{ asset('assets/frontend/js/fly-cart.js') }}"></script>
 
     <!-- Theme js-->
-    <script src="/assets/frontend/js/theme-setting.js"></script>
-    <script src="/assets/frontend/js/script.js"></script>
+    <script src="{{ asset('assets/frontend/js/theme-setting.js') }}"></script>
+    <script src="{{ asset('assets/frontend/js/script.js') }}"></script>
 
     	<!-- Datatables js-->
 	<script src="{{ asset('assets/backend/js/datatables/jquery.dataTables.min.js') }}"></script>

@@ -10,6 +10,7 @@ use App\Models\Town;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Auth;
 
 class PackageController extends Controller
 {
@@ -22,15 +23,22 @@ class PackageController extends Controller
     {
         $towns = Town::all();
         $categories=ProductCategory::all();
-        $packages = package::all()->where('user_id','=',auth()->user()->id);
+        
 
-        if (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
+        if (Auth::check()) {
+            $packages = package::all()->where('user_id','=',auth()->user()->id);
+             if (auth()->user()->role_id == 2 || auth()->user()->role_id == 3)
 
             return view('packages.index', compact('towns', 'packages','categories'));
 
-        if (auth()->user()->role_id == 1)
-        $packages = package::all();
-            return view('packages.view-admin', compact('towns', 'packages'));
+            if (auth()->user()->role_id == 1)
+            $packages = package::all();
+                return view('packages.view-admin', compact('towns', 'packages'));
+        }
+
+        else {
+            return redirect()->route('login');
+        }
 
     }
 

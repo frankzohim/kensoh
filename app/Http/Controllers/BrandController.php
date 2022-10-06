@@ -124,17 +124,17 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(brand $brand)
     {
-        //Brand::destroy($id);
-        if(Brand::destroy($id)){
+        
+        if($brand->delete()){
 
             //Sendig mail to admin
             Mail::to('aleximagic2020@gmail.com')
-                ->send(new BrandDeleteMail($id));
+                ->send(new BrandDeleteMail($brand));
 
              Mail::to('Kensoh.logistics@gmail.com')
-                ->send(new BrandDeleteMail($id));
+                ->send(new BrandDeleteMail($brand));
         return redirect()->route('brand.index');
     }
 

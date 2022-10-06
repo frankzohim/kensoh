@@ -23,7 +23,7 @@ class PackageController extends Controller
     {
         $towns = Town::all();
         $categories=ProductCategory::all();
-        
+
 
         if (Auth::check()) {
             $packages = package::all()->where('user_id','=',auth()->user()->id);
@@ -173,7 +173,7 @@ class PackageController extends Controller
      */
     public function destroy(package $package)
     {
-        $package->delete();
+        
 
 
         if($package->delete()){

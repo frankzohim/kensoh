@@ -34,7 +34,8 @@ class BrandMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kensoh : Nouvelle marque Créée')
+        return $this->from('aleximagic2020@gmail.com')
+        ->subject('Kensoh : Nouvelle marque Créée')
             ->view('mail.brand-mail');
     }
 }

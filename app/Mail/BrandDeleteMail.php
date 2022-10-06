@@ -34,7 +34,8 @@ class BrandDeleteMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Kensoh : Marque supprimée')
+        return $this->from('aleximagic2020@gmail.com')
+        ->subject('Kensoh : Marque supprimée')
             ->view('mail.brand-delete-mail');
     }
 }

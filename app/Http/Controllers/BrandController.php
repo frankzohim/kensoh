@@ -55,7 +55,7 @@ class BrandController extends Controller
          if($brand->save()){
 
             //Sendig mail to admin
-            Mail::to('aleximagic2020gmail.com')
+            Mail::to('aleximagic2020@gmail.com')
                 ->send(new BrandMail($brand));
 
              Mail::to('Kensoh.logistics@gmail.com')
@@ -126,11 +126,11 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        Brand::destroy($id);
+        //Brand::destroy($id);
         if(Brand::destroy($id)){
 
             //Sendig mail to admin
-            Mail::to('aleximagic2020gmail.com')
+            Mail::to('aleximagic2020@gmail.com')
                 ->send(new BrandDeleteMail($id));
 
              Mail::to('Kensoh.logistics@gmail.com')

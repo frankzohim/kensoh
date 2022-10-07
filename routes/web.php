@@ -150,11 +150,9 @@ Route::get('product/details{id}', [ProductController::class, 'details'])
     //Route Admin
     Route::get('/dashboard', [DashboardController::class, 'index'])
         ->name('dashboard');
+
+
 Route::group(['middleware' => ['auth', 'verified','admin']], function () {
-
-
-
-
 
     //Route to save product's images
     Route::post('product/image', [ProductController::class, 'images'])
@@ -164,13 +162,13 @@ Route::group(['middleware' => ['auth', 'verified','admin']], function () {
     Route::get('test', [ProductController::class, 'test'])
         ->name('test');
 
-
-
     //Route to save product's images
     Route::post('product/image', [ProductController::class, 'images'])
         ->name('product.image');
 
-
+     //Route to publish product
+    Route::post('product/publish{id}', [ProductController::class, 'publish'])
+        ->name('product.publish');
 
 
     Route::resources([

@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ProductMail;
+use App\Mail\ProductPublishMail;
 
 
 class ProductController extends Controller
@@ -77,7 +78,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->store_id = $request->store_id;
         $product->state = 0;
-        $product->video_url = $request->video_url;
+        //$product->video_url = $request->video_url;
 
         if($product->save()){
 
@@ -85,6 +86,11 @@ class ProductController extends Controller
                 Mail::to('delanofofe@gmail.com')
                     ->send(new ProductMail($product));
 
+<<<<<<< HEAD
+=======
+                 Mail::to('Kensoh.logistics@gmail.com')
+                    ->send(new ProductMail($product));
+>>>>>>> refs/remotes/origin/main
             return redirect()->route('product.index')->with('update_success','Produit bien enregistré');
         }
 
@@ -200,12 +206,24 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function publish(Product $product)
+    public function publish($id)
     {
+        $product = Product::findOrFail($id);
         $product->state = 1;
         $product->save();
 
-        return back()->with('update_success','votre Produit à bien été bien publié');
+        //Sending mail to admin
+
+          Mail::to('delanofofe@gmail.com')
+                    ->send(new ProductPublishMail($product));
+
+          Mail::to('Kensoh.logistics@gmail.com')
+                    ->send(new ProductPublishMail($product));
+
+        //Sending mail to vendor
+
+
+        return back()->with('update_success','Produit publié avec succès');
     }
 
      /**

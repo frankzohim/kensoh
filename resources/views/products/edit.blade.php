@@ -226,7 +226,15 @@
                                             <button type="submit" class="btn btn-primary">Mise à jour</button>
                                         </div>
 
-                                        @if($productImages->count() >= 2)
+                                       
+                                    </div>
+
+                                </form>
+
+                                <form method="POST" action="{{route('product.publish',$product->id)}}">
+                                    
+                                    @csrf
+                                        @if($productImages->count() >= 2 && $product->state==0)
                                             <div class="col-md-8">
                                                 <button type="submit" class="btn btn-primary">Publié</button>
                                             </div>
@@ -235,9 +243,9 @@
                                                 <button type="submit" class="btn btn-primary" disabled>Publié</button>
                                             </div>
                                         @endif
-                                    </div>
-
                                 </form>
+                                 
+
                             </div>
                             <div class="tab-pane fade" id="restriction" role="tabpanel" aria-labelledby="restriction-tabs">
                                 <div class="card-body">

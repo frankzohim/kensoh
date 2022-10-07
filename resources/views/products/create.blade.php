@@ -43,7 +43,7 @@
                         <form class="row g-3" method="POST" action="{{route('product.store')}}">
                             @csrf
                             <div class="col-md-6">
-                              <label for="exampleInputName" class="form-label">Nom Produit</label>
+                              <label for="exampleInputName" class="form-label" >Nom Produit</label>
                               <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" value="{{old('name')}}" name="name" required>
 
                             </div>
@@ -57,7 +57,7 @@
                               </div>
                             <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Catégorie</label>
-                              <select class="form-select" aria-label="Default select example" name="category_id">
+                              <select class="form-select" aria-label="Default select example" name="category_id" required>
                                 @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="inputCity" class="form-label">État</label>
-                                <select id="inputState" class="form-select" name="new">
+                                <select id="inputState" class="form-select" name="new" required>
                                     <option selected>Choisir...</option>
                                     <option value="1">Neuf</option>
                                     <option value="0">Occasion</option>
@@ -73,7 +73,7 @@
                               </div>
                               <div class="col-md-6">
                                 <label for="inputState" class="form-label">Position</label>
-                                <select id="inputState" class="form-select" name="position">
+                                <select id="inputState" class="form-select" name="position" required>
                                   <option selected>Choisir...</option>
                                   <option value="1">En mer</option>
                                   <option value="2">Magasin</option>
@@ -91,17 +91,17 @@
                              </div>
                             <div class="col-md-6">
                                 <label for="exampleFormControlTextarea1" class="form-label">Boutique</label>
-                              <select class="form-select" aria-label="Default select example" name="store_id">
+                              <select class="form-select" aria-label="Default select example" name="store_id" required>
                                 @foreach ($stores as $store)
                                   <option value="{{$store->id}}">{{$store->name}}</option>
                                 @endforeach
                               </select>
                             </div>
-                           
+
                             <label for="exampleFormControlTextarea1" class="form-label">Prix Unitaire</label>
                             <div class="input-group mb-3">
 
-                                <span class="input-group-text">$</span>
+                                <span class="input-group-text" >$</span>
 
                                 <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" name="price" required>
                                 <span class="input-group-text">.00</span>
@@ -116,7 +116,7 @@
 
                                 <label for="inputState" class="form-label">Nature</label>
 
-                                <select id="inputState" class="form-select" name="nature">
+                                <select id="inputState" class="form-select" name="nature" required>
 
                                   <option selected>Choisir...</option>
                                   <option value="1">Produit</option>
@@ -127,15 +127,10 @@
                               </div>
                               <input type="hidden" name="state" value="0">
                               <input type="hidden" name="vedette" value="0">
-                        
 
-                            <label for="exampleFormControlTextarea1" class="form-label">Vidéo (Entrez l'URL de votre vidéo)</label>
-                            <div class="input-group mb-3">
 
-                                <span class="input-group-text"><i class="fa-solid fa-film"></i></span>
 
-                                <input type="url" class="form-control"  id="video_url" name="video_url" >
-                            </div>
+    
 
                             <div class="col-md-8">
                                 <button type="submit" class="btn btn-primary">Créer</button>

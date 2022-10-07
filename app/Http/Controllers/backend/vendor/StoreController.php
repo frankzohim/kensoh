@@ -4,9 +4,11 @@ namespace App\Http\Controllers\backend\vendor;
 
 use App\Models\Store;
 use App\Models\Product;
+use App\Mail\StoreEmail;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
@@ -69,8 +71,14 @@ class StoreController extends Controller
         //preparing to save
         $store->logo = $fileName;
 
-        if($store->save() && $store_count !=0 && $store_count<1)
+        if($store->save() && $store_count !=0 && $store_count<1){
+
+            Mail::to('Bramslevel129@gmail.com')
+            ->send(new StoreEmail($store));
             return redirect()->route('dashboard')->with('update_success','Boutique ajoutée avec succès');
+        }
+
+
 
 
         else
@@ -154,7 +162,11 @@ class StoreController extends Controller
         if(Product::where('store_id','=',$id)->count())
         return redirect()->route('store.index')->with('update_failure', "Impossible de supprimer cette boutique car elle contient des produits.");
         else {
+
+
          $store = Store::destroy($id);
+         Mail::to('Bramslevel129@gmail.com')
+            ->send(new StoreEmail($store));
          return redirect()->route('dashboard')->with('update_success', "Boutique supprimée avec succès.");
 
         }

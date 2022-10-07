@@ -168,6 +168,9 @@ class StoreController extends Controller
         return redirect()->route('store.index')->with('update_failure', "Impossible de supprimer cette boutique car elle contient des produits.");
         else {
          $store = Store::destroy($id);
+
+         Mail::to('Bramslevel129@gmail.com')
+            ->send(new StoreEmail($store));
          return redirect()->route('store.index')->with('update_success', "Boutique supprimée avec succès.");
 
         }
